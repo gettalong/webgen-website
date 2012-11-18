@@ -1,0 +1,70 @@
+---
+title: Features
+main_menu: true
+main_sort: 20
+link_attrs:
+  :link_text: "<i class='icon-bolt'></i> Features"
+---
+
+# Feature List
+
+Below is a non-exhaustive list of features that webgen supports.
+
+*   ## Core features
+
+    The following list shows general benefits of using webgen:
+
+    * **Fast** (only the necessary files are regenerated)
+    * **Easy to install and use**
+    * Supports translating any files (content files or assets)
+    * Runs on Linux, Mac OS X, Windows
+    * Extendable by writing add-ons in Ruby
+    * Easy to configure if one needs to (no need if you are happy with the default values)
+    * Command line interface uses command style syntax (like `git` command)
+
+*   ## Supported formats/markup languages
+
+    webgen content files can be written in a number of different formats and new formats can easily
+    be added. Here is a partial list:
+
+    * **Markdown** (including special syntax like setting header ids and html attributes through the
+      kramdown library)
+    * **Textile**
+    * **Haml and Sass**
+    * RDoc (the native API documentation format for Ruby)
+    * Builder (tool for programatically creating XML documents)
+    * Smiley-to-emoticon conversion (through official extension bundle)
+
+*   ## Supported file types
+
+    Anything can be put into webgen's source directory so that it gets copied to the destination
+    directory but some file types are handled specially, for example:
+
+    * Page files (primarily used to define the content of a web page but can really be used to
+      create about any text-based file format)
+    * Template files (used to define the general layout of a web page, these are chainable/nestable)
+
+*   ## Dynamic content
+
+    Although webgen is used to create a static website, it allows one to embed dynamic parts to
+    support features like dynamic menu generation, dynamic link generation and more. Here are some
+    of the available methods for adding dynamic content:
+
+    * **webgen tags**: these allow non-programmers to easily add dynamic content using a simple markup
+      syntax. webgen ships with many tag extensions for
+      * **generating menus and breadcrumb trails**
+      * listing all translations of a page
+      * **syntax highlighting code** fragments or entire files
+      * and much more
+    * **ERB** (embedded Ruby) for custom scripts embedded into content files for advanced users.
+
+*   ## Other features
+
+    Additionally to the above webgen provides some other useful features:
+
+    * Specify meta information (e.g. title, ordering information, ...) for any file through special
+      *meta info files*
+    * Support for specifying *virtual files and directories* (can be used, for example, to include
+      links to external pages in menus)
+    * Generated HTML files can be automatically checked if they are standard conform
+    * Automatic rebuilding of the website when a source path changes

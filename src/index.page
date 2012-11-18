@@ -1,0 +1,72 @@
+---
+title: Home
+main_menu: true
+main_sort: 10
+link_attrs:
+  :link_text: "<i class='icon-home'></i> Home"
+---
+
+# Welcome to the homepage of _webgen_!
+
+webgen is a *free* (GPL-licensed) command line application for generating static websites. It
+combines content with template files to generate HTML files. This allows one to separate the content
+from the layout and reuse the layout for many content files.
+
+Apart from this basic functionality, webgen offers many features that makes authoring websites
+easier:
+
+* Multiple markup languages to choose from for writing HTML and CSS files (**Markdown**,
+  **Textile**, RDoc, **Haml**, **Sass**, ...)
+
+* Automatic generation of menus, breadcrumb trails, ... and more!
+
+* **Partial website re-generation** (only modified items get re-generated) which reduces website
+  generation time enormously
+
+* **Self-contained website** (all generated links are relative, so one can **view the website without a
+  web server**)
+
+* Easily extendable (all major components can be extended with new functionality or existing
+  functionality can be replaced)
+
+* No need to know the Ruby language for basic websites
+
+The above list should just give you a glimpse of what is possible with webgen. Have a look at the
+[features page](features.html) for a more complete list.
+
+
+## Feature requests, bugs, ...
+
+If you have an idea for a new feature for webgen, [request it][feature_request]. If you have found a
+bug, you should [report it here][bug_report]. Also, there are [forums][forum] and [mailing
+lists][ml] available (the mailing list is mirrored to the [webgen-users google group][google-group])
+if you have any questions! You can also visit the IRC channel `#webgen` on Freenode where I can be
+found whenever I'm online.
+
+[feature_request]: http://rubyforge.org/tracker/?atid=1210&group_id=296&func=browse
+[bug_report]: http://rubyforge.org/tracker/?atid=1207&group_id=296&func=browse
+[forum]: http://rubyforge.org/forum/?group_id=296
+[ml]: http://rubyforge.org/mail/?group_id=296
+[google-group]: http://groups.google.com/group/webgen-users/
+
+
+## Author
+
+* Thomas Leitner
+* <i class='icon-envelope'>&nbsp;</i> <mailto:t_leitner@gmx.at>
+* <i class="icon-twitter">&nbsp;</i> [@_gettalong](http://twitter.com/_gettalong)
+* GPG Key-Id: 0xB2D0A854
+
+
+--- herounit
+
+# webgen <small>static website generation made easy</small>
+
+... is a free, fast, powerful and extensible static website generator. Create a (or re-use an existing)
+website template, add a bunch of content files (in plain HTML or any markup language), throw in some
+assets and let webgen do the rest!
+
+## gem install webgen
+{: style="text-align: center"}
+
+Latest webgen version 1.0.0 released on [*2010-08-09*](news/index.html)

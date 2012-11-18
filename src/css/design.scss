@@ -1,0 +1,89 @@
+@import url("bootstrap.css");
+
+@import "/bootstrap/mixins";
+
+@mixin radial-gradient($innerColor, $outerColor, $pos, $style) {
+  background-color: $outerColor;
+  background-image: -webkit-gradient(radial, $pos, 0, $style, 460, from($innerColor), to($outerColor));
+  background-image: -webkit-radial-gradient($pos, $style, $innerColor, $outerColor);
+  background-image: -moz-radial-gradient($pos, $style, $innerColor, $outerColor);
+  background-image: -o-radial-gradient($pos, $style, $innerColor, $outerColor);
+  background-repeat: no-repeat;
+}
+
+$dark-background: #202f4e;
+$light-background: #f0f0f0;
+$dark-background-color: #eee;
+
+body {
+    padding: 0px;
+    min-width: 310px;
+    background-color: $light-background;
+}
+
+body > header {
+    @include radial-gradient(lighten($dark-background, 10%), $dark-background, center center, ellipse cover);
+
+    .slogan {
+        margin-left: 5px;
+        padding-left: 90px;
+        background: url(relocatable("../images/webgen_logo.png")) 0px 7px no-repeat;
+        color: $dark-background-color;
+
+        h1 {
+            margin-bottom: 0px
+        }
+        h2 {
+            margin-top: 0px;
+            font-size: 160%;
+            @include text-overflow();
+        }
+    }
+}
+
+body .hero-unit {
+    @include radial-gradient(lighten($dark-background, 10%), $dark-background, center center, ellipse cover);
+    color: $dark-background-color;
+    margin-bottom: 0px;
+    border-bottom: 2px solid lighten($dark-background, 5%);
+    @include border-radius(0px);
+}
+
+body > nav {
+    background-color: $dark-background;
+    color: $dark-background-color;
+
+    .main-navigation {
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            list-style-type: none;
+
+            a {
+                display: block;
+                padding: 0.5em 1em 0.5em 1em;
+                font-size: 120%;
+                color: $dark-background-color;
+            }
+            &.active a, a:hover {
+                background-color: $dark-background-color;
+                text-decoration: none;
+                color: $dark-background;
+            }
+        }
+    }
+}
+
+body > section {
+    background-color: lighten($light-background, 5%);
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+body > footer {
+    border-top: 3px darken($light-background, 5%) solid;
+    padding-top: 10px;
+}
