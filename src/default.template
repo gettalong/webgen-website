@@ -3,9 +3,9 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Thomas Leitner &lt;t_leitner@gmx.at&gt;" />
-    <meta name="copyright" content="2004-2012 Thomas Leitner" />
+    <meta name="dcterms.rights" content="&copy; 2004-2012 Thomas Leitner" />
     <meta name="description" content="webgen is a free, fast, powerful, and extensible static website generator." />
-    <meta name="keywords" content="webgen, static web site generator, ruby, HTML, dynamic tags, extensible, static web, web generator, site generator" />
+    <meta name="keywords" content="webgen, static web site generator, static website generator, static site generator, ruby, HTML, dynamic tags, extensible, static web, web generator, site generator" />
     <meta name="generator" content="webgen - http://webgen.rubyforge.org" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -35,7 +35,7 @@
     <nav>
       <div class="container">
         <div class="main-navigation">
-          {menu: {options: {mi: {main_menu: true}, sort: main_sort}}}
+          {menu: {options: {mi: {main_menu: true}, flatten: true, sort: main_sort}}}
         </div>
       </div>
     </nav>
@@ -43,11 +43,16 @@
     <section class="content">
       <div class="container">
         <div class="row">
+          <div class="span8 content">
+            <div class="breadcrumb">{breadcrumb_trail:}</div>
+            <webgen:block name="content" />
+          </div>
+
           <div class="span4 sidebar">
             <% if !context.content_node.children.empty? %>
             <h3>Page content</h3>
             <% end %>
-            {menu: {options: {descendants: true, levels: [2,4]}}}
+            {menu: {options: {descendants: true}}}
 
             <webgen:block name="sidebar" notfound="ignore" />
 
@@ -66,9 +71,6 @@
 
           </div>
 
-          <div class="span8 content">
-            <webgen:block name="content" />
-          </div>
         </div>
       </div>
     </section>
@@ -97,5 +99,5 @@
       </div>
     </footer>
 
-  </div>
+  </body>
 </html>
