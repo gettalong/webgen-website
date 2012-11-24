@@ -87,3 +87,16 @@ body > footer {
     border-top: 3px darken($light-background, 5%) solid;
     padding-top: 10px;
 }
+
+
+dd {
+    margin-left: 30px;
+}
+
+kbd {
+    font-weight: bold;
+}
+
+.prompt {
+    color: #aaa;
+}
