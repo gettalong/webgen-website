@@ -6,7 +6,7 @@ link_attrs:
   :link_text: "<i class='icon-home'></i> Home"
 ---
 
-# Welcome to the homepage of _webgen_!
+# Welcome to the Homepage of _webgen_!
 
 webgen is a *free* (GPL-licensed) command line application for generating static websites. It
 combines content with template files to generate HTML files. This allows one to separate the content
@@ -35,7 +35,7 @@ The above list should just give you a glimpse of what is possible with webgen. H
 [features page](features.html) for a more complete list.
 
 
-## Feature requests, bugs, ...
+## Feature Requests, Bugs, ...
 
 If you have an idea for a new feature for webgen, [request it][feature_request]. If you have found a
 bug, you should [report it here][bug_report]. Also, there are [forums][forum] and [mailing

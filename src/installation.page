@@ -33,10 +33,10 @@ distribution).
 
 After running the following commands, webgen and all the mandatory dependencies are installed:
 
-<pre>
-$ <b>sudo aptitude install ruby1.9.3 rubygems</b>
-$ <b>gem1.9.3 install webgen --user-install</b>
-</pre>
+~~~ shell
+$ sudo aptitude install ruby1.9.3 rubygems
+$ gem1.9.3 install webgen --user-install
+~~~
 
 > Ubuntu has packages for the old 0.4.x and 0.5.x versions of webgen. If you want to use that, you
 > just need to run `sudo aptitude install webgen0.4` or `sudo aptitude install webgen0.5`.
@@ -50,9 +50,9 @@ First you need to install Ruby 1.9.3 (or better). This can easily be done by usi
 After that open a command shell (select `Start -> Run...`, then enter `cmd` and click on "Ok") and
 type in the following:
 
-<pre>
-C:\&gt;<b>gem install webgen --user-install</b>
-</pre>
+~~~ shell
+C:\> gem install webgen --user-install
+~~~
 
 [RubyInstaller]: http://rubyinstaller.org/downloads/
 
@@ -65,9 +65,9 @@ Rubygems (there are many installation instructions for these steps, just search 
 
 After that your system is ready for installing webgen:
 
-<pre>
-$ <b>gem install webgen --user-install</b>
-</pre>
+~~~ shell
+$ gem install webgen --user-install
+~~~
 
 
 ## Generic Installation Instructions
@@ -76,9 +76,9 @@ $ <b>gem install webgen --user-install</b>
 
 If you are using Rubygems, installing the latest version of webgen is as simple as executing
 
-<pre>
-$ <b>gem install webgen</b>
-</pre>
+~~~ shell
+$ gem install webgen
+~~~
 
 After this command has finished, everything is ready for creating websites. Be sure to have a look
 at the optional dependencies which provide additional functionality.
@@ -90,16 +90,16 @@ The latest version of webgen can always be downloaded from [webgen's files secti
 Rubyforge](http://rubyforge.org/frs/?group_id=296). After the download the package needs to be
 decompressed and then you can install webgen using the included `setup.rb` installation method:
 
-<pre>
-$ <b>ruby setup.rb config</b>
-$ <b>ruby setup.rb setup</b>
-$ <b>ruby setup.rb install</b>
-</pre>
+~~~ shell
+$ ruby setup.rb config
+$ ruby setup.rb setup
+$ ruby setup.rb install
+~~~
 
 Make sure that you also install the mandatory and, if you need them, the optional dependencies.
 
 
-### Using the repository version
+### Using the Repository Version
 
 webgen uses git as its versioning system and webgen's repository is hosted primarily on Github. The
 repository always contains a clean state of the current development version of webgen, i.e. webgen
@@ -107,9 +107,9 @@ should always work when checked out from the repository.
 
 To check out webgen use the following command:
 
-<pre>
-$ <b>git clone git://github.com/gettalong/webgen.git</b>
-</pre>
+~~~ shell
+$ git clone git://github.com/gettalong/webgen.git
+~~~
 
 
 ## Dependencies
