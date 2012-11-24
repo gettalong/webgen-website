@@ -1,0 +1,6 @@
+--- alcn
+/:
+  title: Home
+
+/**/index.en.html:
+  omit_dir_index: true

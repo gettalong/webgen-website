@@ -1,0 +1,43 @@
+---
+title: content_processor.ruby
+---
+## Description
+
+This processor assumes that the content is valid Ruby code which means that you have the full power
+of Ruby available for generating content.
+
+
+## Usage
+
+You can use the special `context` object in the Ruby code which is an instance of `Webgen::Context`
+and provides the rendering context and many useful methods. The methods from the `ERB::Utils` module
+are also available.
+
+When using this processor you should set the `context.content` to the content that you want to
+generate.
+
+
+## Example
+
+Here is a small example. If this text is put in a page file
+
+~~~ ruby
+<%= context.node.blocks['example'].rstrip %>
+~~~
+
+... it will give this result:
+
+~~~ HTML
+<%= context.render_block('example').rstrip %>
+~~~
+
+See how the `context.content` is assigned the generated content. And how the `ERB::Utils#h` method
+is used for escaping special HTML characters!
+
+
+--- name:example pipeline:ruby
+data = context.node.meta_info.map do |k,v|
+ "<li><b>#{h(k)}</b>: #{h(v)}</li>\n"
+end
+
+context.content = "<ul>\n#{data.join("")}</ul>"

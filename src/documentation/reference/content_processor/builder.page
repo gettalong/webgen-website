@@ -1,0 +1,106 @@
+---
+title: content_processor.builder
+---
+## Description
+
+This content processor can be used to programatically create XHTML/XML documents. One could, for
+example, use it to easily build RSS or ATOM feeds without worrying about unclosed elements and the
+such.
+
+> This extension can only be used if the [builder][1] library is installed. The preferred way
+> to do this is via Rubygems:
+>
+> ~~~ shell
+> $ gem install builder
+> ~~~
+{:.warning}
+
+[1]: http://builder.rubyforge.org "Homepage of builder library"
+
+
+## Usage
+
+When using this processor, the content needs to be valid Ruby code since the builder library is used
+that way. The builder object is provided by the `xml` object which is an instance of the
+`Builder::XmlMarkup` class (see the [reference][1] for more information).
+
+Once the content is processed, it is replaced by the result of `xml.target!` which returns the
+generated XML document.
+
+The `Webgen::Context` object is available, as usual, through the `context` object.
+
+
+## Examples
+
+### Generating XHTML
+
+Following is an example page file that uses this processor as the sole content processor in its
+pipeline to generate some HTML elements:
+
+~~~ ruby
+<%= context.node.blocks['example1'].rstrip %>
+~~~
+
+The output would look like this:
+
+~~~ html
+<%= context.render_block('example1').rstrip %>
+~~~
+
+### Generating XML
+
+Following is another page file that is now used to generate a custom XML document:
+
+~~~
+\---
+dest_path: '<parent><basename>(-<version>)(.<lang>).xml'
+cn: <basename>(-<version>).xml
+title: Person Object
+template: ~
+\--- pipeline:builder
+<%= context.node.blocks['example2'].rstrip %>
+~~~
+
+The above page file will produce the following destination file (the alcn in the `path` attribute
+would be different of course):
+
+~~~ xml
+<%= context.render_block('example2').rstrip %>
+~~~
+
+--- name:example1 pipeline:builder -----------------------------------------------------------------
+xml.h1("This a h1 header", :id => 'myid')
+
+xml.p do |p|
+  p.text! "You can just write "
+  p.b "your"
+  p.text! "paragraphs here and"
+  p.a("link", :href => "http://someurl.com")
+  p.text! "them below. This is also a"
+  p.i "nice"
+  p.text! "format!"
+end
+
+xml.blockquote(:class => 'information') do |bq|
+  bq.text! "Citations are easy too."
+  bq.text! "Really. And you can assign them attributes."
+end
+
+xml.ul do |ul|
+  ul.li "Lists"
+  ul.li "aren't"
+  ul.li "difficult"
+  ul.li "either."
+end
+
+--- name:example2 pipeline:builder -----------------------------------------------------------------
+xml.persons(:path => context.node.alcn) do |p|
+  p.person do |b|
+    b.firstname('Thomas')
+    b.lastname('Leitner')
+  end
+  p.person do |b|
+    b.firstname('Other first')
+    b.lastname('Other last')
+  end
+end

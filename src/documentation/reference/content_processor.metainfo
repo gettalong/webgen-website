@@ -1,0 +1,6 @@
+--- alcn
+content_processor/:
+  title: Content Processors
+
+content_processor/*.html:
+  template: ../content_processor.template

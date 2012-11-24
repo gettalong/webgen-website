@@ -1,0 +1,65 @@
+---
+title: content_processor.scss
+---
+## Description
+
+This processor converts the content, which is assumed to be in the Sassy CSS language, to valid CSS
+using the Sass library. This is basically a syntax based on CSS but additionally using features from
+Sass.
+
+> This extension is only available if you have installed the [sass][1] library. The preferred way to
+> do this is via Rubygems:
+>
+>     gem install sass
+{:.warning}
+
+[1]: http://sass-lang.com/
+
+
+## Usage
+
+This processor should best be used in combination with the [copy path
+handler](../path_handler/copy.html). An easy way to do this is by creating a file with the `scss`
+extension. This file is automatically handled by the copy path handler which changes its extension
+to `css` and processes it with this processor.
+
+For detailed information about Sass and the Sassy CSS language have a look at the [Sass
+Homepage][1]!
+
+If you don't like the syntax of the Sassy CSS language, you may also want to try the [Sass Meta
+language](scss.html) which has an indentation based syntax and supports the same functionality as the
+Sassy CSS language.
+
+
+## Example
+
+Here is a short sample of a text in the Sassy CSS language:
+
+~~~
+<%= context.node.blocks['example'].rstrip %>
+~~~
+
+When processed by this processor, the output would look like this:
+
+~~~ css
+<%= context.render_block('example').rstrip %>
+~~~
+
+--- name:example pipeline:scss
+$width: 80%;
+
+#main {
+  width: $width + 10%;
+
+  p {
+    border-style: solid;
+    border-color: #00f;
+
+    a {
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}

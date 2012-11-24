@@ -1,0 +1,62 @@
+---
+title: content_processor.maruku
+---
+## Description
+
+This processor converts the content, which is assumed to be in Markdown markup, to HTML by using the
+Maruku library. Maruku is a Markdown processor which supports a superset of Markdown, including
+support for assigning ids and classes to every element, support for Markdown inside HTML elements
+and footnotes.
+
+> This extension is only available if the [maruku][1] library is installed. The preferred
+> way to do this is via Rubygems:
+>
+>     gem install maruku
+{:.warning}
+
+[1]: http://maruku.rubyforge.org/
+
+
+## Usage
+
+For detailed information about Maruku have a look at the [Maruku Homepage][1]. There you will find
+information about the general Markdown syntax as well as information about the extras added by
+Maruku.
+
+> The Maruku library is not maintained anymore. It is recommended to use the
+> [kramdown](kramdown.html) processor instead since it provides a nearly drop-in replacement and is
+> actively supported.
+{:.information}
+
+
+## Example
+
+Here is a short sample of a text in Markdown+Extras markup:
+
+~~~
+<%= context.node.blocks['example'].rstrip %>
+~~~
+
+When processed by this processor, the output would look like this:
+
+~~~ html
+<%= context.render_block('example').rstrip %>
+~~~
+
+
+--- name:example pipeline:maruku
+# This a h1 header    {#myid}
+
+You can just write *your* paragraphs here and
+[link][1] them below. This is **nice** format!
+
+> Citations are easy too.
+> Really. And you can assign them attributes.
+{.information}
+
+* Lists
+* aren't
+* difficult
+* either.
+
+[1]: http://someurl.com

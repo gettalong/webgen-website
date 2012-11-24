@@ -1,0 +1,72 @@
+---
+title: content_processor.erubis
+---
+## Description
+
+This processor uses the [Erubis][1] library to process embedded Ruby statements. Erubis is quite a
+bit faster than the standard [ERB](erb.html) library that is shipped with Ruby and provides many
+other useful options.
+
+> This extension is only available if you have installed the [Erubis][1] library. The preferred
+> way to do this is via Rubygems:
+>
+> ~~~ shell
+> $ gem install erubis
+> ~~~
+{:.warning}
+
+[1]: http://www.kuwata-lab.com/erubis/ "Erubis Homepage"
+
+
+## Usage
+
+As with the [content processor erb](erb.html) you can use the special `context` object in your ERB
+code which is an instance of `Webgen::Context` and provides the rendering context and many useful
+methods.
+
+The default mode of Erubis works like ERB. So everything said on the [content processor erb
+page](erb.html) is also true for Erubis. Additionally, you can customize how this processor works by
+using the following configuration options:
+
+`content_processor.erubis.use_pi`
+: Use processing instructions instead of ERB like instructions. Normally you use statements like
+  `<%% result = some_method_call(opts) %>` or `<%%= context.content_node.alcn %>` in your content.
+  When setting this option to `true`, you can use XML processing instructions instead, for example
+  `<?rb result = some_method_call(opts) ?>` or `@{context.node.alcn}@`.
+
+`content_processor.erubis.options`
+: This is a hash which is passed to the Erubis interpreter and which can be used to set additional
+  options.
+
+For more information on the additional options or on how to use the processing instructions mode of
+Erubis, have a look at the [Erubis User Guide](http://www.kuwata-lab.com/erubis/users-guide.html)!
+
+
+## Example
+
+Here is a small example. If this text is put in a page file
+
+~~~ erb
+<%= context.node.blocks['example'].rstrip %>
+~~~
+
+... it will give this result:
+
+~~~
+<%= context.render_block('example').rstrip %>
+~~~
+
+If you compare this result with that from the [content processor erb](erb.html) you see that spaces
+around ERB tags are automatically trimmed in the correct way (i.e. spaces around ERB tags without
+output is trimmed while spaces around those with output are not).
+
+--- name:example pipeline:erubis
+Counting 5 items dynamically:
+<% for i in 1..5 %>
+* item <%= i %>
+<% end %>
+
+Outputting all meta information:
+<% context.node.meta_info.each do |k,v| %>
+* <%= k %> = <%= v %>
+<% end %>

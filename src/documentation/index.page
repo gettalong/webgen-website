@@ -1,0 +1,33 @@
+---
+title: Documentation
+main_menu: true
+main_sort: 40
+link_attrs:
+  :link_text: "<i class='icon-book'></i> Documentation"
+---
+## Documentation
+
+## Additional resources
+
+If you don't find an answer to your questions in this documentation, there are some additional
+resources you can try:
+
+* The [webgen-users mailing list][ml] hosted on Rubyforge (this mailing list is mirrored to the
+  [webgen-users google group][google-group]).
+* The [webgen wiki][wiki] at Github
+* The [forums][forum] that are hosted on Rubyforge.
+* The IRC channel `#webgen` on Freenode where I can be found whenever I'm online.
+
+[forum]: http://rubyforge.org/forum/?group_id=296
+[ml]: http://rubyforge.org/mail/?group_id=296
+[google-group]: http://groups.google.com/group/webgen-users/
+[wiki]: https://github.com/gettalong/webgen/wiki
+
+
+## Documentation for older webgen versions
+
+* The latest webgen 0.5.x documentation can be found
+  [here](http://webgen.rubyforge.org/documentation/0.5.x/index.html).
+
+* The latest webgen 0.4.x documentation can be found
+  [here](http://webgen.rubyforge.org/documentation/0.4.x/index.html).

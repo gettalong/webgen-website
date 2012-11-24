@@ -1,0 +1,84 @@
+---
+title: content_processor.erb
+---
+## Description
+
+This processer uses ERB (embedded Ruby) to process the content. This allows one to use the full
+power of Ruby to do things like conditionally include statements or to iterate over data and output
+it.
+
+For detailed information about ERB have a look at its documentation by executing `ri ERB` or by
+looking at its [API documentation][1]!
+
+[1]: http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/index.html
+
+
+## Usage
+
+You can use the special `context` object in your ERB code which is an instance of `Webgen::Context`
+and provides the rendering context and many useful methods.
+
+The configuration option `content_processor.erb.trim_mode` can be used to customize how ERB trims
+whitespace around its tags and to allow the use of the third tag (see below).
+
+Since ERB assumes that the content is text containing ERB tags, there should normally be no problem
+including this processor in a processing pipeline.
+
+ERB supports the following tags:
+
+`<%% ... %>`
+: Executes the Ruby code specified between the start and end tag but does not output anything.
+
+`<%%= ... %>`
+: Executes the Ruby code specified between the start and end tag and outputs the result. You can
+  HTML-escape the result by wrapping it with the `h(...)` utility method.
+
+`% ...`
+: This is another form of the first tag but only available when the configuration option
+  `content_processor.erb.trim_mode` contains the character `%`. The percent sign must appear as the
+  first character on a line, everything after it until the end of the line is processed as Ruby
+  code.
+
+  Note that this line does not generate any output, not even a newline (in contrast to the other
+  tag).
+
+> If the ERB processor is not the first in the processing pipeline, you may need to make sure that
+> the ERB start and end tags have not been processed. For example, when using the
+> [RedCloth](redcloth.html) content processor, you may need to surround the ERB code with
+> `<notextile>` tags!
+{:.important}
+
+
+## Example
+
+Here is a small example. If this text is put in a page file
+
+~~~ erb
+<%= context.node.blocks['example'].rstrip %>
+~~~
+
+... it will give this result:
+
+~~~
+<%= context.render_block('example').rstrip %>
+~~~
+
+The second line shows the third form of the ERB tags which executes Ruby code but does not output
+anything: it just starts a `for` loop. On the third line the second form of ERB tags is used to
+output the result of the Ruby code (note the equation sign!). And the fourth line completes the
+`for` loop by adding the needed `end` keyword.
+
+The seventh line shows the first form of the ERB tags.
+
+In the resulting output note the blank lines in the second part and their absence in the first part!
+
+--- name:example pipeline:erb
+Counting 5 items dynamically:
+% for i in 1..5
+* item <%= i %>
+% end
+
+Outputting all meta information:
+<% context.node.meta_info.each do |k,v| %>
+* <%= k %> = <%= v %>
+<% end %>

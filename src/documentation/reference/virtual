@@ -1,0 +1,2 @@
+content_processor/index.html:
+  dest_path: ../extensions.html#content_processors

@@ -1,0 +1,42 @@
+---
+title: content_processor.rdoc
+---
+## Description
+
+This content processors converts content written in the [RDoc markup][1] (the default documentation
+format for Ruby source files) to HTML.
+
+[1]: http://docs.seattlerb.org/rdoc/ "RDoc Reference"
+
+
+## Usage
+
+This processor is intended to be used in the processing pipeline of page files.
+
+Have a look at the [RDoc reference][1] for more information on the supported markup!
+
+
+## Example
+
+Here is a short sample of a text in RDoc markup:
+
+~~~
+<%= context.node.blocks['example'].rstrip %>
+~~~
+
+When processed by this processor, the output would look like this:
+
+~~~ html
+<%= context.render_block('example').rstrip %>
+~~~
+
+--- name:example pipeline:rdoc
+= This a h1 header
+
+You can just write *your* paragraphs here and link[http://someurl.example.com] them below.
+This is also a _nice_ format!
+
+* Lists
+* aren't
+* difficult
+* either.

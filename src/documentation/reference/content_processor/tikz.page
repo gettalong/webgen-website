@@ -1,0 +1,86 @@
+---
+title: content_processor.tikz
+---
+## Description
+
+This content processor provides support for automatically generating graphics via the fantastic
+[PGF/TikZ library][1] for [LaTeX][2].
+
+[1]: http://sourceforge.net/projects/pgf/
+[2]: http://www.latex-project.org/
+
+
+## Prerequisites
+
+You will need to have a current [LaTeX distribution][2] with the [PGF/TikZ library][1] and
+[ImageMagick][3] or [GraphicsMagick][5] installed for this to work. You will also need
+[Ghostscript][4] if you want support for transparent PNG images.
+
+More exactly, you will need to have the following programs available in the binary search path:
+
+`pdflatex`
+: This program is usually included in the LaTeX distribution. It is used for generating a PDF from
+  the LaTeX document that describes the PGF/TikZ graphic.
+
+`pdfcrop`
+: This program is usually included in the LaTeX distribution. It is used to crop the generated PDF
+  and throw away useless borders.
+
+`convert`
+: This program is provided by ImageMagick or GraphicsMagick. It is used to convert the generated PDF
+  document to an image file and to optionally resize it.
+
+`identify`
+: This program is provided by ImageMagick or GraphicsMagick. It is used to determine the exact size
+  of the generated image file.
+
+`gs`
+: This program is provided by the Ghostscript package. It is used for generating transparent PNG
+  images.
+
+If you are using Ubuntu Linux you can install everything that is needed by running the following
+command:
+
+~~~ shell
+$ sudo aptitude install texlive pgf ghostscript imagemagick
+~~~
+
+[3]: http://www.imagemagick.org/script/index.php
+[4]: http://pages.cs.wisc.edu/~ghost/
+[5]: http://www.graphicsmagick.org/
+
+
+## Usage
+
+This content processor is normally used in one of the following ways:
+
+* Either the [tag tikz](../tag/tikz.html) is used which provides an easy way to insert an image tag
+  and generate a TikZ picture at the same time.
+
+* Or this content processor is used in combination with the [copy path
+  handler](../path_handler/copy.html). An easy way to do this is by creating a file with the `tikz`
+  extension. This file is automatically handled by the copy path handler which changes its extension
+  to `png` and processes it with this processor.
+
+The content needs to contain just the PGF/TikZ image commands because the content processor itself
+automatically wraps it with the approriate LaTeX commands to create a full LaTeX document which is
+then converted to an image.
+
+There are some configuration options for configuring the behaviour of this processor:
+
+* If the generated image should be partly transparent, use the `content_processor.tikz.transparent`
+  option.
+
+* The render quality of the image can be adjusted with the `content_processor.tikz.resolution`
+  option.
+
+* Use the `content_processor.tikz.libraries` option to specify TikZ library names that should be
+  loaded.
+
+* The `content_processor.tikz.opts` option provides a way for specifying arbitrary options for the
+  tikzpicture environment.
+
+
+## Examples
+
+Have a look at the [tag tikz](../tag/tikz.html) page to see example input and the generated images.

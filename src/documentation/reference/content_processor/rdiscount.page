@@ -1,0 +1,55 @@
+---
+title: content_processor.rdiscount
+---
+## Description
+
+This processor converts the content, which is assumed to be in Markdown markup, to HTML by using the
+[RDiscount][1] library. This library is based on the C based discount library which provides very
+fast Markdown processing. However, this processor does not support advanced features like the
+[kramdown processor](kramdown.html) does.
+
+> This extension is only available if the [rdiscount][1] library is installed. The preferred
+> way to do this is via Rubygems:
+>
+>     gem install rdiscount
+{:.warning}
+
+[1]: http://github.com/rtomayko/rdiscount
+
+
+## Usage
+
+This processor is intended to be used in the processing pipeline of page files.
+
+Have a look at the [RDiscount homepage][1] for more information on the supported markup!
+
+
+## Example
+
+Here is a short sample of a text in Markdown markup:
+
+~~~
+<%= context.node.blocks['example'].rstrip %>
+~~~
+
+When processed by this processor, the output would look like this:
+
+~~~ html
+<%= context.render_block('example').rstrip %>
+~~~
+
+--- name:example pipeline:rdiscount
+# This a h1 header
+
+You can just write *your* paragraphs here and
+[link][1] them below. This is **nice** format!
+
+> Citations are easy too.
+> Really. And you can assign them attributes.
+
+* Lists
+* aren't
+* difficult
+* either.
+
+[1]: http://someurl.com

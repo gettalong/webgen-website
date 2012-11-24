@@ -1,0 +1,74 @@
+---
+title: content_processor.fragments
+---
+## Description
+
+This processor generates nested fragment nodes from all HTML headers `h1` to `h6` which have an `id`
+attribute set.
+
+> This is only done for the block named `content` or if no block is associated with the given render
+> context! This is to ensure that fragment nodes are not created from multiple blocks of one file.
+> So this content processor has no effect when used in the pipeline of a block that is not named
+> 'content'.
+{:.warning}
+
+
+## Usage
+
+This processor is best only included in the processing pipeline of page files, not template files,
+because template files may have headers with `id`s for which no fragment nodes should be created
+(e.g. the website title or a website slogan).
+
+> The reason why only header tags with an `id` attribute are used is that only those can be referenced
+> and linked to later.
+{:.information}
+
+Since only headers with an `id` attribute are used, you might want to use a markup processor like
+[kramdown](kramdown.html) which automatically generates an `id` attribute for all headers. If you
+use another markup language or plain old HTML, you might need to set the `id` attributes by hand.
+
+The generated fragment nodes can be used like any other node. So you can link to them and use them
+in a menu. Note that although the fragment nodes are nested according to the nesting level of
+their representative headers their ALCN and destination path are constructed as if they were child
+nodes of the file.
+
+
+## Example
+
+Assume that we have the following page file with the ALCN `/example.en.html`:
+
+~~~
+\--- name:content pipeline:kramdown,fragments
+<%= context.node.blocks['example1'].rstrip %>
+~~~
+
+The "content" block gets processed by the [kramdown](kramdown.html) processor first which changes
+the content to:
+
+~~~ html
+<%= context.render_block('example1').rstrip %>
+~~~
+
+Then the fragments processor uses this result to generate the following fragment nodes (the nesting
+of the list items corresponds to the nesting of the nodes):
+
+* `/example.en.html#heading-1`
+  * `/example.en.html#heading-11`
+  * `/example.en.html#heading-12`
+* `/example.en.html#heading-2`
+  * `/example.en.html#heading-21`
+
+You can see that although the fragment nodes are nested their CNs are directly appended to the ALCN
+of the page file (which is the correct thing to do).
+
+
+--- name:example1 pipeline:kramdown
+# Heading 1
+
+## Heading 11
+
+## Heading 12
+
+# Heading 2
+
+## Heading 21

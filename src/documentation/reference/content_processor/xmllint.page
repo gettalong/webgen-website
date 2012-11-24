@@ -1,0 +1,21 @@
+---
+title: content_processor.xmllint
+---
+## Description
+
+This content processor uses the `xmllint` program from the ["libxml2" package][1] to check the input
+for well-formedness and/or validness. `xmllint` can validate an XML (and therefore an XHTML) file
+against a DTD, a RelaxNG schema or a WXS schema. For more information about where to put the DTD or
+schema files, have a look at the `libxml2` documentation.
+
+
+## Usage
+
+This content processor should be used at the end of a processing pipeline of a template file after
+the XHTML document is completely generated. It takes the content and feeds it to the `xmllint`
+program which checks it according to the set options.
+
+The configuration option `content_processor.xmllint.options` can be used to change the default
+command line options that are used for the `xmllint` program.
+
+[1]: http://www.xmlsoft.org
