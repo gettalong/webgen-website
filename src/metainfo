@@ -1,3 +1,7 @@
+--- paths
+/**/*.page:
+  blocks: {defaults: {pipeline: [erb,tags,link_defs,kramdown,blocks,fragments]}}
+
 --- alcn
 /:
   title: Home
