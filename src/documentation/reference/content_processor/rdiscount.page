@@ -6,7 +6,7 @@ title: content_processor.rdiscount
 This processor converts the content, which is assumed to be in Markdown markup, to HTML by using the
 [RDiscount][1] library. This library is based on the C based discount library which provides very
 fast Markdown processing. However, this processor does not support advanced features like the
-[kramdown processor](kramdown.html) does.
+[content processor kramdown] does.
 
 > This extension is only available if the [rdiscount][1] library is installed. The preferred
 > way to do this is via Rubygems:

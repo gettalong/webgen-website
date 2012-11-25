@@ -54,13 +54,12 @@ $ sudo aptitude install texlive pgf ghostscript imagemagick
 
 This content processor is normally used in one of the following ways:
 
-* Either the [tag tikz](../tag/tikz.html) is used which provides an easy way to insert an image tag
-  and generate a TikZ picture at the same time.
+* Either with the [tag tikz] which provides an easy way to insert an image tag and generate a TikZ
+  picture at the same time.
 
-* Or this content processor is used in combination with the [copy path
-  handler](../path_handler/copy.html). An easy way to do this is by creating a file with the `tikz`
-  extension. This file is automatically handled by the copy path handler which changes its extension
-  to `png` and processes it with this processor.
+* Or in combination with the [path handler copy]. An easy way to do this is by creating a file with
+  the `tikz` extension. This file is automatically handled by the path handler copy which changes
+  its extension to `png` and processes it with this processor.
 
 The content needs to contain just the PGF/TikZ image commands because the content processor itself
 automatically wraps it with the approriate LaTeX commands to create a full LaTeX document which is
@@ -68,19 +67,53 @@ then converted to an image.
 
 There are some configuration options for configuring the behaviour of this processor:
 
-* If the generated image should be partly transparent, use the `content_processor.tikz.transparent`
+* If the generated image should be partly transparent, use the [content_processor.tikz.transparent]
   option.
 
-* The render quality of the image can be adjusted with the `content_processor.tikz.resolution`
+* The render quality of the image can be adjusted with the [content_processor.tikz.resolution]
   option.
 
-* Use the `content_processor.tikz.libraries` option to specify TikZ library names that should be
+* Use the [content_processor.tikz.libraries] option to specify TikZ library names that should be
   loaded.
 
-* The `content_processor.tikz.opts` option provides a way for specifying arbitrary options for the
+* The [content_processor.tikz.opts] option provides a way for specifying arbitrary options for the
   tikzpicture environment.
+
+* Finally, the LaTeX document template that is wrapped around the PGF/TikZ commands can be
+  customized by creating a template file and referencing it by using the
+  [content_processor.tikz.template] option.
+
+
+## Custom LaTeX Templates
+
+If you want to use a custom LaTeX template, the following special objects are available:
+
+`context['data']`
+: Contains the PGF/TikZ commands for the image.
+
+`context[OPTION_NAME]`
+: The value for the configuration option OPTION_NAME. This should be used instead of
+  `context.website.config[OPTION_NAME]` since the value may have been changed.
+
+Here is an example for such a LaTeX template:
+
+~~~ erb
+\--- name:content pipeline:erb
+\documentclass{standalone}
+\usepackage{tikz}
+
+<%% if context['content_processor.tikz.libraries'] %>
+\usetikzlibrary{<%%= context['content_processor.tikz.libraries'].join(',') %>}
+<%% end %>
+
+\begin{document}
+\begin{tikzpicture}[<%%= context['content_processor.tikz.opts'] %>]
+<%%= context['data'] %>
+\end{tikzpicture}
+\end{document}
+~~~
 
 
 ## Examples
 
-Have a look at the [tag tikz](../tag/tikz.html) page to see example input and the generated images.
+Have a look at the [tag tikz] to see example input and the generated images.

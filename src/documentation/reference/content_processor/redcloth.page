@@ -21,7 +21,7 @@ RedCloth library.
 This processor is intended to be used in the processing pipeline of page files. For detailed
 information about Textile have a look at the [Textile Reference][1]!
 
-Furthermore, the configuration option `content_processor.redcloth.hard_breaks` can be used to
+Furthermore, the configuration option [content_processor.redcloth.hard_breaks] can be used to
 enable/disable the conversion of single newlines into HTML break tags.
 
 

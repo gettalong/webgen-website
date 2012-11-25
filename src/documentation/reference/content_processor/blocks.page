@@ -19,15 +19,20 @@ So it is basically an XML tag with the mandatory attribute `name` and the option
 `chain`, `node` and `notfound` -- the attributes are explained below.
 
 webgen uses a node chain when rendering a page file. The default node chain is automatically
-determined via the `template` meta information (see
-[path_handler.template](../path_handler/template.html)) and the important thing to keep in mind
-is that the first node in the node chain is always the currently rendered template/page.
+determined via the `template` meta information (see [path handler template]) and the important thing
+to keep in mind is that the first node in the node chain is always the currently rendered
+template/page.
 
 For example, consider a `default.template` with a block tag of `<webgen:block name='content' />` and
 an `index.page` that should be rendered. This would result in a node chain of (note that the
 extension of the CN of a page file is changed to the extension `html` by default)
 
-    default.template ---> index.html
+{tikz:: {path: sample-chain1.png}}
+\node (A) at (0,0) [file] {default.template};
+\node (B) at (5cm,0) [file]  {index.html};
+\draw [chain] (A) -- (B);
+{tikz}
+{: style="text-align: center"}
 
 During the rendering of the `index.page`, the node chain like shown above is created and rendering
 is started at the *first* node in the chain, in this case at `default.template`. When the block tag
@@ -110,13 +115,23 @@ And the `my.page` file:
 
 When `my.page` gets rendered to `my.html`, the node chain looks like this by default:
 
-    default.template ---> my.html
+{tikz:: {path: sample-chain2.png}}
+\node (A) at (0,0) [file] {default.template};
+\node (B) at (5cm,0) [file]  {my.html};
+\draw [chain] (A) -- (B);
+{tikz}
+{: style="text-align: center"}
 
 The first webgen block tag just inserts the rendered block named "content" of `my.page`. The second
 block tag uses a custom node chain. Therefore the block named "content" of `page.template` gets
 rendered using the node chain:
 
-    page.template ---> my.html
+{tikz:: {path: sample-chain3.png}}
+\node (A) at (0,0) [file] {page.template};
+\node (B) at (5cm,0) [file]  {my.html};
+\draw [chain] (A) -- (B);
+{tikz}
+{: style="text-align: center"}
 
 and then inserted. The third block tag uses the same custom node chain but for a block named
 "optional". This block does not exist in `page.template` but it does exist in `my.page`. Since the

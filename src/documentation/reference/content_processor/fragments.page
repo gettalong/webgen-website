@@ -42,8 +42,8 @@ Assume that we have the following page file with the ALCN `/example.en.html`:
 <%= context.node.blocks['example1'].rstrip %>
 ~~~
 
-The "content" block gets processed by the [kramdown](kramdown.html) processor first which changes
-the content to:
+The "content" block gets processed by the [content processor kramdown] first which changes the
+content to:
 
 ~~~ html
 <%= context.render_block('example1').rstrip %>

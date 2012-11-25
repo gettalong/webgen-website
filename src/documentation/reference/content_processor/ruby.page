@@ -27,7 +27,7 @@ Here is a small example. If this text is put in a page file
 
 ... it will give this result:
 
-~~~ HTML
+~~~ html
 <%= context.render_block('example').rstrip %>
 ~~~
 

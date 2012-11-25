@@ -17,10 +17,9 @@ using the sass library.
 
 ## Usage
 
-This processor should best be used in combination with the [copy path
-handler](../path_handler/copy.html). An easy way to do this is by creating a file with the `sass`
-extension. This file is automatically handled by the copy path handler which changes its extension
-to `css` and processes it with this processor.
+This processor should best be used in combination with the [path handler copy]. An easy way to do
+this is by creating a file with the `sass` extension. This file is automatically handled by the copy
+path handler which changes its extension to `css` and processes it with this processor.
 
 For detailed information about Sass have a look at the [Sass Homepage][1]!
 

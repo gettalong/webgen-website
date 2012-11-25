@@ -18,7 +18,7 @@ looking at its [API documentation][1]!
 You can use the special `context` object in your ERB code which is an instance of `Webgen::Context`
 and provides the rendering context and many useful methods.
 
-The configuration option `content_processor.erb.trim_mode` can be used to customize how ERB trims
+The configuration option [content_processor.erb.trim_mode] can be used to customize how ERB trims
 whitespace around its tags and to allow the use of the third tag (see below).
 
 Since ERB assumes that the content is text containing ERB tags, there should normally be no problem
@@ -35,7 +35,7 @@ ERB supports the following tags:
 
 `% ...`
 : This is another form of the first tag but only available when the configuration option
-  `content_processor.erb.trim_mode` contains the character `%`. The percent sign must appear as the
+  [content_processor.erb.trim_mode] contains the character `%`. The percent sign must appear as the
   first character on a line, everything after it until the end of the line is processed as Ruby
   code.
 
@@ -43,9 +43,8 @@ ERB supports the following tags:
   tag).
 
 > If the ERB processor is not the first in the processing pipeline, you may need to make sure that
-> the ERB start and end tags have not been processed. For example, when using the
-> [RedCloth](redcloth.html) content processor, you may need to surround the ERB code with
-> `<notextile>` tags!
+> the ERB start and end tags have not been processed. For example, when using the [content processor
+> redcloth], you may need to surround the ERB code with `<notextile>` tags!
 {:.important}
 
 
