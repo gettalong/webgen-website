@@ -1,0 +1,23 @@
+--- name:content pipeline:erb
+\nonstopmode
+\documentclass[11pt]{standalone}
+\usepackage{tikz}
+\usepackage[default,osfigures]{opensans}
+\usepackage[T1]{fontenc}
+
+<% if context['content_processor.tikz.libraries'] %>
+\usetikzlibrary{<%= context['content_processor.tikz.libraries'].join(',') %>}
+<% end %>
+\usetikzlibrary{arrows,shapes.geometric,shapes.misc}
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{document}
+\tikzset{file/.style={shape=rectangle,rounded corners=0.2cm,decorate,draw,
+    decoration={random steps,segment length=0.1cm,amplitude=0.005cm}}}
+\tikzset{chain/.style={->,shorten >=0.2cm, shorten <=0.2cm,>=stealth',thick,decorate,draw,
+    decoration={random steps,segment length=2pt,amplitude=0.2pt,pre length=0.2cm,post length=0.2cm}}}
+
+\begin{tikzpicture}[<%= context['content_processor.tikz.opts'] %>]
+<%= context['data'] %>
+\end{tikzpicture}
+\end{document}
