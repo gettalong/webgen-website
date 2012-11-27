@@ -1,0 +1,54 @@
+---
+title: source.file_system
+---
+## Description
+
+This source extension creates source paths for all files/directories that match a certain pattern
+under a specific directory.
+
+
+## Usage
+
+When using this source, the first parameter is the directory under which the to-be-used files are
+located. The directory is taken relative to the website directory. The second, optional, parameter
+specifies a path pattern (see [Path Patterns](../manual.html#source-pathpattern) and [Dir.glob]).
+The default value for the path pattern is `**/*` which matches all files/directories under the given
+root directory.
+
+> This is the default source used when creating a new webgen website.
+{:.information}
+
+[Dir.glob]: http://ruby-doc.org/core/classes/Dir.html#glob-method
+
+
+## Examples
+
+The used sources can be specified via the [sources configuration option], so each of the examples
+below can directly be used in the configuration file.
+
+1. All files under the `src` directory of the website directory are used (the default
+   configuration):
+
+   ~~~ yaml
+   sources: [[/, file_system, src]]
+   ~~~
+
+2. The default configuration and additionally all files under a `misc` directory:
+
+   ~~~ yaml
+   sources:
+     - [/, file_system, src]
+     - [/, file_system, misc]
+   ~~~
+
+
+3. The default configuration and additionally mounting all images from an absolutely specified
+   directory under the `/images/` directory:
+
+   ~~~ yaml
+   sources:
+     - [/, file_system, src]
+     - [/images/, file_system, /media/storage/pictures, **/*.jpg]
+   ~~~
+
+

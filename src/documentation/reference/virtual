@@ -1,2 +1,8 @@
 content_processor/index.html:
   dest_path: ../extensions.html#content_processors
+
+source/index.html:
+  dest_path: ../extensions.html#sources
+
+destination/index.html:
+  dest_path: ../extensions.html#destinations

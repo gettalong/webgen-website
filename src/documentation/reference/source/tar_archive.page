@@ -1,0 +1,49 @@
+---
+title: source.tar_archive
+---
+## Description
+
+This source extension creates paths for all files from a (possibly gzipped) tar archive. The used
+archive can reside locally but it is also possible to use archives accessible via the http(s) and
+ftp protcols.
+
+> This extension is only available if the [archive-tar-minitar][1] library is installed. The
+> preferred way to do this is via Rubygems:
+>
+> ~~~ shell
+> $ gem install archive-tar-minitar
+> ~~~
+{:.warning}
+
+
+## Usage
+
+When using this source, the first parameter is the file system path to the archive or the URL of the
+archive and the second, optional, parameter specifies a path pattern (see [File.fnmatch]) for
+selecting the to-be-used files/directories in the tar archive. The default value for the path
+pattern is `**/*` which matches all files/directories in the tar archive.
+
+[File.fnmatch]: http://ruby-doc.org/core/File.html#fnmatch-method
+[1]: https://rubygems.org/gems/archive-tar-minitar
+
+
+## Examples
+
+The used sources can be specified via the [sources configuration option], so each of the examples
+below can directly be used in the configuration file.
+
+1. Using all files/directories from a local tar archive in addition to the default configuration:
+
+   ~~~ yaml
+   sources:
+     - [/, file_system, src]
+     - [/, tar_archive, archive.tar]
+   ~~~
+
+2. Using images stored in a remote gzipped tar archive in addition to the default configuration:
+
+   ~~~ yaml
+   sources:
+     - [/, file_system, src]
+     - [/, tar_archive, http://www.example.com/archive/data.tgz, **/*.jpg]
+   ~~~

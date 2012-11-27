@@ -1,0 +1,18 @@
+--- alcn
+content_processor/:
+  title: Content Processors
+
+content_processor/*.html:
+  template: ../content_processor.template
+
+source/:
+  title: Sources
+
+source/*.html:
+  template: ../source.template
+
+destination/:
+  title: Destinations
+
+destination/*.html:
+  template: ../destination.template
