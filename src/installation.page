@@ -38,8 +38,9 @@ $ sudo aptitude install ruby1.9.3 rubygems
 $ gem1.9.3 install webgen --user-install
 ~~~
 
-> Ubuntu has packages for the old 0.4.x and 0.5.x versions of webgen. If you want to use that, you
-> just need to run `sudo aptitude install webgen0.4` or `sudo aptitude install webgen0.5`.
+> Ubuntu has packages for the old 0.4.x and 0.5.x versions of webgen. If you want to use one of
+> these versions (not recommended), you just need to run `sudo aptitude install webgen0.4` or `sudo
+> aptitude install webgen0.5`.
 {:.information}
 
 
