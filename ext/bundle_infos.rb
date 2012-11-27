@@ -30,4 +30,18 @@ module BundleInfos
     data
   end
 
+  def source_info(name)
+    name = name.sub(/^source\./, '')
+    data = {}.update(ext_info("source.#{name}"))
+    data[:name] = name
+    data
+  end
+
+  def destination_info(name)
+    name = name.sub(/^destination\./, '')
+    data = {}.update(ext_info("destination.#{name}"))
+    data[:name] = name
+    data
+  end
+
 end
