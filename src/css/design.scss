@@ -89,6 +89,16 @@ body > footer {
 }
 
 
+@media (max-width: 767px) {
+    .container {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
+
+
+/* Custom adpations and classes*/
+
 dd {
     margin-left: 30px;
 }
@@ -103,4 +113,8 @@ kbd {
 
 .nowrap {
     white-space: nowrap;
+}
+
+.table-reference {
+    width: 100%;
 }

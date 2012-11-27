@@ -6,3 +6,18 @@ $headingsFontFamily: "Economica", 'Helvetica Neue', Helvetica, Arial, 'sans-seri
 
 @import "/bootstrap/bootstrap";
 @import "/bootstrap/responsive";
+
+
+/* custom classes */
+
+.library-needed {
+  @extend .alert;
+  @extend .alert-block;
+  @extend .alert-error;
+}
+
+.information {
+  @extend .alert;
+  @extend .alert-block;
+  @extend .alert-info;
+}

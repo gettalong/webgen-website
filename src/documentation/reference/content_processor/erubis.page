@@ -13,7 +13,7 @@ other useful options.
 > ~~~ shell
 > $ gem install erubis
 > ~~~
-{:.warning}
+{:.library-needed}
 
 [1]: http://www.kuwata-lab.com/erubis/ "Erubis Homepage"
 

@@ -12,7 +12,7 @@ and footnotes.
 > way to do this is via Rubygems:
 >
 >     gem install maruku
-{:.warning}
+{:.library-needed}
 
 [1]: http://maruku.rubyforge.org/
 

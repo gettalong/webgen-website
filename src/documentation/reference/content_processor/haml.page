@@ -13,7 +13,7 @@ Homepage][1]!
 > ~~~ shell
 > $ gem install haml
 > ~~~
-{:.warning}
+{:.library-needed}
 
 [1]: http://haml.info/
 

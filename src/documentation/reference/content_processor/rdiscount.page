@@ -12,7 +12,7 @@ fast Markdown processing. However, this processor does not support advanced feat
 > way to do this is via Rubygems:
 >
 >     gem install rdiscount
-{:.warning}
+{:.library-needed}
 
 [1]: http://github.com/rtomayko/rdiscount
 

@@ -10,7 +10,7 @@ RedCloth library.
 > way to do this is via Rubygems:
 >
 >     gem install RedCloth
-{:.warning}
+{:.library-needed}
 
 [1]: http://redcloth.org/textile
 [2]: http://redcloth.org/

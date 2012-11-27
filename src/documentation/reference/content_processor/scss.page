@@ -11,7 +11,7 @@ Sass.
 > do this is via Rubygems:
 >
 >     gem install sass
-{:.warning}
+{:.library-needed}
 
 [1]: http://sass-lang.com/
 

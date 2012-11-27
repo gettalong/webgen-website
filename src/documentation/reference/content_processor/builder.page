@@ -13,7 +13,7 @@ such.
 > ~~~ shell
 > $ gem install builder
 > ~~~
-{:.warning}
+{:.library-needed}
 
 [1]: http://builder.rubyforge.org "Homepage of builder library"
 
