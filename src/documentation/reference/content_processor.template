@@ -1,19 +1,8 @@
---- pipeline:erb,tags,blocks
-<h1>{title:}</h1>
-
-<% data = context.content_processor_info(context.node['title']) %>
-
-<table class="table table-bordered table-reference">
-  <tbody>
-    <tr><th>Summary</th><td><%= h(data['summary']) %></td></tr>
-    <tr><th>Short name</th><td><%= h(data[:name]) %></td></tr>
-    <tr><th>Type</th><td><%= h(data[:type]) %></td></tr>
-    <% unless data[:extension_map].empty? %>
-    <tr><th>Extension mapping</th><td><code><%= h(data[:extension_map]) %></code></td></tr>
-    <% end %>
-    <tr><th>Author</th><td><%= h(data['author']) %></td></tr>
-    <tr><th>Provided by bundle</th><td><%= h(data['bundle']) %></td></tr>
-  </tbody>
-</table>
-
-<webgen:block name="content" />
+---
+template: extensions.template
+--- name:table-infos pipeline:erb
+<tr><th>Short name</th><td><%= h(context[:data][:name]) %></td></tr>
+<tr><th>Content type</th><td><%= h(context[:data][:type]) %></td></tr>
+<% unless context[:data][:extension_map].empty? %>
+<tr><th>Extension mapping</th><td><code><%= h(context[:data][:extension_map]) %></code></td></tr>
+<% end %>

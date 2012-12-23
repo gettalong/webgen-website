@@ -1,0 +1,23 @@
+--- pipeline:erb,tags,link_defs,kramdown,blocks
+# {title:}
+
+<% context[:data] = context.send("#{context.node.parent.cn.sub(/\/$/, '')}_info", context.node['title']) %>
+
+<table class="table table-bordered table-reference">
+  <tbody>
+    <tr><th>Summary</th><td><%= h(context[:data]['summary']) %></td></tr>
+    <webgen:block name="table-infos" />
+
+    <% if context.node['config options'] %>
+    <tr><th>Used options</th>
+    <td markdown="span">
+<% context.node['config options'].each do |option| %>[<%= option %>]\\
+<% end %>
+</td></tr>
+    <% end %>
+<!--    <tr><th>Author</th><td><%= h(context[:data]['author']) %></td></tr> -->
+    <tr><th>Provided by bundle</th><td><%= h(context[:data]['bundle']) %></td></tr>
+  </tbody>
+</table>
+
+<webgen:block name="content" node="first" />
