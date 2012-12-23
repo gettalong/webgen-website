@@ -18,11 +18,11 @@ website.blackboard.add_listener(:website_generated) do
 
   data.each do |ext_name, ignored|
     nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/#{ext_name}/*.html", :flatten => true,
-                                           :not => {:alcn => '/**/index.html'}},
+                                           :not => {:alcn => '/**/index.html'}, :lang => 'en'},
                                          website.tree.root)
     website.ext.send(ext_name).registered_extensions.each do |name, data|
       next if ignored.include?(name.to_s)
-      node = nodes.find {|n| n.cn == "#{name}.html"}
+      node = nodes.find {|n| n.lcn == "#{name}.en.html"}
       if !node
         website.logger.warn { "No documentation for #{ext_name} '#{name}'" }
       elsif node['title'] != "#{ext_name}.#{name}"
@@ -41,12 +41,12 @@ end
 ref_links = "\n\n"
 website.blackboard.add_listener(:after_tree_populated) do
   BundleInfos.bundles(website).each do |name, infos|
-    next unless name.include?('.')
+    next unless name.include?('.') || %w{node_finder}.include?(name)
     alcn = '/documentation/reference/' << name.sub(/\./, '/') << ".en.html"
     desc = "'#{infos['summary'].tr("\n", ' ')}'"
     ref_links << "[#{name}]: #{alcn} #{desc}\n"
     name1, name2 = name.split('.')
-    ref_links << "[#{name1.tr('_', ' ')} #{name2}]: #{alcn} #{desc}\n"
+    ref_links << "[#{name1.tr('_', ' ')}#{name2 ? " #{name2}" : ''}]: #{alcn} #{desc}\n"
   end
   ref_links << "\n"
   website.config.options.each do |name, option|
