@@ -3,7 +3,7 @@ title: Documentation
 main_menu: true
 main_sort: 40
 link_attrs:
-  :link_text: "<i class='icon-book'></i> Documentation"
+  link_text: "<i class='icon-book'></i> Documentation"
 ---
 ## Documentation
 

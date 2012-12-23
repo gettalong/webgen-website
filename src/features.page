@@ -3,7 +3,7 @@ title: Features
 main_menu: true
 main_sort: 20
 link_attrs:
-  :link_text: "<i class='icon-bolt'></i> Features"
+  link_text: "<i class='icon-bolt'></i> Features"
 ---
 
 # Feature List

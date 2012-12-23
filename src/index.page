@@ -3,7 +3,7 @@ title: Home
 main_menu: true
 main_sort: 10
 link_attrs:
-  :link_text: "<i class='icon-home'></i> Home"
+  link_text: "<i class='icon-home'></i> Home"
 ---
 
 # Welcome to the Homepage of _webgen_!

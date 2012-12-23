@@ -3,7 +3,7 @@ title: Installation
 main_menu: true
 main_sort: 30
 link_attrs:
-  :link_text: "<i class='icon-download-alt'></i> Installation"
+  link_text: "<i class='icon-download-alt'></i> Installation"
 ---
 
 # Download & Installation
