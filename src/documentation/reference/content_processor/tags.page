@@ -77,8 +77,7 @@ like one. In such cases, you need to escape the tag with a backslash, like this:
     \\\{tagname: {key:value}}
 
 Another solution for this problem is to specify a general prefix for all webgen tags using the
-configuration option [content_processor.tags.prefix]. Let's imagine that you set the prefix to
-`webgen:`; then this content processor will only process webgen tags of the form `\{webgen:tagname:
-{key: value}}`.
+[tag.prefix] configuration option. Let's imagine that you set the prefix to `webgen:`; then this
+content processor will only process webgen tags of the form `\{webgen:tagname: {key: value}}`.
 
 [1]: http://en.wikipedia.org/wiki/YAML
