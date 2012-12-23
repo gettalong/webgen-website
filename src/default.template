@@ -44,7 +44,7 @@
       <div class="container">
         <div class="row">
           <div class="span8 content">
-            <div class="breadcrumb">{breadcrumb_trail:}</div>
+            <div class="breadcrumb">{breadcrumb_trail: {separator: '<span class="divider">/</span>'}}</div>
             <webgen:block name="content" />
           </div>
 
@@ -52,7 +52,7 @@
             <% if !context.content_node.children.empty? %>
             <h3>Page content</h3>
             <% end %>
-            {menu: {options: {descendants: true}}}
+            {menu: {options: {descendants: true, levels: [2, 10]}}}
 
             <webgen:block name="sidebar" notfound="ignore" />
 
