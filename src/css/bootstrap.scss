@@ -21,3 +21,8 @@ $headingsFontFamily: "Economica", 'Helvetica Neue', Helvetica, Arial, 'sans-seri
   @extend .alert-block;
   @extend .alert-info;
 }
+
+.warning {
+  @extend .alert;
+  @extend .alert-block;
+}
