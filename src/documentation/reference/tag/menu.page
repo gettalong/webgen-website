@@ -1,0 +1,113 @@
+---
+title: tag.menu
+config options:
+  - tag.menu.options
+  - tag.menu.style
+  - tag.menu.template
+---
+## Description
+
+The menu tag is used for building customizable menus using the [node finder] extension to select the
+to-be-used nodes.
+
+
+## Usage
+
+The menu is constructed using unordered HTML lists by default. However, this can be changed by
+specifying (and creating) another menu generation template via the [tag.menu.template] configuration
+option.
+
+The [tag.menu.style] configuration option allows one to specify whether a nested (value "nested") or
+a non-nested (value "flat") menu is generated. Non-nested menus are useful if one wants to generate,
+for example, a horizontal menu, ie. a menu that has one horizontal bar for each menu level.
+
+The HTML list item tags have special CSS classes applied to them for styling. These CSS class names
+are as follows:
+
+webgen-menu-level*NUMBER*
+: This class is set on all items and can be used to style specific menu levels only. `NUMBER` is
+  replaced with the actual menu level, so the first level menu entries will get a
+  `webgen-menu-level1` class.
+
+webgen-menu-submenu:
+: This class is set if the menu item contains sub menu items.
+
+webgen-menu-submenu-inhierarchy:
+: This class is set if the menu item is an ancestor of the rendered destination node.
+
+webgen-menu-item-selected
+: This class is set if the menu item is equal to to the rendered destination node.
+
+
+### Custom menu template
+
+The [tag.menu.template] configuration option allows one to customize the generated output. Its value
+needs to be the (a)(l)cn of a template or page node and this node needs to have a block called
+'tag.menu'. This allows one, for example, to add such a block to the default website template (no
+need to create a separate template).
+
+There are some special objects for use in a menu template:
+
+`context[:nodes]`
+: Contains the menu nodes, ie. the [node finder] extension search result.
+
+`Webgen::Tag::Menu.menu_item_details`
+: This utility method can be used to return the needed list item "class" attribute and the link to
+  the menu item. See its API documentation for more information!
+
+
+## Examples
+
+Since the menu tag uses the [node finder] extension to select the nodes that should be in the menu,
+almost anything is possible. If the node selection for the menu can't be accomplished with the
+built-in filters, one just needs to write a custom filter.
+
+
+### Selecting nodes for a main menu
+
+A standard technique for selecting nodes for the main menu is to select all nodes which have a
+certain meta information key set.
+
+Most website templates (e.g. the templates in the official [webgen-templates-bundle]) use the meta
+information 'in_menu' to select the nodes and the default sorting mechanism (based on the meta
+information 'sort_info' and/or 'title'). To generate the menu using these criterias one can use the
+following menu tag:
+
+    \{menu: {options: {mi: {in_menu: true}, sort: true}}}
+
+Variants:
+
+`\{menu: {options: {mi: {in_menu: true}, sort: true, lang: node}}}`
+: The node finder option 'lang' ensure that the menu only uses nodes in the language of the
+  destination node.
+
+`\{menu: {options: {mi: {in_menu: true}, sort: true, siblings: [0, -1]}}}`
+: The additional 'siblings' option ensures that not all nodes with 'in_menu: true' are shown in the
+  menu but only those that are siblings of the destination node or one of its parents.
+
+  This is probably what most people want to use in a sidebar menu.
+
+`\{menu: {options: {mi: {in_menu: true}, sort: true, absolute_levels: 1}}}`
+: This variant makes sure that only the top level menu items are included which is useful, for
+  example, for a horizontal navigation bar at the top of a website.
+
+`\{menu: {options: {mi: {in_menu: true}, sort: true, absolute_levels: [2,3], and: {absolute_levels: [2,-1]}}}}`
+: This variant is a bit (but just a bit) more complex. The first occurence of the 'absolute_levels'
+  option ensures that only nodes with an absolute level of 2 or 3 are used at most. The second
+  occurence ensures that no level 3 sub nodes are used for level 2 nodes.
+
+  Such a construct can be used, for example, on a side menu to define a maximum number of node
+  levels that should be shown.
+
+
+### Selecting page fragment nodes
+
+One often wants to include a menu for the sections (ie. headings) of the current page node. This can
+be achieved by making sure that fragment nodes are created for all headings by using the [content
+processor fragments] in the rendering pipeline of the page. Then the following menu tag shows the
+headings:
+
+    \{menu: {options: {descendants: true, levels: [2,100]}}}
+
+The 'descendants' filter selects the node itself and all descendant nodes, the 'levels' filter makes
+sure that only the fragment nodes (the node itself would have level 1) are displayed.

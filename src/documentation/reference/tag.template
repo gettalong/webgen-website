@@ -1,0 +1,11 @@
+---
+template: extensions.template
+--- name:table-infos pipeline:erb,link_defs,kramdown
+<tr><th>Tag names</th><td><%= h(context[:data][:names].join(', ')) %></td></tr>
+<tr><th>Configuration prefix</th><td><%= h(context[:data][:config_prefix]) %></td></tr>
+<% unless context[:data][:mandatory].empty? %>
+<tr><th>Mandatory options</th><td markdown="span"><% context[:data][:mandatory].each do |option| %>
+[<%= option %>]\\
+<% end %>
+</td></tr>
+<% end %>

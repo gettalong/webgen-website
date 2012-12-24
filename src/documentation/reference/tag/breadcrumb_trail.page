@@ -1,0 +1,40 @@
+---
+title: tag.breadcrumb_trail
+config options:
+  - tag.breadcrumb_trail.separator
+  - tag.breadcrumb_trail.omit_dir_index
+  - tag.breadcrumb_trail.start_level
+  - tag.breadcrumb_trail.end_level
+  - tag.breadcrumb_trail.template
+---
+## Description
+
+The tag breadcrumb_trail is used for showing the breadcrumb trail for a page, i.e. it shows the
+hierarchy of a page.
+
+
+## Usage
+
+The behavior of this tag can be configured via the available configuration options, see above.
+
+If you want to generate different HTML, you will need to create a custom template and use the
+[tag.breadcrumb_trail.template] option.
+
+Furthermore, the behavior of the [tag.breadcrumb_trail.omit_dir_index] configuration option can be
+overridden for individual directory index nodes by setting the [omit_dir_index meta information]
+accordingly.
+
+
+## Examples
+
+`\{breadcrumb_trail:}`
+: {breadcrumb_trail:}
+
+`\{breadcrumb_trail: {separator: " HELLO "}}`
+: {breadcrumb_trail: {separator: " HELLO "}}
+
+`\{breadcrumb_trail: {end_level: -2}}`
+: {breadcrumb_trail: {end_level: -2}}
+
+`\{breadcrumb_trail: {start_level: 1}}`
+: {breadcrumb_trail: {start_level: 1}}

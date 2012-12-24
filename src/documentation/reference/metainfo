@@ -16,3 +16,9 @@ destination/:
 
 destination/*.html:
   template: ../destination.template
+
+tag/:
+  title: Tags
+
+tag/*.en.html:
+  template: ../tag.template

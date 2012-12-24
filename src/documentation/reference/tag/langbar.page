@@ -1,0 +1,40 @@
+---
+title: tag.langbar
+config options:
+  - tag.langbar.separator
+  - tag.langbar.show_own_lang
+  - tag.langbar.show_single_lang
+  - tag.langbar.template
+---
+## Description
+
+This tag is used to display a list of links to translations of the current page using the language
+codes as link texts.
+
+
+## Usage
+
+When having more than one language version of a page, this tag is useful for showing links to these
+other versions of the page. The behavior of this tag can be configured via the available
+configuration options, see above.
+
+If you want to generate different HTML code, you will need to create a custom template and use the
+[tag.langbar.template] option.
+
+When using the default template, the CSS class "webgen-langbar-current-lang" is assigned to the HTML
+tag for the currently selected language.
+
+> When using the [content processor html_head], links to translations of a page are also
+> automatically added to the HTML `<head>` element.
+{:.information}
+
+
+## Examples
+
+*Note*: This page has a german dummy translation to show off the tag.
+
+`\{langbar: {separator: ' --- '}}`
+: {langbar: {separator: ' --- '}}
+
+`\{langbar: {show_own_lang: false}}`
+: {langbar: {show_own_lang: false}}

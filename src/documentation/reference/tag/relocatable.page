@@ -1,0 +1,41 @@
+---
+title: tag.relocatable
+config options:
+  - tag.relocatable.path
+  - tag.relocatable.ignore_unknown_fragment
+---
+## Description
+
+This tag ensures that the relative path to the specified path is always correct. This allows, for
+example, the preview of the website without a web server.
+
+
+## Usage
+
+Note that this tag can only be used with paths (either (A)(L)CNs or destination paths) that are
+known to webgen. A virtual node needs to be created for paths that are not normally handled by
+webgen.
+
+When this tag is used, it changes the directory part of the supplied path name to a relative path to
+the destination. If the path is an absolute URL, i.e. one prefixed with "http://" or "ftp://" or
+something like that, it is not changed.
+
+If an URL fragment is specified, this fragment also has to exist in the node tree except if the
+[tag.relocatable.ignore_unknown_fragment] configuration option is set. Another way to ignore an URL
+fragment is to specify it directly after the tag!
+
+A relocatable tag looks like this: `\{relocatable: default.css}`. If this was put into a template
+and the template was used by a file in a sub-directory, then this tag would put `../default.css`
+into the output file; thus ensuring that the relative path to file is valid.
+
+
+## Examples
+
+`\{relocatable: /css/design.css}`
+: {relocatable: /css/design.css}
+
+`\{relocatable: ../}`
+: {relocatable: ../}
+
+`\{r: /}`
+: {r: /}

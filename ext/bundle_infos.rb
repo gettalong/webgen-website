@@ -44,4 +44,14 @@ module BundleInfos
     data
   end
 
+  def tag_info(name)
+    name = name.sub(/^tag\./, '')
+    data = {}.update(ext_info("tag.#{name}"))
+    ext_data = website.ext.tag.registered_extensions[name.to_sym]
+    data[:mandatory] = ext_data.mandatory
+    data[:config_prefix] = ext_data.config_prefix
+    data[:names] = website.ext.tag.registered_extensions.select {|n, d| d == ext_data}.map {|n,d| n}
+    data
+  end
+
 end

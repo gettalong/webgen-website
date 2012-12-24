@@ -1,0 +1,19 @@
+---
+title: tag.execute_command
+config options:
+  - tag.execute_command.command
+  - tag.execute_command.process_output
+  - tag.execute_command.escape_html
+---
+## Description
+
+This tag executes a command and includes the output of the command.
+
+
+## Examples
+
+`\{execute_command: 'uname -p'}`
+: {execute_command: 'uname -p'}
+
+`\{execute_command: {command: 'ruby -v'}}`
+: {::nomarkdown}{execute_command: {command: 'ruby -v'}}{:/}

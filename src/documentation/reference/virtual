@@ -6,3 +6,6 @@ source/index.html:
 
 destination/index.html:
   dest_path: ../extensions.html#destinations
+
+tag/index.html:
+  dest_path: ../extensions.html#tags

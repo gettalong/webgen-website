@@ -12,7 +12,7 @@ website.blackboard.add_listener(:website_generated) do
     'source' => ['stacked'],
     'destination' => [],
     'item_tracker' => [],
-    'tag' => [],
+    'tag' => ['r', 'default'],
     'task' => []
   }
 
