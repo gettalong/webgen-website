@@ -22,3 +22,9 @@ tag/:
 
 tag/*.en.html:
   template: ../tag.template
+
+item_tracker/:
+  title: Item Trackers
+
+item_tracker/*.html:
+  template: ../item_tracker.template

@@ -1,0 +1,15 @@
+---
+template: extensions.template
+--- name:table-infos pipeline:erb
+<tr><th>Short name</th><td><%= h(context[:data][:name]) %></td></tr>
+--- name:content pipeline:erb,kramdown,blocks
+<webgen:block name="content" />
+
+<% name = context.node['title'].split('.').last.split('_').map {|s| s.capitalize}.join('') %>
+
+See the [Webgen::ItemTracker::<%= name %>] API documentation for information on how to use this item
+tracker.
+
+> Note that item trackers are rarely used directly in page or template files; they are mostly used
+> by other extensions.
+{:.information}

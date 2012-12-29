@@ -1,0 +1,7 @@
+---
+title: item_tracker.nodes
+---
+## Description
+
+This item tracker extension is used for tracking changes to a list of nodes. It is used, for
+example, by the [tag menu] or the [path handler feed].

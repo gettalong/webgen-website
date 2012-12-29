@@ -1,0 +1,7 @@
+---
+title: item_tracker.missing_node
+---
+## Description
+
+This item tracker extension is used for tracking unresolved absolute node paths and makes sure that
+pages with unresolved paths are re-generated.

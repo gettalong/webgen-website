@@ -1,0 +1,7 @@
+---
+title: item_tracker.node_content
+---
+## Description
+
+This item tracker extension is used for tracking changes to the content of a node which basically
+means checking if any items the node depends on have changed.

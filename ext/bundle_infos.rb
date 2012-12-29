@@ -54,4 +54,11 @@ module BundleInfos
     data
   end
 
+  def item_tracker_info(name)
+    name = name.sub(/^item_tracker\./, '')
+    data = {}.update(ext_info("item_tracker.#{name}"))
+    data[:name] = name
+    data
+  end
+
 end

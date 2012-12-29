@@ -9,3 +9,6 @@ destination/index.html:
 
 tag/index.html:
   dest_path: ../extensions.html#tags
+
+item_tracker/index.html:
+  dest_path: ../extensions.html#item_trackers
