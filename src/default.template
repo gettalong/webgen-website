@@ -69,6 +69,13 @@
             </div></form>
             <a href='http://www.pledgie.com/campaigns/16658'><img alt='Click here to lend your support to: webgen and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/16658.png?skin_name=chrome' border='0' /></a>
 
+            <h3>Page source</h3>
+
+            <p>You can see
+            the <a href="http://github.com/gettalong/webgen-website/tree/master/src<%= context.node.node_info[:path]
+            %>">source file</a> for this page in
+            the <a href="http://github.com/gettalong/webgen-website">webgen-website repository</a>
+            on Github.</p>
           </div>
 
         </div>
