@@ -15,16 +15,19 @@
   </head>
 
   <body>
-    <% if !context.node.blocks.has_key?('herounit') %>
-    <header>
+    <nav>
       <div class="container">
-        <div class="slogan">
-          <h1>webgen</h1>
-          <h2>static website generation made easy</h2>
+        <div class="main-navigation">
+          <a href="{relocatable: /}">
+            <img src="{relocatable: css/images/logo.png}" alt="webgen logo" style="padding-bottom: 4px" />
+            <h1>webgen</h1>
+          </a>
+          {menu: {options: {mi: {main_menu: true}, flatten: true, sort: main_sort}}}
         </div>
       </div>
-    </header>
-    <% else %>
+    </nav>
+
+    <% if context.node.blocks.has_key?('herounit') %>
     <div class="hero-unit">
       <div class="container">
         <webgen:block name="herounit" node="first" />
@@ -32,19 +35,16 @@
     </div>
     <% end %>
 
-    <nav>
-      <div class="container">
-        <div class="main-navigation">
-          {menu: {options: {mi: {main_menu: true}, flatten: true, sort: main_sort}}}
-        </div>
-      </div>
-    </nav>
-
     <section class="content">
       <div class="container">
         <div class="row">
           <div class="span8 content">
-            <div class="breadcrumb">{breadcrumb_trail: {separator: '<span class="divider">/</span>'}}</div>
+            <% if context.node.alcn != '/index.en.html' %>
+            <div class="breadcrumb">
+              <small><span class="divider">&rarr;</span>{breadcrumb_trail: {separator: '<span class="divider">&rarr;</span>', end_level: -2}}<span class="divider">&#8628;</span></small>
+              <h1>{title:}</h1>
+            </div>
+            <% end %>
             <webgen:block name="content" />
           </div>
 

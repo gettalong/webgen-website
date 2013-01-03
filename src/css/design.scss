@@ -36,6 +36,7 @@ body > header {
         h2 {
             margin-top: 0px;
             font-size: 160%;
+            font-styel: italic;
             @include text-overflow();
         }
     }
@@ -54,9 +55,26 @@ body > nav {
     color: $dark-background-color;
 
     .main-navigation {
+        a {
+            color: $dark-background-color;
+            &:hover {
+                color: $dark-background-color;
+                text-decoration: none;
+            }
+        }
+
+        h1 {
+            display: inline-block;
+            font-size: 140%;
+            margin: 0;
+            padding: 0 10px 0 0;
+            color: inherit;
+        }
+
         ul {
             margin: 0;
             padding: 0;
+            display: inline-block;
         }
         li {
             display: inline-block;
@@ -79,7 +97,6 @@ body > nav {
 
 body > section {
     background-color: lighten($light-background, 5%);
-    padding-top: 1em;
     padding-bottom: 1em;
 }
 
@@ -98,6 +115,11 @@ body > footer {
 
 
 /* Custom adpations and classes*/
+
+.breadcrumb h1 {
+    margin: 0;
+    padding-left: 10px;
+}
 
 dd {
     margin-left: 3em;

@@ -3,9 +3,12 @@
 
 $baseFontFamily: "Open Sans", 'Helvetica Neue', Helvetica, Arial, 'sans-serif' !default;
 $headingsFontFamily: "Economica", 'Helvetica Neue', Helvetica, Arial, 'sans-serif' !default;
+$headingsFontWeight: normal !default;
 
 @import "/bootstrap/bootstrap";
-@import "/bootstrap/responsive";
+@import "/bootstrap/responsive-768px-979px";
+@import "/bootstrap/responsive-767px-max";
+@import "/bootstrap/responsive-navbar";
 
 
 /* custom classes */
