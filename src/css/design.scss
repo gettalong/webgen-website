@@ -12,13 +12,16 @@
 }
 
 $dark-background: #202f4e;
-$light-background: #f0f0f0;
 $dark-background-color: #eee;
+
+$body-color: #e0e0e0;
+$content-color: #f0f0f0;
+$breadcrumb-color: #f8f8f8;
 
 body {
     padding: 0px;
     min-width: 310px;
-    background-color: $light-background;
+    background-color: $body-color;
 }
 
 body > header {
@@ -96,12 +99,12 @@ body > nav {
 }
 
 body > section {
-    background-color: lighten($light-background, 5%);
+    background-color: $content-color;
     padding-bottom: 1em;
 }
 
 body > footer {
-    border-top: 3px darken($light-background, 5%) solid;
+    border-top: 3px darken($body-color, 5%) solid;
     padding-top: 10px;
 }
 
@@ -113,13 +116,17 @@ body > footer {
     }
 }
 
+.breadcrumb {
+    @include border-radius(0);
+    background-color: $breadcrumb-color;
+    h1 {
+        margin: 0;
+        padding-left: 10px;
+    }
+}
+
 
 /* Custom adpations and classes*/
-
-.breadcrumb h1 {
-    margin: 0;
-    padding-left: 10px;
-}
 
 dd {
     margin-left: 3em;
