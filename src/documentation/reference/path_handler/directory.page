@@ -11,7 +11,7 @@ This path handler is used for directories, ie. it creates the destination direct
 No special setup is required for this handler to work.
 
 
-### Directory index path
+### Directory Index Path
 
 However, it is possible to specify an **index path** for a directory which is used instead of the
 plain directory index for displaying purposes. This means that whenever the path to a directory is
@@ -33,7 +33,7 @@ displaying warnings for such directories, you can set a null index path:
 This will prevent webgen from showing warnings because you explicitly define a null index path.
 
 
-### Localizing directory titles
+### Localizing Directory Titles
 
 The title for a directory can be set via the [title meta information] on the directory itself.
 However, if the directory has an index path, the [routed_title meta information] of the index path

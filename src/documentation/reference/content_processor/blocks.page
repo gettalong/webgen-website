@@ -38,14 +38,14 @@ During the rendering of the `index.page`, the node chain like shown above is cre
 is started at the *first* node in the chain, in this case at `default.template`. When the block tag
 is encountered, it is replaced by the block named `content` of the `index.page`, after rendering it
 according to its render pipeline. If such a block tag was not in the template, then the content of
-the `index.page` file would never be inserted into the destination file! The behaviour of the block
+the `index.page` node would never be inserted into the destination path! The behaviour of the block
 tag can be customized by using the various attributes.
 
 Summing up: The `template` meta information is used to create a node chain which is then used by the
 block tag to render the appropriate blocks.
 
 
-### XML element attributes
+### XML Element Attributes
 
 `name`
 : This attribute is the only **mandatory** attribute and it specifies the name of the block that

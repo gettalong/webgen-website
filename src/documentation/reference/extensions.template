@@ -1,6 +1,4 @@
 --- pipeline:erb,tags,link_defs,kramdown,blocks
-# {title:}
-
 <% context[:data] = context.send("#{context.node.parent.cn.sub(/\/$/, '')}_info", context.node['title']) %>
 
 <table class="table table-bordered table-reference">

@@ -11,7 +11,9 @@ fast Markdown processing. However, this processor does not support advanced feat
 > This extension is only available if the [rdiscount][1] library is installed. The preferred
 > way to do this is via Rubygems:
 >
->     gem install rdiscount
+> ~~~ shell
+> $ gem install rdiscount
+> ~~~
 {:.library-needed}
 
 [1]: http://github.com/rtomayko/rdiscount

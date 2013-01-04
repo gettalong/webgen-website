@@ -25,7 +25,7 @@ allowed in all Sitemap files!
 [locations]: http://www.sitemaps.org/protocol.html#location
 
 
-### Special meta information keys for sitemap nodes
+### Special Meta Information Keys for Sitemap Nodes
 
 entries (mandatory)
 : A [node finder] option set which specifies the paths that should be included in the sitemap.
@@ -49,7 +49,7 @@ default_priority (optional)
   This value is set to '0.5' by default via the `/default.metainfo` path.
 
 
-### Meta information keys of entry nodes used in a sitemap
+### Meta Information Keys of Entry Nodes Used in a Sitemap
 
 [modified_at][modified_at meta information]
 : Used for the last modification time of the sitemap entry.
@@ -67,7 +67,7 @@ priority
   See the [&lt;priority&gt; tag definition][priority] for more information.
 
 
-### Sitemap templates
+### Sitemap Templates
 
 webgen ships a template `/templates/sitemap.template` for the generation of the XML sitemap. This
 template needs to contain a **sitemap** block which is used for rendering the sitemap.

@@ -22,7 +22,7 @@ latter case is useful, for example, if one needs to define a standalone `default
 sub-directory which should provide a different look-and-feel for this sub-tree only.
 
 
-### Automatic template detection
+### Automatic Template Detection
 
 If the [template meta information] is not set, a simple algorithm is used for finding a suitable
 template node:
@@ -45,7 +45,7 @@ configuration option.
 {:.information}
 
 
-### Nested templates
+### Nested Templates
 
 webgen also uses the concept of a node chain to support multiple templates for one node. For
 example, assume that

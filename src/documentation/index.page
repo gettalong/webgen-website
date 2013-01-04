@@ -5,9 +5,9 @@ main_sort: 40
 link_attrs:
   link_text: "<i class='icon-book'></i> Documentation"
 ---
-## Documentation
+## Main Documentation
 
-## Additional resources
+## Additional Resources
 
 If you don't find an answer to your questions in this documentation, there are some additional
 resources you can try:
@@ -24,7 +24,7 @@ resources you can try:
 [wiki]: https://github.com/gettalong/webgen/wiki
 
 
-## Documentation for older webgen versions
+## Documentation for Older webgen Versions
 
 * The latest webgen 0.5.x documentation can be found
   [here](http://webgen.rubyforge.org/documentation/0.5.x/index.html).

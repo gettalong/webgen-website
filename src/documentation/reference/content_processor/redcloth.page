@@ -9,7 +9,9 @@ RedCloth library.
 > This extension is only available if the [redcloth][2] library is installed. The preferred
 > way to do this is via Rubygems:
 >
->     gem install RedCloth
+> ~~~ shell
+> $ gem install RedCloth
+> ~~~
 {:.library-needed}
 
 [1]: http://redcloth.org/textile

@@ -17,7 +17,7 @@ By default, both atom and RSS nodes are created for a feed node because of the m
 the `/default.metainfo` path.
 
 
-### Special meta information keys for feed nodes
+### Special Meta Information Keys for Feed Nodes
 
 entries (mandatory)
 : A [node finder] option set which specifies the paths that should be included in the feed.
@@ -48,7 +48,7 @@ content_block_name (optional)
   the name 'content' is used. Be aware that each feed entry node needs to have such a block!
 
 
-### Meta information keys of entry nodes used in a feed
+### Meta Information Keys of Entry Nodes Used in a Feed
 
 created_at
 : The time at which the entry was created. Only used as the publication time of the entry in atom
@@ -69,7 +69,7 @@ author_url
   also set and only used in atom feed nodes!
 
 
-### Feed templates
+### Feed Templates
 
 webgen ships a template `/templates/feed.template` for the generation of atom and RSS feeds. This
 template contains two blocks:

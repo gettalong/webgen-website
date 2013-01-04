@@ -10,7 +10,9 @@ Sass.
 > This extension is only available if you have installed the [sass][1] library. The preferred way to
 > do this is via Rubygems:
 >
->     gem install sass
+> ~~~ shell
+> $ gem install sass
+> ~~~
 {:.library-needed}
 
 [1]: http://sass-lang.com/
