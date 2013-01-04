@@ -48,6 +48,8 @@ website.blackboard.add_listener(:after_tree_populated) do
     name1, name2 = name.split('.')
     ref_links << "[#{name1.tr('_', ' ')}#{name2 ? " #{name2}" : ''}]: #{alcn} #{desc}\n"
   end
+  ref_links << "[content processors]: /documentation/reference/content_processor/ " <<
+    "'Information about and list of content processors'\n"
   ref_links << "\n"
   website.config.options.each do |name, option|
     alcn = '/documentation/reference/config_options.en.html#' << name.tr('_.', '')
