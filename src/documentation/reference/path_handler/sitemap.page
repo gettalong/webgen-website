@@ -1,0 +1,97 @@
+---
+title: path_handler.sitemap
+---
+## Description
+
+This path handler automatically **generates a sitemap** based on the specification of
+<http://sitemaps.org> from a path in [Webgen Page Format].
+
+The extension `sitemap` is automatically changed to `xml` for the destination path and canonical
+name.
+
+
+## Usage
+
+Sitemaps are used for informing search engines about pages on a site. Therefore a webgen website
+should have at least one sitemap.
+
+After a sitemap has been created and published, search engines need to be made aware of it. Have a
+look at the [respective section][informing] on the Sitemap protocol page.
+
+Also read the section about the possible [locations] of a Sitemap file because not all URLs are
+allowed in all Sitemap files!
+
+[informing]: http://www.sitemaps.org/protocol.html#informing
+[locations]: http://www.sitemaps.org/protocol.html#location
+
+
+### Special meta information keys for sitemap nodes
+
+entries (mandatory)
+: A [node finder] option set which specifies the paths that should be included in the sitemap.
+
+  Note that the resulting node set is flattened even if the 'flatten' option is not used.
+
+site_url (mandatory)
+: The base URL of the website for which the sitemap is generated. This is needed so that the URLs in
+  the sitemap can be created as absolute URLs.
+
+default_change_freq (optional)
+: The default change frequency of a path. This is used for paths that do not have the change_freq
+  meta information set.
+
+  This value is set to 'weekly' by default via the `/default.metainfo` path.
+
+default_priority (optional)
+: The default priority of a path. This is used for paths that do not have the priority meta
+  information set.
+
+  This value is set to '0.5' by default via the `/default.metainfo` path.
+
+
+### Meta information keys of entry nodes used in a sitemap
+
+[modified_at][modified_at meta information]
+: Used for the last modification time of the sitemap entry.
+
+  See the [&lt;lastmod&gt; tag definition][lastmod] for more information.
+
+change_freq
+: Used for the change frequency of the sitemap entry.
+
+  See the [&lt;changefreq&gt; tag definition][changefreq] for more information.
+
+priority
+: The priority of the path in respect to the other path in the sitemap.
+
+  See the [&lt;priority&gt; tag definition][priority] for more information.
+
+
+### Sitemap templates
+
+webgen ships a template `/templates/sitemap.template` for the generation of the XML sitemap. This
+template needs to contain a **sitemap** block which is used for rendering the sitemap.
+
+It is possible to customize the generated sitemap files by adding a **sitemap** block to the sitemap
+node itself or by customizing the `/templates/sitemap.template` template.
+
+
+[changefreq]: http://www.sitemaps.org/protocol.html#changefreqdef
+[lastmod]: http://www.sitemaps.org/protocol.html#lastmoddef
+[priority]: http://www.sitemaps.org/protocol.html#prioritydef
+
+
+## Example
+
+Here is an example for the content of a sitemap path:
+
+    ---
+    site_url: http://site.example.com/
+    entries:
+      alcn: /**/*.html
+    default_change_freq: daily
+    default_priority: 0.2
+    ---
+
+Note that there is no content block but only a meta information block with the special meta
+information keys that are needed.

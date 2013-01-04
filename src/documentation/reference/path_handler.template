@@ -1,0 +1,10 @@
+---
+template: extensions.template
+--- name:table-infos pipeline:erb
+<tr><th>Short name</th><td><%= h(context[:data][:name]) %></td></tr>
+<% unless context[:data][:patterns].empty? %>
+<tr><th>Path patterns</th><td><%= h(context[:data][:patterns]) %></td></tr>
+<% end %>
+<% unless context[:data][:mi_patterns].empty? %>
+<tr><th>Path patterns defined<br />via <code>/default.metainfo</code></th><td><%= h(context[:data][:mi_patterns]) %></td></tr>
+<% end %>

@@ -28,3 +28,9 @@ item_tracker/:
 
 item_tracker/*.html:
   template: ../item_tracker.template
+
+path_handler/:
+  title: Path Handlers
+
+path_handler/*.html:
+  template: ../path_handler.template

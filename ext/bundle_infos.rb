@@ -61,4 +61,14 @@ module BundleInfos
     data
   end
 
+  def path_handler_info(name)
+    name = name.sub(/^path_handler\./, '')
+    data = {}.update(ext_info("path_handler.#{name}"))
+    data[:patterns] = website.ext.path_handler.registered_extensions[name.to_sym].patterns
+    data[:mi_patterns] = website.ext.path_handler.instance('meta_info').instance_variable_get(:@paths).
+      select {|pattern, mi| Marshal.load(mi)['handler'] == name }.map {|pattern, mi| pattern}
+    data[:name] = name
+    data
+  end
+
 end

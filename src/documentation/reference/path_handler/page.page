@@ -1,0 +1,16 @@
+---
+title: path_handler.page
+---
+## Description
+
+This path handler uses paths in [Webgen Page Format] which contain the **actual content for the
+website**. Therefore this paths can also, optionally, contain meta information for the path.
+
+Note that the extension `page` is automatically changed to `html` for the destination path and
+canonical name.
+
+
+## Usage
+
+*In contrast* to other paths, page paths can never be unlocalized! If they have no language set, the
+default language specified using the [website.lang] configuration option is used.

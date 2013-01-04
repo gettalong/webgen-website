@@ -1,0 +1,79 @@
+---
+title: path_handler.template
+---
+## Description
+
+This path handler is used for website templates. Templates provide a way to specify the layout and
+the overall "picture" of a web page (contrast this with page paths used by the [path handler page]
+that define the content of a web page). Template paths have to be in [Webgen Page Format] (the
+format which is also used for page paths).
+
+
+## Usage
+
+Website templates are one thing what makes a static website generator a very useful tool. They allow
+one to create, for example, one template that defines the overall layout and styles that should be
+used on all web pages. The content, defined by a page node, is later filled in at the specified
+location to generate the full web page.
+
+It is possible to define the to-be-used template for a node via the [template meta information]. If
+this meta information key is set to the special value `null` (or `~`), no template is used. The
+latter case is useful, for example, if one needs to define a standalone `default.template` in a
+sub-directory which should provide a different look-and-feel for this sub-tree only.
+
+
+### Automatic template detection
+
+If the [template meta information] is not set, a simple algorithm is used for finding a suitable
+template node:
+
+1. If there is a default template (`default.template`) in the same directory as the page node, it is
+   used.
+
+2. Otherwise, the parent directory of the directory is used for step 1 and so on.
+
+3. Finally, the root directory is reached. If a default template isn't found in it either, no
+   template is used at all.
+
+   This means that when one creates a default template in the root directory, it is used as template
+   for all page nodes that have no explicit template set.
+
+The default template, as referenced above, can be changed via the [path_handler.default_template]
+configuration option.
+
+> Note that this algorithm is also used for finding the template node *for* a template node.
+{:.information}
+
+
+### Nested templates
+
+webgen also uses the concept of a node chain to support multiple templates for one node. For
+example, assume that
+
+* the page node `index.html` has set the [template meta information] to `special.template`,
+* the template node `special.template` has no [template meta information] set and
+* the page node `other.html` also has no [template meta information] set.
+
+The template chain for `index.html` would look like this
+
+{tikz:: {path: nested-template-index.png}}
+\node (A) at (0,0) [file] {default.template};
+\node (B) at (5cm,0) [file] {special.template};
+\node (C) at (10cm,0) [file] {index.html};
+\draw [chain] (A) -- (B);
+\draw [chain] (B) -- (C);
+{tikz}
+{: style="text-align: center"}
+
+whereas the template chain for `other.html` would look like this
+
+{tikz:: {path: nested-template-other.png}}
+\node (A) at (0,0) [file] {default.template};
+\node (B) at (5cm,0) [file] {index.html};
+\draw [chain] (A) -- (B);
+{tikz}
+{: style="text-align: center"}
+
+The first case also means that the `special.template` is nested in the `default.template`. This
+makes it possible, for example, to create a general website layout and then to create a special
+layout which uses the general one.

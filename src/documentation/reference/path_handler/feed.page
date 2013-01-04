@@ -1,0 +1,82 @@
+---
+title: path_handler.feed
+---
+## Description
+
+This path handler automatically **generates an atom or RSS feed** for a set of paths from a path in
+[Webgen Page Format].
+
+
+## Usage
+
+The atom and RSS feed nodes are created by specifying special node version names. Only the node
+version names 'rss' and 'atom' are allowed. So an RSS feed node is created if the 'rss' version name
+is specified and an atom node is created if the 'atom' version name is specified.
+
+By default, both atom and RSS nodes are created for a feed node because of the meta information in
+the `/default.metainfo` path.
+
+
+### Special meta information keys for feed nodes
+
+entries (mandatory)
+: A [node finder] option set which specifies the paths that should be included in the feed.
+
+  Note that the resulting node set is flattened even if the 'flatten' option is not used. It is also
+  advisable to use the `sort: modified_at` option to ensure that the feed entries are correctly
+  sorted!
+
+site_url (mandatory)
+: The base URL of the website for which the feed is generated. This is needed, for example, for
+  generating the absolute URLs in the feed files.
+
+author (mandatory)
+: Specifies the feed author.
+
+author_url (optional)
+: Specifies the URL of the homepage of the author.
+
+description (optional)
+: A short description for the feed.
+
+created_at (optional)
+: The time at which this feed was created. Defaults to the current time if not set. Only used in RSS
+  feed nodes.
+
+content_block_name (optional)
+: The name of the block that should be used for the content of the feed entries. If not specified
+  the name 'content' is used. Be aware that each feed entry node needs to have such a block!
+
+
+### Meta information keys of entry nodes used in a feed
+
+created_at
+: The time at which the entry was created. Only used as the publication time of the entry in atom
+  feed nodes.
+
+modified_at
+: The time at which the entry was last modified. Used as the publication time of the entry in RSS
+  feed nodes and as the update time of the entry in atom feed nodes.
+
+title
+: Used as title of the feed entry.
+
+author
+: The name of the author of the entry node. Only used in atom feed nodes!
+
+author_url
+: The URL of the homepage of the author of the entry node. Only used if the author information is
+  also set and only used in atom feed nodes!
+
+
+### Feed templates
+
+webgen ships a template `/templates/feed.template` for the generation of atom and RSS feeds. This
+template contains two blocks:
+
+* The **atom_template** block is used for the generation of atom feed nodes.
+* The **rss_template** block is used for the generation of RSS feed nodes.
+
+It is possible to customize the generated feed files by adding an **atom_template** block and/or and
+**rss_template** block to the feed node itself or by customizing the `/templates/feed.template`
+template.

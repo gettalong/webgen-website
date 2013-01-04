@@ -12,3 +12,6 @@ tag/index.html:
 
 item_tracker/index.html:
   dest_path: ../extensions.html#item_trackers
+
+path_handler/index.html:
+  dest_path: ../extensions.html#path_handlers

@@ -1,0 +1,41 @@
+---
+title: path_handler.directory
+---
+## Description
+
+This path handler is used for directories, ie. it creates the destination directories.
+
+
+## Usage
+
+No special setup is required for this handler to work.
+
+
+### Directory index path
+
+However, it is possible to specify an **index path** for a directory which is used instead of the
+plain directory index for displaying purposes. This means that whenever the path to a directory is
+requested (e.g. when using the [tag reloctable]), it is replaced with the path to the directory
+index.
+
+The name of this index path is specified with the [proxy_path meta information] (which needs to be
+set on the directory itself by using a meta info file, see [path handler meta_info]). The default
+value that is set on all directories via the `/default.metainfo` path is `index.html`.
+
+Since this default value is set on all directories, webgen shows a warning if it can not find the
+directory index path for a directory. However, there are most certainly directories which should not
+have or don't need an index path, for example, a directory containing images. To prevent webgen from
+displaying warnings for such directories, you can set a null index path:
+
+    dirWithOnlyImages:
+      proxy_path: null
+
+This will prevent webgen from showing warnings because you explicitly define a null index path.
+
+
+### Localizing directory titles
+
+The title for a directory can be set via the [title meta information] on the directory itself.
+However, if the directory has an index path, the [routed_title meta information] of the index path
+is used for the directory title. This enables webgen to provide correctly localized directory names.
+

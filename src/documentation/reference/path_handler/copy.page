@@ -1,0 +1,67 @@
+---
+title: path_handler.copy
+---
+## Description
+
+This path handler copies paths from the source to the destination, optionally processing the content
+with one or more [content processors]. It is most often used for CSS stylesheets, JavaScript files,
+images and other assets.
+
+
+## Usage
+
+This path handler has two modes of operation:
+
+* If no content processor pipeline is specified or can be deduced, the content is just copied from
+  the source to the destination.
+
+* Otherwise the content is processed using the content processor pipeline before writing it to the
+  destination.
+
+The following algorithm is used for finding the (optional) content processor pipeline:
+
+* If the [pipeline meta info] key is set on the source path, it is used.
+
+* If the source path has the short names of [content processors] as parts in the file extension, all
+  extension parts until the first non-content processor part will be used for the pipeline and
+  removed from the extension.
+
+  If the last extension part is a file extension registered for extension mapping with a content
+  processor (shown, if applicable, on the documentation page of a content processor), the
+  corresponding content processor is appended to the pipeline and the mapped file extension is used.
+
+
+## Examples
+
+Here are some examples to show how this path handler configures the processing pipeline in practice:
+
+* source path: `test.erubis.html` → `test.erubis.html` \\
+  meta info key pipeline: `[erb]` → `[erb]`
+
+  Since the pipeline key is set, the extension of the source path is not modified and the given
+  pipeline is used as is.
+
+* source path: `test.erb.kramdown.html` → `test.html` \\
+  meta info key pipeline: not set → `[erb, kramdown]`
+
+  No pipeline key is set, therefore the path handler copy looks at the extension parts. Since the
+  first and the second extension parts are valid content processor short names, they are used for
+  the content processor pipeline and the path extension remains `html`.
+
+* source path: `test.erb.kramdown.unknown.html` → `test.html` \\
+  meta info key pipeline: not set → `[erb, kramdown]`
+
+  Similar to the example above but since 'unknown' is not a valid content processor short name (as
+  is 'html') the resulting path extension is `unknown.html`.
+
+* source path: `test.erb.sass` → `test.css` \\
+  meta info key pipeline: not set → `[erb, sass]`
+
+  The first path extension part is a valid content processor short name and the second -- which is
+  also the last -- is a file extension registered for extension mapping by the [content processor
+  sass]. Therefore the resulting path extension is `css`.
+
+* source path: `test.sass` → `test.css` \\
+  meta info key pipeline: not set → `[sass]`
+
+  Similar to the example above but with just one extension part.
