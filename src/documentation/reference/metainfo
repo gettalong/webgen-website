@@ -3,34 +3,34 @@ content_processor/:
   title: Content Processors
 
 content_processor/*.html:
-  template: ../content_processor.template
+  template: /templates/documentation/content_processor.template
 
 source/:
   title: Sources
 
 source/*.html:
-  template: ../source.template
+  template: /templates/documentation/source.template
 
 destination/:
   title: Destinations
 
 destination/*.html:
-  template: ../destination.template
+  template: /templates/documentation/destination.template
 
 tag/:
   title: Tags
 
 tag/*.en.html:
-  template: ../tag.template
+  template: /templates/documentation/tag.template
 
 item_tracker/:
   title: Item Trackers
 
 item_tracker/*.html:
-  template: ../item_tracker.template
+  template: /templates/documentation/item_tracker.template
 
 path_handler/:
   title: Path Handlers
 
 path_handler/*.html:
-  template: ../path_handler.template
+  template: /templates/documentation/path_handler.template
