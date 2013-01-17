@@ -1,6 +1,6 @@
 --- paths
 /**/*.page:
-  blocks: {defaults: {pipeline: [erb,tags,link_defs,kramdown,blocks,fragments]}}
+  blocks: {defaults: {pipeline: [erb,tags,kramdown,blocks,fragments]}}
 
 --- alcn
 /:
