@@ -25,7 +25,7 @@ languages that lend themselves better to writing content. However, Haml would be
 writing template files (instead of, for example, writing plain HTML interspersed with ERB tags).
 
 Since Haml is a templating language like [ERB](erb.html), you can use the special `context` object
-(which is an instance of `Webgen::Context`) in your Haml markup. This object provides the rendering
+(which is an instance of [Webgen::Context]) in your Haml markup. This object provides the rendering
 context and many useful methods.
 
 Have a look at the [Haml tutorial][2] for an introduction to the basic syntax of Haml and/or below

@@ -9,7 +9,7 @@ of Ruby available for generating content.
 
 ## Usage
 
-You can use the special `context` object in the Ruby code which is an instance of `Webgen::Context`
+You can use the special `context` object in the Ruby code which is an instance of [Webgen::Context]
 and provides the rendering context and many useful methods. The methods from the `ERB::Utils` module
 are also available.
 

@@ -26,7 +26,7 @@ The tags that are inserted can be specified in various ways:
   can be set during the rendering of a page file by any extension on a page-per-page basis.
 
   This is accomplished by using the `context.html_head` object (an instance of
-  `Webgen::Context::HtmlHead::Proxy`). It provides utiltity methods for all possibilities.
+  [Webgen::Context::HtmlHead::Proxy]). It provides utiltity methods for all possibilities.
 
 * Arbitrary meta tags can be inserted on a page-per-page basis by the user by setting the meta
   information key ["meta"](../references/meta_info_keys.html#meta) on a page file.
@@ -40,5 +40,5 @@ The tags that are inserted can be specified in various ways:
 
 The processor also automatically inserts `link` tags to translations of the rendered page file.
 
-Developers wanting to use the functionality of this content processor should have a look at its [API
-documentation](../rdoc/Webgen/ContentProcessor/HtmlHead.html).
+Developers wanting to use the functionality of this content processor should have a look at the API
+documentation of [Webgen::ContentProcessor::HtmlHead].

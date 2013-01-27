@@ -15,7 +15,7 @@ No special setup is required for this handler to work.
 
 However, it is possible to specify an **index path** for a directory which is used instead of the
 plain directory index for displaying purposes. This means that whenever the path to a directory is
-requested (e.g. when using the [tag reloctable]), it is replaced with the path to the directory
+requested (e.g. when using the [tag relocatable]), it is replaced with the path to the directory
 index.
 
 The name of this index path is specified with the [proxy_path meta information] (which needs to be

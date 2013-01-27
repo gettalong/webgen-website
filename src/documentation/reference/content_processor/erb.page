@@ -15,7 +15,7 @@ looking at its [API documentation][1]!
 
 ## Usage
 
-You can use the special `context` object in your ERB code which is an instance of `Webgen::Context`
+You can use the special `context` object in your ERB code which is an instance of [Webgen::Context]
 and provides the rendering context and many useful methods.
 
 The configuration option [content_processor.erb.trim_mode] can be used to customize how ERB trims

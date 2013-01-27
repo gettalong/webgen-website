@@ -27,7 +27,7 @@ that way. The builder object is provided by the `xml` object which is an instanc
 Once the content is processed, it is replaced by the result of `xml.target!` which returns the
 generated XML document.
 
-The `Webgen::Context` object is available, as usual, through the `context` object.
+The [Webgen::Context] object is available, as usual, through the `context` object.
 
 
 ## Examples

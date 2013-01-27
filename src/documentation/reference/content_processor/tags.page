@@ -33,7 +33,7 @@ called. If no extension for a tag exists, there are two possibilities: If a defa
 exists, then this default extension is called. Otherwise an error is raised.
 
 For information on how to create such a tag extension have a look at the API documentation of the
-`Webgen::Tag` class.
+[Webgen::Tag] class.
 
 
 ## Syntax for webgen Tags       {#syntax}

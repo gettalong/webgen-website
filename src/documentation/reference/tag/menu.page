@@ -48,10 +48,10 @@ need to create a separate template).
 
 There are some special objects for use in a menu template:
 
-`context[:nodes]`
+context[:nodes]
 : Contains the menu nodes, ie. the [node finder] extension search result.
 
-`Webgen::Tag::Menu.menu_item_details`
+[Webgen::Tag::Menu::menu_item_details]
 : This utility method can be used to return the needed list item "class" attribute and the link to
   the menu item. See its API documentation for more information!
 

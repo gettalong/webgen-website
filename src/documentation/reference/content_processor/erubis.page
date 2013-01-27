@@ -21,7 +21,7 @@ other useful options.
 ## Usage
 
 As with the [content processor erb] you can use the special `context` object in your ERB code which
-is an instance of `Webgen::Context` and provides the rendering context and many useful methods.
+is an instance of [Webgen::Context] and provides the rendering context and many useful methods.
 
 The default mode of Erubis works like ERB. So everything said on the [content processor erb] page is
 also true for Erubis. Additionally, you can customize how this processor works by using the
