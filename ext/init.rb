@@ -8,7 +8,7 @@ require_relative('kramdown_adaptions')
 
 website.blackboard.add_listener(:website_generated) do
   data = {
-    'content_processor' => ['link_defs'],
+    'content_processor' => [],
     'source' => ['stacked'],
     'destination' => [],
     'item_tracker' => [],
@@ -37,26 +37,20 @@ website.blackboard.add_listener(:website_generated) do
   end
 end
 
+link_defs = website.ext.link_definitions
 
-ref_links = "\n\n"
-website.blackboard.add_listener(:after_tree_populated) do
-  BundleInfos.bundles(website).each do |name, infos|
-    next unless name.include?('.') || %w{node_finder}.include?(name)
-    alcn = '/documentation/reference/' << name.sub(/\./, '/') << ".en.html"
-    desc = "'#{infos['summary'].tr("\n", ' ')}'"
-    ref_links << "[#{name}]: #{alcn} #{desc}\n"
-    name1, name2 = name.split('.')
-    ref_links << "[#{name1.tr('_', ' ')}#{name2 ? " #{name2}" : ''}]: #{alcn} #{desc}\n"
-  end
-  ref_links << "[content processors]: /documentation/reference/content_processor/ " <<
-    "'Information about and list of content processors'\n"
-  ref_links << "\n"
-  website.config.options.each do |name, option|
-    alcn = '/documentation/reference/config_options.en.html#' << name.tr('_.', '')
-    desc = option.description.include?('"') ? '' : " \"#{option.description}\""
-    ref_links << "[#{name}]: #{alcn}#{desc}\n"
-    ref_links << "[#{name} configuration option]: #{alcn}#{desc}\n"
-  end
+BundleInfos.bundles(website).each do |name, infos|
+  next unless name.include?('.') || %w{node_finder}.include?(name)
+  alcn = '/documentation/reference/' << name.sub(/\./, '/') << ".en.html"
+  link_defs[name] = [alcn, infos['summary'].tr("\n", ' ')]
+  name1, name2 = name.split('.')
+  link_defs[name1.tr('_', ' ') + (name2 ? " #{name2}" : '')] = link_defs[name]
+end
+link_defs['content processors'] = ['/documentation/reference/content_processor/',
+                                   'Information about and list of content processors']
+website.config.options.each do |name, option|
+  alcn = '/documentation/reference/config_options.en.html#' << name.tr('_.', '')
+  link_defs["#{name} configuration option"] = link_defs[name] = [alcn, option.description]
 end
 
 website.blackboard.add_listener(:website_generated) do
@@ -74,9 +68,4 @@ website.blackboard.add_listener(:website_generated) do
       website.logger.warn { "No documentation page for '#{name}' at <#{alcn}> found" }
     end
   end
-end
-
-website.ext.content_processor.register('link_defs') do |context|
-  context.content << ref_links
-  context
 end
