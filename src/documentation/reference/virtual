@@ -15,3 +15,6 @@ item_tracker/index.html:
 
 path_handler/index.html:
   dest_path: ../extensions.html#path_handlers
+
+api/index.html:
+  dest_path: ../../index.html

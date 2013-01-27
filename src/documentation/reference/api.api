@@ -1,0 +1,3 @@
+---
+rdoc_options: ../webgen/lib/ --root ../webgen/
+prefix_for_link_defs: false

@@ -34,3 +34,7 @@ path_handler/:
 
 path_handler/*.html:
   template: /templates/documentation/path_handler.template
+
+api/**/*.html:
+  link:
+    css: /stylesheets/api.css
