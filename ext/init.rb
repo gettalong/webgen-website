@@ -13,7 +13,8 @@ website.blackboard.add_listener(:website_generated) do
     'destination' => [],
     'item_tracker' => [],
     'tag' => ['r', 'default'],
-    'task' => []
+    'task' => [],
+    'path_handler' => [],
   }
 
   data.each do |ext_name, ignored|
