@@ -40,14 +40,17 @@ end
 
 link_defs = website.ext.link_definitions
 
-BundleInfos.bundles(website).each do |name, infos|
-  next unless name.include?('.') || %w{node_finder}.include?(name)
-  alcn = '/documentation/reference/' << name.sub(/\./, '/') << ".en.html"
-  link_defs[name] = [alcn, infos['summary'].tr("\n", ' ')]
-  name1, name2 = name.split('.')
-  link_defs[name1.tr('_', ' ') + (name2 ? " #{name2}" : '')] = link_defs[name]
+website.ext.bundle_infos.extensions.each do |name, infos|
+  alcn = '/documentation/reference/extensions/' << name.sub(/\./, '/') << ".en.html"
+  data = [alcn, infos['summary'].tr("\n", ' ')]
+  link_defs["#{name} extension"] = data
+  if name.include?('.')
+    link_defs[name] = data
+    name1, name2 = name.split('.')
+    link_defs[name1.tr('_', ' ') + (name2 ? " #{name2}" : '')] = data
+  end
 end
-link_defs['content processors'] = ['/documentation/reference/content_processor/',
+link_defs['content processors'] = ['/documentation/reference/extensions/content_processor/',
                                    'Information about and list of content processors']
 website.config.options.each do |name, option|
   alcn = '/documentation/reference/config_options.en.html#' << name.tr('_.', '')

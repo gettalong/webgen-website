@@ -2,7 +2,7 @@
 title: Reference Documentation
 ---
 
-This is definite reference for all things webgen! You will find in-depth information about
+This is the definite reference for all things webgen! You will find in-depth information about
 everyting, from file formats, configuration options, meta information keys to extension
 documentation:
 
@@ -17,6 +17,6 @@ documentation:
 : Information about/Specification of the file format used by all custom webgen file types, for
   example, by page and template files.
 
-[**Extensions**](extensions.html)
+[**Extensions**](extensions/)
 : Detailed information on every built-in extension, be it content processors, path handlers, tags,
   ...
