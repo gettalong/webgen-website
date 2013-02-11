@@ -1,24 +1,15 @@
 module BundleInfos
 
-  def self.bundles(website)
-    unless defined?(@ext_infos)
-      @ext_infos = {}
-      website.ext.bundles.each do |bundle, info_file|
-        next if info_file.nil?
-        infos = YAML.load(File.read(info_file))
-        next unless infos['extensions']
-        infos['extensions'].each do |n, d|
-          d['bundle'] = bundle
-          d['author'] ||= infos['author']
-        end
-        @ext_infos.update(infos['extensions'])
-      end
-    end
-    @ext_infos
+  def ws_extensions
+    website.ext.bundle_infos.extensions
+  end
+
+  def ws_options
+    website.ext.bundle_infos.options
   end
 
   def ext_info(name)
-    BundleInfos.bundles(website)[name] || (website.logger.warn("Unknown extension: #{name}"); {})
+    ws_extensions[name] || (website.logger.warn("Unknown extension: #{name}"); {})
   end
 
   def content_processor_info(name)

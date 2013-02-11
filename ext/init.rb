@@ -18,7 +18,7 @@ website.blackboard.add_listener(:website_generated) do
   }
 
   data.each do |ext_name, ignored|
-    nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/#{ext_name}/*.html", :flatten => true,
+    nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/extensions/#{ext_name}/*.html", :flatten => true,
                                            :not => {:alcn => '/**/index.html'}, :lang => 'en'},
                                          website.tree.root)
     website.ext.send(ext_name).registered_extensions.each do |name, data|
@@ -52,14 +52,14 @@ website.ext.bundle_infos.extensions.each do |name, infos|
 end
 link_defs['content processors'] = ['/documentation/reference/extensions/content_processor/',
                                    'Information about and list of content processors']
-website.config.options.each do |name, option|
-  alcn = '/documentation/reference/config_options.en.html#' << name.tr('_.', '')
-  link_defs["#{name} configuration option"] = link_defs[name] = [alcn, option.description]
+website.ext.bundle_infos.options.each do |name, infos|
+  alcn = '/documentation/reference/configuration_options.en.html#' << name.tr('_.', '')
+  link_defs["#{name} configuration option"] = link_defs[name] = [alcn, infos['summary']]
 end
 
 website.blackboard.add_listener(:website_generated) do
   next # TODO: renable after most things are done!
-  BundleInfos.bundles(website).each do |name, infos|
+  website.ext.bundle_infos.extensions.each do |name, infos|
     next unless name.include?('.')
     alcn = '/documentation/reference/' << name.sub(/\./, '/') << ".en.html"
     if !website.tree[alcn]
