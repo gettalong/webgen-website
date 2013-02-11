@@ -1,0 +1,40 @@
+---
+title: Configuration Options
+--- pipeline:erb,kramdown,fragments
+This reference describes all available configurations that can be set via the [configuration
+file](../manual.html#website-configfile) `webgen.config`.
+
+The configuration options are listed in alphabetical order. For each configuration option a short
+description and example code are displayed. The example code either shows how to set the option in
+the configuration file (for most configuration options) and/or how to use it in a webgen tag (for
+tag configuration options).
+
+<%
+require 'psych'
+
+convert = lambda do |data|
+  Psych.to_json(data).sub(/\n\.\.\.\Z/, '')
+end
+indent = lambda do |data, indent|
+  data.split("\n").collect {|l| ' '*indent + l}.join("\n")
+end
+
+output = context.ws_options.sort.each_with_object('') do |(name, infos), str|
+  str << "### #{name}\n\n"
+  str << infos['summary'] << "\n\n"
+  str << "Syntax\n: " << indent.call(infos['syntax'], 2).lstrip << "\n\n"
+  str << "Default value\n: \n" <<
+    indent.call(convert.call((context.website.config.options[name].default rescue '')), 8) << "\n\n"
+  if infos['example'] && infos['example']['config']
+    str << "Example for setting the option in the configuration file\n: \n" <<
+      indent.call(infos['example']['config'], 8) << "\n\n"
+  end
+  if infos['example'] && infos['example']['tag']
+    str << "Example for setting the option directly in a tag\n: \n" <<
+      indent.call(infos['example']['tag'], 8) << "\n\n"
+  end
+end
+
+%>
+<%= output %>
+
