@@ -54,22 +54,63 @@ link_defs['content processors'] = ['/documentation/reference/extensions/content_
                                    'Information about and list of content processors']
 website.ext.bundle_infos.options.each do |name, infos|
   alcn = '/documentation/reference/configuration_options.en.html#' << name.tr('_.', '')
-  link_defs["#{name} configuration option"] = link_defs[name] = [alcn, infos['summary']]
+  link_defs["#{name} configuration option"] = link_defs[name] = [alcn, infos['summary'][/\A.*?(\.|\Z)/m]]
+end
+
+
+########################################################################
+# extension documentation helpers
+
+option('tag.describe_ext.names', '')
+website.ext.tag.register('describe_ext', config_prefix: 'tag.describe_ext', :mandatory => ['names']) do |tag, body, context|
+  result = "<dl>"
+  context[:config]['tag.describe_ext.names'].map do |ext|
+    if ext.include?('*')
+      context.ws_extensions.keys.select {|k| File.fnmatch(ext, k)}
+    else
+      ext
+    end
+  end.flatten.each do |ext|
+    ext_path = "#{ext.tr('.', '/')}.html"
+    if n = context.website.tree['/documentation/reference/extensions/'].resolve(ext_path, context.node.lang, true)
+      summary = context.ext_info(ext)['summary']
+      website.cache[:referenced_extensions] << ext
+      result << "<dt><h5 id=\"#{ext}\">#{context.dest_node.link_to(n)}</h5></dt><dd>#{ERB::Util.h(summary)}</dd>"
+    end
+  end
+  result << "</dl>"
+end
+
+website.blackboard.add_listener(:website_initialized) do
+  require 'set'
+  website.cache[:referenced_extensions] ||= []
 end
 
 website.blackboard.add_listener(:website_generated) do
-  next # TODO: renable after most things are done!
-  website.ext.bundle_infos.extensions.each do |name, infos|
-    next unless name.include?('.')
-    alcn = '/documentation/reference/' << name.sub(/\./, '/') << ".en.html"
-    if !website.tree[alcn]
-      website.logger.warn { "No documentation page for '#{name}' at <#{alcn}> found" }
-    end
+  excluded = %w[source.stacked]
+  website.cache[:referenced_extensions].uniq!
+  (website.ext.bundle_infos.extensions.keys - website.cache[:referenced_extensions] - excluded).each do |ext|
+    website.logger.error { "Missing link for extension '#{ext}'"}
   end
+end
+
+
+########################################################################
+# config option documentation helpers
+
+ignore_options = ['tag.describe_ext.names']
+
+# Check if there are fragment nodes for all configuration options
+website.blackboard.add_listener(:after_node_written) do |node|
+  next unless node.cn == 'configuration_options.html'
+
   website.config.options.each do |name, option|
-    alcn = '/documentation/reference/config_options.en.html#' << name.tr('_.', '')
-    if !website.tree[alcn]
-      website.logger.warn { "No documentation page for '#{name}' at <#{alcn}> found" }
+    next if ignore_options.include?(name)
+
+    alcn = node.alcn + '#' + name.tr('_.', '')
+    if !website.tree.resolve_node(alcn, node.lang)
+      website.ext.item_tracker.add(node, :missing_node, alcn, node.lang)
+      website.logger.error { "Missing documentation for configuration option '#{name}'"}
     end
   end
 end

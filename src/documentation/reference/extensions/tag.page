@@ -1,0 +1,13 @@
+---
+title: Tags
+---
+
+These extensions allow the easy inclusion of dynamic content in, for example, page and template
+paths. No knowledge of a programming language is needed to make effective use of tags and each tag
+is used for a specific task like creating a menu or a breadcrumb trail.
+
+Information about how to create a tag is found in the [Webgen::Tag] API documentation.
+
+## List of Tag Extensions
+
+{describe_ext: [tag.*]}

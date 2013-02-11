@@ -1,0 +1,18 @@
+---
+title: Item Trackers
+---
+
+Item tracker extensions are used for tracking items of nodes so that webgen can do partial website
+generation. Only those nodes where at least one item has changed are re-generated.
+
+All built-in extensions use item trackers to ensure the correct re-generation of a website. If one
+creates custom extensions or uses template engine for customization of a website, use of the correct
+item trackers should be considered to ensure correct website re-generation.
+
+Information about how to create an item tracker is found in the [Webgen::ItemTracker] API
+documentation.
+
+
+## List of Item Tracker Extensions
+
+{describe_ext: ['item_tracker.*']}

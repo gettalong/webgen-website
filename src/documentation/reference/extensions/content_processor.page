@@ -1,0 +1,65 @@
+---
+title: Content Processors
+---
+
+These extensions process content, i.e. they either convert data from one format to another or make
+other changes to the data. Content processors are used, for example, in the transformation pipeline
+of page and template paths.
+
+It is not specified how content processors have to process the content, they are free to do
+anything, even binary transformations (e.g. creating a thumbnail from a picture). Each content
+processor is identified by one or more *short names* (used, for example, in the `pipeline` option of
+a block in a path in [Webgen Page Format]) which are listed on the documentation page of a content
+processor.
+
+Information about how to create a content processor is found in the [Webgen::ContentProcessor] API
+documentation.
+
+Content processors can be divided into several groups which are shown below.
+
+## Special purpose processors
+
+These processors perform very useful tasks which are nearly always used in the transformation
+pipeline of page/template paths.
+
+{describe_ext: [content_processor.blocks, content_processor.tags, content_processor.fragments,
+content_processor.html_head]}
+
+
+## Markup processors
+
+These processors convert markup text that is easy to read and write to a more structured format like
+HTML. This allows you to write an HTML page without knowing HTML.
+
+{describe_ext: [content_processor.kramdown, content_processor.maruku, content_processor.rdiscount,
+content_processor.rdoc, content_processor.redcloth]}
+
+
+## Template engines
+
+These processors are used to add dynamic parts to the processed content.
+
+{describe_ext: [content_processor.builder, content_processor.erb, content_processor.erubis,
+content_processor.haml, content_processor.ruby]}
+
+
+## CSS preprocessors
+
+These processors allow you to write CSS files in an easier way, for example, they allow the usage of
+variables to avoid spreading the same data over the whole file.
+
+{describe_ext: [content_processor.sass, content_processor.scss]}
+
+
+## Post processors
+
+These processors are used to post-process HTML files.
+
+{describe_ext: [content_processor.tidy, content_processor.xmllint]}
+
+
+## Other processors
+
+These processors don't fit into any of the above categories.
+
+{describe_ext: [content_processor.tikz]}

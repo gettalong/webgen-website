@@ -1,0 +1,16 @@
+---
+title: Destinations
+---
+
+Destination extensions are used to write out the generated content. The default configuration for a
+new website writes the generated content to the `out` directory of the website directory.
+
+However, one could, for example, create a destination extension which directly writes to an FTP or
+SSH server.
+
+Information about how to create a destination extension is found in the [Webgen::Destination] API
+documentation.
+
+## List of Destination Extensions
+
+{describe_ext: [destination.*]}

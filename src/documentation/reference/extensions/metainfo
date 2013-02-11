@@ -1,36 +1,42 @@
 --- alcn
 content_processor/:
   title: Content Processors
+  proxy_path: ../content_processor.html
 
 content_processor/*.html:
   template: /templates/documentation/content_processor.template
 
 source/:
   title: Sources
+  proxy_path: ../source.html
 
 source/*.html:
   template: /templates/documentation/source.template
 
 destination/:
   title: Destinations
+  proxy_path: ../destination.html
 
 destination/*.html:
   template: /templates/documentation/destination.template
 
 tag/:
   title: Tags
+  proxy_path: ../tag.html
 
 tag/*.en.html:
   template: /templates/documentation/tag.template
 
 item_tracker/:
   title: Item Trackers
+  proxy_path: ../item_tracker.html
 
 item_tracker/*.html:
   template: /templates/documentation/item_tracker.template
 
 path_handler/:
   title: Path Handlers
+  proxy_path: ../path_handler.html
 
 path_handler/*.html:
   template: /templates/documentation/path_handler.template
