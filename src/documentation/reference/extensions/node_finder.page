@@ -1,0 +1,214 @@
+---
+title: node_finder
+---
+## Description
+
+This extension provides an easy way to search and find nodes that are matched by filters. There are
+already many predefined filters available and it is easy to define custom filters. Apart from
+filters the node finder extension also supports some non-filter options which can be used, for
+example, for sorting the nodes or limiting the result set.
+
+The found nodes are either returned in a flat list or hierarchical in nested lists. This means, for
+example, that the [tag menu] either creates only one unordered list or nested unordered lists.
+
+Information about how to create custom node finder filters is found in the [Webgen::NodeFinder] API
+documentation.
+
+
+## Available Node Finder Options
+
+There are two different types of node finder options: non-filter options and filter options. These
+types are declared below and all built-in options are explained. Note that there may also be other
+third party node filter options available if extension bundles are used!
+
+
+### Non-filter Options
+
+These options are not used for filtering out nodes but provide additional functionality. They are
+applied once the initial node set based on the filter options has been determined and therefore may
+change the result.
+
+#### flatten
+
+Value: `true` or `null`/`false`.
+
+A flat list of nodes is returned if this option is set to `true`. Otherwise the nodes are returned
+in their correct hierarchical order using nested lists.
+
+Note that any missing nodes in the hierarchy are automatically added so that traversing the
+hierarchy is always possible. For example, if we have the tree `/a/b/c` and only nodes `a` and `c`
+are found, node `b` is also automatically used.
+
+
+#### levels
+
+Value: one integer (is used as start and end level) or an array with two integers (the start and end
+levels).
+
+All nodes whose hierarchy level in the returned node hierarchy is greater than or equal to the start
+level and lower than or equal to the end level are used.
+
+Note that this option is only used when the node hierarchy is not flattened.
+
+#### limit
+
+Value: an integer.
+
+Specifies the maximum number of nodes that should be returned. Implies `flatten: true`.
+
+Note that fewer nodes may be returned if fewer nodes are matched by the filter options!
+
+#### offset
+
+Value: an integer.
+
+Specifies how many nodes from the front of the list should *not* be returned. Implies `flatten:
+true`.
+
+#### reverse
+
+Value: `true` or `false`/`null`.
+
+If this option is set to `true`, the sort order is reversed.
+
+#### sort
+
+Value: `null`/`false`, `true` or a meta information key.
+
+If `null` or `false` is specified, no sorting is performed. If `true` is specified, the meta
+information `sort_info` (or if absent, the meta information `title`) is used for sorting. If the
+compared values are both integers, a numeric comparison is done, else a string comparison. If a meta
+information key is specified, the value of this meta information is used for comparison of nodes
+(again, if both compared values are integers, a numeric comparison is done, else a string
+comparison).
+
+
+### Filter options
+
+These options are used for filtering the nodes. All nodes are used by default if no filter
+options are specified.
+
+#### alcn
+
+Value: an (a)(l)cn pattern or an array of (a)(l)cn patterns.
+
+Nodes that match any of the patterns are used.
+
+#### lang
+
+Value: a language code/`null`/the special value `node` or an array of these values.
+
+Nodes that have one of the specified language codes, are language independent (in case of the value
+`null`) or have the same language as the reference node (in case of the value `node`) are used.
+
+#### mi
+
+Value: a hash with meta information key to value mappings.
+
+Only nodes that have the same values for all meta information keys are used.
+
+#### absolute_levels
+
+Value: one integer (is used as start and end level) or an array with two integers (the start and end
+levels).
+
+All nodes whose hierarchy level in the node tree are greater than or equal to the start level and
+lower than or equal to the end level are used.
+
+Negative numbers, where -1 represents the reference node, -2 its parent node and so on, can also be
+used.
+
+#### and
+
+Value: a node finder option set or an array of node finder options sets (specifying option set names
+is also possible).
+
+Only nodes that appear in all specified option sets are used.
+
+#### or
+
+Value: a node finder option set or an array of node finder options sets (specifying option set names
+is also possible).
+
+Nodes that appear in any specified option set are additionally used.
+
+#### not
+
+Value: a node finder option set or an array of node finder options sets (specifying option set names is
+also possible).
+
+Only nodes that do not appear in any specified option set are used.
+
+#### ancestors
+
+Value: `true` or `false`/`null`.
+
+If this filter option is set to `true`, only nodes that are ancestors of the reference node are
+used. The reference node itself is used as well.
+
+#### descendants
+
+Value: `true` or `false`/`null`.
+
+If this filter option is set to `true`, only nodes that are descendants of the reference node are
+used. The reference node itself is used as well.
+
+#### siblings
+
+Value: `true`, `false`/`null`, or an array with two integers.
+
+If this filter option is set to `true`, only nodes that are sibling node of the reference node are
+used. The reference node itself is used as well. If set to `false` or `null`, this filter is
+ignored.
+
+If an array with two numbers is specified, all sibling nodes of the reference node or its
+parent nodes the hierarchy level of which lies between these numbers are used. The parent
+nodes and the reference node are used as well if their level lies between the numbers.
+Counting starts at zero (the root node).
+
+Negative numbers, where -1 represents the reference node, -2 its parent node and so on, can also be
+used.
+
+
+## Examples
+
+The node finder extension should always be used when one only needs a subset of all nodes. For
+example, the [path handler sitemap], [path handler feed] and [tag menu] use it.
+
+Here are some examples that show common use cases.
+
+
+### Horizontal Main Menu
+
+    \{sort: true, mi: {in_menu: true}, absolute_levels: 1}
+
+The first two options make sure that only pages that have the meta information `in_menu` set to
+`true` are used and that the result is sorted. The last option makes sure that only the top level
+menu items are used (because a simple horizontal menu only needs those).
+
+
+### Sidebar Menu
+
+    \{sort: true, mi: {in_menu: true}, siblings: [0, -1]}
+
+This one is similar to the above. However, the last option ensures that only the sibling nodes of
+the reference node and of all its parents are used.
+
+
+### Sidebar Menu With a Maximum of Two Levels
+
+    \{sort: true, mi: {in_menu: true}, absolute_levels: [2,3], and: {absolute_levels: [2, -1]}}
+
+The first occurence of the `absolute_levels` option ensures that only those nodes with a level of 2
+or 3 are used. The `and` option and its nested `absolute_levels` option then ensure that if the
+reference node is level 2, all level 3 nodes are not used (because the value of the
+`absolute_levels` option evaluates to `[2, 2]`).
+
+
+### Menu of Fragment Nodes
+
+    \{descendants: true, levels: [2, 10]}
+
+This option set can be used to show the fragment nodes for a page because fragment nodes are
+descendants of the reference node. The `levels` option starts from two so that the reference node
+itself is not used.
