@@ -8,8 +8,7 @@ This processor provides an easy method for adding dynamic content to web pages. 
 to generate menus and breadcrumb trails, include files and much more.
 
 webgen already comes with many tags that handle simple things, like including a file, to advanced
-things, like generating a menu. See the [tag extension](../reference.html#tags) for a list of
-available tags.
+things, like generating a menu. See the [tag extension][tags] for a list of available tags.
 
 
 ## Usage

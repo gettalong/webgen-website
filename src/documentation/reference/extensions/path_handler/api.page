@@ -87,7 +87,7 @@ api_template (optional)
 ### Automatically Defined Link Definitions
 
 To simplify linking to classes and methods, this path handler also automatically creates the
-necessary entries for the [link definition extension].
+necessary entries for the [link_definitions extension].
 
 The following link definition names are created:
 

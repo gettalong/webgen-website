@@ -48,7 +48,7 @@ need to create a separate template).
 
 There are some special objects for use in a menu template:
 
-context[:nodes]
+context\[:nodes]
 : Contains the menu nodes, ie. the [node finder] extension search result.
 
 [Webgen::Tag::Menu::menu_item_details]
@@ -68,8 +68,8 @@ built-in filters, one just needs to write a custom filter.
 A standard technique for selecting nodes for the main menu is to select all nodes which have a
 certain meta information key set.
 
-Most website templates (e.g. the templates in the official [webgen-templates-bundle]) use the meta
-information 'in_menu' to select the nodes and the default sorting mechanism (based on the meta
+Most website templates (e.g. the templates in the official [webgen-templates-bundle][1]) use the
+meta information 'in_menu' to select the nodes and the default sorting mechanism (based on the meta
 information 'sort_info' and/or 'title'). To generate the menu using these criterias one can use the
 following menu tag:
 
@@ -111,3 +111,6 @@ headings:
 
 The 'descendants' filter selects the node itself and all descendant nodes, the 'levels' filter makes
 sure that only the fragment nodes (the node itself would have level 1) are displayed.
+
+
+[1]: https://github.com/gettalong/webgen-templates-bundle
