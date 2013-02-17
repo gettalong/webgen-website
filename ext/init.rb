@@ -7,34 +7,29 @@ website.ext.context_modules << BundleInfos
 require_relative('kramdown_adaptions')
 
 website.blackboard.add_listener(:website_generated) do
-  data = {
-    'content_processor' => [],
-    'source' => ['stacked'],
-    'destination' => [],
-    'item_tracker' => [],
-    'tag' => ['r', 'default', 'describe_ext'],
-    'task' => [],
-    'path_handler' => [],
-  }
+  ignored = %w[source.stacked tag.r tag.default tag.describe_ext]
 
-  data.each do |ext_name, ignored|
-    nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/extensions/#{ext_name}/*.html", :flatten => true,
-                                           :not => {:alcn => '/**/index.html'}, :lang => 'en'},
-                                         website.tree.root)
-    website.ext.send(ext_name).registered_extensions.each do |name, data|
-      next if ignored.include?(name.to_s)
-      node = nodes.find {|n| n.lcn == "#{name}.en.html"}
-      if !node
-        website.logger.warn { "No documentation for #{ext_name} '#{name}'" }
-      elsif node['title'] != "#{ext_name}.#{name}"
-        website.logger.warn { "Node title for documentation of #{ext_name} '#{name}' not correct" }
-      end
-      nodes.delete(node) if node
+  doc_pages = []
+  nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/extensions/**/*.html", :flatten => true,
+                                         :not => {:alcn => '/**/index.en.html'}, :lang => 'en'},
+                                       website.tree.root)
+  website.ext.bundle_infos.extensions.each do |name, infos|
+    alcn = '/documentation/reference/extensions/' << name.sub(/\./, '/') << ".en.html"
+    next if ignored.include?(name.to_s)
+    node = nodes.find {|n| n.alcn == alcn}
+    if !node
+      website.logger.warn { "No documentation for extension '#{name}'" }
+    elsif node['title'] != name
+      website.logger.warn { "Node title for documentation of extension '#{name}' not correct" }
     end
-    if !nodes.empty?
-      nodes = nodes.map {|n| n.cn.sub(/\.html$/, '') }.join(', ')
-      website.logger.warn { "Documentation pages found for unknown #{ext_name}: #{nodes}" }
-    end
+    nodes.delete(node) if node
+  end
+
+  if !nodes.empty?
+    nodes = nodes.map do |n|
+      n.alcn.sub(/\/documentation\/reference\/extensions\//, '').sub(/\.html$/, '')
+    end.join(', ')
+    website.logger.warn { "Documentation pages found for unknown extensions: #{nodes}" }
   end
 end
 
