@@ -3,7 +3,7 @@ title: path_handler.directory
 ---
 ## Description
 
-This path handler is used for directories, ie. it creates the destination directories.
+This path handler is used for directories, i.e. it creates the destination directories.
 
 
 ## Usage

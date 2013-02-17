@@ -19,7 +19,7 @@ option.
 
 The [tag.menu.style] configuration option allows one to specify whether a nested (value "nested") or
 a non-nested (value "flat") menu is generated. Non-nested menus are useful if one wants to generate,
-for example, a horizontal menu, ie. a menu that has one horizontal bar for each menu level.
+for example, a horizontal menu, i.e. a menu that has one horizontal bar for each menu level.
 
 The HTML list item tags have special CSS classes applied to them for styling. These CSS class names
 are as follows:
@@ -49,7 +49,7 @@ need to create a separate template).
 There are some special objects for use in a menu template:
 
 context\[:nodes]
-: Contains the menu nodes, ie. the [node finder] extension search result.
+: Contains the menu nodes, i.e. the [node finder] extension search result.
 
 [Webgen::Tag::Menu::menu_item_details]
 : This utility method can be used to return the needed list item "class" attribute and the link to
@@ -102,7 +102,7 @@ Variants:
 
 ### Selecting Page Fragment Nodes
 
-One often wants to include a menu for the sections (ie. headings) of the current page node. This can
+One often wants to include a menu for the sections (i.e. headings) of the current page node. This can
 be achieved by making sure that fragment nodes are created for all headings by using the [content
 processor fragments] in the rendering pipeline of the page. Then the following menu tag shows the
 headings:

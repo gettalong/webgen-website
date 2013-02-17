@@ -28,7 +28,7 @@ alcn
   directly after their creation.
 
   When specifying patterns, remember that the patterns are matched against *absolute localized
-  canonical names*! So you always need to take the language part into account, ie. `/index.html`
+  canonical names*! So you always need to take the language part into account, i.e. `/index.html`
   won't match but `/index.en.html` will.
 
 The block names must be explicitly specified, i.e. on the block starting line.
