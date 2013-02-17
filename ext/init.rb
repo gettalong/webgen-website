@@ -66,7 +66,7 @@ website.ext.tag.register('describe_ext', config_prefix: 'tag.describe_ext', :man
   result = "<dl>"
   context[:config]['tag.describe_ext.names'].map do |ext|
     if ext.include?('*')
-      context.ws_extensions.keys.select {|k| File.fnmatch(ext, k)}
+      context.ws_extensions.keys.select {|k| File.fnmatch(ext, k)}.sort
     else
       ext
     end
