@@ -47,6 +47,8 @@ website.ext.bundle_infos.extensions.each do |name, infos|
 end
 link_defs['content processors'] = ['/documentation/reference/extensions/content_processor/',
                                    'Information about and list of content processors']
+link_defs['tags'] = ['/documentation/reference/extensions/tag/',
+                     'Information about and list of webgen tags']
 website.ext.bundle_infos.options.each do |name, infos|
   alcn = '/documentation/reference/configuration_options.en.html#' << name.tr('_.', '')
   link_defs["#{name} configuration option"] = link_defs[name] = [alcn, infos['summary'][/\A.*?(\.|\Z)/m]]
