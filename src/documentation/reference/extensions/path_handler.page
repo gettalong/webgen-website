@@ -1,6 +1,7 @@
 ---
-title: Path Handlers
+title: path_handler
 ---
+## Description
 
 These extensions are used for handling source paths. They read the content of a path and produce one
 or more nodes (the internal representation of a destination path, see [source

@@ -1,6 +1,7 @@
 ---
-title: Tags
+title: tag
 ---
+## Description
 
 These extensions allow the easy inclusion of dynamic content in, for example, page and template
 paths. No knowledge of a programming language is needed to make effective use of tags and each tag

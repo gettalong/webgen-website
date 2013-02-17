@@ -1,6 +1,7 @@
 ---
-title: Destinations
+title: destination
 ---
+## Description
 
 Destination extensions are used to write out the generated content. The default configuration for a
 new website writes the generated content to the `out` directory of the website directory.

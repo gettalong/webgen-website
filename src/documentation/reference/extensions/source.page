@@ -1,6 +1,7 @@
 ---
-title: Sources
+title: source
 ---
+## Description
 
 Source extensions provide the paths (and their contents) that are then processed by the [path
 handlers](#path-handlers). By default, all paths under the `src` directory are potentially used but
