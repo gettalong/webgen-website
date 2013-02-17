@@ -1,0 +1,23 @@
+---
+title: context_modules
+---
+## Description
+
+This extension provides a place to register Ruby modules that are automatically mixed into all
+created [Webgen::Context] objects. Thus all methods defined in such a module are automatically
+available to all [content processors], [tags] and any other extension that uses a context object.
+
+Here is a quick example on how to add a module as context module (for example, in `ext/init.rb`):
+
+~~~ ruby
+module MyContextMethods
+
+  def random_text(n = 1)
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit" * n
+  end
+
+end
+
+website.ext.context_modules << MyContextMethods
+~~~
+
