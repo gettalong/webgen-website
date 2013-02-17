@@ -39,7 +39,7 @@ webgen-menu-item-selected
 : This class is set if the menu item is equal to to the rendered destination node.
 
 
-### Custom menu template
+### Custom Menu template
 
 The [tag.menu.template] configuration option allows one to customize the generated output. Its value
 needs to be the (a)(l)cn of a template or page node and this node needs to have a block called
@@ -63,7 +63,7 @@ almost anything is possible. If the node selection for the menu can't be accompl
 built-in filters, one just needs to write a custom filter.
 
 
-### Selecting nodes for a main menu
+### Selecting Nodes for a Main Menu
 
 A standard technique for selecting nodes for the main menu is to select all nodes which have a
 certain meta information key set.
@@ -100,7 +100,7 @@ Variants:
   levels that should be shown.
 
 
-### Selecting page fragment nodes
+### Selecting Page Fragment Nodes
 
 One often wants to include a menu for the sections (ie. headings) of the current page node. This can
 be achieved by making sure that fragment nodes are created for all headings by using the [content

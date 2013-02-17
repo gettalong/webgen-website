@@ -1,6 +1,7 @@
 ---
 title: Content Processors
 ---
+## Description
 
 These extensions process content, i.e. they either convert data from one format to another or make
 other changes to the data. Content processors are used, for example, in the transformation pipeline
@@ -26,7 +27,7 @@ pipeline of page/template paths.
 content_processor.html_head]}
 
 
-## Markup processors
+## Markup Processors
 
 These processors convert markup text that is easy to read and write to a more structured format like
 HTML. This allows you to write an HTML page without knowing HTML.
@@ -35,7 +36,7 @@ HTML. This allows you to write an HTML page without knowing HTML.
 content_processor.rdoc, content_processor.redcloth]}
 
 
-## Template engines
+## Template Engines
 
 These processors are used to add dynamic parts to the processed content.
 
@@ -43,7 +44,7 @@ These processors are used to add dynamic parts to the processed content.
 content_processor.haml, content_processor.ruby]}
 
 
-## CSS preprocessors
+## CSS Preprocessors
 
 These processors allow you to write CSS files in an easier way, for example, they allow the usage of
 variables to avoid spreading the same data over the whole file.
@@ -51,14 +52,14 @@ variables to avoid spreading the same data over the whole file.
 {describe_ext: [content_processor.sass, content_processor.scss]}
 
 
-## Post processors
+## Post Processors
 
 These processors are used to post-process HTML files.
 
 {describe_ext: [content_processor.tidy, content_processor.xmllint]}
 
 
-## Other processors
+## Other Processors
 
 These processors don't fit into any of the above categories.
 
