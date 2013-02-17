@@ -76,6 +76,10 @@
             %>">source file</a> for this page in
             the <a href="http://github.com/gettalong/webgen-website">webgen-website repository</a>
             on Github.</p>
+            <p>If you see an error, please
+              <a href="http://github.com/gettalong/webgen-website/issues">report</a>
+              it - thanks!
+            </p>
           </div>
 
         </div>
