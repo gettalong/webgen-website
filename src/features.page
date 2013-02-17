@@ -28,21 +28,22 @@ Below is a non-exhaustive list of features that webgen supports.
     be added. Here is a partial list:
 
     * **Markdown** (including special syntax like setting header ids and html attributes through the
-      kramdown library)
-    * **Textile**
-    * **Haml and Sass**
-    * RDoc (the native API documentation format for Ruby)
-    * Builder (tool for programatically creating XML documents)
-    * Smiley-to-emoticon conversion (through official extension bundle)
+      [kramdown][content processor kramdown] library)
+    * **Textile** (through the [RedCloth][content processor redcloth] library)
+    * **[Haml][content processor haml] and [Sass][content processor sass]**
+    * [RDoc][content processor rdoc] (the native API documentation format for Ruby)
+    * [Builder][content processor builder] (tool for programatically creating XML documents)
+    * Smiley-to-emoticon conversion (through an official [extension bundle][1])
 
 *   ## Supported File Types
 
     Anything can be put into webgen's source directory so that it gets copied to the destination
     directory but some file types are handled specially, for example:
 
-    * Page files (primarily used to define the content of a web page but can really be used to
-      create about any text-based file format)
-    * Template files (used to define the general layout of a web page, these are chainable/nestable)
+    * [Page files][path handler page] (primarily used to define the content of a web page but can
+      really be used to create about any text-based file format)
+    * [Template files][path handler template] (used to define the general layout of a web page,
+      these are chainable/nestable)
 
 *   ## Dynamic Content
 
@@ -51,20 +52,24 @@ Below is a non-exhaustive list of features that webgen supports.
     of the available methods for adding dynamic content:
 
     * **webgen tags**: these allow non-programmers to easily add dynamic content using a simple markup
-      syntax. webgen ships with many tag extensions for
+      syntax. webgen ships with many [tag extensions][tags] for
       * **generating menus and breadcrumb trails**
       * listing all translations of a page
       * **syntax highlighting code** fragments or entire files
       * and much more
-    * **ERB** (embedded Ruby) for custom scripts embedded into content files for advanced users.
+    * **[ERB][content processor erb]** (embedded Ruby) for custom scripts embedded into content
+        files for advanced users.
 
 *   ## Other Features
 
     Additionally to the above webgen provides some other useful features:
 
     * Specify meta information (e.g. title, ordering information, ...) for any file through special
-      *meta info files*
-    * Support for specifying *virtual files and directories* (can be used, for example, to include
-      links to external pages in menus)
+      **[meta info files][path handler meta_info]**
+    * Support for specifying **[virtual files and directories][path handler virtual]** (can be used,
+      for example, to include links to external pages in menus)
     * Generated HTML files can be automatically checked if they are standard conform
     * Automatic rebuilding of the website when a source path changes
+    * Automatic generation of needed directory index files
+
+[1]: https://github.com/gettalong/webgen-content_processor_emoticon-bundle
