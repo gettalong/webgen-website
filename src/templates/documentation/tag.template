@@ -5,7 +5,7 @@ template: extensions.template
 <tr><th>Configuration prefix</th><td><%= h(context[:data][:config_prefix]) %></td></tr>
 <% unless context[:data][:mandatory].empty? %>
 <tr><th>Mandatory options</th><td markdown="span"><% context[:data][:mandatory].each do |option| %>
-[<%= option %>]\\
+[<%= context.website.config.option?(option) ? option : context[:data][:config_prefix] + '.' + option %>]\\
 <% end %>
 </td></tr>
 <% end %>
