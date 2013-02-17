@@ -35,6 +35,9 @@ Furthermore, the processor can be customized by using the following configuratio
 : This configuration option can be used to configure the kramdown library itself. Have a look at the
   [kramdown homepage][1] for available options.
 
+The [link_definitions extension] is automatically used. This allows one to globally define link
+names which can be used in any kramdown document later!
+
 
 ## Example
 

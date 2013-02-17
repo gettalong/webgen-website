@@ -1,0 +1,18 @@
+---
+title: link_definitions
+---
+## Description
+
+This extension provides a place to register link definitions that can be used by any other extension
+to resolve links. A content processor that takes advantage of this possibility is the [content
+processor kramdown].
+
+One can define global link definitions in the following way (for example, in `ext/init.rb`):
+
+~~~ ruby
+# Just a URL
+website.ext.link_definitions['link_name'] = ['link_url', nil]
+
+# URL with title
+website.ext.link_definitions['link_name'] = ['link_url', 'link_title']
+~~~
