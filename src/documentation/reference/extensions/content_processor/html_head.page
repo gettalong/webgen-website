@@ -3,7 +3,7 @@ title: content_processor.html_head
 ---
 ## Description
 
-This processor is used to insert HTML tags (`link`, `script` and `meta`) that were are specified by
+This processor is used to insert HTML tags (`link`, `script` and `meta`) that are specified by
 extensions or via special node meta information keys before the end of the HTML head section.
 
 
