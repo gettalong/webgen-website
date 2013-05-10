@@ -60,18 +60,11 @@ body > nav {
     .main-navigation {
         a {
             color: $dark-background-color;
+            font-size: 120%;
             &:hover {
                 color: $dark-background-color;
                 text-decoration: none;
             }
-        }
-
-        h1 {
-            display: inline-block;
-            font-size: 140%;
-            margin: 0;
-            padding: 0 10px 0 0;
-            color: inherit;
         }
 
         ul {
