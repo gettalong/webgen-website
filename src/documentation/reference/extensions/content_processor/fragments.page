@@ -27,10 +27,10 @@ Since only headers with an `id` attribute are used, you might want to use a mark
 [kramdown](kramdown.html) which automatically generates an `id` attribute for all headers. If you
 use another markup language or plain old HTML, you might need to set the `id` attributes by hand.
 
-The generated fragment nodes can be used like any other node. So you can link to them and use them
-in a menu. Note that although the fragment nodes are nested according to the nesting level of
-their representative headers their ALCN and destination path are constructed as if they were child
-nodes of the file.
+The generated [fragment nodes][Webgen::Node] can be used like any other node. So you can link to
+them and use them in a menu. Note that although the fragment nodes are nested according to the
+nesting level of their representative headers their ALCN and destination path are constructed as if
+they were child nodes of the file.
 
 
 ## Example
