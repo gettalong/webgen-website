@@ -10,7 +10,7 @@ link_attrs:
 
 Below is a non-exhaustive list of features that webgen supports.
 
-*   ## Core Features
+*   ### Core Features
 
     The following list shows general benefits of using webgen:
 
@@ -22,7 +22,7 @@ Below is a non-exhaustive list of features that webgen supports.
     * Easy to configure if one needs to (no need if you are happy with the default values)
     * Command line interface uses command style syntax (like `git` command)
 
-*   ## Supported Formats/Markup Languages
+*   ### Supported Formats/Markup Languages
 
     webgen content files can be written in a number of different formats and new formats can easily
     be added. Here is a partial list:
@@ -35,7 +35,7 @@ Below is a non-exhaustive list of features that webgen supports.
     * [Builder][content processor builder] (tool for programatically creating XML documents)
     * Smiley-to-emoticon conversion (through an official [extension bundle][1])
 
-*   ## Supported File Types
+*   ### Supported File Types
 
     Anything can be put into webgen's source directory so that it gets copied to the destination
     directory but some file types are handled specially, for example:
@@ -45,7 +45,7 @@ Below is a non-exhaustive list of features that webgen supports.
     * [Template files][path handler template] (used to define the general layout of a web page,
       these are chainable/nestable)
 
-*   ## Dynamic Content
+*   ### Dynamic Content
 
     Although webgen is used to create a static website, it allows one to embed dynamic parts to
     support features like dynamic menu generation, dynamic link generation and more. Here are some
@@ -60,7 +60,7 @@ Below is a non-exhaustive list of features that webgen supports.
     * **[ERB][content processor erb]** (embedded Ruby) for custom scripts embedded into content
         files for advanced users.
 
-*   ## Other Features
+*   ### Other Features
 
     Additionally to the above webgen provides some other useful features:
 

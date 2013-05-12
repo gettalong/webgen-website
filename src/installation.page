@@ -11,8 +11,7 @@ link_attrs:
 webgen should run on any platform which supports Ruby 1.9.3. It has been successfully tested on the
 following platforms:
 
-* Linux with Ruby 1.9.3
-* Mac OSX with Ruby 1.9.3
+* Linux with Ruby 1.9.3 and 2.0.0
 * Windows 7 with latest Ruby 1.9.3 from Ruby-Installer
 
 See the platform specific installation notes for more information!
@@ -25,9 +24,9 @@ tested.
 
 ### Linux
 
-There are a variety of Linux distributions out there with different package management systems. So I
-will focus on instructions for Ubuntu 12.10 here (which should also work for any recent Debian based
-distribution).
+There are a variety of Linux distributions out there with different package management systems. So
+we will focus on instructions for Ubuntu 12.10 here (which should also work for any recent Debian
+based distribution).
 
 After running the following commands, webgen and all the mandatory dependencies are installed:
 
@@ -37,8 +36,8 @@ $ gem1.9.3 install webgen --user-install
 ~~~
 
 > Ubuntu has packages for the old 0.4.x and 0.5.x versions of webgen. If you want to use one of
-> these versions (not recommended), you just need to run `sudo aptitude install webgen0.4` or `sudo
-> aptitude install webgen0.5`.
+> these versions (*not recommended*), you just need to run `sudo aptitude install webgen0.4` or
+> `sudo aptitude install webgen0.5`.
 {:.information}
 
 
@@ -118,14 +117,15 @@ the mandatory dependencies are automatically installed. webgen can also make use
 dependencies if they are installed. Note that webgen was tested against the specified versions but
 it should normally work with newer versions, too!
 
-* (mandatory) [Ruby](http://www.ruby-lang.org) version 1.9.2 or higher. Since webgen is written in
-  Ruby, you need the Ruby interpreter to run webgen.
+* (**mandatory**) [Ruby](http://www.ruby-lang.org) version 1.9.3 or higher. Since webgen is written
+  in Ruby, you need the Ruby interpreter to run webgen.
 
-* (mandatory) [cmdparse](http://cmdparse.rubyforge.org) version 2.0.5 or higher
+* (**mandatory**) [cmdparse](http://cmdparse.rubyforge.org) version 2.0.5 or higher
 
-* (mandatory) [systemu](https://github.com/ahoward/systemu) version 2.5.0 or higher
+* (**mandatory**) [systemu](https://github.com/ahoward/systemu) version 2.5.0 or higher
 
-* (mandatory) [kramdown](http://kramdown.rubyforge.org) version 0.14.0 for enhanced Markdown support
+* (**mandatory**) [kramdown](http://kramdown.rubyforge.org) version 1.0.0 or higher for enhanced
+  Markdown support
 
 * (optional) [diff-lcs](https://github.com/halostatue/diff-lcs) version 1.1.0 or higher for showing
   changes in destination files
@@ -154,4 +154,4 @@ it should normally work with newer versions, too!
 * (optional) [archive-tar-minitar](http://rubyforge.org/projects/ruwiki/) version 0.5.2 or higher
   for (gzipped) tar archives as sources
 
-All these libraries can be installed via Rubygems (which I recommend).
+All these libraries can be installed via Rubygems (which is recommended).

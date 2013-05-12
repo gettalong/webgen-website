@@ -6,18 +6,15 @@ This is the definite reference for all things webgen! You will find in-depth inf
 everything, from file formats, configuration options, meta information keys to extension
 documentation:
 
-[**Extensions**](extensions/)
-: Detailed information on every built-in extension, be it content processors, path handlers, tags,
-  ...
+* [**Configuration options**](configuration_options.html): Detailed information on all configuration
+  options.
 
-[**Configuration options**](configuration_options.html)
-: Detailed information on all configuration options.
+* [**Extensions**](extensions/): Detailed information on every built-in extension, be it content
+  processors, path handlers, tags, ...
 
-[**Meta information keys**](meta_info_keys.html)
-: Descriptions and usage patterns for every node meta information key that is used in one way or
-  another by webgen or the built-in extensions.
+* [**Meta information keys**](meta_info_keys.html): Descriptions and usage patterns for every node
+  meta information key that is used in one way or another by webgen or the built-in extensions.
 
-[**Webgen Page Format**](webgen_page_format.html)
-: Information about/Specification of the file format used by all custom webgen file types, for
-  example, by page and template files.
+* [**Webgen Page Format**](webgen_page_format.html): Information about/Specification of the file
+  format used by all custom webgen file types, for example, by page and template files.
 

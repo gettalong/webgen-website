@@ -5,58 +5,77 @@ main_sort: 10
 link_attrs:
   link_text: "<i class='icon-home'></i> Home"
 ---
+<div class="row index-page">
 
-# Welcome to the Homepage of _webgen_!
+<div class="span4" markdown="1">
+### <i class='icon-sitemap'></i> Static
 
-webgen is a *free* (GPL-licensed) command line application for generating static websites. It
-combines content with template files to generate HTML files. This allows one to separate the content
-from the layout and reuse the layout for many content files.
+Generates a **self-contained static website**, i.e. all generated links are relative and no server
+is needed for viewing the website!
+</div>
 
-Apart from this basic functionality, webgen offers many features that makes authoring websites
-easier:
+<div class="span4" markdown="1">
+### <i class='icon-plus'></i> Any Markup
 
-* Multiple markup languages to choose from for writing HTML and CSS files (**Markdown**,
-  **Textile**, RDoc, **Haml**, **Sass**, ...)
+**HTML**, **Haml**, **ERB**, **CSS**, **Sass**, **Markdown**, **Textile**, **RDoc**, ... -- use the
+[markup/template engine/CSS language](documentation/reference/extensions/content_processor/) *you* like!
+</div>
 
-* Automatic generation of menus, breadcrumb trails, ... and more!
+<div class="span4" markdown="1">
+### <i class='icon-check'></i> Built-in Helpers
 
-* **Partial website re-generation** (only modified items get re-generated) which reduces website
-  generation time enormously
+With tools to **automatically generate** [menus], [breadcrumb trails], [news feeds] and more, you can
+concentrate on writing content!
 
-* **Self-contained website** (all generated links are relative, so one can **view the website without a
-  web server**)
+[menus]: documentation/reference/extensions/tag/menu.html
+[breadcrumb trails]: documentation/reference/extensions/tag/breadcrumb_trail.html
+[news feeds]: documentation/reference/extensions/path_handler/feed.html
+</div>
 
-* Easily extendable (all major components can be extended with new functionality or existing
-  functionality can be replaced)
-
-* No need to know the Ruby language for basic websites
-
-The above list should just give you a glimpse of what is possible with webgen. Have a look at the
-[features page](features.html) for a more complete list.
-
-
-## Feature Requests, Bugs, ...
-
-If you have an idea for a new feature for webgen, [request it][feature_request]. If you have found a
-bug, you should [report it here][bug_report]. Also, there are [forums][forum] and [mailing
-lists][ml] available (the mailing list is mirrored to the [webgen-users google group][google-group])
-if you have any questions! You can also visit the IRC channel `#webgen` on Freenode where I can be
-found whenever I'm online.
-
-[feature_request]: http://rubyforge.org/tracker/?atid=1210&group_id=296&func=browse
-[bug_report]: http://rubyforge.org/tracker/?atid=1207&group_id=296&func=browse
-[forum]: http://rubyforge.org/forum/?group_id=296
-[ml]: http://rubyforge.org/mail/?group_id=296
-[google-group]: http://groups.google.com/group/webgen-users/
+</div>
 
 
-## Author
+<div class="row index-page">
 
-* Thomas Leitner
-* <i class='icon-envelope'>&nbsp;</i> <mailto:t_leitner@gmx.at>
-* <i class="icon-twitter">&nbsp;</i> [@_gettalong](http://twitter.com/_gettalong)
-* GPG Key-Id: 0xB2D0A854
+<div class="span4" markdown="1">
+### <i class='icon-bolt'></i> Fast
 
+**Partial website re-generation** (only modified items get re-generated) saves you time when you
+work on your website, the generated static website saves your user's and server's time!
+</div>
+
+<div class="span4" markdown="1">
+### <i class='icon-code'></i> Extendable
+
+All major components can be extended with new functionality and existing functionality can be
+replaced.
+</div>
+
+<div class="span4" markdown="1">
+<h3><i class='icon-heart'></i> Support webgen</h3>
+<webgen:block name="content" chain="donation.template" />
+</div>
+
+</div>
+
+<hr style="margin: 20px auto; width: 90%; border: 1px solid #202f4e" />
+
+<div class="row">
+<div class="span6" markdown="1">
+### <i class='icon-download-alt'></i> Installation
+
+Installation is as easy as `gem install webgen` but if you need detailed instructions for all
+operating systems look at the [installation page](installation.html).
+</div>
+
+<div class="span6" markdown="1">
+### <i class='icon-book'></i> Getting Started
+
+After you have installed webgen, have a look at the [Getting Started
+Guide](documentation/getting_started.html) to see how webgen works and how to create a basic
+website.
+</div>
+</div>
 
 --- herounit
 
