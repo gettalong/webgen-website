@@ -1,5 +1,8 @@
 --- pipeline:erb,tags,kramdown,blocks
-<% context[:data] = context.send("#{context.node.parent.cn.sub(/\/$/, '')}_info", context.node['title']) %>
+<% context[:data] = context.send("#{context.node.parent.cn.sub(/\/$/, '')}_info", context.node['title'])
+ext_manager, ext = *context.node['title'].split('.')
+klass = context.website.ext.send(ext_manager).send(:extension, ext).name
+%>
 
 <table class="table table-bordered table-reference">
   <tbody>
@@ -15,6 +18,7 @@
     <% end %>
 <!--    <tr><th>Author</th><td><%= h(context[:data]['author']) %></td></tr> -->
     <tr><th>Provided by bundle</th><td><%= h(context[:data]['bundle']) %></td></tr>
+    <tr><th>API doc</th><td markdown="span">[<%= context.tag(:relocatable, klass) %>]</td></tr>
   </tbody>
 </table>
 
