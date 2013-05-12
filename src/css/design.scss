@@ -1,6 +1,72 @@
-@import url("bootstrap.css");
+/////////////////////////////////////////////
+// Bootstrap
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 
+$baseFontFamily: "Open Sans", 'Helvetica Neue', Helvetica, Arial, 'sans-serif' !default;
+$headingsFontFamily: "Open Sans", 'Helvetica Neue', Helvetica, Arial, 'sans-serif' !default;
+$headingsFontWeight: normal !default;
+
+@import "/bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
 @import "/bootstrap/mixins";
+@import "/bootstrap/reset";
+
+// Grid system and page structure
+@import "/bootstrap/scaffolding";
+@import "/bootstrap/grid";
+@import "/bootstrap/layouts";
+@import "/bootstrap/wells";
+
+// Base CSS
+@import "/bootstrap/type";
+@import "/bootstrap/code";
+@import "/bootstrap/tables";
+
+// Components: common
+@import "/font-awesome";
+
+// Components: Buttons & Alerts
+@import "/bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
+
+// Components: Nav
+@import "/bootstrap/navs";
+@import "/bootstrap/breadcrumbs";
+
+// Components: Misc
+@import "/bootstrap/hero-unit";
+
+// Utility classes
+@import "/bootstrap/utilities"; // Has to be last to override when necessary
+
+
+@import "/bootstrap/responsive-768px-979px";
+@import "/bootstrap/responsive-767px-max";
+@import "/bootstrap/responsive-navbar";
+
+
+
+
+
+/////////////////////////////////////////////
+// Custom
+
+
+.library-needed {
+  @extend .alert;
+  @extend .alert-block;
+  @extend .alert-error;
+}
+
+.information {
+  @extend .alert;
+  @extend .alert-block;
+  @extend .alert-info;
+}
+
+.warning {
+  @extend .alert;
+  @extend .alert-block;
+}
+
 
 @mixin radial-gradient($innerColor, $outerColor, $pos, $style) {
   background-color: $outerColor;
@@ -51,6 +117,7 @@ body .hero-unit {
     margin-bottom: 0px;
     border-bottom: 2px solid lighten($dark-background, 5%);
     @include border-radius(0px);
+    padding: 10px;
 }
 
 body > nav {
@@ -102,6 +169,14 @@ body > footer {
 }
 
 
+aside.sidebar h4 {
+    margin-top: 20px;
+}
+aside.sidebar h4:first-of-type {
+    margin-top: 0px;
+}
+
+
 @media (max-width: 767px) {
     .container {
         margin-left: 1em;
@@ -120,6 +195,14 @@ body > footer {
 
 
 /* Custom adpations and classes*/
+
+.index-page h3 {
+    text-align: center;
+}
+
+.index-page > div {
+    margin-top: 10px;
+}
 
 dd {
     margin-left: 3em;
