@@ -1,0 +1,156 @@
+---
+title: Webgen Page Format
+---
+## Webgen Page Format
+
+The Webgen Page Format is a custom format designed primarily for page and template paths. However,
+due to its flexibility it is now used for all custom webgen paths (e.g. [feed paths][path handler
+feed]).
+
+It consists of an optional meta information block at the beginning, followed by one or more blocks
+of data; thus it is very simple and easy to use.
+
+This type of file structure was used by webgen since 2004 and many other static website generators,
+like Jekyll or nanoc, now use the same or a similar file format for content files.
+
+
+## Examples
+
+The following examples shows all possible usages, a detailed syntax description can be found below.
+
+* Simplest version with just one block:
+
+      Here is a block!
+
+* Example with two content blocks:
+
+      This is one block of the file
+      ---
+      This is another block.
+
+* Example with a meta information block and multiple content blocks:
+
+      ---
+      title: This is the page title.
+      in_menu: true
+      blocks:
+        content: \{pipeline: kramdown}
+        sidebar: \{pipeline: erb,kramdown}
+      ---
+      First block with a default name of 'content'. The 'pipeline'
+      option for this block is set in the meta information block.
+      --- sidebar -----------------------------------------------
+      This block is named sidebar.
+
+      --- pipeline:tags,kramdown
+      The third block and therefore named 'block3' by default.
+      The option 'pipeline' is set on the block starting line
+      and can later be accessed like the options of other blocks
+      through the 'blocks' meta information key.
+
+
+## Meta Information Block
+
+### Description
+
+The meta information block is used for providing [meta information](meta_information.html) about the
+content. When creating a [page path][path handler page], it is possible, for example, to specify the
+[meta information title] for the page next to the content and keep them together.
+
+
+### Syntax
+
+Each path in Webgen Page Format can have zero or one meta information blocks. Note that this block
+can only be at the beginning of the content! To differentiate the meta information block from a
+content block, the content has to start with three dashes:
+
+    ---
+    title: The title set by Meta info
+    ---
+    This is the content of the file
+
+The above defines a meta information block and a content block because the content starts with three
+dashes.
+
+The meta information block has to be in [YAML] format and needs to contain key-value pairs of meta
+information. YAML is a simple markup language designed for ease of use and although you define
+structured data with it, it feels like just writing a plain text document.
+
+
+## Content Blocks
+
+### Description
+
+A content block is used to provide content. Each path in Webgen Page Format needs to have at least
+one content block which may be empty. However, it can have as many content blocks as necessary. This
+functionality can be used, for example, to provide the main content of an HTML page in one block and
+the sidebar content in another one.
+
+Each content block needs to have a name which uniquely identifies it and is used to access it later.
+If no names are explicitly specified, the first block is called "content", the second one "block2",
+the third one "block3" and so on.
+
+Additionally, options for a block can also be set, either in the meta information block or directly
+on the line which starts a block. For example, one option that is frequently set and recognized by
+webgen for [page][path handler page] and [template][path handler template] paths is the `pipeline`
+option.
+
+When specifying key-value options in the meta information block, these options are specified under a
+key that is the name of the block inside the key `blocks`. Options specified on a block starting
+line are added to this key after the the content has been parsed.
+
+
+### Syntax
+
+There are four ways to start a content block:
+
+* When the content does not begin with a line containing only three dashes, the first block is a
+  content block with a default name.
+
+      This is the content of the first block which is
+      named 'content' by default.
+
+* A line containing only three dashes (not at the beginning of the content) starts a block with a
+  default name.
+
+      This is the first block.
+      ---
+      This is the second block, named 'block2' by default.
+
+* A line starting with three dashes, followed by one or more spaces/tabs, the name of the block and
+  optionally followed by one or more spaces/tabs and one or more dashes starts a block with the
+  given name.
+
+      --- my_block
+      This block is named 'my_block'.
+
+      ---    other   --------------------
+      This is the 'other' block.
+
+* A line starting with three dashes, followed by one or more spaces/tabs, followed by key-value
+  pairs of options where the key is separated from the value by a colon and the pairs are separated
+  from each other by one ore more spaces/tabs, and optionally followed by one or more spaces/tabs
+  and one or more dashes starts a block with the given options.
+
+  The value of an option is parsed with [YAML]. For example, when specifying `use_something:true`
+  the value `true` is automatically converted from the string `true` to the boolean `true`.
+
+  The special key `name` can be used for naming the block.
+
+      --- name:my_block
+      This block is named 'my_block'.
+
+      --- name:other pipeline: key:value  --------------------
+      This is the 'other' block, where the pipeline key
+      is set to a null value and the key 'key' to 'value'.
+
+If a block contains a line that could be a block starting line but a new block should not be
+started, this line needs to be escaped with a backslash character, like this:
+
+    Block 1
+    \---
+    still Block 1
+    \--- name:block2
+    still Block 1
+    ---
+    NOW we are in Block 2
