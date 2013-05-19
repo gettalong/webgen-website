@@ -53,6 +53,8 @@ link_defs['node finder'] = ['/documentation/reference/extensions/node_finder.htm
                             website.ext.bundle_infos.extensions['node_finder']['summary'].tr("\n", ' ')]
 link_defs['webgen page format'] = ['/documentation/reference/webgen_page_format.html',
                                    'Information about the custom file format used by webgen']
+link_defs['yaml'] = ['/documentation/reference/yaml.html',
+                     'Information about the YAML markup language']
 
 website.ext.bundle_infos.options.each do |name, infos|
   alcn = '/documentation/reference/configuration_options.en.html#' << name.tr('_.', '')

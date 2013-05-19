@@ -1,0 +1,84 @@
+---
+title: YAML Quick Reference
+---
+## Overview
+
+[YAML](http://yaml.org) is a markup language that is designed to be easy to read, write and
+understand for humans as well as computers.
+
+An advantage of using YAML is that the content defined with it is structured and directly usable in
+many programming languages. For example, it allows one to easily create mappings or sequences.
+
+YAML is used in webgen for the [configuration file], for specifying the meta information of a path
+in [Webgen Page Format] and some other places, too.
+
+
+## Syntax
+
+The complete [syntax specification for YAML](http://www.yaml.org/spec/1.2/spec.html) is rather hard
+to digest but provides useful information for corner cases.
+
+The [YAML Cookbook](http://www.yaml.org/YAML_for_ruby.html) is much easier to read and provides
+information on all types (mappings, sequences, strings, numbers, ...) that are available with YAML.
+
+For a short reminder of the syntax, the [YAML Reference Card](http://www.yaml.org/refcard.html) is
+the go-to place.
+
+
+## Examples
+
+* **Mappings** from keys to values (used for specifying meta information) can either be specified in
+  block or inline format:
+
+  ~~~
+  title: This is the page title
+  in_menu: true
+  mapping: \{key: value, other key: other value}
+  ~~~
+
+* **Sequences** of values also have a block and inline format:
+
+  ~~~
+  destination: [file_system, custom_out]
+  sources:
+    - [/, file_system, src]
+    - [/, file_system, /mnt/picture, '**/*.jpg']
+  ~~~
+
+* **Strings** can be specified just by typing them. Note that when a string looks like some other
+  data type (like a number), one has to quote it:
+
+  ~~~
+  simple: some string here
+  'key with : colon': value here
+  date as string: '2013-03-15'
+  ~~~
+
+* **Numbers** (with or with fractions) are automatically recognized:
+
+  ~~~
+  amount: 100
+  cost: 10.50
+  ~~~
+
+* There are some ways to specify **timestamps** (see [Timestamp
+  Type](http://yaml.org/type/timestamp.html) for the full possibilities):
+
+  ~~~
+  created_at: 2013-03-15
+  modified_at: 2013-03-19 20:10:23
+  ~~~
+
+* **Boolean** values can also be specified:
+
+  ~~~
+  this is true: true
+  this is false: false
+  ~~~
+
+* **Null values** (i.e. the empty value) can be specified in two ways:
+
+  ~~~
+  key with null value: ~
+  another key with null value: null
+  ~~~
