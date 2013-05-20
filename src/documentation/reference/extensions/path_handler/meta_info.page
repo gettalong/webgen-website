@@ -51,7 +51,7 @@ Here is an example for the content of a meta information path:
 
     --- paths
     /**/*.page:
-      blocks: {defaults: {pipeline: [erb,kramdown,blocks,fragments]}}
+      blocks: \{defaults: {pipeline: [erb,kramdown,blocks,fragments]}}
 
     /blog/2013/**/*.page:
       draft: true
