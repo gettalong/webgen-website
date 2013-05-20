@@ -4,7 +4,7 @@ class Webgen::ContentProcessor::Kramdown::CustomHtmlConverter
 
   alias_method :convert_a_old, :convert_a
   def convert_a(el, indent)
-    if el.attr['href'] =~ /\/config_options.en.html#[\w-]+$/
+    if el.attr['href'] =~ /\/configuration_options.en.html#[\w-]+$/
       (el.attr['class'] ||= '') << ' nowrap'
       el.children.unshift(::Kramdown::Element.new(:raw, '&thinsp;'))
       el.children.unshift(::Kramdown::Element.new(:html_element, 'i', {'class' => 'icon-wrench'},
