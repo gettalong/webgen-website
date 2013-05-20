@@ -19,8 +19,8 @@ So it is basically an XML tag with the mandatory attribute `name` and the option
 `chain`, `node` and `notfound` -- the attributes are explained below.
 
 webgen uses a node chain when rendering a page node. The default node chain is automatically
-determined via the `template` meta information (see [path handler template]) and the important thing
-to keep in mind is that the first node in the node chain is always the currently rendered
+determined via the [template meta information] (also see [path handler template]) and the important
+thing to keep in mind is that the first node in the node chain is always the currently rendered
 template/page.
 
 For example, consider a `default.template` with a block tag of `<webgen:block name='content' />` and
@@ -41,7 +41,7 @@ according to its render pipeline. If such a block tag was not in the template, t
 the `index.page` node would never be inserted into the destination path! The behaviour of the block
 tag can be customized by using the various attributes.
 
-Summing up: The `template` meta information is used to create a node chain which is then used by the
+Summing up: The [template meta information] is used to create a node chain which is then used by the
 block tag to render the appropriate blocks.
 
 
@@ -56,7 +56,7 @@ block tag to render the appropriate blocks.
 : This **optional** attribute specifies the node chain that should be used for rendering the block.
   Its value needs to be a list of (absolute) (localized) canonical names of nodes separated by
   semicolons that should be used for the node chain. If this attribute is not specified, the default
-  node chain is used (i.e. the one determined via the `template` meta information).
+  node chain is used (i.e. the one determined via the [template meta information]).
 
 `node`
 : This **optional** attribute specifies which node in the node chain should be used.

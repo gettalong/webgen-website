@@ -69,9 +69,9 @@ A standard technique for selecting nodes for the main menu is to select all node
 certain meta information key set.
 
 Most website templates (e.g. the templates in the official [webgen-templates-bundle][1]) use the
-meta information 'in_menu' to select the nodes and the default sorting mechanism (based on the meta
-information 'sort_info' and/or 'title'). To generate the menu using these criterias one can use the
-following menu tag:
+custom 'in_menu' meta information to select the nodes and the default sorting mechanism (based on
+the [sort_info][sort_info meta information] and/or [title][title meta information] meta
+information). To generate the menu using these criterias one can use the following menu tag:
 
     \{menu: {options: {mi: {in_menu: true}, sort: true}}}
 

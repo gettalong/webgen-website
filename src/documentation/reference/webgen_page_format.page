@@ -53,9 +53,9 @@ The following examples shows all possible usages, a detailed syntax description 
 
 ### Description
 
-The meta information block is used for providing [meta information](meta_information.html) about the
-content. When creating a [page path][path handler page], it is possible, for example, to specify the
-[meta information title] for the page next to the content and keep them together.
+The meta information block is used for providing [meta information](meta_information_keys.html)
+about the content. When creating a [page path][path handler page], it is possible, for example, to
+specify the [title meta information] for the page next to the content and keep them together.
 
 
 ### Syntax

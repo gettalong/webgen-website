@@ -20,7 +20,7 @@ This path handler has two modes of operation:
 
 The following algorithm is used for finding the (optional) content processor pipeline:
 
-* If the [pipeline meta info] key is set on the source path, it is used.
+* If the [pipeline meta information] is set on the source path, it is used.
 
 * If the source path has the short names of [content processors] as parts in the file extension, all
   extension parts until the first non-content processor part will be used for the pipeline and
@@ -29,6 +29,10 @@ The following algorithm is used for finding the (optional) content processor pip
   If the last extension part is a file extension registered for extension mapping with a content
   processor (shown, if applicable, on the documentation page of a content processor), the
   corresponding content processor is appended to the pipeline and the mapped file extension is used.
+
+  Note, however, that if the pipeline is deduced in this way it may be overwritten by specifying the
+  [pipeline meta information] for the created node via a [meta information path][path handler
+  meta_info].
 
 
 ## Examples

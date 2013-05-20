@@ -6,8 +6,9 @@ config options:
 ---
 ## Description
 
-The meta tag is used to output the value of meta information keys. It is also used as fallback when
-no tag extension for a specific tag name is found.
+The meta tag is used to output the value of [meta information
+keys](/documentation/reference/meta_information_keys.html). It is also used as fallback when no tag
+extension for a specific tag name is found.
 
 
 ## Usage
@@ -16,7 +17,7 @@ This tag can be used in one of two ways:
 
 * Since this tag is used as fallback, one can just use the meta information key as tag name.
 
-  For example, if one defines a meta information key `revision`, one can use the tag `\{revision:}`
+  For example, if one defines a 'revision' meta information key, one can use the tag `\{revision:}`
   to output the value of this meta information key.
 
 * Alternatively, the tag can be used like any other tag via `\{meta_info:}` and the meta information
@@ -28,9 +29,9 @@ This tag can be used in one of two ways:
 > tag names! If you want to go the safe road, use the second way!
 {:.warning}
 
-There is one special case: The language for a node is initially set via the meta information key
-'lang' but not retained in this form in the internal representation. However, it is often needed to
-use its value and therefore one can also use `\{lang:}` for outputting a node's language.
+There is one special case: The language for a node is initially set via the [lang meta information]
+key but not retained in this form in the internal representation. However, it is often needed to use
+its value and therefore one can also use `\{lang:}` for outputting a node's language.
 
 An every day usage example for the meta tag would be including the title of a page in the
 `<head>` section of a HTML template or specifying the language of the HTML file by using the

@@ -66,7 +66,7 @@ Here is an example for the content of a meta information path:
 * The [draft meta information] is also set for some page paths in the 'paths' block. Since this meta
   information needs to be present *before* a node gets created, it only makes sense to specify here.
 
-* In the 'alcn' block some nodes get the in_menu meta information assigned. Note that use of the
+* In the 'alcn' block some nodes get the 'in_menu' meta information assigned. Note that use of the
   language part in the pattern since the pattern is matched against alcns. Also note that the
   pattern does not start with a slash and therefore is taken relative to the directory in which the
   meta information source path is in.

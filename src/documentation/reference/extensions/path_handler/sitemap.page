@@ -56,12 +56,12 @@ default_priority (optional)
 
   See the [&lt;lastmod&gt; tag definition][lastmod] for more information.
 
-change_freq
+[change_freq][change_freq meta information]
 : Used for the change frequency of the sitemap entry.
 
   See the [&lt;changefreq&gt; tag definition][changefreq] for more information.
 
-priority
+[priority][priority meta information]
 : The priority of the path in respect to the other path in the sitemap.
 
   See the [&lt;priority&gt; tag definition][priority] for more information.

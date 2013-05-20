@@ -75,9 +75,9 @@ If this option is set to `true`, the sort order is reversed.
 
 Value: `null`/`false`, `true` or a meta information key.
 
-If `null` or `false` is specified, no sorting is performed. If `true` is specified, the meta
-information `sort_info` (or if absent, the meta information `title`) is used for sorting. If the
-compared values are both integers, a numeric comparison is done, else a string comparison. If a meta
+If `null` or `false` is specified, no sorting is performed. If `true` is specified, the [sort_info
+meta information] (or if absent, the [title meta information]) is used for sorting. If the compared
+values are both integers, a numeric comparison is done, else a string comparison. If a meta
 information key is specified, the value of this meta information is used for comparison of nodes
 (again, if both compared values are integers, a numeric comparison is done, else a string
 comparison).
@@ -182,7 +182,7 @@ Here are some examples that show common use cases.
 
     \{sort: true, mi: {in_menu: true}, absolute_levels: 1}
 
-The first two options make sure that only pages that have the meta information `in_menu` set to
+The first two options make sure that only pages that have the 'in_menu' meta information set to
 `true` are used and that the result is sorted. The last option makes sure that only the top level
 menu items are used (because a simple horizontal menu only needs those).
 
