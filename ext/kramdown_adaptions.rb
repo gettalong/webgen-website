@@ -9,6 +9,11 @@ class Webgen::ContentProcessor::Kramdown::CustomHtmlConverter
       el.children.unshift(::Kramdown::Element.new(:raw, '&thinsp;'))
       el.children.unshift(::Kramdown::Element.new(:html_element, 'i', {'class' => 'icon-wrench'},
                                                   {:category => :span, :content_model => :span}))
+    elsif el.attr['href'] =~ /\/meta_information_keys.en.html#[\w-]+$/
+      (el.attr['class'] ||= '') << ' nowrap'
+      el.children.unshift(::Kramdown::Element.new(:raw, '&thinsp;'))
+      el.children.unshift(::Kramdown::Element.new(:html_element, 'i', {'class' => 'icon-cog'},
+                                                  {:category => :span, :content_model => :span}))
     end
     convert_a_old(el, indent)
   end

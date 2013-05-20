@@ -118,3 +118,20 @@ website.blackboard.add_listener(:after_node_written) do |node|
     end
   end
 end
+
+
+########################################################################
+# meta information keys documentation helpers
+
+# Add link definitions for all meta information keys
+website.blackboard.add_listener(:website_initialized) do
+  mi = website.ext.source.paths.find {|path| path == '/documentation/reference/meta_information_keys.page'}.
+    data.scan(/^###\s*(\S+)\s*$/)
+
+  mi.each do |name|
+    name = name.shift
+    alcn = '/documentation/reference/meta_information_keys.en.html#' << name.tr('_.', '')
+    link_defs["#{name} meta information"] = [alcn]
+  end
+
+end

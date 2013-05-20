@@ -1,0 +1,414 @@
+---
+title: Meta Information Reference
+---
+
+Following is a list of all the meta information items that are used in one way or another by an
+extension, be it a path handler, a tag or any other extension.
+
+Meta information keys can either be set on source paths before nodes are created from them, or on
+nodes after node creation. For most meta information keys it doesn't matter but some need to be set
+on source paths because they are used during the node creation. If the latter is the case, it is
+noted in the description.
+
+For each meta information key a short description is given, followed by the syntax with an example
+and the paths/nodes for which this key is useful.
+
+
+### author
+
+Specifies the author of the node.
+
+This information is used, for example, by the [path handler feed] to include ownership information
+in the feed.
+
+Syntax
+: String: `Thomas Leitner`
+
+Paths/Nodes
+: Any
+
+
+
+### author_url
+
+Specifies the homepage of the author of the node.
+
+This information is used, for example, by the [path handler feed] and is normally only used when the
+[author meta information] is also set.
+
+Syntax
+: String: `http://webgen.rubyforge.org`
+
+Paths/Nodes
+: Any where the [author meta information] is also set
+
+
+
+### blocks
+
+Specifies options for content blocks of nodes in [Webgen Page Format].
+
+The special key "defaults" can be used to set default options for all blocks. Specific options for a
+block can be set by using the block's name as key.
+
+Syntax
+: Hash of Hashes: `\{defaults: {pipeline: erb,kramdown}, sidebar: {pipeline: erb}}`
+
+Paths/Nodes
+: Any in [Webgen Page Format]
+
+
+
+### change_freq
+
+Specifies the change frequency of the page.
+
+This information is used, for example, by the [path handler sitemap]. The following values are
+allowed for this key: `hourly, daily, weekly, monthly, yearly, never`.
+
+Syntax
+: String: `hourly`
+
+Paths/Nodes
+: Any
+
+
+
+### created_at
+
+Specifies the time when the content of the node was created.
+
+If possible, webgen tries to set this information automatically on source paths. However, it cannont
+automatically be derived for paths provided by [source file_system], so this has to be set manually.
+
+> Note that the value needs to be a valid [YAML timestamp][YAML] and needs to include the time part.
+{:.information}
+
+Syntax
+: Timestamp: `2008-08-14 10:25:34 +02:00`
+
+Paths/Nodes
+: Any
+
+
+
+### dest_path
+
+Specifies how the destination path for a node gets generated.
+
+The value for this key needs to be a string describing how components of the source path should be
+used to create the destination path. The default value should be okay for most uses. However, when a
+page path is part of a blog, for example, one might to include the creation year, month and date in
+the destination path.
+
+The expressions in angle brackets `<...>` are interpreted specially, see below. It is also possible
+to surround optional parts of a path with parentheses (only useful when the optional part contains
+one of the special expressions). Everything else is used as is.
+
+The following special expressions can be used (examples are given for the source path
+`/mydir/subdir/sub/01_image.en.jpg`):
+
+`<parent>`
+: The parent path. Example: `/mydir/subdir/sub/`.
+
+  This includes the trailing slash if the parent path is a directory.
+
+`<parentNUM>`
+: NUM is a positive (starting from zero) or negative (counted from the back) number and specifies one
+  part of the parent path.
+
+  Example: `<parent0>` → `mydir`, `<parent-1>` → `sub`, `<parent1>` = `<parent-2>` → `subdir`
+
+`<parentNUM1..NUM2>`
+: NUM1 and NUM2 are positive (starting from zero) or negative (counted from the back) numbers and
+  specify a range of parts of the parent path which are separated by backslashes.
+
+  Example: `<parent0..-1>` → `mydir/subdir/sub`, `<parent1..-2>` → `subdir`
+
+`<basename>`
+: The basename of the path. Example: `image`.
+
+`<ext>`
+: The extension of the path. Example: `.jpg`.
+
+  The leading dot is included.
+
+`<lang>`
+: The language of the path. Example: `en`.
+
+  Since only file paths can have a language part, this expression together with some static strings
+  is normally surrounded by parentheses to avoid the use of the static strings when no language part
+  is available.
+
+  The [path_handler.lang_code_in_dest_path] configuration option can be used to specify when the
+  language part should be used in the destination path.
+
+`<version>`
+: The version of the path. Example: `default`.
+
+  Used like the `<lang>` part. The [path_handler.version_in_dest_path] configuration option can be
+  used to specify when the version part should be used in the destination path.
+
+`<year>`, `<month>`, `<day>`
+: The creation year, month and day of the path. Example: `2013`, `05`, `05`.
+
+> This key has to be set **before** a node gets created. Setting this value is therefore only
+> useful, for example, in the `paths` block of a [meta information path][path handler meta_info].
+{:.important}
+
+Syntax
+: String: `<parent><basename>(-<version>)(.<lang>)<ext>`
+
+Paths/Nodes
+: Any path
+
+
+
+### draft
+
+If this key is set on a source path, no node will be created from it.
+
+This is used to add content to a website which should only be used later on.
+
+Also see [no_output meta information].
+
+Syntax
+: Boolean: `true`
+
+Paths/Nodes
+: Any path
+
+
+
+### lang
+
+Sets the language for a file path.
+
+The value has to be a valid ISO-639-1/2 character code for the language (e.g. 'en' for English or
+'de' for German). Since only file paths can be localized this key is ignored for directory and
+fragment paths.
+
+> Note that this key needs to be set on a source path before a node gets created. It is not used by
+> webgen if it set afterwards!
+>
+> This value can also be encoded into the source path name. See the [manual](../manual.html) for more
+> information.
+{:.information}
+
+Syntax
+: String: `de`
+
+Paths/Nodes
+: Any file path
+
+
+
+### link
+
+Specifies additional information, for example, about the position of the page regarding other pages.
+A sample usage would be to express that the page is logically followed or preceded by a certain page.
+
+The value needs to be hash and its keys need to be [link types] except for the special `javascript`
+and `css` keys (which will be discussed below). The link type is used to specify the relation of the
+page to the linked path. The value can either be a string which is interpreted as a path to the
+internal or external file; or a hash with arbitrary key-value pairs (use lower case key names) but
+it should include at least a `href` key to specify the path to the internal or external file; or an
+array containing strings or hashes to specify more than one linked file for a given link type.
+
+The special keys `javascript` and `css` may have an array of strings or a string as value which are
+interpreted as paths to javascript/CSS nodes that should be included in the generated page.
+
+This information is used by the [content processor html_head] to insert the approriate tags in the
+head section of the generate HTML document.
+
+[link types]: http://www.w3.org/TR/html401/types.html#type-links
+
+Syntax
+: Hash: `\{next: next_doc.html, prev: prev_doc.html}`
+
+Paths/Nodes
+: Page paths/nodes
+
+
+
+### link_attrs
+
+Specifies additional attribute-value pairs that should be added to a generated link to the node.
+
+The special key 'link_text' can be used to specify the text that should be used as link text.
+
+Syntax
+: Hash: `\{title: Hallo, class: extra, link_text: Used as link text}`
+
+Paths/Nodes
+: Any
+
+
+
+### meta
+
+Specifies names and values for `<meta>` HTML tags.
+
+These key-value pairs are properly escaped and inserted into the generated destination path by the
+[content processor html_head].
+
+Syntax
+: Hash: `\{author: Thomas Leitner, generator: My program}`
+
+Paths/Nodes
+: Page paths/nodes
+
+
+
+### modified_at
+
+Specifies the time when the node was last modified.
+
+This information is automatically set for paths provided by the [source file_system] (the file
+modification is used) but can be overridden by setting it manually.
+
+Since this key is always needed by webgen, it is set to the time when webgen is executed if it does
+not not contain a valid timestamp value.
+
+> Note that the value needs to be a valid [YAML] and needs to include the time part.
+{:.information}
+
+Syntax
+: Timestamp: `2008-08-14 10:25:34 +02:00`
+
+Paths/Nodes
+* Any
+
+
+
+### no_output
+
+Specifies whether the destination path for the node should be written or not.
+
+This differs from the [draft meta information] in that nodes for a source path that has this key set
+get created nonetheless. However, sometimes it is useful to have a node representation of a source
+path although it can not be output (e.g. for fragment nodes or nodes representing external links).
+
+Syntax
+: Boolean: `true`
+
+Paths/Nodes
+: Any
+
+
+
+### omit_dir_index
+
+Controls whether a directory index path (see [proxy_path meta information]) should appear in a
+breadcrumb trail generated by the [tag breadcrumb_trail] despite the setting of the
+[tag.breadcrumb_trail.omit_dir_index] configuration option.
+
+Syntax
+: Boolean: `false`
+
+Paths/Nodes
+: Proxy nodes for directories
+
+
+
+### pipeline
+
+Specifies the processing pipeline for paths handled by [path handler copy].
+
+Note that it makes a difference whether this key is set on a source path or only later on the
+created node. See [path handler copy] for the details.
+
+Syntax
+: String: `scss,rainpress`
+
+Paths/Nodes
+: Any that is handled by [path handler copy]
+
+
+
+### priority
+
+Specifies the priority of the node in respect to all the other nodes of the website. This
+information is used, for example, by the [path handler sitemap].
+
+Syntax
+: Float: `0.5`
+
+Paths/Nodes
+: Any
+
+
+
+### proxy_path
+
+Specifies the path to a proxy node to which all routing requests are forwarded.
+
+This is very useful, for example, for directories because it allows one to specify a directory index
+path that is linked to instead of the plain directory itself.
+
+Syntax
+: String describing an (a)(l)cn: `myindex.html`
+
+Paths/Nodes
+: Any but most common for directory nodes
+
+
+
+### routed_title
+
+Specifies the title to be used on generated links when the node is also used as proxy node.
+
+For example, if this key is set on the proxy node for a directory, links to the directory get the
+routed title as link text.
+
+Syntax
+: String: `Image Directory`
+
+Paths/Nodes
+: Any
+
+
+
+### sort_info
+
+Specifies the sort information for a node.
+
+Any string or integer value can be used here. When two nodes are compared using this information and
+both have integers, then an integer comparison is done. Otherwise a String comparison is done.
+
+Setting a string value is useful, for example, for specifying dates as sort information.
+
+> This value can be encoded into the source path name. See the [manual](../manual.html) for more
+> information.
+{:.information}
+
+Syntax
+: Integer or string: `15`
+
+Paths/Nodes
+: Any
+
+
+
+### template
+
+Specifies the template that should be used for a page/template node. If set to null (i.e. `~`), no
+template is used for the page/template node!
+
+Syntax
+: String or null: `my.template` or `~`
+
+Paths/Nodes
+: Page/Template paths/nodes
+
+
+
+### title
+
+Specifies the title for the node.
+
+Syntax
+: String: `New Title`
+
+Paths/Nodes
+: Any
