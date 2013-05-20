@@ -226,3 +226,14 @@ kbd {
 .table-reference {
     width: 100%;
 }
+
+
+/*
+.content h3 {
+    border-bottom: 1px solid $grayLight;
+}
+*/
+
+.content h2, .content h3 {
+    margin: $baseLineHeight 0 ($baseLineHeight / 2);
+}
