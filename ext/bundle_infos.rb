@@ -56,10 +56,17 @@ module BundleInfos
     name = name.sub(/^path_handler\./, '')
     data = {}.update(ext_info("path_handler.#{name}"))
     data[:patterns] = website.ext.path_handler.registered_extensions[name.to_sym].patterns
-    data[:mi_patterns] = website.ext.path_handler.instance('meta_info').instance_variable_get(:@paths).
-      select {|pattern, mi| Marshal.load(mi)['handler'] == name }.map {|pattern, mi| pattern}
+    data[:mi_patterns] = parse_default_metainfo(name)
     data[:name] = name
     data
   end
+
+  def parse_default_metainfo(name)
+    mi_path = website.ext.source.paths.select {|path| path == '/default.metainfo'}.first
+    blocks = Webgen::Page.from_data(mi_path.data).blocks
+    entries = website.ext.path_handler.instance('meta_info').send(:add_data, mi_path, blocks['paths'], 'paths')
+    entries.select {|pattern, mi| Marshal.load(mi)['handler'] == name }.map {|pattern, mi| pattern}
+  end
+  private :parse_default_metainfo
 
 end
