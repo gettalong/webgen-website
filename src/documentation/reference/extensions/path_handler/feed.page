@@ -14,7 +14,10 @@ version names 'rss' and 'atom' are allowed. So an RSS feed node is created if th
 is specified and an atom node is created if the 'atom' version name is specified.
 
 By default, both atom and RSS nodes are created for a feed node because of the meta information in
-the `/default.metainfo` path.
+the passive `/default.metainfo` path.
+
+The [website.base_url configuration option] needs to be set so that this path handler can correctly
+generate absolute URLs.
 
 
 ### Special Meta Information Keys for Feed Nodes
@@ -26,20 +29,16 @@ entries (mandatory)
   advisable to use the `sort: modified_at` option to ensure that the feed entries are correctly
   sorted!
 
-site_url (mandatory)
-: The base URL of the website for which the feed is generated. This is needed, for example, for
-  generating the absolute URLs in the feed files.
-
-author (mandatory)
+[author][author meta information] (mandatory)
 : Specifies the feed author.
 
-author_url (optional)
+[author_url][author_url meta information] (optional)
 : Specifies the URL of the homepage of the author.
 
 description (optional)
 : A short description for the feed.
 
-created_at (optional)
+[created_at][created_at meta information] (optional)
 : The time at which this feed was created. Defaults to the current time if not set. Only used in RSS
   feed nodes.
 
@@ -50,21 +49,21 @@ content_block_name (optional)
 
 ### Meta Information Keys of Entry Nodes Used in a Feed
 
-created_at
+[created_at][created_at meta information]
 : The time at which the entry was created. Only used as the publication time of the entry in atom
   feed nodes.
 
-modified_at
+[modified_at][modified_at meta information]
 : The time at which the entry was last modified. Used as the publication time of the entry in RSS
   feed nodes and as the update time of the entry in atom feed nodes.
 
-title
+[title][title meta information]
 : Used as title of the feed entry.
 
-author
+[author][author meta information]
 : The name of the author of the entry node. Only used in atom feed nodes!
 
-author_url
+[author_url][author_url meta information]
 : The URL of the homepage of the author of the entry node. Only used if the author information is
   also set and only used in atom feed nodes!
 

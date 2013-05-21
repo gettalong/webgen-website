@@ -4,16 +4,18 @@ title: path_handler.sitemap
 ## Description
 
 This path handler automatically **generates a sitemap** based on the specification of
-<http://sitemaps.org> from a path in [Webgen Page Format].
-
-The extension `sitemap` is automatically changed to `xml` for the destination path and canonical
-name.
+<http://sitemaps.org> from a path in [Webgen Page Format]. Sitemaps are used for informing search
+engines about pages on a site. Therefore a webgen website should have at least one sitemap.
 
 
 ## Usage
 
-Sitemaps are used for informing search engines about pages on a site. Therefore a webgen website
-should have at least one sitemap.
+A sitemap path for webgen has to be in [Webgen Page Format] and only needs to contain a meta
+information block. The extension `sitemap` is automatically changed to `xml` for the destination
+path and canonical name.
+
+The [website.base_url configuration option] needs to be set so that this path handler can correctly
+generate absolute URLs.
 
 After a sitemap has been created and published, search engines need to be made aware of it. Have a
 look at the [respective section][informing] on the Sitemap protocol page.
@@ -31,10 +33,6 @@ entries (mandatory)
 : A [node finder] option set which specifies the paths that should be included in the sitemap.
 
   Note that the resulting node set is flattened even if the 'flatten' option is not used.
-
-site_url (mandatory)
-: The base URL of the website for which the sitemap is generated. This is needed so that the URLs in
-  the sitemap can be created as absolute URLs.
 
 default_change_freq (optional)
 : The default change frequency of a path. This is used for paths that do not have the change_freq
