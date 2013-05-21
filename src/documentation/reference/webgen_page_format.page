@@ -96,8 +96,8 @@ webgen for [page][path handler page] and [template][path handler template] paths
 option.
 
 When specifying key-value options in the meta information block, these options are specified under a
-key that is the name of the block inside the key `blocks`. Options specified on a block starting
-line are added to this key after the the content has been parsed.
+key that is the name of the block inside the key [blocks][blocks meta information]. Options
+specified on a block starting line are added to this key after the the content has been parsed.
 
 
 ### Syntax
