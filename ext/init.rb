@@ -7,7 +7,7 @@ website.ext.context_modules << BundleInfos
 require_relative('kramdown_adaptions')
 
 website.blackboard.add_listener(:website_generated) do
-  ignored = %w[source.stacked tag.r tag.default tag.describe_ext]
+  ignored = %w[content_processor.glossary source.stacked tag.r tag.default tag.describe_ext]
 
   doc_pages = []
   nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/extensions/**/*.html", :flatten => true,
@@ -47,6 +47,12 @@ website.ext.bundle_infos.extensions.each do |name, infos|
 end
 link_defs['content processors'] = ['/documentation/reference/extensions/content_processor/',
                                    'Information about and list of content processors']
+link_defs['destinations'] = ['/documentation/reference/extensions/destination/',
+                             'Information about and list of destination extensions']
+link_defs['path handlers'] = ['/documentation/reference/extensions/path_handler/',
+                              'Information about and list of path handlers']
+link_defs['source extension'] = ['/documentation/reference/extensions/source/',
+                                 'Information about and list of source extensions']
 link_defs['tags'] = ['/documentation/reference/extensions/tag/',
                      'Information about and list of webgen tags']
 link_defs['node finder'] = ['/documentation/reference/extensions/node_finder.html',
@@ -134,4 +140,40 @@ website.blackboard.add_listener(:website_initialized) do
     link_defs["#{name} meta information"] = [alcn]
   end
 
+end
+
+
+########################################################################
+# glossary: link definitions and fragment nodes
+
+# Add link definitions for all glossary items
+website.blackboard.add_listener(:website_initialized) do
+  items = website.ext.source.paths.find {|path| path == '/documentation/reference/glossary.page'}.
+    data.scan(/^(.*?)\n\n:/)
+
+  items.each do |item|
+    item = item.shift
+    alcn = '/documentation/reference/glossary.en.html#' << item.tr(' ', '-')
+    link_defs["g:#{item}"] = [alcn, "Glossary information about #{item}"]
+  end
+end
+
+# Add special content processor for creating fragment nodes for the glossary pages
+website.ext.content_processor.register('glossary') do |context|
+  si = 500
+  context.content.gsub!(/<dt>(.*?)<\/dt>/) do |data|
+    item = $1
+    id = item.tr(' ', '-')
+
+    path = Webgen::Path.new(context.content_node.alcn + '#' + id)
+    path['handler'] = 'copy'
+    path['pipeline'] = []
+    path['no_output'] = true
+    path['title'] = item
+    path['sort_info'] = si = si.succ
+    context.website.ext.path_handler.create_secondary_nodes(path, '', context.content_node.alcn)
+
+    "<dt id=\"#{id}\">#{item}</dt>"
+  end
+  context
 end

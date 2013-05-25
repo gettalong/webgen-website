@@ -1,0 +1,66 @@
+---
+title: Glossary
+---
+
+content processor
+
+: An extension that processes content in any way (for example, convert markup to HTML or compress
+  CSS).
+
+  Also see: [content processor extension][content processors].
+
+destination
+
+: An extension that knows how to write data to some place (for example, to a certain [directory on
+  the file system][destination file_system]).
+
+  Also see: [destination extension][destinations].
+
+meta information
+
+: A key-value pair that provides information about a [source path][g:source path] or a
+  [node][g:node].
+
+node
+
+: A node is created from a [source path][g:source path] by a [path handler][g:path handler] and
+  represents a destination path that may be written to the [destination][g:destination].
+
+  Nodes can have child nodes which creates a hierarchical structure called the [tree][g:tree].
+
+  Also see: [Node API documentation][Webgen::Node].
+
+path handler
+
+: An extension which creates [nodes][g:node] from [source paths][g:source path]. Each path handler
+  knows how to interpret its source paths and how to write its nodes to the
+  [destination][g:destination].
+
+  Also see: [path handler extension][path handlers].
+
+source
+
+: An extension providing [source paths][g:source path] (for example, from a certain [directory on
+  the file system][source file_system]).
+
+  Also see: [source extension].
+
+source path
+
+: A path provided by a [source][g:source] that contains [meta information][g:meta information] and
+  access to its content.
+
+  Also see: [Path API documentation][Webgen::Path].
+
+tree
+
+: The data structure that contains all [nodes][g:node]. Each [webgen website][g:webgen website]
+  contains exactly one tree.
+
+  Also see: [Tree API documentation][Webgen::Tree].
+
+
+webgen website
+
+: Any directory webgen can correctly process as a website. A website directory is normally
+  identified by having a webgen configuration file.

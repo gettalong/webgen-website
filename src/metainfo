@@ -2,6 +2,9 @@
 /**/*.page:
   blocks: {defaults: {pipeline: [erb,tags,kramdown,blocks,fragments]}}
 
+/documentation/reference/glossary.page:
+  blocks: {content: {pipeline: [erb,tags,kramdown,blocks,fragments,glossary]}}
+
 --- alcn
 /:
   title: Home
