@@ -47,12 +47,12 @@
         </div>
         <div class="row">
           <div class="span8 content">
-            <webgen:block name="content" />
+            <webgen:block name="content" node="first" />
           </div>
 
           <aside class="span4 sidebar">
             <% if !context.content_node.children.empty? %>
-            <h4>Page content</h4>
+            <h4>Contents</h4>
             <% end %>
             {menu: {options: {descendants: true, levels: [2, 10]}}}
 
