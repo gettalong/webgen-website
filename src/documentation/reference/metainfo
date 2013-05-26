@@ -2,3 +2,6 @@
 api/**/*.html:
   link:
     css: /stylesheets/api.css
+
+api/:
+  title: API
