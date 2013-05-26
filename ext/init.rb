@@ -177,3 +177,24 @@ website.ext.content_processor.register('glossary') do |context|
   end
   context
 end
+
+########################################################################
+# auto navigation links
+
+website.blackboard.add_listener(:after_tree_populated, 'auto_nav_links', :before => 'item_tracker') do
+  doc_nodes = website.ext.node_finder.find('auto_nav_links', website.tree.root).flatten
+
+  doc_nodes.map! do |node|
+    if node.is_directory?
+      node.proxy_node
+    else
+      node
+    end
+  end
+
+  doc_nodes.each_with_index do |node, index|
+    node.meta_info['link'] ||= {}
+    node.meta_info['link']['prev'] = doc_nodes[index-1].alcn if index != 0
+    node.meta_info['link']['next'] = doc_nodes[index+1].alcn if index != doc_nodes.length - 1
+  end
+end

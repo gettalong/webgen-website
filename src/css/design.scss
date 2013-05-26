@@ -176,6 +176,14 @@ aside.sidebar h4:first-of-type {
     margin-top: 0px;
 }
 
+aside.sidebar ul.you-are-here {
+    list-style-type: square;
+
+    ul {
+        list-style-type: square;
+    }
+}
+
 
 @media (max-width: 767px) {
     .container {

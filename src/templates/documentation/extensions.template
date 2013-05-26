@@ -1,3 +1,5 @@
+---
+template: /documentation/default.template
 --- pipeline:erb,tags,kramdown,blocks
 <% context[:data] = context.send("#{context.node.parent.cn.sub(/\/$/, '')}_info", context.node['title'])
 ext_manager, ext = *context.node['title'].split('.')

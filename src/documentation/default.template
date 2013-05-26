@@ -1,0 +1,16 @@
+--- name:sidebar pipeline:erb
+<h4>Browse</h4>
+
+<ul>
+<% if context.node['link'] && context.node['link']['prev'] %>
+<li>Prev: <%= context.tag('link', context.node['link']['prev']) %></li>
+<% end %>
+<% if context.node['link'] && context.node['link']['next'] %>
+<li>Next: <%= context.tag('link', context.node['link']['next']) %></li>
+<% end %>
+<li><%= context.tag('link', '/documentation/') %></li>
+</ul>
+
+<h4>You are here</h4>
+
+<%= context.tag('menu', {'options' => {'ancestors' => true, 'siblings' => [1,-1]}, 'css_class' => 'you-are-here'}) %>
