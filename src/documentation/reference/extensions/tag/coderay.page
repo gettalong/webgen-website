@@ -42,8 +42,8 @@ Using the available configuration options allows one to customize the output. No
 ## Examples
 
 <dl>
-<dt><code>\{coderay:: {lang: yaml, bold_every: 2}}{include_file: webgen.config}{coderay}</code></dt>
-<dd>{coderay:: {lang: yaml, bold_every: 2}}{include_file: webgen.config}{coderay}</dd>
+<dt><code>\{coderay:: {lang: yaml, bold_every: 2}}{include_file: {filename: webgen.config, process_output: false}}{coderay}</code></dt>
+<dd>{coderay:: {lang: yaml, bold_every: 2}}{include_file: {filename: webgen.config, process_output: false}}{coderay}</dd>
 <dt><code>\{coderay:: {lang: ruby, wrap: span, css: class}}puts 5+5{coderay}</code></dt>
 <dd>{coderay:: {lang: ruby, wrap: span, css: class}}puts 5+5{coderay}</dd>
 </dl>
