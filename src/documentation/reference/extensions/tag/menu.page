@@ -4,6 +4,7 @@ config options:
   - tag.menu.options
   - tag.menu.style
   - tag.menu.template
+  - tag.menu.css_class
 ---
 ## Description
 
@@ -16,6 +17,9 @@ to-be-used nodes.
 The menu is constructed using unordered HTML lists by default. However, this can be changed by
 specifying (and creating) another menu generation template via the [tag.menu.template] configuration
 option.
+
+By using the [tag.menu.css_class] configuration option, creating a template is not necessary in most
+cases.
 
 The [tag.menu.style] configuration option allows one to specify whether a nested (value "nested") or
 a non-nested (value "flat") menu is generated. Non-nested menus are useful if one wants to generate,
