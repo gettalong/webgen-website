@@ -1,0 +1,3 @@
+--- paths
+['*.eot', '*.woff', '*.svg', '*.ttf']:
+  handler: copy

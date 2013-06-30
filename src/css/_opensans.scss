@@ -1,0 +1,17 @@
+@mixin my-open-sans($name, $weight, $style) {
+    @font-face {
+        font-family: 'OpenSans';
+        src: url(relocatable("fonts/OpenSans-#{$name}-webfont.eot"));
+        src: url(relocatable("fonts/OpenSans-#{$name}-webfont.eot?iefix")) format('embedded-opentype'),
+             url(relocatable("fonts/OpenSans-#{$name}-webfont.woff")) format('woff'),
+             url(relocatable("fonts/OpenSans-#{$name}-webfont.ttf")) format('truetype'),
+             url(relocatable("fonts/OpenSans-#{$name}-webfont.svg") + "#OpenSans#{$name}") format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@include my-open-sans('Regular', normal, normal);
+@include my-open-sans('Italic', normal, italic);
+@include my-open-sans('Bold', bold, normal);
+@include my-open-sans('BoldItalic', bold, italic);
