@@ -9,5 +9,9 @@
 /:
   title: Home
 
+/documentation/:
+  main_menu: true
+  main_sort: 40
+
 /**/index.en.html:
   omit_dir_index: true
