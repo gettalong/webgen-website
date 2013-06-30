@@ -48,7 +48,9 @@
     <section class="row">
         <div class="breadcrumbs">{breadcrumb_trail: {separator: '', end_level: -2}} &#8628;</div>
         <div class="large-8 columns content">
+          <% unless context.node.alcn.start_with?('/documentation/reference/api') %>
           <h1>{title:}</h1>
+          <% end %>
           <webgen:block name="content" node="first" />
         </div>
 
