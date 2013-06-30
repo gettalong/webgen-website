@@ -5,6 +5,10 @@ config options:
   - tag.menu.style
   - tag.menu.template
   - tag.menu.css_class
+  - tag.menu.item_level_class
+  - tag.menu.item_submenu_class
+  - tag.menu.item_submenu_inhierarchy_class
+  - tag.menu.item_selected_class
 ---
 ## Description
 
@@ -18,28 +22,28 @@ The menu is constructed using unordered HTML lists by default. However, this can
 specifying (and creating) another menu generation template via the [tag.menu.template] configuration
 option.
 
-By using the [tag.menu.css_class] configuration option, creating a template is not necessary in most
-cases.
+By using the CSS class configuration options (see above), creating a custom template is not
+necessary in most cases.
 
 The [tag.menu.style] configuration option allows one to specify whether a nested (value "nested") or
 a non-nested (value "flat") menu is generated. Non-nested menus are useful if one wants to generate,
 for example, a horizontal menu, i.e. a menu that has one horizontal bar for each menu level.
 
 The HTML list item tags have special CSS classes applied to them for styling. These CSS class names
-are as follows:
+are as follows (changeable via the specified configuration options):
 
-webgen-menu-level*NUMBER*
+webgen-menu-level*NUMBER* ([tag.menu.item_level_class])
 : This class is set on all items and can be used to style specific menu levels only. `NUMBER` is
   replaced with the actual menu level, so the first level menu entries will get a
   `webgen-menu-level1` class.
 
-webgen-menu-submenu:
+webgen-menu-submenu  ([tag.menu.item_submenu_class])
 : This class is set if the menu item contains sub menu items.
 
-webgen-menu-submenu-inhierarchy:
+webgen-menu-submenu-inhierarchy ([tag.menu.item_submenu_inhierarchy_class])
 : This class is set if the menu item is an ancestor of the rendered destination node.
 
-webgen-menu-item-selected
+webgen-menu-item-selected ([tag.menu.item_selected_class])
 : This class is set if the menu item is equal to to the rendered destination node.
 
 
