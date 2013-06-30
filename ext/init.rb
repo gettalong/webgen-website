@@ -1,4 +1,4 @@
-load('sass_twitter_bootstrap')
+load('zurb_foundation')
 load('font_awesome')
 
 require_relative('bundle_infos')

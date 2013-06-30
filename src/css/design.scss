@@ -1,70 +1,149 @@
-/////////////////////////////////////////////
-// Bootstrap
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@charset "UTF-8";
 
-$baseFontFamily: "Open Sans", 'Helvetica Neue', Helvetica, Arial, 'sans-serif' !default;
-$headingsFontFamily: "Open Sans", 'Helvetica Neue', Helvetica, Arial, 'sans-serif' !default;
-$headingsFontWeight: normal !default;
-
-@import "/bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
-@import "/bootstrap/mixins";
-@import "/bootstrap/reset";
-
-// Grid system and page structure
-@import "/bootstrap/scaffolding";
-@import "/bootstrap/grid";
-@import "/bootstrap/layouts";
-@import "/bootstrap/wells";
-
-// Base CSS
-@import "/bootstrap/type";
-@import "/bootstrap/code";
-@import "/bootstrap/tables";
-
-// Components: common
+@import "opensans";
 @import "/font-awesome";
+@import "/foundation/normalize";
+@import "/foundation/variables";
 
-// Components: Buttons & Alerts
-@import "/bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
+$bg-color: #202f4e;
+$theme-green: #27603d;
 
-// Components: Nav
-@import "/bootstrap/navs";
-@import "/bootstrap/breadcrumbs";
+$primary-color: #2e7eaa;
+$secondary-color: #dfdfdf;
 
-// Components: Misc
-@import "/bootstrap/hero-unit";
+$base-font-size: 14px;
+$em-base: $base-font-size;
+$header-font-family: 'OpenSans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$header-font-weight: normal;
+$paragraph-font-family: $header-font-family;
+$anchor-font-color-hover: darken($primary-color, 10%);
+$list-side-margin: emCalc(20px);
 
-// Utility classes
-@import "/bootstrap/utilities"; // Has to be last to override when necessary
+$topbar-breakpoint: emCalc(600px);
+$topbar-bg: rgba(0,0,0,0);
+$topbar-dropdown-bg: $topbar-bg;
+$topbar-link-bg-active: $primary-color;
+$topbar-link-bg-hover: $primary-color;
+
+$crumb-slash: "→";
+$crumb-font-transform: none;
+$crumb-radius: 0;
+
+$side-nav-font-size: emCalc($base-font-size);
+
+@import
+  "foundation/components/global",
+  "foundation/components/grid",
+  "foundation/components/visibility",
+  "foundation/components/type",
+  "foundation/components/top-bar",
+  "foundation/components/breadcrumbs",
+  "foundation/components/panels",
+  "foundation/components/side-nav",
+  "foundation/components/tables";
+//  "foundation/components/block-grid",
+//  "foundation/components/buttons",
+//  "foundation/components/forms",
+//  "foundation/components/custom-forms",
+//  "foundation/components/button-groups",
+//  "foundation/components/dropdown-buttons",
+//  "foundation/components/split-buttons",
+//  "foundation/components/flex-video",
+//  "foundation/components/section",
+//  "foundation/components/orbit",
+//  "foundation/components/reveal",
+//  "foundation/components/joyride",
+//  "foundation/components/clearing",
+//  "foundation/components/alert-boxes",
+//  "foundation/components/keystrokes",
+//  "foundation/components/labels",
+//  "foundation/components/inline-lists",
+//  "foundation/components/pagination",
+//  "foundation/components/pricing-tables",
+//  "foundation/components/progress-bars",
+//  "foundation/components/sub-nav",
+//  "foundation/components/switch",
+//  "foundation/components/magellan",
+//  "foundation/components/thumbs",
+//  "foundation/components/tooltips",
+//  "foundation/components/dropdown";
 
 
-@import "/bootstrap/responsive-768px-979px";
-@import "/bootstrap/responsive-767px-max";
-@import "/bootstrap/responsive-navbar";
+@mixin white-colored {
+    color: white;
+
+    h1,h2,h3,h4,h5,h6,p { color: white; }
+    h1 small { color: darken($secondary-color, 10%); }
+}
 
 
+body {
+    background: $primary-color url("images/hexagon.png");
+}
 
+.contain-to-grid {
+    background: rgba(0,0,0,0.7);
+}
 
+body > section {
+    &, .row {
+        background-color: white;
+    }
+}
+
+body > footer {
+    @include white-colored;
+    background: rgba(0,0,0,0.7);
+
+    padding-top: 10px;
+
+    .side-nav {
+        padding: 0;
+
+        a:hover {
+            color: darken($side-nav-link-color, 10%);
+        }
+    }
+}
+
+.hero-unit {
+    @include panel(rgba($primary-color, 0.7), $panel-padding, false);
+    @include white-colored;
+    margin-bottom: 0;
+    a, a:visited { color: darken($secondary-color, 30%); }
+    a:hover { color: darken($secondary-color, 50%); }
+}
+
+dd {
+    margin-left: $list-side-margin;
+}
+
+kbd {
+    font-weight: bold;
+}
+
+pre {
+    line-height: 1.6;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 0.8em 0 0.8em 0.8em;
+    margin-bottom: emCalc(20px);
+}
 
 /////////////////////////////////////////////
 // Custom
 
 
 .library-needed {
-  @extend .alert;
-  @extend .alert-block;
-  @extend .alert-error;
+    border-left: 5px solid $alert-color;
 }
 
 .information {
   @extend .alert;
-  @extend .alert-block;
-  @extend .alert-info;
 }
 
 .warning {
   @extend .alert;
-  @extend .alert-block;
 }
 
 
@@ -77,129 +156,6 @@ $headingsFontWeight: normal !default;
   background-repeat: no-repeat;
 }
 
-$dark-background: #202f4e;
-$dark-background-color: #eee;
-
-$body-color: #e0e0e0;
-$content-color: #f0f0f0;
-$breadcrumb-color: #f8f8f8;
-
-body {
-    padding: 0px;
-    min-width: 310px;
-    background-color: $body-color;
-}
-
-body > header {
-    @include radial-gradient(lighten($dark-background, 10%), $dark-background, center center, ellipse cover);
-
-    .slogan {
-        margin-left: 5px;
-        padding-left: 90px;
-        background: url(relocatable("../images/webgen_logo.png")) 0px 7px no-repeat;
-        color: $dark-background-color;
-
-        h1 {
-            margin-bottom: 0px
-        }
-        h2 {
-            margin-top: 0px;
-            font-size: 160%;
-            font-styel: italic;
-            @include text-overflow();
-        }
-    }
-}
-
-body .hero-unit {
-    @include radial-gradient(lighten($dark-background, 10%), $dark-background, center center, ellipse cover);
-    color: $dark-background-color;
-    margin-bottom: 0px;
-    border-bottom: 2px solid lighten($dark-background, 5%);
-    @include border-radius(0px);
-    padding: 10px;
-}
-
-body > nav {
-    background-color: $dark-background;
-    color: $dark-background-color;
-
-    .main-navigation {
-        a {
-            color: $dark-background-color;
-            font-size: 120%;
-            &:hover {
-                color: $dark-background-color;
-                text-decoration: none;
-            }
-        }
-
-        ul {
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-        }
-        li {
-            display: inline-block;
-            list-style-type: none;
-
-            a {
-                display: block;
-                padding: 0.5em 1em 0.5em 1em;
-                font-size: 120%;
-                color: $dark-background-color;
-            }
-            &.active a, a:hover {
-                background-color: $dark-background-color;
-                text-decoration: none;
-                color: $dark-background;
-            }
-        }
-    }
-}
-
-body > section {
-    background-color: $content-color;
-    padding-bottom: 1em;
-}
-
-body > footer {
-    border-top: 3px darken($body-color, 5%) solid;
-    padding-top: 10px;
-}
-
-
-aside.sidebar h4 {
-    margin-top: 20px;
-}
-aside.sidebar h4:first-of-type {
-    margin-top: 0px;
-}
-
-aside.sidebar ul.you-are-here {
-    list-style-type: square;
-
-    ul {
-        list-style-type: square;
-    }
-}
-
-
-@media (max-width: 767px) {
-    .container {
-        margin-left: 1em;
-        margin-right: 1em;
-    }
-}
-
-.breadcrumb {
-    @include border-radius(0);
-    background-color: $breadcrumb-color;
-    h1 {
-        margin: 0;
-        padding-left: 10px;
-    }
-}
 
 
 /* Custom adpations and classes*/
@@ -208,40 +164,18 @@ aside.sidebar ul.you-are-here {
     text-align: center;
 }
 
-.index-page > div {
-    margin-top: 10px;
-}
+ul.you-are-here {
+    list-style-type: disc;
 
-dd {
-    margin-left: 3em;
-}
-dt + dd, dd + dd {
-    margin-bottom: 1ex;
-}
-
-kbd {
-    font-weight: bold;
+    ul {
+        list-style-type: disc;
+    }
 }
 
 .prompt {
     color: #aaa;
 }
 
-.nowrap {
-    white-space: nowrap;
-}
-
 .table-reference {
     width: 100%;
-}
-
-
-/*
-.content h3 {
-    border-bottom: 1px solid $grayLight;
-}
-*/
-
-.content h2, .content h3 {
-    margin: $baseLineHeight 0 ($baseLineHeight / 2);
 }

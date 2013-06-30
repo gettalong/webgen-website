@@ -7,21 +7,21 @@ link_attrs:
 ---
 <div class="row index-page">
 
-<div class="span4" markdown="1">
+<div class="large-4 columns" markdown="1">
 ### <i class='icon-sitemap'></i> Static
 
 Generates a **self-contained static website**, i.e. all generated links are relative and no server
 is needed for viewing the website!
 </div>
 
-<div class="span4" markdown="1">
+<div class="large-4 columns" markdown="1">
 ### <i class='icon-plus'></i> Any Markup
 
 **HTML**, **Haml**, **ERB**, **CSS**, **Sass**, **Markdown**, **Textile**, **RDoc**, ... -- use the
 [markup/template engine/CSS language](documentation/reference/extensions/content_processor/) *you* like!
 </div>
 
-<div class="span4" markdown="1">
+<div class="large-4 columns" markdown="1">
 ### <i class='icon-check'></i> Built-in Helpers
 
 With tools to **automatically generate** [menus], [breadcrumb trails], [news feeds] and more, you can
@@ -37,38 +37,40 @@ concentrate on writing content!
 
 <div class="row index-page">
 
-<div class="span4" markdown="1">
+<div class="large-4 columns" markdown="1">
 ### <i class='icon-bolt'></i> Fast
 
 **Partial website re-generation** (only modified items get re-generated) saves you time when you
 work on your website, the generated static website saves your user's and server's time!
 </div>
 
-<div class="span4" markdown="1">
+<div class="large-4 columns" markdown="1">
 ### <i class='icon-code'></i> Extendable
 
 All major components can be extended with new functionality and existing functionality can be
 replaced.
 </div>
 
-<div class="span4" markdown="1">
+<div class="large-4 columns" markdown="1">
 <h3><i class='icon-heart'></i> Support webgen</h3>
 <webgen:block name="content" chain="donation.template" />
 </div>
 
 </div>
 
+<div class="row">
 <hr style="margin: 20px auto; width: 90%; border: 1px solid #202f4e" />
+</div>
 
 <div class="row">
-<div class="span6" markdown="1">
+<div class="large-6 columns" markdown="1">
 ### <i class='icon-download-alt'></i> Installation
 
 Installation is as easy as `gem install webgen` but if you need detailed instructions for all
 operating systems look at the [installation page](installation.html).
 </div>
 
-<div class="span6" markdown="1">
+<div class="large-6 columns" markdown="1">
 ### <i class='icon-book'></i> Getting Started
 
 After you have installed webgen, have a look at the [Getting Started

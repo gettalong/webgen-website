@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{lang:}">
+<html lang="{lang:}" class="no-js">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Thomas Leitner &lt;t_leitner@gmx.at&gt;" />
@@ -7,101 +7,100 @@
     <meta name="description" content="webgen is a free, fast, powerful, and extensible static website generator." />
     <meta name="keywords" content="webgen, static web site generator, static website generator, static site generator, ruby, HTML, dynamic tags, extensible, static web, web generator, site generator" />
     <meta name="generator" content="webgen - http://webgen.rubyforge.org" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="{relocatable: css/design.css}" type="text/css" />
+    <script src="{relocatable: javascripts/foundation/vendor/custom.modernizr.js}"></script>
 
     <title>{title:} | webgen - static website generator</title>
   </head>
 
   <body>
-    <nav>
-      <div class="container main-navigation">
-        <a href="{relocatable: /}">
-          <img src="{relocatable: css/images/logo.png}" alt="webgen logo" style="padding-bottom: 4px" />
-          webgen
-        </a>
-        {menu: {options: {mi: {main_menu: true}, flatten: true, sort: main_sort}}}
-      </div>
-    </nav>
+    <div class="contain-to-grid">
+      <nav class="top-bar">
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="{relocatable: /}"><img src="{relocatable: css/images/logo.png}" alt="webgen logo" />
+                webgen
+              </a>
+            </h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          {menu: {options: {mi: {main_menu: true}, flatten: true, sort: main_sort}, css_class: left, item_selected_class: active, item_submenu_inhierarchy_class: active}}
+        </section>
+      </nav>
+    </div>
 
     <% if context.node.blocks.has_key?('herounit') %>
-    <div class="hero-unit">
-      <div class="container">
-        <webgen:block name="herounit" node="first" />
-      </div>
+    <div class="row hero-unit">
+      <webgen:block name="herounit" node="first" />
     </div>
     <% end %>
 
-    <section>
-      <div class="container">
-
-        <% if context.node.alcn == '/index.en.html' %>
-        <webgen:block name="content" />
-        <% else %>
-        <div class="row">
-          <div class="breadcrumb">
-            <small>{breadcrumb_trail: {separator: '<span class="divider">&rarr;</span>', end_level: -2}}<span class="divider">&#8628;</span></small>
-            <h1>{title:}</h1>
-          </div>
+    <% if context.node.alcn == '/index.en.html' %>
+    <section style="background-color: white">
+      <webgen:block name="content" />
+    </section>
+    <% else %>
+    <section class="row">
+        <div class="breadcrumbs">{breadcrumb_trail: {separator: '', end_level: -2}} &#8628;</div>
+        <div class="large-8 columns content">
+          <h1>{title:}</h1>
+          <webgen:block name="content" node="first" />
         </div>
-        <div class="row">
-          <div class="span8 content">
-            <webgen:block name="content" node="first" />
-          </div>
 
-          <aside class="span4 sidebar">
-            <% if !context.content_node.children.empty? %>
-            <h4>Contents</h4>
-            <% end %>
-            {menu: {options: {descendants: true, levels: [2, 10]}}}
+        <aside class="large-4 columns sidebar">
+          <h2 class="hide-for-medium-up">Sidebar</h2>
+          <% if !context.content_node.children.empty? %>
+          <h4>Contents</h4>
+          <% end %>
+          {menu: {options: {descendants: true, levels: [2, 10]}}}
 
-            <webgen:block name="sidebar" notfound="ignore" />
+          <webgen:block name="sidebar" notfound="ignore" />
 
-            <h4><i class='icon-heart'></i> Support webgen</h4>
-            <webgen:block name="content" chain="donation.template" />
+          <h4><i class='icon-heart'></i> Support webgen</h4>
+          <webgen:block name="content" chain="donation.template" />
 
-            <h4>Page source</h4>
+          <h4>Page source</h4>
 
-            <p>You can view
+          <p>You can view
             the <a href="http://github.com/gettalong/webgen-website/tree/master/src<%= context.node.node_info[:path]
-            %>">source file</a> for this page in
+                         %>">source file</a> for this page in
             the <a href="http://github.com/gettalong/webgen-website">webgen-website repository</a>
             on Github.</p>
-            <p>If you find an error, please
-              <a href="http://github.com/gettalong/webgen-website/issues">report</a>
-              it - thanks!
-            </p>
-          </aside>
+          <p>If you find an error, please
+            <a href="http://github.com/gettalong/webgen-website/issues">report</a>
+            it - thanks!
+          </p>
+        </aside>
 
-        </div>
-        <% end %>
-
-      </div>
     </section>
+    <% end %>
+
 
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="span6">
-            <ul class="nav">
-              <li><a href="http://rubyforge.org/projects/webgen"><i class="icon-external-link"></i> Rubyforge project page</a></li>
-              <li><a href="http://rubyforge.org/tracker/?group_id=296"><i class="icon-cogs"></i> Feature and bug trackers</a></li>
-              <li><a href="http://github.com/gettalong/webgen"><i class="icon-github"></i> Code and Wiki</a></li>
-              <li><a href="http://rubyforge.org/frs/?group_id=296"><i class="icon-download-alt"></i> Downloads</a></li>
-            </ul>
-          </div>
+      <div class="row">
+        <div class="large-6 small-6 columns">
+          <ul class="side-nav">
+            <li><a href="http://rubyforge.org/projects/webgen"><i class="icon-external-link"></i> Rubyforge project page</a></li>
+            <li><a href="http://rubyforge.org/tracker/?group_id=296"><i class="icon-cogs"></i> Feature and bug trackers</a></li>
+            <li><a href="http://github.com/gettalong/webgen"><i class="icon-github"></i> Code and Wiki</a></li>
+            <li><a href="http://rubyforge.org/frs/?group_id=296"><i class="icon-download-alt"></i> Downloads</a></li>
+          </ul>
+        </div>
 
-          <div class="span6">
-            <p>
-              &copy; 2004-2013 <i class='icon-envelope'>&nbsp;</i> <a href="mailto:t_leitner@gmx.at">Thomas Leitner</a>
-              | <i class="icon-twitter">&nbsp;</i> <a href="http://twitter.com/_gettalong">@_gettalong</a><br />
-              Generated by <a href="http://webgen.rubyforge.org">webgen</a>
-              | Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
-              | Valid <a href="http://validator.w3.org/check/referer">HTML5</a>
-            </p>
-            <p>Page last changed at: {date:}</p>
-          </div>
+        <div class="large-6 small-6 columns">
+          <p>
+            &copy; 2004-2013 <i class='icon-envelope'>&nbsp;</i> <a href="mailto:t_leitner@gmx.at">Thomas Leitner</a>
+            | <i class="icon-twitter">&nbsp;</i> <a href="http://twitter.com/_gettalong">@_gettalong</a><br />
+            Generated by <a href="http://webgen.rubyforge.org">webgen</a>
+            | Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+            | Valid <a href="http://validator.w3.org/check/referer">HTML5</a>
+          </p>
+          <p>Page last changed at: {date:}</p>
         </div>
       </div>
     </footer>
@@ -116,5 +115,15 @@
     <script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c6.statcounter.com/counter.php?sc_project=648325&amp;java=0&amp;security=7d00de1e&amp;invisible=1" alt="free geoip" /></a></div></noscript>
     <!-- End of StatCounter Code -->
 
+    <script>
+      document.write('<script src='
+      + ('__proto__' in {} ? '{relocatable: javascripts/foundation/vendor/zepto.js}' : '{relocatable: javascripts/foundation/vendor/jquery.js}')
+      + '><\/script>');
+    </script>
+    <script src="{relocatable: javascripts/foundation/foundation.js}"></script>
+    <script src="{relocatable: javascripts/foundation/foundation.topbar.js}"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
