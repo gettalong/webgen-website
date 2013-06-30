@@ -23,3 +23,6 @@ documentation:
 
 * [**Glossary**](glossary.html): Contains definitions of terms that are used throughout the
   documentation and are special to webgen.
+
+* [**API**](api/): The *Application Programming Interface* (API) for webgen. Contains useful
+  information if you want to write extensions.
