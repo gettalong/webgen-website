@@ -30,6 +30,10 @@ node
 
   Also see: [Node API documentation][Webgen::Node].
 
+path
+
+: See [source path][g:source path]
+
 path handler
 
 : An extension which creates [nodes][g:node] from [source paths][g:source path]. Each path handler
@@ -47,8 +51,8 @@ source
 
 source path
 
-: A path provided by a [source][g:source] that contains [meta information][g:meta information] and
-  access to its content.
+: An object provided by a [source][g:source] that encodes an absolute path (i.e. starting with a
+  slash), contains [meta information][g:meta information] and provides access to its content.
 
   Also see: [Path API documentation][Webgen::Path].
 
