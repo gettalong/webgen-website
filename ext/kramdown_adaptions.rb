@@ -24,11 +24,11 @@ class Webgen::ContentProcessor::Kramdown::CustomHtmlConverter
     if lang == 'shell'
       result = el.value.strip.lines.map do |line|
         if line =~ /^(\$|C:\\>) (.*)$/
-          "<span class=\"prompt\">#{escape_html($1)}</span> <kbd>#{escape_html($2)}</kbd>"
+          "<span class=\"prompt\">#{escape_html($1)}</span> <kbd>#{escape_html($2)}</kbd>\n"
         else
           escape_html(line)
         end
-      end.join("\n")
+      end.join("")
       "#{' '*indent}<pre#{html_attributes(attr)}>#{result}</pre>\n"
     else
       super
