@@ -1,0 +1,326 @@
+---
+title: Getting Started
+---
+## Getting Started
+
+For this introduction we assume that you have already [installed](/installation.html) webgen and the
+needed dependencies. Apart from that knowledge of [Markdown][content processor kramdown] and [YAML]
+are a plus but are not absolutely needed.
+
+
+### Creating the Website Directory
+
+webgen needs a special directory structure so that it works out of the box (i.e. without further
+configuration). To create this directory structure use the following command:
+
+~~~ shell
+$ webgen create website getting_started
+Created a new webgen website in <getting_started>
+~~~
+
+The created directory is later referred to as the **website directory**. It contains some
+directories and files:
+
+~~~ shell
+$ cd getting_started; ls -lR
+.:
+total 12
+drwxrwxr-x 2 thomas thomas 4096 Jul 30 16:59 ext
+drwxrwxr-x 2 thomas thomas 4096 Jul 30 16:59 src
+-rw-rw-r-- 1 thomas thomas  652 Jul 30 16:59 webgen.config
+
+./ext:
+total 4
+-rw-rw-r-- 1 thomas thomas 566 Jul 30 16:59 init.rb
+
+./src:
+total 0
+~~~
+
+The `src/` directory is where you put all your source files (the **source directory**) and the
+configuration file `webgen.config` can be used for setting configuration options. You can safely
+ignore the `ext/` directory for now (it is the place where you put your own webgen extensions).
+
+> This directory structure is the default but webgen can work with *any* directory structure if needed.
+{:.information}
+
+> The official webgen extension bundle 'templates' provides some pre-designed website templates for
+> you to use. The bundle can be installed with `webgen install templates` and after that the `-t`
+> option of `webgen create website` can be used to specify a website template when creating a new
+> website.
+{:.tip}
+
+
+### Generating the Website
+
+If your current working directory is the website directory you can just run the `webgen` command and
+it will work. So for the remainder of this guide we assume that your current working directory is
+the website directory.
+
+To generate the output for your website execute the following command:
+
+~~~ shell
+$ webgen generate
+INFO  Generating website...
+INFO  [create] </>
+INFO  ... done in 0.03 seconds
+~~~
+
+> Since this is the most often used sub command, you can also just execute `webgen` and it will do
+> the same.
+>
+> You also don't need to type the whole name of a sub command, the first few unique laters are
+> sufficient. So `webgen generate`, `webgen gen` or even `webgen g` will do the same.
+{:.tip}
+
+After executing the command you will find a new empty directory called `out/` in the website
+directory. This is the **destination directory** where all the generated output will be put.
+
+Since there is nothing in the source directory, there is also nothing in the destination directory
+for now.
+
+> Another directory called `tmp/` has also been created in the website directory while webgen
+> generated the website. This directory is used for storing cache data and temporary files between
+> invocations of webgen. The temporary directory can be deleted, however, when no cached data is
+> available for webgen to work with it will *not* work with its full potential (for example, partial
+> website generation will only work if cached data is available)!
+{:.information}
+
+
+### Adding Content and a Template
+
+Our website is currently empty, so we need to add some content. Since you are using a static website
+generator, you probably want to separate the content from the overall look of your website - webgen
+can help you with that!
+
+> All files and directories inside the source directory are from now on referred to as **source
+> paths** or just **paths**.
+{:.information}
+
+webgen provides an extensible framework for handling different types of source paths. For now the
+three most important of these extensions, called **path handlers**, are [path handler copy] (copies
+path verbatim or with some processing applied from the source directory to the destination
+directory), [path handler page] (handles the paths with the actual content for your web pages) and
+[path handler template] (handles website templates).
+
+By default the path handler page uses source paths with the extension `.page` and the path handler
+template those with the extension `.template`. The path handler copy is associated with common
+static extensions like `.css`, `.html`, `.jpg`, ...
+
+
+#### Adding A Content File
+
+The content for a web page is specified inside a page path, i.e. a source path that is handled by
+the [path handler page].
+
+Page paths as well as template paths and all other custom file formats use the [Webgen Page Format].
+This is a simple file format that allows the specification of one or more content sections as well
+as a meta information section.
+
+Create a new file called `src/index.page` and put some text in it, for example:
+
+~~~
+This is some sample content.
+~~~
+
+Now let webgen generate the website:
+
+~~~ shell
+$ webgen
+INFO  Generating website...
+INFO  [update] </>
+INFO  [create] </index.html>
+WARN  Default template 'default.template' not found in root directory!
+INFO  ... done in 0.11 seconds
+~~~
+
+The output tells us that in the destination directory `out/` a file called `index.html` was created,
+with the following content:
+
+~~~ html
+<p>This is some sample content.</p>
+~~~
+
+As you can see, some transformation was done. This is because webgen uses a **processing
+pipeline** to process the content of page and template paths using so called **[content
+processors]**.
+
+By default the content of page paths is assumed to be in the Markdown format, more specifically,
+[kramdown][content processor kramdown] is used for processing. Template paths are assumed to be
+plain HTML.
+
+> The processing pipelines for page and template paths do contain more than one content processors by
+> default, see [path handler page] and [path handler template] for details.
+{:.information}
+
+Information about the page itself, like the page title, a description or whatever you want, can be
+added to the beginning of a path in Webgen Page Format like this:
+
+~~~
+\---
+title: My Page Title
+description: Some fancy description
+\---
+This is some sample content.
+~~~
+
+Such information is called **meta information** because it is information about the path itself. You
+can add any meta information keys you want and access their values later. However, webgen uses some
+meta information keys for special purposes, see the [meta information
+reference](reference/meta_information_keys.html). These keys should be used in the way webgen
+expects them to be.
+
+Another thing to notice in the shell output above is that webgen tells you that the default template
+is missing. If no special template is assigned to a page path webgen looks for a `/default.template`
+to use when rendering a page.
+
+
+#### Adding a Template
+
+Create the file `src/default.template` with the following content:
+
+~~~ html
+<html>
+  <head>
+    <title>\{title:}</title>
+  </head>
+  <body>
+    <webgen:block name="content" />
+  </body>
+</html>
+~~~
+
+The `<webgen:block name="content" />` part tells webgen where to put the rendered content of page
+paths (see [content processor blocks] for more information).
+
+Now run webgen again:
+
+~~~ shell
+$ webgen
+INFO  Generating website...
+INFO  [update] </>
+INFO  [update] </index.html>
+INFO  ... done in 0.09 seconds
+~~~
+
+When you look at `out/index.html` you see that the rendered content of the page was inserted into
+the template:
+
+~~~ html
+<html>
+  <head>
+    <title>My Page Title</title>
+  </head>
+  <body>
+    <p>This is some sample content.</p>
+
+  </body>
+</html>
+~~~
+
+> Since webgen automatically creates relative links, you will have a fully functional website
+> without needing a web server! This also implies that you can deploy your website to any directory
+> on your web server and it will *just work*!
+{:.information}
+
+
+### Adding Dynamic Content
+
+A static website is, as the name implies, static. However, since we generate the website it is
+possible to add some dynamicity to it. For example, it gets very tedious to update menu links every
+time a file is added that should be in the menu.
+
+Therefore webgen provides ways to add dynamic content via certain [content processors]. The easiest
+one to use is [content processor tags] which is included in the default processing pipelines for
+both page and template paths.
+
+**webgen tags** are a way to add dynamic content without knowing a programming language (although
+this limits you to the existing tags). You just state what tag you want to use and it does its job.
+For example, there exists a very flexible [menu generation tag][tag menu].
+
+You have already encountered a webgen tag in the last section when you created the
+`src/default.template` file: the `\{title:}` tag. It has been automatically replaced by the value
+of the "title" meta information key.
+
+Now add a second page file `src/about.page` with some content and insert the following into the
+default template directly after the `<body>` tag:
+
+~~~
+\{menu: {options: {alcn: '**/*.en.html', sort: true, absolute_levels: 1}}}
+~~~
+
+Then run webgen again and open the generated `out/index.html` file in a browser. A menu containing
+all pages has been generated.
+
+
+### Showing Dependencies Of Nodes
+
+If you change either `src/index.page` or `src/about.page` now, both pages will be re-generated
+because webgen automatically creates dependencies between the pages if they depend upon each other.
+It is sometimes useful to check these dependencies which can be done with the following command:
+
+~~~ shell
+$ webgen show dep
+/about.en.html:
+  Content from node </templates/tag.template>
+  Content from node </default.template>
+  Any meta info from </index.en.html>
+  Meta info from these nodes (result of node_finder_option_set):
+    /about.en.html
+    /index.en.html
+/index.en.html:
+  Content from node </templates/tag.template>
+  Content from node </default.template>
+  Any meta info from </about.en.html>
+  Meta info from these nodes (result of node_finder_option_set):
+    /about.en.html
+    /index.en.html
+~~~
+
+As you can see above the names used for the paths are neither source path nor the destination path
+names. This is because webgen generates an internal structure called the **node tree** from the
+source paths.
+
+This tree contains so called **nodes** that hold all necessary information and each such node
+represents one destination path. One source path can potentially be used to create multiple nodes
+and therefore multiple destination paths.
+
+Each node also has a unique name called **absolute localized canonical name**, short alcn, which is
+constructed from the source path name. This unique name is what is shown in the shell output above.
+
+
+### Setting configuration options
+
+webgen provides a default configuration out of the box. If you can live with that, you do not need
+to change any configuration option. However, most users need to change some configuration option
+sometime. The configuration file is called `webgen.config` and has to be placed directly into the
+website directory.
+
+The configuration file can either be a simple [YAML] file or a Ruby source file which allows one to
+programmatically set configuration options (as well as do other advanced things).
+
+Create the configuration `webgen.config` and put the following in it:
+
+~~~ yaml
+destination: [file_system, custom_out]
+~~~
+
+This changes the location of the destination directory from `out/` to `custom_out/`. When you run
+webgen again you will find that this new destination directory was created and contains the expected
+files.
+
+Have a look at the [Configuration Options Reference](reference/configuration_options.html) to get an
+overview over all available configuration options.
+
+
+### Summary
+
+We walked you through the basic steps of creating a new webgen website and filling it with templates
+and the page files. Templates allow you to specify the overall look of your website in one place and
+pages let you define the content.
+
+If this guide has made webgen interesting to you and you want to know more about webgen and how it
+works, look at the [webgen manual](manual.html)!
+
+And if you want to have a look at a large website made entirely with webgen, just have a look at the
+source for this website: <http://github.com/gettalong/webgen-website>.
