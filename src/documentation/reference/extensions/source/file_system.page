@@ -11,7 +11,7 @@ under a specific directory.
 
 When using this source, the first parameter is the directory under which the to-be-used files are
 located. The directory is taken relative to the website directory. The second, optional, parameter
-specifies a path pattern (see [Path Patterns](../manual.html#source-pathpattern) and [Dir.glob]).
+specifies a path pattern (see [Path Patterns](../../../manual.html#path-patterns) and [Dir.glob]).
 The default value for the path pattern is `**/*` which matches all files/directories under the given
 root directory.
 

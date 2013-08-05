@@ -9,8 +9,8 @@ understand for humans as well as computers.
 An advantage of using YAML is that the content defined with it is structured and directly usable in
 many programming languages. For example, it allows one to easily create mappings or sequences.
 
-YAML is used in webgen for the [configuration file], for specifying the meta information of a path
-in [Webgen Page Format] and some other places, too.
+YAML is used in webgen for the [configuration file](../manual.html#configuration-file), for
+specifying the meta information of a path in [Webgen Page Format] and some other places, too.
 
 
 ## Syntax

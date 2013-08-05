@@ -4,12 +4,12 @@ title: source
 ## Description
 
 Source extensions provide the paths (and their contents) that are then processed by the [path
-handlers](#path-handlers). By default, all paths under the `src` directory are potentially used but
-this can be changed with the [sources configuration option].
+handlers](../../manual.html#path-handlers). By default, all paths under the `src` directory are
+potentially used but this can be changed with the [sources configuration option].
 
 Information about how to create a source extension is found in the [Webgen::Source] API
 documentation.
 
 ## List of Source Extensions
 
-{describe_ext: [source.*]}
+{describe_ext: [source.file_system, source.tar_archive]}

@@ -2,7 +2,7 @@
 title: Configuration Options
 --- pipeline:erb,kramdown,fragments
 This reference describes all available configurations that can be set via the [configuration
-file](../manual.html#website-configfile) `webgen.config`.
+file](../manual.html#configuration-file) `webgen.config`.
 
 The configuration options are listed in alphabetical order. For each configuration option a short
 description and example code are displayed. The example code either shows how to set the option in

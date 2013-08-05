@@ -34,7 +34,8 @@ alcn
 The block names must be explicitly specified, i.e. on the block starting line.
 
 The **format of the two blocks** is the same: They need to contain a valid [YAML] hash with [path
-patterns] as keys and the to-be-assigned meta information as values.
+patterns](../../../manual.html#path-patterns) as keys and the to-be-assigned meta information as
+values.
 
 The path patterns may either be absolute (i.e. starting with a slash) or relative. In the latter
 case the patterns are prefixed with the directory part of the source path to get an absolute path
