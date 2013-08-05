@@ -74,6 +74,49 @@ Paths/Nodes
 
 
 
+### cn
+
+Overrides how the canonical name for a node gets generated.
+
+The value for this key needs to be a string describing how components of the source path as well as
+[version meta information] should be used to create the canonical name. If not set, the default of
+`<basename>(-<version>)<ext>` is used.
+
+The default value should be okay for most uses. However, when the [dest_path meta information] is
+changed from its default one probably also wants to set this meta information.
+
+The expressions in angle brackets `<...>` are interpreted specially, see below. It is also possible
+to surround optional parts with parentheses (only useful when the optional part contains one of the
+special expressions). Everything else is used as is.
+
+The following special expressions can be used (examples are given for the source path
+`/mydir/subdir/sub/01_image.en.jpg`):
+
+`<basename>`
+: The basename of the path. Example: `image`.
+
+`<ext>`
+: The extension of the path. Example: `.jpg`.
+
+  The leading dot is included.
+
+`<version>`
+: The [version meta information] of the path. Example: `default`.
+
+  Note that if the version is "default", this expression evaluates to an empty string! So the
+  default version of a node never has the version name in its cn.
+
+> This key has to be set **before** a node gets created. Setting this value is therefore only
+> useful, for example, in the `paths` block of a [meta information path][path handler meta_info].
+{:.important}
+
+Syntax
+: String: `<basename>(-<version>)<ext>`
+
+Paths/Nodes
+: Any path
+
+
 ### created_at
 
 Specifies the time when the content of the node was created.
@@ -97,13 +140,20 @@ Paths/Nodes
 Specifies how the destination path for a node gets generated.
 
 The value for this key needs to be a string describing how components of the source path should be
-used to create the destination path. The default value should be okay for most uses. However, when a
-page path is part of a blog, for example, one might to include the creation year, month and date in
-the destination path.
+used to create the destination path. If not set, the default value of
+`<parent><basename>(-<version>)(.<lang>)<ext>` is used which should be okay for most uses. However,
+when a page path is part of a blog, for example, one might to include the creation year, month and
+date in the destination path.
+
+If this meta information is changed from the default, one might also want to change the [cn meta
+information] so that the destination path and the canonical names are similar.
 
 The expressions in angle brackets `<...>` are interpreted specially, see below. It is also possible
 to surround optional parts of a path with parentheses (only useful when the optional part contains
 one of the special expressions). Everything else is used as is.
+
+There is one special case: If the value starts with `webgen:/`, the rest of the value is taken as it
+is as the destination path. This allows one to override the default mechanism.
 
 The following special expressions can be used (examples are given for the source path
 `/mydir/subdir/sub/01_image.en.jpg`):
@@ -178,6 +228,21 @@ Syntax
 Paths/Nodes
 : Any path
 
+
+
+### handler
+
+Specifies the path handler that should be used for creating nodes from the path.
+
+> This key has to be set **before** a node gets created. Setting this value is therefore only
+> useful, for example, in the `paths` block of a [meta information path][path handler meta_info].
+{:.important}
+
+Syntax
+: String: `copy`
+
+Paths/Nodes
+: Any path
 
 
 ### lang
@@ -311,6 +376,21 @@ Paths/Nodes
 
 
 
+### passive
+
+Specifies whether this is a passive path/node or not.
+
+Passive nodes are exactly the same as normal nodes except that they are only written to their
+destination path if they have been referenced.
+
+Sytnax
+: Boolean: `false`
+
+Paths/Nodes
+: Any
+
+
+
 ### pipeline
 
 Specifies the processing pipeline for paths handled by [path handler copy].
@@ -319,7 +399,7 @@ Note that it makes a difference whether this key is set on a source path or only
 created node. See [path handler copy] for the details.
 
 Syntax
-: String: `scss,rainpress`
+: A string with content processor short names separated by commas: `scss,rainpress`
 
 Paths/Nodes
 : Any that is handled by [path handler copy]
@@ -369,6 +449,35 @@ Paths/Nodes
 
 
 
+### routing_path
+
+Specifies the path that should be used when routing to a node.
+
+The difference between the [proxy_path][proxy_path meta information] key and this key is that the
+proxy_path key needs to refer to an existing node whereas this can be any path.
+
+This can be very useful, for example, when wants to have URLs without the `.html` extension:
+
+~~~
+website.blackboard.add_listener(:apply_meta_info_to_path) do |path|
+  if path.ext == 'page' && path.to_s !~ /\/index.page$/
+    path['dest_path'] = '<parent><basename>(-<version>)/index.(<lang>.)html'
+  end
+end
+
+website.blackboard.add_listener(:after_node_created) do |node|
+  node.meta_info['routing_path'] = node.dest_path.sub(/index.html$/, '') if node['handler'] == 'page'
+end
+~~~
+
+Syntax
+: String describing an (a)(l)cn: `myindex.html`
+
+Paths/Nodes
+: Any
+
+
+
 ### sort_info
 
 Specifies the sort information for a node.
@@ -412,3 +521,67 @@ Syntax
 
 Paths/Nodes
 : Any
+
+
+
+### translation_key
+
+Specifies the translation key that should be used for the path/node.
+
+All nodes with the same translation key are assumed to represent the same content but in different
+languages. The default translation key is the absolute canonical name.
+
+Syntax:
+: String: `some content specific string`
+
+Paths/Nodes
+: Any
+
+
+
+### write_order
+
+A string used for determining the write order when writing nodes to their destination.
+
+By default, this meta information key is not set and is therefore equal to the empty string.
+
+Syntax
+: String: `zzz`
+
+Path/Nodes
+: Any
+
+
+
+### version
+
+Specifies the version name of a source path.
+
+This key should be set on a source path before a node gets created because it is used in
+constructing the canonical names as well as the destination path.
+
+If no version name is specified, the version name "default" is automatically used.
+
+Syntax
+: String: `small`
+
+Paths/Nodes
+: Any path
+
+
+
+### versions
+
+Allows one to specify meta information keys for different versions of a source path.
+
+This key needs to be set on a source path before nodes get created from it. Its value needs to be
+hash with version names as keys and meta information hashes as values.
+
+For each version defined the source path is duplicated, the provided meta information keys as well
+as the version name are set on the duplicated path and only then is it given to a path handler.
+
+Syntax
+: Hash of Hashes: `\{default: {title: Big Image, size: 1024x768}, thumb: {title: Thumbnail, size: 64x48}}`
+
+Paths/Nodes
+: Any path
