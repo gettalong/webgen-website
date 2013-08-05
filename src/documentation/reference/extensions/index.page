@@ -13,5 +13,5 @@ will never be loaded. Therefore you don't need to explicitly enable most of the 
 just sit in the background and wait until the webgen core needs them.
 
 
-{describe_ext: [content_processor, context_modules, destination, item_tracker, link_definitions,
-                node_finder, path_handler, source, tag]}
+{describe_ext: [cli, content_processor, context_modules, destination, item_tracker, link_definitions,
+                misc, node_finder, path_handler, sass_load_paths, source, tag]}

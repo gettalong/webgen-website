@@ -1,0 +1,27 @@
+---
+title: misc.dummy_index
+---
+## Description
+
+This extension provides the ability to create dummy index files in the case an index file (see the
+[misc.dummy_index.directory_indexes configuration option]) does not exist but the directory itself
+has a [proxy_path meta information] set.
+
+Assume that we have the following source directory:
+
+    /reference.page
+    /reference/glossary.page
+    /reference/other_things.page
+    /reference.metainfo
+
+And that `/reference.metainfo` contains the following:
+
+    --- alcn
+    /reference/:
+      proxy_path: ../reference.html
+
+Since the [proxy_path meta information] is set on the directory, gerneated links will automatically
+point to `/reference.html`. However, when pushing this website to a webserver and navigating to the
+`/reference/` directory, nothing useful is displayed because the `/reference/index.html` file is
+missing. If this extension is enabled, such an index file will be created containing a redirect to
+the correct location.

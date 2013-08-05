@@ -7,7 +7,8 @@ website.ext.context_modules << BundleInfos
 require_relative('kramdown_adaptions')
 
 website.blackboard.add_listener(:website_generated) do
-  ignored = %w[content_processor.glossary source.stacked tag.r tag.default tag.describe_ext]
+  ignored = %w[content_processor.glossary source.stacked tag.r tag.default tag.describe_ext
+               task task.create_bundle task.create_website task.generate_website bundle_infos]
 
   doc_pages = []
   nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/extensions/**/*.html", :flatten => true,
@@ -97,7 +98,7 @@ website.blackboard.add_listener(:website_initialized) do
 end
 
 website.blackboard.add_listener(:website_generated) do
-  excluded = %w[source.stacked]
+  excluded = %w[source.stacked task task.create_bundle task.create_website task.generate_website bundle_infos]
   website.cache[:referenced_extensions].uniq!
   (website.ext.bundle_infos.extensions.keys - website.cache[:referenced_extensions] - excluded).each do |ext|
     website.logger.error { "Missing link for extension '#{ext}'"}

@@ -1,0 +1,10 @@
+---
+title: cli
+---
+## Description
+
+This extension provides a hook to add CLI commands to the webgen executable.
+
+It is only available if the webgen CLI was used, not if webgen was used programmatically. And if it
+is available, it is an instance of `CmdParse::CommandParser`. See the [Webgen::CLI] API
+documentation for more information and an example.

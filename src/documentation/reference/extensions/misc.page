@@ -1,0 +1,10 @@
+---
+title: misc
+---
+## Description
+
+This is just a namespace under which miscellaneous extensions can be registered.
+
+## List of Miscellaneous Extensions
+
+{describe_ext: [misc.dummy_index]}

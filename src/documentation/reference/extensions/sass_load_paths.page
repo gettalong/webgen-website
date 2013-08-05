@@ -1,0 +1,7 @@
+---
+title: sass_load_paths
+---
+## Description
+
+This extension is only useful for extension bundle authors. It provides an array to which directory
+paths can be appended that contain Sass/Scss files that should be available.

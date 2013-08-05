@@ -29,6 +29,10 @@ If you don't like the syntax of the Sass meta language, you may also want to try
 language](scss.html) which has a syntax based on CSS and supports the same functionality as the Sass
 meta language.
 
+When writing a webgen extension bundle, you may want to have a look at the [sass_load_paths
+extension] which allows one to specify a directory of Sass/Scss files that is added to the load path
+of Sass/Scss.
+
 
 ## Example
 

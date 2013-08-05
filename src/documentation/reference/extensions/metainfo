@@ -34,6 +34,9 @@ item_tracker/:
 item_tracker/*.html:
   template: /templates/documentation/item_tracker.template
 
+misc/:
+  proxy_path: ../misc.html
+
 path_handler/:
   title: path_handler
   proxy_path: ../path_handler.html
