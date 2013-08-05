@@ -30,6 +30,10 @@ node
 
   Also see: [Node API documentation][Webgen::Node].
 
+passive node
+
+: A [node][g:node] that is only written to its destination path if referenced by another node.
+
 path
 
 : See [source path][g:source path]
