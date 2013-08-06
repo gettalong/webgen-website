@@ -4,6 +4,9 @@ main_menu: true
 main_sort: 30
 link_attrs:
   link_text: "<i class='icon-download-alt'></i> Installation"
+meta:
+  description: Information on how to download and install webgen on Linux, Mac and Windows as well
+    as a list of mandatory and optional dependencies.
 ---
 
 ## Compatibility Notes

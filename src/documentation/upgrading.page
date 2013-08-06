@@ -1,5 +1,7 @@
 ---
 title: Upgrading from 0.5.x
+meta:
+  description: Information on how to upgrade from older versions of webgen to the newest one.
 ---
 
 webgen supports two new command line options that should make migrating easier: `--dry-run` and `--o

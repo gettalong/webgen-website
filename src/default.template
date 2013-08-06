@@ -4,7 +4,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Thomas Leitner &lt;t_leitner@gmx.at&gt;" />
     <meta name="dcterms.rights" content="&copy; 2004-2013 Thomas Leitner" />
-    <meta name="description" content="webgen is a free, fast, powerful, and extensible static website generator." />
     <meta name="keywords" content="webgen, static web site generator, static website generator, static site generator, ruby, HTML, dynamic tags, extensible, static web, web generator, site generator" />
     <meta name="generator" content="webgen - http://webgen.rubyforge.org" />
     <meta name="viewport" content="width=device-width">

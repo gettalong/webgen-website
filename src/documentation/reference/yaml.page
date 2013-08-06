@@ -1,5 +1,7 @@
 ---
 title: YAML Quick Reference
+meta:
+  description: Short introduction to the markup language YAML which is used in many parts of webgen.
 ---
 ## Overview
 

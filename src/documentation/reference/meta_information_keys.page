@@ -1,5 +1,8 @@
 ---
 title: Meta Information Reference
+meta:
+  description: List and detailed information about all meta information keys that are used in one
+    way or another but the built-in webgen extensions.
 ---
 
 Following is a list of all the meta information items that are used in one way or another by an

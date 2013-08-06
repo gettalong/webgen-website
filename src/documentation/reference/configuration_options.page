@@ -1,5 +1,7 @@
 ---
 title: Configuration Options
+meta:
+  description: List and detailed information about all available webgen configuration options.
 --- pipeline:erb,kramdown,fragments
 This reference describes all available configurations that can be set via the [configuration
 file](../manual.html#configuration-file) `webgen.config`.

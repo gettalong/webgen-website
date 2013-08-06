@@ -4,6 +4,8 @@ main_menu: true
 main_sort: 10
 link_attrs:
   link_text: "<i class='icon-home'></i> Home"
+meta:
+  description: webgen is a free, fast, powerful, and extensible static website generator.
 ---
 <div class="row index-page">
 

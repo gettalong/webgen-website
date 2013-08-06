@@ -1,5 +1,9 @@
 ---
 title: Reference Documentation
+meta:
+  description: Index of all available reference-style documentation for webgen. This is the place to
+    look if one needs information on built-in webgen extension, the Webgen Page Format,
+    configuration options, meta information keys, ...
 ---
 
 This is the definite reference for all things webgen! You will find in-depth information about

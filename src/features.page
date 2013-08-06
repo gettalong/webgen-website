@@ -4,6 +4,8 @@ main_menu: true
 main_sort: 20
 link_attrs:
   link_text: "<i class='icon-bolt'></i> Features"
+meta:
+  description: Provides a non-exhaustive list of the features of webgen.
 ---
 
 ## Non-exhaustive List

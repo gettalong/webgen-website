@@ -2,6 +2,9 @@
 title: Documentation
 link_attrs:
   link_text: "<i class='icon-book'></i> Documentation"
+meta:
+  description: Overview over the available webgen documentation as well as information on how to get
+    help and report bugs.
 ---
 ## Overview
 

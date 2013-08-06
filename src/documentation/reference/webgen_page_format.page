@@ -1,5 +1,7 @@
 ---
 title: Webgen Page Format
+meta:
+  description: Description of the file format used by webgen for all custom files.
 ---
 ## Webgen Page Format
 
