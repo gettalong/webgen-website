@@ -48,6 +48,8 @@ website.ext.bundle_infos.extensions.each do |name, infos|
 end
 link_defs['content processors'] = ['/documentation/reference/extensions/content_processor/',
                                    'Information about and list of content processors']
+link_defs['item trackers'] = ['/documentation/reference/extensions/item_tracker/',
+                              'Information about and list of item trackers']
 link_defs['destinations'] = ['/documentation/reference/extensions/destination/',
                              'Information about and list of destination extensions']
 link_defs['path handlers'] = ['/documentation/reference/extensions/path_handler/',
