@@ -23,6 +23,9 @@ paths
 
   When specifying path patterns, remember that the patterns are matched against the source paths!
 
+  Note that if a meta information path is created programmatically during a webgen run, meta
+  information from this section is not applied retro-actively to paths!
+
 alcn
 : This block specifies **meta information for nodes** and this meta information is applied to nodes
   directly after their creation.

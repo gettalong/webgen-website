@@ -23,6 +23,9 @@ The [dest_path meta information] should be used to define the link destination f
 This usually means an absolute URL like `http://example.com/link/target`. If the dest_path meta
 information is not set, the path string is used for this purpose instead.
 
+The order of the keys is important because, for example, a virtual directory can't be created if
+another key already lead to the creation of a virtual directory.
+
 
 ## Example
 
