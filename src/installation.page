@@ -144,7 +144,7 @@ it should normally work with newer versions, too!
 * (optional) [builder](http://builder.rubyforge.org) version 2.1.0 or higher for programmatic xml
   generation support
 
-* (optional) [rdoc](http://rdoc.rubyforge.org/) version 3.0 or higher for RDoc markup support
+* (optional) [rdoc](http://rdoc.rubyforge.org/) version 4.0 or higher for RDoc markup support
 
 * (optional) [coderay](http://coderay.rubychan.de/) version 1.0.0 or higher for syntax highlighting
 
