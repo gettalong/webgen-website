@@ -16,6 +16,10 @@ The executable for webgen is called... webgen ;-) It uses a command style syntax
 `gem` commands) through the [cmdparse] library. To get an overview of the possible commands run
 `webgen help`.
 
+The output uses ANSI colors by default on Linux and Mac. If
+[ANSICON](https://github.com/adoxa/ansicon) is installed on Windows, webgen will show colors on
+Windows, too.
+
 The main command is the `generate` command which does the actual website generation. This command uses
 either the environment variable `WEBGEN_WEBSITE` (if it is set and non-empty) or the current working
 directory as website directory if none was specified via the gloabl `-d` option. All other commands
@@ -69,7 +73,8 @@ directories inside this directory are used:
   them from on of them.
 
 * `tmp/`: The **temporary directory** is automatically created by webgen when needed and contains
-  temporary files and cache data.
+  temporary files and cache data. For example, [content processor sass] uses it for storing
+  pre-compiled Sass files.
 
 
 ### Configuration File {#configuration-file}
@@ -185,7 +190,7 @@ can correctly be extracted from the path names. There are three different cases 
 type of path (the individual parts of a path are explained below):
 
 * The path specifies a *directory*. It must end with a slash character and must not contain any hash
-  characters. A directory path has to follow the scheme:
+  characters (however it may contain dots). A directory path has to follow the scheme:
 
         /parent/basename/
 
