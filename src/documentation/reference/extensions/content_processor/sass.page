@@ -20,8 +20,18 @@ using the sass library.
 ## Usage
 
 This processor should best be used in combination with the [path handler copy]. An easy way to do
-this is by creating a file with the `sass` extension. This file is automatically handled by the copy
-path handler which changes its extension to `css` and processes it with this processor.
+this is by creating a file with the `sass` extension. This file is automatically handled by the
+[path handler copy] which changes its extension to `css` and processes it with this processor.
+
+Sass partials which begin with an underscore are also automatically supported. They get handled by
+the [path handler copy] but are not written to their destination path.
+
+The sass library was also extended in some ways to provide a better integration with webgen:
+
+* Sass partials or other Sass/CSS files can be `@import`ed from the node tree.
+
+* The Sass function `relocatable` can be used like the [tag relocatable] to generate correct
+  relative links.
 
 For detailed information about Sass have a look at the [Sass Homepage][1]!
 
