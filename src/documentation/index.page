@@ -17,6 +17,9 @@ There is extensive documentation covering all aspects of webgen.
    options**, **meta information keys**, **API documentation** and also provides a **glossary** for
    looking up terms.
 
+4. The [Upgrade Guide](upgrading.html) provides information on how to upgrade from webgen 0.5.x to
+   this newer version.
+
 
 ## Getting Help, Reporting Issues, ...
 

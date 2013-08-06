@@ -1,0 +1,158 @@
+---
+title: Upgrading from 0.5.x
+---
+
+webgen supports two new command line options that should make migrating easier: `--dry-run` and `--o
+destination.show_changes=true`.
+
+The first one activates the dry run mode where nothing is actually written to the destination
+directory. And the other one displays the would-be-written changes in a `diff`-like format.
+
+To take advantage of these options you can do the following:
+
+* Create a new empty website directory.
+* Add an adjusted webgen configuration file (see the information below).
+* Make sure that you modify the [sources configuration option] to include the path to the old source
+  directory *after* the new one.
+* Also make sure that you point the [destination configuration option] to your old output directory
+  (this is needed so that the changes can be shown).
+* Run webgen and correct one problem after another by copying the problematic files from the old
+  source directory into the new one and fixing them.
+
+Here are step-by-step instructions on how to update your webgen website from 0.5.x to 1.x:
+
+* **Ruby 1.8 not supported anymore**
+
+  You need to use Ruby 2.0 or Ruby 1.9 if you want to use webgen. Ruby 1.8 is not supported!
+
+
+* **Update the configuration file**
+
+  The name of the configuration file changed from `config.yaml` to `webgen.config` so as to clearly
+  signify that this is a webgen configuration file. Furthermore the names of some configuration
+  options as well as the syntax and some defaults have changed.
+
+  For example, the default processing pipeline as well as path patterns are not set via
+  configuration options anymore but via [meta information paths][path handler meta_info].
+
+  You can find an overview over all available configuration options in the [Configuration Option
+  Reference](reference/configuration_options.html). Also have a look at the [configuration file
+  documentation](manual.html#configuration-file) for more information on the syntax of this file.
+
+  Changed options (names and or syntax):
+
+  * `contentprocessor.*` → `content_processor.*`
+  * `contentprocessor.tags.prefix` → `tag.prefix`
+  * `output` → `destination`
+  * `sourcehandler.casefold` → `path_handler.patterns.case_sensitive`
+  * `sourcehandler.default_lang_in_output_path` → `path_handler.lang_code_in_dest_path`
+  * `sourcehandler.ignore` → `sources.ignore_paths`
+  * `sourcehandler.use_hidden_files` → `path_handler.patterns.match_leading_dot`
+  * `sourcehandler.template.default_template` → `path_handler.default_template`
+  * `tag.breadcrumb_trail.omit_index_path` → `tag.breadcrumb_trail.omit_dir_index`
+  * `tag.tikz.libraries` → `content_processor.tikz.libraries`
+  * `tag.tikz.opts` → `content_processor.tikz.opts`
+  * `tag.tikz.resolution` → `content_processor.tikz.resolution`
+  * `tag.tikz.transparent` → `content_processor.tikz.transparent`
+
+  Removed options:
+
+  * `common.*` (not needed anymore because of more flexible [tag menu])
+  * `contentprocessor.map`
+  * `contentprocessor.tags.map`
+  * `output.do_deletion`
+  * `passive_sources` (passive sources can now be only added programmatically)
+  * `sourcehandler.default_meta_info` (is now set via a passive [meta information path][path
+    handler meta_info])
+  * `sourcehandler.invoke`
+  * `sourcehandler.patterns` (not needed anymore, can be done via [meta information paths][path
+    handler meta_info] and the [handler meta information])
+  * `tag.menu.*` (the [tag menu] works differently and is much more powerful; the former options
+    have been replaced with new ones)
+  * `website.link_to_current_page` (generated links now always use the HTML `<a>` tag)
+
+
+* **Update meta information keys and values**
+
+  The names and partially the syntax of some meta information keys have been changed. You can find
+  the complete list of supported meta information keys in the [meta information
+  reference](reference/meta_information_keys.html).
+
+  The most notable changes are:
+
+  * `blocks` syntax changed a bit
+  * ***new*** `cn` for customizing the (a)(l)cn
+  * `fragments_in_menu` was removed because it is not needed anymore due to the much more flexible
+    [tag menu]
+  * `index_path` → `proxy_path`
+  * `kind` can still be used but is not used by any built-in webgen extension anymore
+  * `omit_index_path` → `omit_dir_index`
+  * `output_path_style` → `dest_path` (and the syntax changed)
+  * ***new*** `routing_path` for customizing the linked-to path
+  * ***new*** `translation_key` for customizing the localization strategy
+  * `used_nodes` is not supported anymore, you need to programmatically add dependencies (see
+    [Webgen::ItemTracker#add] and the [item tracker documentation][item trackers])
+
+  You need to change the key/value in all places where meta information can be specified:
+
+  * [meta information paths][path handler meta_info]
+  * [virtual paths][path handler virtual]
+  * [page][path handler page] and [template][path handler template] paths
+
+
+* **Paths in [Webgen Page Format](reference/webgen_page_format.html)**
+
+  The format of these files changed a bit but you don't need to adapt your existing files. A
+  simplified block starting line was added which is very useful when one only wants to name a block.
+
+
+* **Update any custom Ruby code**
+
+  If you have any ERB code in your template or page files or written any extension, you will most
+  certainly have to adapt it to the new [API](reference/api/). One thing that has been used often is
+  the check if a page file has a certain block:
+
+      <%% if context.content_node.node_info[:page].blocks.has_key?('NAME') %>
+      ...
+      <%% end %>
+
+  This needs to be changed into the following:
+
+      <%% if node.blocks.has_key?('NAME') %>
+      ...
+      <%% end %>
+
+  Some other notable changes:
+
+  * [Webgen::Node::new] parameter order changed
+  * [Webgen::Path::new] parameters changed, no SourceIO object anymore, access io object directly on
+    path
+  * Use [Webgen::PathHandler#create_secondary_nodes] for creating nodes during the generation phase
+  * [Webgen::PathHandler::Base#create_node] has a different interface
+  * [Webgen::CLI::Utils::format] parameters reordered
+
+
+* **Extensions development**
+
+  Since the complete core of webgen has changed you need to rewrite all your custom extensions.
+  However, webgen has a complete [API documentation](reference/api/) which provides you with all
+  needed information as well as examples on how to implement path handlers, tags, content
+  processors, ...
+
+  You may also want to have a look at the `webgen-*` repositories on <https://github.com/gettalong/>
+  which are the source for some webgen extensions.
+
+  If you still have any questions, don't hesitate to contact me or write a mail to the mailing list!
+
+  Built-in extensions that were removed:
+
+  * Webgen::Tag::Sitemap is not needed anymore due to the flexible [tag menu].
+
+
+* **Running webgen on the converted website**
+
+  Running the new webgen version on the converted website will also help in ironing out the
+  remaining errors.
+
+  For example, if you have overlooked changing a tag parameter, you will find `ERROR` and `WARN`
+  lines in the output showing you what still needs to be changed.
