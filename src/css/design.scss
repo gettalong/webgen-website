@@ -118,6 +118,10 @@ dd {
     margin-left: $list-side-margin;
 }
 
+ul li ol, ul li ul {
+    margin-bottom: $paragraph-margin-bottom;
+}
+
 kbd {
     font-weight: bold;
 }
