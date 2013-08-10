@@ -168,10 +168,6 @@ blockquote > :last-child {
      }
 }
 
-
-
-/* Custom adpations and classes*/
-
 .index-page h3 {
     text-align: center;
 }
@@ -190,4 +186,8 @@ ul.you-are-here {
 
 .table-reference {
     width: 100%;
+
+    th {
+        width: 14em;
+    }
 }
