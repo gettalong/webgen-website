@@ -1,10 +1,14 @@
 ---
 template: extensions.template
---- name:table-infos pipeline:erb
+--- name:table-infos pipeline:erb,kramdown
 <tr><th>Short name</th><td><%= h(context[:data][:name]) %></td></tr>
 <% unless context[:data][:patterns].empty? %>
 <tr><th>Path patterns</th><td><%= h(context[:data][:patterns]) %></td></tr>
 <% end %>
 <% unless context[:data][:mi_patterns].empty? %>
 <tr><th>Path patterns defined<br />via <code>/default.metainfo</code></th><td><%= h(context[:data][:mi_patterns]) %></td></tr>
+<% end %>
+<% if context[:data][:mi_pipeline] %>
+<tr><th>Default pipeline defined<br />via <code>/default.metainfo</code></th>
+<td markdown="span"><%= context[:data][:mi_pipeline].map {|cp| "[#{cp}][content processor #{cp}]"}.join(", ") %></td></tr>
 <% end %>

@@ -55,17 +55,18 @@ module BundleInfos
   def path_handler_info(name)
     name = name.sub(/^path_handler\./, '')
     data = {}.update(ext_info("path_handler.#{name}"))
-    data[:patterns] = website.ext.path_handler.registered_extensions[name.to_sym].patterns
-    data[:mi_patterns] = parse_default_metainfo(name)
+    data[:patterns] = website.ext.path_handler.registered_extensions[name.to_sym].patterns.join(", ")
+    entries = parse_default_metainfo(name).select {|pattern, mi| Marshal.load(mi)['handler'] == name }
+    data[:mi_patterns] = entries.map {|pattern, mi| pattern}.join(", ")
+    data[:mi_pipeline] = entries.map {|pat, mi| Marshal.load(mi)['blocks']['defaults']['pipeline'] rescue nil}.last
     data[:name] = name
     data
   end
 
   def parse_default_metainfo(name)
-    mi_path = website.ext.source.paths.select {|path| path == '/default.metainfo'}.first
+    mi_path = website.ext.source.paths.find {|path| path == '/default.metainfo'}
     blocks = Webgen::Page.from_data(mi_path.data).blocks
-    entries = website.ext.path_handler.instance('meta_info').send(:add_data, mi_path, blocks['paths'], 'paths')
-    entries.select {|pattern, mi| Marshal.load(mi)['handler'] == name }.map {|pattern, mi| pattern}
+    website.ext.path_handler.instance('meta_info').send(:add_data, mi_path, blocks['paths'], 'paths')
   end
   private :parse_default_metainfo
 
