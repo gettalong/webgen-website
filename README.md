@@ -15,21 +15,36 @@ many of its features, like
 
 # Generating the website
 
-You need to install [webgen], [webgen-sass_twitter_bootstrap-bundle][1] and
+You need to install [webgen], the needed libraries as well as the
+extension bundles [webgen-zurb_foundation-bundle][1] and
 [webgen-font_awesome-bundle][2]:
 
 <pre>
 $ <b>gem install webgen</b>
-$ <b>gem install webgen-sass_twitter_bootstrap-bundle</b>
+$ <b>gem install archive-tar-minitar coderay erubis haml</b>
+$ <b>gem install maruku rdiscount rdoc RedCloth sass</b>
+$ <b>gem install webgen-zurb_foundation-bundle</b>
 $ <b>gem install webgen-font_awesome-bundle</b>
 </pre>
 
-After that just change into the website directory and run
+Then clone this repository and the repository for webgen (needed as
+source for the automatic API generation):
+
+<pre>
+$ <b>git clone https://github.com/gettalong/webgen-website.git</b>
+$ <b>git clone https://github.com/gettalong/webgen.git</b>
+</pre>
+
+After that just change into the `webgen-website/` directory and run
 
 <pre>
 $ <b>webgen</b>
 </pre>
 
+The generated website is written to the `out/` directory. Opening the
+`out/index.html` file in any browser will show it. Since all links are
+relative, no web server is needed!
+
 [webgen]: http://webgen.rubyforge.org
-[1]: https://github.com/gettalong/webgen-sass_twitter_bootstrap-bundle
+[1]: https://github.com/gettalong/webgen-zurb_foundation-bundle
 [2]: https://github.com/gettalong/webgen-font_awesome-bundle
