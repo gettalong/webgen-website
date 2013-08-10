@@ -60,7 +60,7 @@
           <% end %>
           {menu: {options: {descendants: true, levels: [2, 10]}}}
 
-          <webgen:block name="sidebar" notfound="ignore" />
+          <webgen:block name="sidebar" notfound="ignore" node="first" />
 
           <h4><i class='icon-heart'></i> Support webgen</h4>
           <webgen:block name="content" chain="donation.template" />
