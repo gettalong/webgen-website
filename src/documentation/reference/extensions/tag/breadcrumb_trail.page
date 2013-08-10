@@ -18,7 +18,8 @@ hierarchy of a page.
 The behavior of this tag can be configured via the available configuration options, see above.
 
 If you want to generate different HTML, you will need to create a custom template and use the
-[tag.breadcrumb_trail.template] option.
+[tag.breadcrumb_trail.template] option (see the general [tags documentation][tags] for more
+information).
 
 Furthermore, the behavior of the [tag.breadcrumb_trail.omit_dir_index] configuration option can be
 overridden for individual directory index nodes by setting the [omit_dir_index meta information]

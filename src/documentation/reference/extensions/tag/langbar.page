@@ -19,7 +19,8 @@ other versions of the page. The behavior of this tag can be configured via the a
 configuration options, see above.
 
 If you want to generate different HTML code, you will need to create a custom template and use the
-[tag.langbar.template] option.
+[tag.langbar.template] option (see the general [tags documentation][tags] for more
+information).
 
 When using the default template, the CSS class "webgen-langbar-current-lang" is assigned to the HTML
 tag for the currently selected language.

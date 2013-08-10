@@ -9,6 +9,19 @@ is used for a specific task like creating a menu or a breadcrumb trail.
 
 Information about how to create a tag is found in the [Webgen::Tag] API documentation.
 
+### Tag Templates
+
+The output of some tags can be customized by providing a custom rendering template via a
+configuration option.
+
+This configuration option needs the (a)(l)cn of a template or page node as value and this node needs
+to have a specially named block (normally of the form `tag.TAGNAME`). This block is then used for
+rendering the output.
+
+This mechanism allows you, for example, to add such a block to the default website template so that
+there is no need to create a separate template.
+
+
 ## List of Tag Extensions
 
 {describe_ext: [tag.*]}
