@@ -18,6 +18,7 @@ $header-font-weight: normal;
 $paragraph-font-family: $header-font-family;
 $anchor-font-color-hover: darken($primary-color, 10%);
 $list-side-margin: emCalc(20px);
+$blockquote-padding: emCalc(9px) emCalc(20px) emCalc(9px) emCalc(19px);
 
 $topbar-breakpoint: emCalc(600px);
 $topbar-bg: rgba(0,0,0,0);
@@ -134,30 +135,37 @@ pre {
     margin-bottom: emCalc(20px);
 }
 
+blockquote > :last-child {
+    margin-bottom: 0;
+}
+
 /////////////////////////////////////////////
 // Custom
 
 
-.library-needed {
+.library-needed, .warning {
     border-left: 5px solid $alert-color;
 }
 
 .information {
-  @extend .alert;
+    border-left: 5px solid $theme-green;
 }
 
-.warning {
-  @extend .alert;
-}
+.tip {
+    border-left: none;
+    position: relative;
+    padding-left: $h1-font-size;
 
-
-@mixin radial-gradient($innerColor, $outerColor, $pos, $style) {
-  background-color: $outerColor;
-  background-image: -webkit-gradient(radial, $pos, 0, $style, 460, from($innerColor), to($outerColor));
-  background-image: -webkit-radial-gradient($pos, $style, $innerColor, $outerColor);
-  background-image: -moz-radial-gradient($pos, $style, $innerColor, $outerColor);
-  background-image: -o-radial-gradient($pos, $style, $innerColor, $outerColor);
-  background-repeat: no-repeat;
+    &:before {
+       content: "\f0eb";
+       font-family: FontAwesome;
+       font-size: $h1-font-size;
+       color: $theme-green;
+       position: absolute;
+       left: 0;
+       top: 0;
+       margin-right: 10px;
+     }
 }
 
 
