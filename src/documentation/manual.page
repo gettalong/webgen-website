@@ -499,7 +499,7 @@ sample implementations for all major types of extensions (sources, destinations,
 tags, path handlers, ...) and detailed information about the inner workings of webgen.
 
 It is also possible to override a built-in extension. If the extension was registered using some
-#register method (e.g. [Webgen::ContentProcessor::register]), just register your extension with the
+#register method (e.g. [Webgen::ContentProcessor#register]), just register your extension with the
 same name. If the extension was registered directly on the `website.ext` object by assignment, just
 assign your extension to the needed name (e.g. `website.ext.content_processor = MyCP.new`).
 
