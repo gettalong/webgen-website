@@ -497,3 +497,11 @@ you need.
 All the needed developer documentation is available in the [API documentation](reference/api/), along with
 sample implementations for all major types of extensions (sources, destinations, content processors,
 tags, path handlers, ...) and detailed information about the inner workings of webgen.
+
+It is also possible to override a built-in extension. If the extension was registered using some
+#register method (e.g. [Webgen::ContentProcessor::register]), just register your extension with the
+same name. If the extension was registered directly on the `website.ext` object by assignment, just
+assign your extension to the needed name (e.g. `website.ext.content_processor = MyCP.new`).
+
+You might also want to have a look at <https://github.com/gettalong> and the repositories which are
+named like `webgen-*-bundle`. These are real world extensions that might help you get started.
