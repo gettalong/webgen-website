@@ -1,0 +1,13 @@
+---
+template: /templates/api.template
+--- name:sidebar pipeline:erb
+<%
+klass = context.node.node_info[:api_class_object]
+api = context.node.node_info[:api]
+%>
+<h4>Class And Modules</h4>
+<ul>
+<% klass.store.all_classes_and_modules.sort.each do |entry| %>
+<li><%= context.dest_node.link_to(api.class_nodes[entry.full_name], context.dest_node.lang, 'link_text' => entry.full_name) %></li>
+<% end %>
+</ul>

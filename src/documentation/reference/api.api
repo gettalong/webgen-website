@@ -1,3 +1,4 @@
 ---
 rdoc_options: ../webgen/lib/ --root ../webgen/
 prefix_link_defs: false
+api_template: /templates/documentation/api.template
