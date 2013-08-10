@@ -83,13 +83,18 @@ website.
 
 --- herounit
 
-# webgen <small>static website generation made easy</small>
+<div itemscope="itemscope" itemtype="http://schema.org/SoftwareApplication" markdown="1">
 
-... is a free, fast, powerful and extensible static website generator. Create a (or re-use an existing)
-website template, add a bunch of content files (in plain HTML or any markup language), throw in some
-assets and let webgen do the rest!
+# <span itemprop="name">webgen</span> <small>static website generation made easy</small>
+
+... is <span itemprop="description">a free, fast, powerful and extensible static website
+generator</span>. Create a (or re-use an existing) website template, add a bunch of content files
+(in plain HTML or any markup language), throw in some assets and let webgen do the rest!
 
 ## gem install webgen
 {: style="text-align: center"}
 
-Latest webgen version 1.0.0 released on [*2010-08-09*](news/index.html)
+Latest webgen version <span itemprop="softwareVersion">1.0.0</span> released on
+[*2010-08-09*](news/index.html)
+
+</div>
