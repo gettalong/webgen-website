@@ -434,11 +434,13 @@ the default language, the version name is "default" and that the parent path is 
 Path patterns are used in many situations in webgen. For example, path patterns define which source
 paths are handled by which path handler or which nodes to use in a node finder option set.
 
+The path patterns look like normal file system paths or node (a)(l)cns but some characters have a
+special meaning, like `*` (match any file), `**` (match recursively or expansively) and `?` (match a
+single character). Have a look at the [File.fnmatch API
+documentation](http://ruby-doc.org/core/File.html#method-c-fnmatch) for detailed information.
+
 Note that patterns that should match fragment paths have to contain a hash character! This is
 necessary to prevent catch-all patterns to falsely match fragment paths.
-
-Have a look at the [File.fnmatch API
-documentation](http://ruby-doc.org/core/File.html#method-c-fnmatch) for detailed information.
 
 Here are some example path patterns:
 
