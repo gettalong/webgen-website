@@ -1,0 +1,9 @@
+---
+title: item_tracker.template_chain
+---
+## Description
+
+This item tracker extension is used for tracking the template chain of a page node.
+
+Since newly added `default.template` nodes must be taken into account when re-generating a website,
+tracking of the template chain is necessary.
