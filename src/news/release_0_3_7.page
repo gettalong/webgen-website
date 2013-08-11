@@ -1,0 +1,29 @@
+---
+title: webgen 0.3.7 released
+sort_info: 2005-11-27
+created_at: 2005-11-27 08:45:00 +02:00
+modified_at: 2005-11-27 08:45:00 +02:00
+---
+
+Major changes:
+
+* Now using cmdparse version 2.0.0!
+* Attention: For unified naming in reference to image galleries, I have removed all occurences of
+  the word "picture" from the code and documentation and replaced it with "image". Therefore you may
+  need to adapt your code, especially custom gallery layouters!
+* Attention: Many documentation and library files have been renamed for better consistency! Custom
+  plugins may have to be adapted!
+* New application for managing image galleries (only alpha quality currently!)
+* Smileys are now optionally replaced with emoticons (several different emoticon packs available) ->
+  see Misc/SmileyReplacer
+* Site specific commands (used in command line processing) can now be used
+* New plugin Tag/Download for nice download links
+* New parameters: PageFileHandler:defaultPageMetaData, SitemapTag:honorInMenu
+* Removed parameters: PageFileHandler:useERB, PageFileHandler:defaultContentFormat
+* Renamed tag *navbar* to *breadcrumbTrail*
+* Images in image galleries can now be ordered by specifying the `orderInfo` meta information
+* The use of directory index files is now optional: by setting the parameter
+  File/DirectoryHandler:indexFile to nil directory index files are not used
+* Languages can now be specified using 2-char ISO-639-1 codes or 3-char ISO-639-2 codes
+* Now there is a link (next to the wiki link) to the source of each page unless the page was
+  programmatically generated.

@@ -1,0 +1,11 @@
+---
+title: webgen 0.4.6 released
+sort_info: 2007-09-08
+created_at: 2007-09-08 08:45:00 +02:00
+modified_at: 2007-09-08 08:45:00 +02:00
+---
+
+This is a bug fix release:
+
+* fixed bug in handling of meta information in File/Pagehandler (thanks to Andrea Ferro)
+* fixed bug in handling of directory and file names with special characters (see Bug #13757)

@@ -1,0 +1,19 @@
+---
+title: webgen 0.2.0 released
+sort_info: 2004-07-21
+created_at: 2004-07-21 08:45:00 +02:00
+modified_at: 2004-07-21 08:45:00 +02:00
+---
+
+The new release contains some more documentation, bug fixes and many new features:
+
+* directly noticeable is the colorized output for showing plugins and the configuration parameters
+* more tags and new options for the existing tags
+* support for 'virtual files' which allow the inclusion of links to external files into menus and
+  the like
+* better default handling of various error situations
+* it's now easier to add new plugins for tags and file handlers
+* and more ...
+
+And last but not least, there is now a homepage at <http://webgen.rubyforge.org> which was generated
+with webgen and shows most of its features.

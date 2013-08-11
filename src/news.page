@@ -1,0 +1,39 @@
+---
+title: News
+--- pipeline:erb,fragments
+
+<%
+opts = {:alcn => '/news/*.html', :sort => 'sort_info', :reverse => true, :flatten => true}
+context.website.ext.item_tracker.add(context.dest_node, :nodes, :node_finder_option_set,
+  {:opts => opts, :ref_alcn => context.node.alcn}, :content)
+
+title_to_id = lambda {|title| title.tr('. ', '-')}
+
+context.website.ext.node_finder.find(opts, context.node).each do |node|
+
+content = context.render_block(:name => 'content', :chain => [node])
+content.gsub!(/<(h[1-6])([^>]*)>/) do |match|
+  header = $1
+  h_content = $2.sub(/id=(["']).*?\1/, '')
+  "<#{header} class=\"subheader\" #{h_content}>"
+end
+%>
+
+<article class="news-item" itemscope itemtype="http://schema.org/Article">
+  <h2 itemprop="name" id="<%= title_to_id.call(node['title']) %>"><%= node['title'] %></h2>
+  <p class="news-date">
+    Published on <time itemprop="dateCreated" datetime="<%= node['created_at'] %>"><%= node['created_at'].strftime("%A, %d %B %Y") %></time> by <span itemprop="creator">Thomas Leitner</span>
+  </p>
+
+  <section itemprop="text">
+    <%= content %>
+  </section>
+</article>
+
+<% end %>
+
+--- name:sidebar pipeline:erb
+
+<h3>Feed</h3>
+
+<p><a href="<%= context.tag(:relocatable, 'news.atom') %>">Subscribe to webgen news feed</a></p>

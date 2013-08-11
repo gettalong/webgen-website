@@ -191,3 +191,15 @@ ul.you-are-here {
         width: 14em;
     }
 }
+
+.news-item {
+
+    & > h2 {
+        margin-bottom: 0;
+    }
+
+    h2 + p {
+        color: $small-font-color;
+        font-size: 90%;
+    }
+}

@@ -1,0 +1,21 @@
+---
+title: webgen 0.5.13 released
+sort_info: 2010-07-16 08:30:00
+created_at: 2010-07-16 08:30:00 +02:00
+modified_at: 2010-07-16 08:30:00 +02:00
+---
+
+This just a minor maintainance release which fixes some bugs and adds support for Sassy CSS.
+
+### Changes
+
+* Minor changes:
+
+  - Specifying a prefix for kramdown generated header IDs is now possible
+  - Added support for Sassy CSS
+  - A haml version greater than 3.0.0 is now needed
+  - A kramdown version greater or equal to 0.9.0 is now needed
+
+* Bug fixes:
+
+  - Fixed problem in ContentProcessor::Less where a non-useful error message was shown

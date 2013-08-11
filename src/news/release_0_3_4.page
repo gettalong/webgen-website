@@ -1,0 +1,19 @@
+---
+title: webgen 0.3.4 released
+sort_info: 2005-05-12
+created_at: 2005-05-12 08:45:00 +02:00
+modified_at: 2005-05-12 08:45:00 +02:00
+---
+
+Major changes:
+
+* FileHandler now uses path patterns and/or extensions for determining which files to process!
+* ERB (embedded ruby) can now be used in templates and page files !
+* Relocatable tag now accepts complex URIs (URIs with query and fragment part, absolute URIs)
+* Changed meta info name *menuOrder* to *orderInfo* (e.g. used for specifying order information for
+  menus) -- you have to adapt your page and backing files!!!
+* New parameters: PageFileHandler:useERB
+* Changed parameters: FileHandler:ignorePaths, CopyFileHandler:paths
+* New page describing meta information items used by plugins
+* Fixed bugs
+

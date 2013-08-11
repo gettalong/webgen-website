@@ -1,0 +1,18 @@
+---
+title: webgen 0.3.0 released
+sort_info: 2005-02-21
+created_at: 2005-02-21 08:45:00 +02:00
+modified_at: 2005-02-21 08:45:00 +02:00
+---
+
+Major changes:
+
+* Textile, Markdown, RDOC and HTML as content format supported!!!
+* New tags: Tag/WikiLink
+* Improved plugin system
+* On-the-fly creation of new tags
+* Fixed bugs
+* Improved online documentation: pages on file handlers and tags now show parameters and other
+  additional info
+* Added comprehensive test suite
+* and more...

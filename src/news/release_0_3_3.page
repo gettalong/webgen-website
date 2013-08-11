@@ -1,0 +1,17 @@
+---
+title: webgen 0.3.3 released
+sort_info: 2005-04-21
+created_at: 2005-04-21 08:45:00 +02:00
+modified_at: 2005-04-21 08:45:00 +02:00
+---
+
+Major changes:
+
+* New command line interface based on [CommandParser](http://cmdparse.rubyforge.org)
+* Now you can let webgen create the basic directories and files by executing `webgen create my_site`
+* New logging plugin lets you have more control over logging and log files
+* Now each website can have a plugin directory
+* New parameters for: Tag/WikiLink
+* Changed format of backing files -> have a look at the documentation
+* Removed obsolete Extension Loader plugin
+* Fixed bugs

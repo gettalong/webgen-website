@@ -1,0 +1,15 @@
+---
+title: webgen 0.1.0 released
+sort_info: 2004-07-08
+created_at: 2004-07-08 08:45:00 +02:00
+modified_at: 2004-07-08 08:45:00 +02:00
+---
+
+webgen is a template based web page generator. It is used to generate static web pages from
+templates and page description files.
+
+All basic things are working and some documentation does also exist :-).
+
+An example website is included which should get you started. Use "rake testsite" or change to the
+testsite directory and type "ruby -I../lib ../bin/webgen" to build the testsite. The output will go
+to testsite/output.

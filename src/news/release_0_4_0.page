@@ -1,0 +1,43 @@
+---
+title: webgen 0.4.0 released
+sort_info: 2007-01-05
+created_at: 2007-01-05 08:45:00 +02:00
+modified_at: 2007-01-05 08:45:00 +02:00
+---
+
+This is a major release with many updates to the webgen core, the plugins and the documentation.
+Plugins written for prior version won't work with this one anymore. However, changing them to work
+again is easy. As an upgrade guide is currently not available have a look at webgen plugins and the
+API documentation to see how to do upgrade plugins.
+
+Major changes:
+
+* New website layout :-)
+* webgen now includes many website styles which can be used out of the box!
+* Template files have the same format as page files now and can be nested!
+* Speed-up through caching of node information
+* New and cool gallery style
+* New content converter plugin (ContentConverter/XmlBuilder)
+* New plugin for syntax highlighting (Misc/SyntaxHighlighter)
+* Many changes to the core (plugin system revised, webgen can now be used from other Ruby
+  applications directly, faster node resolution, hooks are now spelled with only lowercase letters,
+  ...)
+* Structure of meta information `blocks` changed
+* New meta information `linkAttrs` for setting additional attributes on links
+* Handling and structure of meta information backing file changed
+* Evaluation of page files changed (first converted to HTML, then ERB, then webgen tags)
+* "Static" menus now available
+* New sub-commands for the webgen command
+* Gallery editor application deprecated.
+* Many tests have been added.
+* Documentation on the homepage as well as the API documentation is now more complete
+* Fixed many bugs
+* *Many other changes*
+
+For detailed information have a look at the ChangeLog file included in the webgen distribution!
+
+*Upcoming features:*
+
+* More documentation
+* Blogging plugins
+* RSS generation plugins

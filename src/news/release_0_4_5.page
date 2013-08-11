@@ -1,0 +1,20 @@
+---
+title: webgen 0.4.5 released
+sort_info: 2007-06-29
+created_at: 2007-06-29 08:45:00 +02:00
+modified_at: 2007-06-29 08:45:00 +02:00
+---
+
+This release contains some bug fixes:
+
+* a small bug fix for Tag/News - there have been some cases where loading the plugin lead to an
+  error. This has been fixed now!
+
+* fixed a bug with file name resolution: filenames are now searched using a case insensitive search
+  sothat, for example, images with an uppercase extension are processed correctly
+
+* fixed bug in File/ThumbnailWriter: no check was performed if a thumbnail for a given image already
+  existed
+
+One new feature: links can now be customized by providing a custom link renderer via the meta
+information `link_callback` - more information on the Meta Information Reference

@@ -1,0 +1,30 @@
+---
+title: webgen 0.4.2 released
+sort_info: 2007-02-28
+created_at: 2007-02-28 08:45:00 +02:00
+modified_at: 2007-02-28 08:45:00 +02:00
+---
+
+Another minor release which concentrates on fixing some bugs and adding some new features:
+
+New features:
+
+* Implemented support for sipttra (Simple Plain Text Tracker) files and using it for the project
+  status page
+* HTML is now the default content format for template files
+* New parameters for Tag/BreadcrumbTrail: Tag/BreadcrumbTrail:omitLast and
+  Tag/BreadcrumbTrail:omitIndexFile
+* New parameter Core/Configuration:customVars for storing custom global variables and a new plugin
+  Tag/CustomVar for accessing them
+* Added an example websites section to the examples section
+* Added a HowTo page which answer some often asked questions!
+* Added a man page contributed by the Debian project
+
+Closed bugs:
+
+* Specifying arguments to the `run` command to render only certain files now actually works! ;-)
+* Fixed bug when loading site specific plugins: the use of `load_plugin` should now work correctly!
+* All website styles updated to behave correctly when File/DefaultHandler:linkToCurrentPage is false
+
+Thanks for the many comments and suggestions since the last release, especially to Bill Paxton,
+Massimiliano Filacchioni, Erhard Karger, Alejandro Sierra, Fritz Heinrichmeyer and Vincent Fourmond!

@@ -1,0 +1,12 @@
+---
+title: webgen 0.4.1 released
+sort_info: 2007-01-12
+created_at: 2007-01-12 08:45:00 +02:00
+modified_at: 2007-01-12 08:45:00 +02:00
+---
+A minor release with bug fixes and some small enhancements:
+
+* webgen Windows bug resolved: webgen now really runs on Windows - thanks for the fast feedback!
+* Rake task for running webgen - thanks to Jeremy Hinegardner for providing it!
+* Meta information `template` can now be set to `nil` to specify that no template should be used!
+* Small documentation updates - thanks to John Gabriel for pointing out some flaws!

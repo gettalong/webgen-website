@@ -1,0 +1,17 @@
+---
+title: webgen 0.5.15 released
+sort_info: 2010-08-29 08:50:00
+created_at: 2010-08-29 08:50:00 +02:00
+modified_at: 2010-08-29 08:50:00 +02:00
+---
+
+### Changes
+
+* Minor changes:
+
+  - kramdown version equal to 0.11.0 is now needed
+
+* Bug fixes:
+
+  - Fixed bug RF#28393: Worked around a Rubygems problem regarding empty directories (reported by
+    Hans de Graaff)

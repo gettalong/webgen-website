@@ -1,0 +1,28 @@
+---
+title: webgen 0.5.10 released
+sort_info: 2009-08-10 07:04
+created_at: 2009-08-10 08:45:00 +02:00
+modified_at: 2009-08-10 08:45:00 +02:00
+---
+
+This is just a small bug fix release. The only change feature wise was the addition of a content
+processor for checking XML (XHTML) files for validness.
+
+### Changes
+
+* Minor enhancements:
+
+  - Added content processor `xmllint` for checking an XML (XHTML) file for well-formedness and
+    validness
+
+* Bug fixes:
+
+  - `Tag::TikZ`: the generated image tags now always have an `alt` attribute
+  - Fixed problem with the webgui when creating a new website
+  - Fixed problem with matching directory nodes (reported by Hermann Schichl)
+  - Fixed bug RF#26885: paths with dots in the extension and without a language part were handled
+    incorrectly (reported by John Lockman)
+  - Fixed bug RF#26890: detecting unused paths did not always work correctly (reported by John
+    Lockman)
+  - Fixed problem with handling paths of the form `NUMBER.REST` (e.g. `1340.png`): the number part
+    is now considered the basename and the rest is the extension

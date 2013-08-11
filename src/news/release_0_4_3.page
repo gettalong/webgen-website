@@ -1,0 +1,27 @@
+---
+title: webgen 0.4.3 released
+sort_info: 2007-05-19
+created_at: 2007-05-19 08:45:00 +02:00
+modified_at: 2007-05-19 08:45:00 +02:00
+---
+
+I got mails about webgen not working with Ruby 1.8.6 on Windows anymore. It seems that a bug in the
+1.8.6 release prevents webgen from correctly finding directories. However, this bug has already been
+fixed which means that webgen should work again with the next One-Click-Installer for Windows. Until
+then I recommend using webgen with the latest 1.8.5 version on Windows (I found that it is no
+problem to have two versions of Ruby installed on Windows using the One-Click-Installer).
+
+And now on to the new features and other changes:
+
+* Updated exifr support to version 0.10 - versions lower than 0.10 are not supported anymore!
+* redcloth is now a dependency sothat all the examples and website templates really work out-of-the-box!
+* Removed website style `plain` due to incompatible license.
+* Added submitted plugin Tag/HtmlMetaInfo from Andrea Censi - thanks!
+* Added submitted plugin Tag/News from Jeremy Hinegardner - thanks!
+* Added submitted plugin ContentConverter/Maruku from Andrea Censi - thanks!
+
+Closed bugs:
+
+* Page and template files can now be written using either Windows, Mac or Unix EOL encodings!
+* Fixed order of webgen data directory discovery - local data directories are preferred now!
+* File/TemplateHandler will not use the default metainfo from File/PageHandler anymore!

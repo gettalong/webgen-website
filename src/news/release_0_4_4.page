@@ -1,0 +1,10 @@
+---
+title: webgen 0.4.4 released
+sort_info: 2007-05-20
+created_at: 2007-05-20 08:45:00 +02:00
+modified_at: 2007-05-20 08:45:00 +02:00
+---
+
+Only a (very) small bug fix version due to Rubygems being case sensitive when it comes to gem names.
+This version fixes the installation problem with Rubygems! Everything else is identical to the
+0.4.3 version!

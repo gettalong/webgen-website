@@ -1,0 +1,26 @@
+---
+title: webgen 0.5.12 released
+sort_info: 2010-04-14 20:30:00
+created_at: 2010-04-14 20:30:00 +02:00
+modified_at: 2010-04-14 20:30:00 +02:00
+---
+
+This release includes two minor changes and some bug fixes: The output of the meta information tag
+is now escaped by default. This can be changed by setting the `tag.metainfo.escape_html` option in
+the configuration file. And a rake task for showing outdated translations has been added.
+
+### Changes
+
+* Minor changes:
+
+  - Added a rake task to show outdated translations
+  - Added a configuration option for specifying whether a meta info value should be escaped
+
+* Bug fixes:
+
+  - All error messages now display useful path names (reported by Eric Sunshine)
+  - Fixed another CSS bug with sub directories in style bundle 'andreas07' (reported by Thomas
+    Deselaers)
+  - Fixed problem with unintentionally modified `link` meta information that lead to errors
+  - Commands are now correctly shown when running `webgen --help`
+  - Fixed a problem where an incorrect path was shown in error messages

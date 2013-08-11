@@ -1,0 +1,11 @@
+---
+title: webgen 0.4.7 released
+sort_info: 2007-12-31
+created_at: 2007-12-31 08:45:00 +02:00
+modified_at: 2007-12-31 08:45:00 +02:00
+---
+
+Minor release with feature enhancements:
+
+* added support for Haml markup
+* added support for Sass markup
