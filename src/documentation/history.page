@@ -1,0 +1,136 @@
+---
+title: History of webgen
+---
+
+webgen was a long time in the making. It all began about 10 years ago where I needed a tool for
+generating a static website.
+
+Note: For a full list of release announcements, have a look at the [news page](../news.html)!
+
+
+### First incarnation: XML and XSLT based
+
+The first incarnation, not yet called webgen, was based on XSLT and created in late 2002. 'Why?'
+would be a valid question since XSLT is probably not the easiest language to write some complicated.
+However, at this time XML and XSLT appealed to me and I wanted to use them in a project.
+
+There was on XML file that was used to hold the website template and many 'page XML' files that held
+the content, in one or more languages, and some meta information. XSLT was used to combine each page
+XML file with the template XML file to produce the output page.
+
+It worked very well for some time but in the end, it proved to be too inflexible.
+
+
+### And Then There Was... Thaumaturge?
+
+To overcome the inflexibility I decided to create a tool using Ruby in October 2003. This was the
+beginning of webgen but initially I wanted to have a "cool" name and decided that, since the things
+the program would do look like magic, the name "thaumaturge" would be appropriate.
+
+This initial version did already incorporate most of the components that would evolve over the
+years:
+
+* Plugin System: Initially called *Universal Plugin System* (UPS), it provided the ability to easily
+  extend the functionality of the system.
+
+* YAML configuration file: From the start the configuration file was based on YAML.
+
+* Node Tree: The concept of reading source files and building an in-memory tree from them was in
+  webgen from the start. It was built and written by the main *file handler* (what is now the main
+  path handler) and could be changed by *tree walkers*.
+
+* Node meta information: Since the XSLT based generator already had the notion of meta information
+  this was incorporated in the Ruby based version as well.
+
+* File handlers: These were responsible for reading the source files and writing the generated nodes
+  to the output directory - sounds familiar? It should because they are just called path handlers
+  now and still do the same.
+
+  Most of the file handlers that are available now were already available: one for handling
+  directories, one for copying files, one for meta information backing files, one for templates and
+  two for page files
+
+* Page files: The XSLT based solution used XML files for content definition. So it only made sense
+  to also use XML files for the first Ruby version. In addition, YAML files could be used for page
+  files, too.
+
+* Tag system: One of the main features of webgen is an easy to use system for adding dynamic
+  content. This system, called *webgen tags* was already available with the same syntax in this
+  version.
+
+If you compare the above features with those of the current version, you can see the most features
+were already available nine years ago - this first version was released in **July 2004**. It was
+named webgen instead of thaumaturge because this described its functionality better.
+
+The second version, webgen 0.2.0, was released shortly after the first and incorporated some more
+functionality but nothing major changed.
+
+
+### Webgen Page Format
+
+Due to the first system being XML based the content files were also XML files. When switching to
+Ruby the format was not changed. Additionally, content files could also be written as YAML files
+which were only just a bit easier to write.
+
+Therefore in **January 2005** I decided to tackle this problem. I removed these two content file
+formats and introduced a new format where the meta information was a the top of the file, separated
+from the content by three dashes.
+
+A content file looked like this:
+
+    ---
+    title: Page title
+    menu: true
+    ---
+    Here comes the content
+
+Does this look familiar? If you have used one of the popular other Ruby static website generators it
+should because most use the above format.
+
+This format evolved over the time and now allows multiple content blocks as well as defining block
+specific options on the block separator line.
+
+The third version, webgen 0.3.0, was released shortly after introducing this new format in early
+2005. Throughout this year there were incremental changes to webgen, like adding new plugins.
+
+
+### Major Changes and Version 1.0.0
+
+All the following major versions (0.4.0, 0.5.0 and then 1.0.0) had backward-breaking changes.
+
+When I realized that the latest version of the 0.3.x series was limited due to the core of the
+implementation, I completely overhauled the code. Naturally, this led to extensions of version 0.3.x
+not being usable by version 0.4.0. However, since the basic operating modus of webgen did not
+change, updating a webgen website was not that hard.
+
+Changing the core of webgen always also meant changing the way how plugins got loaded and handled.
+This also had the advantage of simplifying the implementation, at least at first. If you want to see
+a use of `Kernel::callcc`, have a look at the plugin code of webgen 0.4.0. It worked but it got
+complicated very quickly.
+
+The fourth version, webgen 0.4.0, was released in **January 2007**, with many smaller updates
+following throught the year.
+
+After realizing that parital website generation would not work with the core implementation of
+0.4.x, another overhaul was due. During this stage one complete re-implementation of the webgen core
+system never saw the light of the day because after working on it for some time it became clear that
+this was the wrong way forward.
+
+Prior implementations of webgen always tried to make clever use of the advanced functionality of
+Ruby (see `Kernel::callcc` above). Starting from 0.5.x I tried to avoid such advanced functionality
+to make maintaining of the code easier.
+
+The fifth version, webgen 0.5.0, was finally released in **July 2008** and supported partial website
+generation. However, some features of the 0.4.x series, like image gallery support, never made it
+into this new version. Incremental updates were released until September 2010 at which point I
+started to work on a new core implementation, again.
+
+webgen 0.4.x and 0.5.x were quite popular in their times, partly because there weren't that many
+good static website generators around. However, many people realized that there were valid use cases
+for static websites and [many, many static website generators][1] were created.
+
+Implementing the new system took some time and since I thought that this new system would be "the
+one", webgen 1.0.0 was finally released in **September 2013** after about ten years of development.
+
+
+[1]: https://github.com/jaspervdj/static-site-generator-comparison/blob/master/list.yaml
