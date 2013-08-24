@@ -84,7 +84,6 @@ node itself or by customizing the `/templates/sitemap.template` template.
 Here is an example for the content of a sitemap path:
 
     ---
-    site_url: http://site.example.com/
     entries:
       alcn: /**/*.html
     default_change_freq: daily
