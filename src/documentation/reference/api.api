@@ -1,4 +1,4 @@
 ---
-rdoc_options: ../webgen/lib/ --root ../webgen/
+rdoc_options: ../webgen/lib/ -x '/.yaml$/' ../webgen/API.rdoc --main API.rdoc --root ../webgen/
 prefix_link_defs: false
 api_template: /templates/documentation/api.template
