@@ -85,6 +85,12 @@
           <h4><i class='icon-heart'></i> Support webgen</h4>
           <webgen:block name="content" chain="donation.template" />
 
+          <h4>Sponsors</h4>
+
+          <p>GROSSWEBER provides <a href="http://grossweber.com/b/webgen" target="_blank">software
+              development consulting and training services</a>. <em>We like to work on open source. We use it heavily.
+              We love webgen!</em></p>
+
           <h4>Page source</h4>
 
           <p>You can view
