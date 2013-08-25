@@ -1,5 +1,6 @@
 load('zurb_foundation')
 load('font_awesome')
+load('tipue_search')
 
 require_relative('bundle_infos')
 website.ext.context_modules << BundleInfos
@@ -8,7 +9,8 @@ require_relative('kramdown_adaptions')
 
 website.blackboard.add_listener(:website_generated) do
   ignored = %w[content_processor.glossary source.stacked tag.r tag.default tag.describe_ext
-               task task.create_bundle task.create_website task.generate_website bundle_infos]
+               task task.create_bundle task.create_website task.generate_website bundle_infos
+               path_handler.tipue_search tag.tipue_search]
 
   doc_pages = []
   nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/extensions/**/*.html", :flatten => true,
@@ -75,6 +77,7 @@ end
 # extension documentation helpers
 
 option('tag.describe_ext.names', '')
+excluded_from_describe_ext = %w[path_handler.tipue_search tag.tipue_search]
 website.ext.tag.register('describe_ext', config_prefix: 'tag.describe_ext', :mandatory => ['names']) do |tag, body, context|
   result = "<dl>"
   context[:config]['tag.describe_ext.names'].map do |ext|
@@ -84,6 +87,7 @@ website.ext.tag.register('describe_ext', config_prefix: 'tag.describe_ext', :man
       ext
     end
   end.flatten.each do |ext|
+    next if excluded_from_describe_ext.include?(ext)
     ext_path = "#{ext.tr('.', '/')}.html"
     if n = context.website.tree['/documentation/reference/extensions/'].resolve(ext_path, context.node.lang, true)
       summary = context.ext_info(ext)['summary']
@@ -100,7 +104,8 @@ website.blackboard.add_listener(:website_initialized) do
 end
 
 website.blackboard.add_listener(:website_generated) do
-  excluded = %w[source.stacked task task.create_bundle task.create_website task.generate_website bundle_infos]
+  excluded = %w[source.stacked task task.create_bundle task.create_website task.generate_website bundle_infos
+                path_handler.tipue_search tag.tipue_search]
   website.cache[:referenced_extensions].uniq!
   (website.ext.bundle_infos.extensions.keys - website.cache[:referenced_extensions] - excluded).each do |ext|
     website.logger.error { "Missing link for extension '#{ext}'"}

@@ -15,7 +15,8 @@
 
     <link rel="stylesheet" href="{relocatable: css/design.css}" type="text/css" />
     <link rel="alternate" href="{relocatable: news.atom}" type="application/atom+xml" title="webgen news feed" />
-    <script src="{relocatable: javascripts/foundation/vendor/custom.modernizr.js}"></script>
+    <script src="{relocatable: javascripts/foundation/vendor/custom.modernizr.js}" type="text/javascript" ></script>
+    <script src="{relocatable: javascripts/foundation/vendor/jquery.js}" type="text/javascript" ></script>
 
     <title>{title:} | webgen - static website generator</title>
   </head>
@@ -36,6 +37,19 @@
         <section class="top-bar-section">
           {menu: {options: {mi: {main_menu: true}, flatten: true, sort: main_sort}, css_class: left, item_selected_class: active, item_submenu_inhierarchy_class: active}}
         </section>
+        <div class="right show-for-medium-up">
+          {tipue_search: {path: /site_data.js, options: {mode: static, liveDescription: '#main_content'}, entries: {alcn: /**/*.en.html}}}
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $('#tipue_search_input').keyup(function(event) {
+                    if(event.keyCode == '27')
+                    {
+                         $('#tipue_search_content').hide();
+                    }
+               });
+            });
+          </script>
+        </div>
       </nav>
     </div>
 
@@ -47,7 +61,7 @@
 
     <% if context.node.alcn == '/index.en.html' %>
     <section style="background-color: white">
-      <webgen:block name="content" />
+      <div id="main_content"><webgen:block name="content" /></div>
     </section>
     <% else %>
     <section class="row">
@@ -56,7 +70,7 @@
           <% unless context.node.alcn.start_with?('/documentation/reference/api') %>
           <h1>{title:}</h1>
           <% end %>
-          <webgen:block name="content" node="first" />
+          <div id="main_content"><webgen:block name="content" node="first" /></div>
         </div>
 
         <aside class="large-4 columns sidebar">
