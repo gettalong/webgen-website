@@ -1,0 +1,64 @@
+---
+title: webgen 1.0.0 released
+sort_info: 2013-09-01
+created_at: 2013-09-01 15:00:00 +02:00
+modified_at: 2013-09-01 15:00:00 +02:00
+---
+
+It has been long since the last version of the 0.5.x series, more than three years. If you thought
+that development on webgen halted you were wrong.
+
+With the two beta releases at the end of last year most of the major remaining bugs of this complete
+rewrite were fixed and the only big job was to update the webgen website. This took me longer than
+expected but during the update of the website, including all of the documentation, webgen was
+actively used and in the process I uncovered some more problems which are now fixed, too.
+
+So without further ado I present you **webgen 1.0.0**!
+
+Why would you want to use it? Here are some reasons:
+
+* The basic promise of webgen didn't change. It still allows one without knowledege of a programming
+  language to easily create and generate a website, built from templates and content files. However,
+  the one-oh-oh version now uses the latest libraries to do its job and is up-to-date in all
+  regards.
+
+* **Better CLI commands**: The webgen CLI now provides more tools for working with a website. Aside
+  from the usual things like creating a new website and generating the output, it can show the
+  available extension bundles, all available extensions, the configuration options (including
+  documentation, syntax and examples), the generated node tree (including meta information) and node
+  dependencies.
+
+  With the addition of the **dry run mode**, you can preview what webgen would do without actually
+  changing anything in the destination directory. Combine this with the [destination.show_changes
+  configuration option] to see the actual changes that would be done!
+
+* **Better partial site generation**: The whole core of webgen was ripped apart and re-implemented
+  to make it easier to add dependent items to a node and the whole system got faster. It is now
+  easier than ever to write an extension that handles a new type of item. Additionally, the webgen
+  CLI can now show the items on which a node depends so that you can see at a glance why a node
+  might get re-generated.
+
+* **Node search API**: Many extensions need to generate a possibly nested list of nodes (for
+  example, the [tag menu] or the [path handler feed]). Prior to webgen 1.0.0 each of these
+  extensions had to do the work themselves. With this new version, the [node_finder extension]
+  provides a mechanism to do this in a standardized way. You just provide it with a set of options
+  that defines the nodes that you want and it does all the rest!
+
+* **Many built-in extensions**: All built-in extensions that were available in 0.5.x are also
+  available in the 1.0.0 version, plus some more. And if you are missing some extension, it is now
+  *very easy to create new extensions*; you can even publish them as gems to make them easily
+  available and installable to other users.
+
+  Here are two of the new extensions:
+
+  * The [misc.dummy_index] extension automatically generates directory index files that are missing.
+  * The [path_handler.api] extension uses RDoc to create Ruby API documentation files that have the
+    same look and feel as the rest of the website. No longer is it necessary to generate the API
+    documentation separately!
+
+  There are also some extension bundles available as Rubygems, they follow the naming scheme
+  `webgen-...-bundle`.
+
+You can find the full documentation of webgen on the webgen website at <http://webgen.rubyforge.org>
+For information on how to upgrade a webgen 0.5.x website to this new version, have a look at the
+upgrade documentation.
