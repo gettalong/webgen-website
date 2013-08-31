@@ -10,7 +10,7 @@ require_relative('kramdown_adaptions')
 website.blackboard.add_listener(:website_generated) do
   ignored = %w[content_processor.glossary source.stacked tag.r tag.default tag.describe_ext
                task task.create_bundle task.create_website task.generate_website bundle_infos
-               path_handler.tipue_search tag.tipue_search]
+               path_handler.tipue_search tag.tipue_search content_processor.emoticon]
 
   doc_pages = []
   nodes = website.ext.node_finder.find({:alcn => "/documentation/reference/extensions/**/*.html", :flatten => true,
@@ -105,7 +105,7 @@ end
 
 website.blackboard.add_listener(:website_generated) do
   excluded = %w[source.stacked task task.create_bundle task.create_website task.generate_website bundle_infos
-                path_handler.tipue_search tag.tipue_search]
+                path_handler.tipue_search tag.tipue_search content_processor.emoticon]
   website.cache[:referenced_extensions].uniq!
   (website.ext.bundle_infos.extensions.keys - website.cache[:referenced_extensions] - excluded).each do |ext|
     website.logger.error { "Missing link for extension '#{ext}'"}
