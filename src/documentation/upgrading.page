@@ -4,7 +4,7 @@ meta:
   description: Information on how to upgrade from older versions of webgen to the newest one.
 ---
 
-webgen supports two new command line options that should make migrating easier: `--dry-run` and `--o
+webgen supports two new command line options that should make migrating easier: `--dry-run` and `-o
 destination.show_changes=true`.
 
 The first one activates the dry run mode where nothing is actually written to the destination
