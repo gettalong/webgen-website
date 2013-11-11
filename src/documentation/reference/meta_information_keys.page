@@ -40,7 +40,7 @@ This information is used, for example, by the [path handler feed] and is normall
 [author meta information] is also set.
 
 Syntax
-: String: `http://webgen.rubyforge.org`
+: String: `http://webgen.gettalong.org`
 
 Paths/Nodes
 : Any where the [author meta information] is also set

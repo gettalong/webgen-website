@@ -1,7 +1,7 @@
 # Source of the webgen website
 
 This is the source for the webgen website at
-<http://webgen.rubyforge.org>.
+<http://webgen.gettalong.org>.
 
 It shows how easy it is to create a website using [webgen] and showcases
 many of its features, like
@@ -45,6 +45,6 @@ The generated website is written to the `out/` directory. Opening the
 `out/index.html` file in any browser will show it. Since all links are
 relative, no web server is needed!
 
-[webgen]: http://webgen.rubyforge.org
+[webgen]: http://webgen.gettalong.org
 [1]: https://github.com/gettalong/webgen-zurb_foundation-bundle
 [2]: https://github.com/gettalong/webgen-font_awesome-bundle

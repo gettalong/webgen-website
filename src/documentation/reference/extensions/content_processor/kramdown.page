@@ -14,9 +14,9 @@ reference][2] and a detailed [syntax documentation][3] available on the kramdown
 > and nice to look at. Give it a try!
 {:.info}
 
-[1]: http://kramdown.rubyforge.org/
-[2]: http://kramdown.rubyforge.org/syntax.html
-[3]: http://kramdown.rubyforge.org/quickref.html
+[1]: http://kramdown.gettalong.org/
+[2]: http://kramdown.gettalong.org/syntax.html
+[3]: http://kramdown.gettalong.org/quickref.html
 
 
 ## Usage

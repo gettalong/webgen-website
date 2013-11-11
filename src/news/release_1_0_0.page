@@ -59,6 +59,6 @@ Why would you want to use it? Here are some reasons:
   There are also some extension bundles available as Rubygems, they follow the naming scheme
   `webgen-...-bundle`.
 
-You can find the full documentation of webgen on the webgen website at <http://webgen.rubyforge.org>
+You can find the full documentation of webgen on the webgen website at <http://webgen.gettalong.org>
 For information on how to upgrade a webgen 0.5.x website to this new version, have a look at the
 upgrade documentation.

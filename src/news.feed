@@ -1,9 +1,9 @@
 ---
 title: webgen news
 description: webgen - a free, fast, powerful, and extensible static website generator
-site_url: http://webgen.rubyforge.org/
+site_url: http://webgen.gettalong.org/
 author: Thomas Leitner
-author_url: http://webgen.rubyforge.org
+author_url: http://webgen.gettalong.org
 number_of_entries: 10
 versions:
   atom:

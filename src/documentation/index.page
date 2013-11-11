@@ -30,30 +30,22 @@ There is also a short text about the [history of webgen](history.html) if you ar
 
 If you need help, use one of the following:
 
-* [Rubyforge forums][forum]
 * [Mailing lists][ml] (mirrored to the [webgen-users google group][google-group])
 * [webgen wiki][wiki] at Github
 * IRC channel `#webgen` on Freenode (look for gettalong)
 
-For reporting issues, bugs or requesting features:
+For reporting issues and bugs or for requesting features use the [GitHub issue tracker][gh_issue].
 
-* [GitHub issue tracker][gh_issue]
-* [Rubyforge feature tracker][feature_request]
-* [Rubyforge bug tracker][bug_report]
-
-[forum]: http://rubyforge.org/forum/?group_id=296
 [ml]: http://rubyforge.org/mail/?group_id=296
 [wiki]: https://github.com/gettalong/webgen/wiki
 [google-group]: http://groups.google.com/group/webgen-users/
-[feature_request]: http://rubyforge.org/tracker/?atid=1210&group_id=296&func=browse
-[bug_report]: http://rubyforge.org/tracker/?atid=1207&group_id=296&func=browse
 [gh_issue]: https://github.com/gettalong/webgen/issues
 
 
 ## Older webgen Versions
 
 * The latest webgen 0.5.x documentation can be found
-  at <http://webgen.rubyforge.org/documentation/0.5.x/index.html>.
+  at <http://webgen.gettalong.org/documentation/0.5.x/index.html>.
 
 * The latest webgen 0.4.x documentation can be found
-  at <http://webgen.rubyforge.org/documentation/0.4.x/index.html>.
+  at <http://webgen.gettalong.org/documentation/0.4.x/index.html>.
