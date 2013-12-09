@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::ContentProcessor::Tags | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li><li class="webgen-menu-level1"><a href="#syntax">Syntax for webgen Tags</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgencontentprocessortags">Webgen::ContentProcessor::Tags</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>As short name for the content processor (used, for example, in the <code>pipeline</code> option of a block in a
+file in <a href="../webgen_page_format.html">Webgen Page Format</a>) one of the following can be
+used: <code>tags</code>.</p>
+
+
+<h2 id="description">Description</h2>
+
+<p>This processor provides an easy method for adding dynamic content to web pages. It uses so called
+webgen tags to replace special markup constructs with dynamic content. This system allows webgen to
+generate menus and breadcrumb trails, include files and much more. webgen already comes with many
+tags that handle simple things, like including a file, to advanced things, like generating a
+menu.</p>
+
+<p>Each webgen tag is defined using a unique name and handled by a tag class. A tag can have zero or
+more parameters some of which are mandatory. Tag parameters map directly to configuration options,
+so you can temporarily (for the rendering of the tag) override some configuration options. Since
+normally only the special configuration options for the tag itself are used, a shorter form can be
+used for them: just remove the tag class name part (without the <code>Webgen::</code> prefix) from the
+configuration option. For example, the relocatable tag handled by Webgen::Tag::Relocatable specifies
+the configuration option <code>tag.relocatable.path</code> and the short name for it (when used as parameter
+for the relocatable tag, not when used for other tags) is therefore just <code>path</code>. The supported
+parameters (and if they are mandatory) are listed for each tag on its documentation page. The
+default mandatory parameter can be specified in a special way, see the following section. When spe</p>
+
+<p>When content is parsed and a webgen tag is encountered, the registered class for this tag is
+called. If no class for a tag exists there are two possibilities: if a default tag class exists,
+then this default class is called. Otherwise an error is raised.</p>
+
+<p>For information on how to create such a tag classes have a look at the API documentation of the
+class Webgen::Tag::Base.</p>
+
+<h2 id="syntax">Syntax for webgen Tags</h2>
+
+<p>webgen tags are defined using a special markup construct which consists of the tag name, a parameter
+part and a body part.</p>
+
+<p>A tag can be specified in one of the following ways:</p>
+
+<ul>
+  <li>
+    <p>The simplest form of a webgen tag just consists of the tag name itself. This form can only be used
+if the tag does not have any mandatory parameters.</p>
+
+    <pre><code> {tagname:}
+</code></pre>
+  </li>
+  <li>
+    <p>If a plugin has only one mandatory parameter, there is a short-cut syntax for specifying its
+value.</p>
+
+    <pre><code> {tagname: value}
+</code></pre>
+  </li>
+  <li>
+    <p>If a plugin has more than one mandatory parameter or if some default parameter values should be
+overwritten, one needs to use the following general form.</p>
+
+    <pre><code> {tagname: {option: value, other_option: other_value}}
+</code></pre>
+
+    <blockquote class="information">
+      <p>The parameters defined using this syntax are actually specified using a hash in YAML
+markup. So you can use any valid YAML construct in the YAML hash definition.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Additionally, you can use a body part with any of the above forms. To specify that the tag has a
+body part, just use two colons instead of one after the tag name and don’t forget the closing
+tag.</p>
+
+    <pre><code> {tagname::}Here comes the body{tagname}
+</code></pre>
+
+    <p>Although you can always specify a body part, only some tags actually use it - the documentation
+for each tag states if the body part is used or not.</p>
+  </li>
+</ul>
+
+<p>Sometimes you need to specify something which looks like a webgen tag but should not be processed
+like one. In such cases, you need to escape the tag with a backslash, like this:</p>
+
+<pre><code>\{tagname: {key:value}}
+</code></pre>
+
+<p>Another solution to this is to specify a general prefix for all webgen tags using the configuration
+option <code>contentprocessor.tags.prefix</code>. Let’s imagine that you set the prefix to <code>webgen:</code>; then this
+content processor will only process webgen tags of the form <code>{webgen:tagname: {key: value}}</code>.</p>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="default.css" type="text/css" />
+
+    <title>Getting Started Guide | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="index.html">Overview</a></li><li class="webgen-menu-level1 webgen-menu-item-selected"><span>Getting Started Guide</span></li><li class="webgen-menu-level1"><a href="manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1 webgen-menu-submenu"><a href="#tutorial-creating-a-basic-website">Tutorial: Creating a Basic Website</a><ul><li class="webgen-menu-level2"><a href="#creating-the-basic-directories">Creating the Basic Directories</a></li><li class="webgen-menu-level2"><a href="#adding-content">Adding Content</a></li><li class="webgen-menu-level2"><a href="#adding-dynamic-content">Adding Dynamic Content</a></li><li class="webgen-menu-level2"><a href="#setting-configuration-options">Setting configuration options</a></li></ul></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <h2 id="tutorial-creating-a-basic-website">Tutorial: Creating a Basic Website</h2>
+
+<h3 id="creating-the-basic-directories">Creating the Basic Directories</h3>
+
+<p>webgen needs a special directory structure so that it works out of the box. Basically, you have a
+website directory under which the following directories are located:</p>
+
+<ul>
+  <li>
+    <p><code>src</code>: The source directory in which all the source files for the website are.</p>
+  </li>
+  <li>
+    <p><code>out</code>: This directory is created, if it does not exist, when webgen generates the HTML files. All
+the output files are put into this directory.</p>
+  </li>
+  <li>
+    <p><code>ext</code>: The extension directory (optional). You can put self-written extensions into this directory
+so that they are used by webgen.</p>
+  </li>
+</ul>
+
+<p>The directory in which these directories are in is called the <em>website directory</em>.</p>
+
+<p>Don’t worry too much about these directories since webgen is able to create the correct directory
+structure for you. By running the command <code>webgen create sample_site</code>, the website directory
+<code>sample_site</code> is created with the default website bundles applied. You can naturally use any
+available bundles by passing their names to the <code>-b</code> option of the <code>create</code> command.</p>
+
+<blockquote class="information">
+  <p>A <em>website bundle</em> defines some starting content for a website. The <code>default</code> bundle defines just
+a sample content file sothat some output can be viewed after webgen is run. All other bundles are
+style bundles which define the look and feel of your website. webgen comes with many predefined
+style bundles and nearly all of them are converted open source web design styles.</p>
+</blockquote>
+
+<p>Don’t worry if you don’t like the used website style - you can easily change it later using the
+<code>webgen apply</code> command. Have a look at the <a href="reference_website_styles.html">Website Styles Reference</a>
+to see demonstrations for all shipped website templates and styles!</p>
+
+<p>Since the basic parts are now in place, you can generate the HTML files. There are two
+possibilities:</p>
+
+<ul>
+  <li>
+    <p>Either you change into the <code>sample_site</code> directory and run the command <code>webgen</code>.</p>
+  </li>
+  <li>
+    <p>Or you run webgen from any directory and specify the website directory using the <code>-d</code> option, for
+example <code>webgen -d sample_site</code>.</p>
+  </li>
+</ul>
+
+<p>Easy! webgen has used all files in the <code>src</code> directory and created the HTML output in the directory
+<code>out</code>. Now you just need to open the <code>out/index.html</code> file to view your website! However, as we did
+not write any content yet, there is not much to see (only the default page). So let’s do that now!</p>
+
+<blockquote class="information">
+  <p>If you run webgen in verbose mode, it prints out information about the written files. Note,
+however, that the shown paths are the <strong>internal</strong> path names which may be different from the
+actual output path names!</p>
+</blockquote>
+
+<blockquote class="information">
+  <p>Since webgen automatically creates relative links, you will have a fully functional website
+without needing a web server! This also implies that you can deploy your website to any directory
+on your web server and it will <em>just work</em>!</p>
+</blockquote>
+
+<h3 id="adding-content">Adding Content</h3>
+
+<p>When using the <code>create</code> command, webgen does not only create the needed directories but it also
+provides you with some default files, you will normally have at least the following ones:</p>
+
+<ul>
+  <li><code>src/default.template</code>: The default template for the new website.</li>
+  <li><code>src/default.css</code>: The default css file for the new website.</li>
+  <li><code>src/index.page</code>: The index file for the root directory of the website.</li>
+  <li><code>config.yaml</code>: The configuration file for setting configuration options.</li>
+</ul>
+
+<blockquote class="information">
+  <p><em>Template files</em> and <em>page files</em> are the heart of webgen. Template files are used to define a
+general layout for web pages and page files define the real content. Both file types are written
+in <a href="webgen_page_format.html">Webgen Page Format</a>. Page files are normally written in a markup
+language like Markdown or Textile which is easier to learn and edit for non-technical persons.</p>
+</blockquote>
+
+<p>The basic scaffolding is already in place. Now we only have to adapt the page file <code>index.page</code> and
+add other page files.</p>
+
+<p>All page files are written using the Webgen Page Format. Basically, you have an optional meta
+information block at the beginning of the file and one or more content blocks. Blocks are separated
+by three dashes (ie. <code>---</code>) on a separate line and if you want to have a meta information block you
+need to have a block separator line at the beginning of your file.</p>
+
+<p>Open the file <code>index.page</code> in your favorite text editor and change its content (ie. the first
+content block). After that create a new file, <code>hello.page</code>, in the source directory with the
+following content:</p>
+
+<pre><code>---
+title: Sample hello page
+in_menu: true
+---
+This is a sample page with the title &quot;{title:}&quot; and it is in the menu!!!
+</code></pre>
+
+<p>We define two meta information items (namely <code>title</code> and <code>in_menu</code>) and added some content to the
+first content block. Run webgen again and open <code>out/index.html</code> to view your changes. Add
+page files and other content to your website and let it grow!</p>
+
+<h3 id="adding-dynamic-content">Adding Dynamic Content</h3>
+
+<p>A static website is, as the name implies, static. However, since we generate the website it is
+possible to add some dynamicity to it. For example, it gets very tedious to update menu links every
+time we add a file that should be in the menu.</p>
+
+<p>Therefore webgen provides two ways to add dynamic content out of the box:</p>
+
+<ul>
+  <li>
+    <p><em>ERB</em>: This term stands for “embedded ruby”. It means that you can embed ruby statements in page
+ and templates files that get evaluated when the files are rendered.</p>
+  </li>
+  <li>
+    <p><em>webgen tags</em>: These are a way to add dynamic content without knowing a programming language
+ (although limiting you to the existing tags). You just state what tag you want to use and it does
+ its job. For example, there exists a very flexible menu generation tag.</p>
+  </li>
+</ul>
+
+<p>You have already encountered a webgen tag in the last section when you created the <code>hello.page</code>
+file: the <code>{title:}</code> part. webgen tags can generally be specified like this: <code>{tagname: {param:
+value, param2: value2}}</code>. For detailed information on tags have a look at the
+<a href="contentprocessor/tags.html">Webgen::ContentProcessor::Tags</a> documentation.</p>
+
+<h3 id="setting-configuration-options">Setting configuration options</h3>
+
+<p>webgen provides a default configuration out of the box. If you can live with that, you do not need
+to change any configuration option. However, most users need to change some configuration option
+sometime. The configuration file is called <code>config.yaml</code> and has to be placed directly under the
+website directory. It uses YAML as file format.</p>
+
+<blockquote class="information">
+  <p>Have a look at the <a href="reference_configuration.html">Configuration Options Reference</a> to get an
+overview over all available configuration options.</p>
+</blockquote>
+
+<p>Each configuration option can be set in the configuration file by specifing the configuration option
+name and the new value as a key/value pair. A sample configuration file looks like this:</p>
+
+<pre><code>website.lang: de
+website.link_to_current_page: true
+</code></pre>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

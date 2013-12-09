@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::SourceHandler::Template | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgensourcehandlertemplate">Webgen::SourceHandler::Template</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>This source handler operates on paths that match one of the following path patterns (see the <a href="../manual.html#source-pathpattern">path pattern documentation</a> for more information): <code>**/*.template</code></p>
+
+<p>Following is the default meta information set on any node created by this source handler:</p>
+
+<pre>
+blocks: 
+  default: 
+    pipeline: erb,tags,blocks,head
+</pre>
+
+
+
+<h2 id="description">Description</h2>
+
+<p>The template handler processes the templates files. Templates, as the name already implies, normally
+specify the layout and the overall “picture” of a web page that is defined using a page file. These
+files are in <a href="../webgen_page_format.html">Webgen Page Format</a> (the format which is also used for
+page files).</p>
+
+<p>The configuration option <code>sourcehandler.template.default_template</code> specifies the name of the default
+template which is used when no explicit template is set via the meta information <code>template</code>. webgen
+assumes that the default template is in the same directory as the page file. However, if it can not
+be found there, the parent directory is searched for it and so on. If a default template isn’t found
+in the root directory, no template is used at all. This means that when you create a default
+template in the root directory, it is used as template for all page files that have no explicit
+template set.</p>
+
+<p>webgen also uses the concept of a template chain to support multiple templates for one page
+file. For example, assume that</p>
+
+<ul>
+  <li>the page file <code>index.page</code> has set the <code>template</code> meta information to <code>special.template</code>,</li>
+  <li>the template <code>special.template</code> has no <code>template</code> meta information set and</li>
+  <li>the page file <code>other.page</code> also has no <code>template</code> meta information set.</li>
+</ul>
+
+<p>The template chain for <code>index.page</code> would look like this</p>
+
+<pre><code>default.template &lt;-- special.template &lt;-- index.page
+</code></pre>
+
+<p>whereas the template chain for <code>other.page</code> would look like this</p>
+
+<pre><code>default.template &lt;-- index.page
+</code></pre>
+
+<p>The first case also means that the <code>special.template</code> is nested in the <code>default.template</code>. This
+makes it possible, for example, to create a general website layout and then to create a special
+image gallery layout which uses the general one.</p>
+
+<p>To stop the template handler from further searching for a template, you explicitly need to set a
+null template for the page or template file:</p>
+
+<pre><code>template: ~
+</code></pre>
+
+<p>This is useful if you want to have a different <code>default.template</code> in a sub directory which should
+provide a different look-and-feel for this subtree as the <code>default.template</code> in the root of the
+website.</p>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

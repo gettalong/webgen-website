@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::ContentProcessor::Erubis | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgencontentprocessorerubis">Webgen::ContentProcessor::Erubis</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>As short name for the content processor (used, for example, in the <code>pipeline</code> option of a block in a
+file in <a href="../webgen_page_format.html">Webgen Page Format</a>) one of the following can be
+used: <code>erubis</code>.</p>
+
+
+<h2 id="description">Description</h2>
+
+<p>This processor uses the <a href="http://www.kuwata-lab.com/erubis/" title="Erubis Homepage">Erubis</a> library to process embedded Ruby statements. Erubis is quite a
+bit faster than the standard ERB library that is shipped with Ruby and provides many other useful
+options.</p>
+
+<blockquote class="warning">
+  <p>This extension is only available if you have installed the <a href="http://www.kuwata-lab.com/erubis/" title="Erubis Homepage">erubis</a> library. The preferred
+way to do this is via Rubygems:</p>
+
+  <pre><code>gem install erubis
+</code></pre>
+</blockquote>
+
+<p>You can use some special objects provided by webgen in your embedded Ruby code. These are the same
+objects that are available to the <code>erb</code> processor, have a look at its <a href="erb.html">documentation
+page</a>.</p>
+
+<p>The default mode of Erubis works like ERB. So everyting said on the <a href="erb.html">erb page</a> is also
+true for Erubis. However, you can customize how this processor works by using the following
+configuration options:</p>
+
+<ul>
+  <li>
+    <p><code>contentprocessor.erubis.use_pi</code>: Use processing instructions instead of ERB like
+instructions. Normally you use statements like <code>&lt;% result = some_method_call(opts) %&gt;</code> or <code>&lt;%=
+context.content_node.alcn %&gt;</code> in your content. When setting this option to <code>true</code>, you can
+use XML processing instructions instead, like this: <code>&lt;?rb result = some_method_call(opts) ?&gt;</code> or
+<code>@{context.content_node.alcn}@</code>.</p>
+  </li>
+  <li>
+    <p><code>contentprocessor.erubis.options</code>: This is hash which is passed to the Erubis interpreter and
+which can be used to set additional options.</p>
+  </li>
+</ul>
+
+<p>For more information on the additional options or on how to use the processing instructions mode of
+Erubis, have a look at the <a href="http://www.kuwata-lab.com/erubis/users-guide.html">Erubis User Guide</a>!</p>
+
+<p>You can also use block options to modify the behavior of Erubis. The block option <code>erubis_use_pi</code> is
+used instead of the configuration option <code>contentprocessor.erubis.use_pi</code> and all other block
+options starting with <code>erubis_</code> are added the options hash that is passed to the Erubis
+interpreter. For example, the following page tells the Erubis interpreter to use the processing
+instructions mode and to trim spaces:</p>
+
+<pre><code>--- erubis_use_pi:true erubis_trim:true
+Here are the numbers from 1 to 5:
+&lt;?rb for i in [1,2,3,4,5] ?&gt;@{i}@&lt;?rb end ?&gt;
+</code></pre>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

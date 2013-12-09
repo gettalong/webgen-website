@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::Tag::Menu | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li><li class="webgen-menu-level1"><a href="#static-menus">“Static” Menus</a></li><li class="webgen-menu-level1"><a href="#examples">Examples</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgentagmenu">Webgen::Tag::Menu</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>The following tag names are registered for this tag class: <code>menu</code></p>
+
+<p>This tag uses the following options:</p>
+
+<ul>
+<li><a href='../reference_configuration.html#tagmenuusednodes'><code>tag.menu.used_nodes</code></a></li>
+
+<li><a href='../reference_configuration.html#tagmenustartlevel'><code>tag.menu.start_level</code></a></li>
+
+<li><a href='../reference_configuration.html#tagmenuminlevels'><code>tag.menu.min_levels</code></a></li>
+
+<li><a href='../reference_configuration.html#tagmenumaxlevels'><code>tag.menu.max_levels</code></a></li>
+
+<li><a href='../reference_configuration.html#tagmenushowcurrentsubtreeonly'><code>tag.menu.show_current_subtree_only</code></a></li>
+
+<li><a href='../reference_configuration.html#tagmenunested'><code>tag.menu.nested</code></a></li>
+</ul>
+
+<h2 id="description">Description</h2>
+
+<p>The menu tag builds a seemingly simple menu using HTML lists. However, it is very flexible due to
+its many options that let you decide every detail of the menu.</p>
+
+<blockquote class="information">
+  <p>The menu is constructed using HTML lists with <code>ul</code> and <code>li</code> tags.  However, the menu normally
+looks better if no discs are shown for the menu items (using the CSS directive <code>list-style-type:
+none</code>).</p>
+</blockquote>
+
+<p>It uses the meta information <code>in_menu</code> and <code>sort_info</code> to determine which nodes should be in the
+menu and how they should be ordered. A separate menu tree is then created from all nodes for each
+language.</p>
+
+<p>By setting the option <code>tag.menu.used_nodes</code> to <code>fragments</code>, the menu tag can also be used for
+generating an in-page content menu of all the header sections.</p>
+
+<blockquote class="important">
+  <p>When using the option value <code>files</code> for <code>tag.menu.used_nodes</code>, all nodes which are only in the
+menu because they have fragment nodes beneath them are not included in the menu.</p>
+
+  <p>However, when using the value <code>all</code> for <code>tag.menu.used_nodes</code>, some nodes which have <code>in_menu</code> set
+to <code>false</code> may appear in the menu if they have fragments beneath them that are in the menu!</p>
+</blockquote>
+
+<p>The rendered menu consists of <code>ul</code> and <code>li</code> tags and the links (or <code>span</code> elements) to the menu
+entries . The <code>li</code> tags have special CSS classes set for styling. These CSS class names are as
+follows:</p>
+
+<ul>
+  <li><code>webgen-menu-levelNUMBER</code>: Set on all menu items and can be used to style specific menu levels
+only. <code>NUMBER</code> is replaced with the actual menu level, so the first level menu entries will get a
+<code>webgen-menu-level1</code> class.</li>
+  <li><code>webgen-menu-submenu</code>: Set if the menu item contains sub menu items.</li>
+  <li><code>webgen-menu-submenu-inhierarchy</code>: Set if the menu item contains sub menu items and it is in the
+sub tree of the rendered node.</li>
+  <li><code>webgen-menu-item-selected</code>: Set if the menu item corresponds to the rendered node.</li>
+</ul>
+
+<p>The option <code>tag.menu.nested</code> decides whether a nested menu or a non-nested is generated. When
+setting this option to <code>false</code> you need to ensure that <code>tag.menu.show_current_subtree_only</code> is set
+to <code>true</code> and <code>tag.menu.min_levels</code> is set to <code>1</code>. Both ensure that no other subtree obfuscates the
+menu.</p>
+
+<blockquote class="information">
+  <p>Set <code>tag.menu.nested</code> to <code>false</code> if you want to generate, for example, a horizontal menu, ie. a
+menu that has one horizontal bar for each menu level.</p>
+</blockquote>
+
+<h2 id="static-menus">“Static” Menus</h2>
+
+<p>It is also possible to define a “static” menu or to augment the dynamic menu with static entries by
+using virtual files. They can be used to structure the menu the way you like it. This way it is also
+possible to add one page under two different headings:</p>
+
+<pre><code>features.en.html:
+  in_menu: true
+  title: Features
+  url: index.en.html#features
+
+newdir:
+  sort_info: 2
+
+newdir/new.en.html:
+  sort_info: 1
+  in_menu: true
+  url: ../features.en.html
+</code></pre>
+
+<p>There is no need to specify <code>in_menu</code> for <code>newdir</code> since a page under the directory is in the
+menu. Also be aware that you need to set the language explicitly if a file should only appear in the
+menu for a specific language. Otherwise it appears in every menu. The <code>url</code> specifies the file that
+should be shown when clicked on the generated link.</p>
+
+<p>A completely “static” menu can be generated by only using virtual directories and files and not
+setting <code>in_menu</code> for any other node.</p>
+
+<h2 id="examples">Examples</h2>
+
+<table class="examples">
+<tr>
+  <th>Usage</th><th>Output</th>
+</tr>
+<tr>
+  <td>{menu: }</td>
+  <td><ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li><li class="webgen-menu-level1"><a href="../reference_configuration.html">Configuration Option Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../contentprocessor/">Contentprocessor</a></li><li class="webgen-menu-level1"><a href="../reference_metainfo.html">Meta Information Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../source/">Source</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../sourcehandler/">Sourcehandler</a></li><li class="webgen-menu-level1 webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="./">Tag</a><ul><li class="webgen-menu-level2"><a href="breadcrumbtrail.html">Webgen::Tag::BreadcrumbTrail</a></li><li class="webgen-menu-level2"><a href="coderay.html">Webgen::Tag::Coderay</a></li><li class="webgen-menu-level2"><a href="date.html">Webgen::Tag::Date</a></li><li class="webgen-menu-level2"><a href="executecommand.html">Webgen::Tag::ExecuteCommand</a></li><li class="webgen-menu-level2"><a href="includefile.html">Webgen::Tag::IncludeFile</a></li><li class="webgen-menu-level2"><a href="langbar.html">Webgen::Tag::Langbar</a></li><li class="webgen-menu-level2"><a href="link.html">Webgen::Tag::Link</a></li><li class="webgen-menu-level2 webgen-menu-item-selected"><span>Webgen::Tag::Menu</span></li><li class="webgen-menu-level2"><a href="metainfo.html">Webgen::Tag::Metainfo</a></li><li class="webgen-menu-level2"><a href="relocatable.html">Webgen::Tag::Relocatable</a></li><li class="webgen-menu-level2"><a href="sitemap.html">Webgen::Tag::Sitemap</a></li><li class="webgen-menu-level2"><a href="tikz.html">Webgen::Tag::TikZ</a></li></ul></li><li class="webgen-menu-level1"><a href="../upgrading.html">Upgrading from 0.4.x</a></li><li class="webgen-menu-level1"><a href="../webgen_page_format.html">Webgen Page Format</a></li><li class="webgen-menu-level1"><a href="../reference_website_styles.html">Website Styles Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../website_styles/">Website styles</a></li></ul></td>
+</tr>
+<tr>
+  <td>{menu: {used_nodes: all}}</td>
+  <td><ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li><li class="webgen-menu-level1"><a href="../reference_configuration.html">Configuration Option Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../contentprocessor/">Contentprocessor</a></li><li class="webgen-menu-level1"><a href="../reference_metainfo.html">Meta Information Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../source/">Source</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../sourcehandler/">Sourcehandler</a></li><li class="webgen-menu-level1 webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="./">Tag</a><ul><li class="webgen-menu-level2"><a href="breadcrumbtrail.html">Webgen::Tag::BreadcrumbTrail</a></li><li class="webgen-menu-level2"><a href="coderay.html">Webgen::Tag::Coderay</a></li><li class="webgen-menu-level2"><a href="date.html">Webgen::Tag::Date</a></li><li class="webgen-menu-level2"><a href="executecommand.html">Webgen::Tag::ExecuteCommand</a></li><li class="webgen-menu-level2"><a href="includefile.html">Webgen::Tag::IncludeFile</a></li><li class="webgen-menu-level2"><a href="langbar.html">Webgen::Tag::Langbar</a></li><li class="webgen-menu-level2"><a href="link.html">Webgen::Tag::Link</a></li><li class="webgen-menu-level2 webgen-menu-item-selected"><span>Webgen::Tag::Menu</span></li><li class="webgen-menu-level2"><a href="metainfo.html">Webgen::Tag::Metainfo</a></li><li class="webgen-menu-level2"><a href="relocatable.html">Webgen::Tag::Relocatable</a></li><li class="webgen-menu-level2"><a href="sitemap.html">Webgen::Tag::Sitemap</a></li><li class="webgen-menu-level2"><a href="tikz.html">Webgen::Tag::TikZ</a></li></ul></li><li class="webgen-menu-level1"><a href="../upgrading.html">Upgrading from 0.4.x</a></li><li class="webgen-menu-level1"><a href="../webgen_page_format.html">Webgen Page Format</a></li><li class="webgen-menu-level1"><a href="../reference_website_styles.html">Website Styles Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../website_styles/">Website styles</a></li></ul></td>
+</tr>
+<tr>
+  <td>{menu: {used_nodes: files}}</td>
+  <td><ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul></td>
+</tr>
+<tr>
+  <td>{menu: {used_nodes: fragments}}</td>
+  <td><ul><li class="webgen-menu-level1"><a href="#description">Description</a></li><li class="webgen-menu-level1"><a href="#static-menus">“Static” Menus</a></li><li class="webgen-menu-level1"><a href="#examples">Examples</a></li></ul></td>
+</tr>
+<tr>
+  <td>{menu: {used_nodes: all, nested: false}}</td>
+  <td><ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li><li class="webgen-menu-level1"><a href="../reference_configuration.html">Configuration Option Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../contentprocessor/">Contentprocessor</a></li><li class="webgen-menu-level1"><a href="../reference_metainfo.html">Meta Information Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../source/">Source</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../sourcehandler/">Sourcehandler</a></li><li class="webgen-menu-level1 webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="./">Tag</a></li><li class="webgen-menu-level1"><a href="../upgrading.html">Upgrading from 0.4.x</a></li><li class="webgen-menu-level1"><a href="../webgen_page_format.html">Webgen Page Format</a></li><li class="webgen-menu-level1"><a href="../reference_website_styles.html">Website Styles Reference</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="../website_styles/">Website styles</a></li></ul><ul><li class="webgen-menu-level2"><a href="breadcrumbtrail.html">Webgen::Tag::BreadcrumbTrail</a></li><li class="webgen-menu-level2"><a href="coderay.html">Webgen::Tag::Coderay</a></li><li class="webgen-menu-level2"><a href="date.html">Webgen::Tag::Date</a></li><li class="webgen-menu-level2"><a href="executecommand.html">Webgen::Tag::ExecuteCommand</a></li><li class="webgen-menu-level2"><a href="includefile.html">Webgen::Tag::IncludeFile</a></li><li class="webgen-menu-level2"><a href="langbar.html">Webgen::Tag::Langbar</a></li><li class="webgen-menu-level2"><a href="link.html">Webgen::Tag::Link</a></li><li class="webgen-menu-level2 webgen-menu-item-selected"><span>Webgen::Tag::Menu</span></li><li class="webgen-menu-level2"><a href="metainfo.html">Webgen::Tag::Metainfo</a></li><li class="webgen-menu-level2"><a href="relocatable.html">Webgen::Tag::Relocatable</a></li><li class="webgen-menu-level2"><a href="sitemap.html">Webgen::Tag::Sitemap</a></li><li class="webgen-menu-level2"><a href="tikz.html">Webgen::Tag::TikZ</a></li></ul></td>
+</tr>
+</table>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

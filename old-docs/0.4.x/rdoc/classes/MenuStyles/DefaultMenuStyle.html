@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: MenuStyles::DefaultMenuStyle</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">MenuStyles::DefaultMenuStyle</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/webgen/plugins/menustyles/default_rb.html">
+                lib/webgen/plugins/menustyles/default.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Webgen::HandlerPlugin
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000140">build_menu</a>&nbsp;&nbsp;
+      <a href="#M000141">internal_build_menu</a>&nbsp;&nbsp;
+      <a href="#M000143">menu_item_details</a>&nbsp;&nbsp;
+      <a href="#M000142">param</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000140" class="method-detail">
+        <a name="M000140"></a>
+
+        <div class="method-heading">
+          <a href="#M000140" class="method-signature">
+          <span class="method-name">build_menu</span><span class="method-args">( src_node, menu_tree, options )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000140-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000140-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/menustyles/default.rb, line 38</span>
+38:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build_menu</span>( <span class="ruby-identifier">src_node</span>, <span class="ruby-identifier">menu_tree</span>, <span class="ruby-identifier">options</span> )
+39:       <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+40:       <span class="ruby-identifier">internal_build_menu</span>( <span class="ruby-identifier">src_node</span>, <span class="ruby-identifier">menu_tree</span> )
+41:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000141" class="method-detail">
+        <a name="M000141"></a>
+
+        <div class="method-heading">
+          <a href="#M000141" class="method-signature">
+          <span class="method-name">internal_build_menu</span><span class="method-args">( src_node, menu_tree )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000141-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000141-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/menustyles/default.rb, line 43</span>
+43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">internal_build_menu</span>( <span class="ruby-identifier">src_node</span>, <span class="ruby-identifier">menu_tree</span> )
+44:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedErorr</span>
+45:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000142" class="method-detail">
+        <a name="M000142"></a>
+
+        <div class="method-heading">
+          <a href="#M000142" class="method-signature">
+          <span class="method-name">param</span><span class="method-args">( name, plugin = nil )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000142-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000142-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/menustyles/default.rb, line 47</span>
+47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">param</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">plugin</span> = <span class="ruby-keyword kw">nil</span> )
+48:       <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>( <span class="ruby-ivar">@options</span> ) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@options</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">kind_of?</span>( <span class="ruby-constant">Hash</span> ) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">has_key?</span>( <span class="ruby-identifier">name</span> ) <span class="ruby-operator">&amp;&amp;</span>
+49:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ancestor_classes</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">klass</span><span class="ruby-operator">|</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>( <span class="ruby-identifier">name</span> )}
+50:         <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">name</span>]
+51:       <span class="ruby-keyword kw">else</span>
+52:         <span class="ruby-keyword kw">super</span>
+53:       <span class="ruby-keyword kw">end</span>
+54:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000143" class="method-detail">
+        <a name="M000143"></a>
+
+        <div class="method-heading">
+          <a href="#M000143" class="method-signature">
+          <span class="method-name">menu_item_details</span><span class="method-args">( src_node, node )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns style information (node is selected, &#8230;) and a link from
+<tt>src_node</tt> to <tt>node</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000143-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000143-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/menustyles/default.rb, line 61</span>
+61:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">menu_item_details</span>( <span class="ruby-identifier">src_node</span>, <span class="ruby-identifier">node</span> )
+62:       <span class="ruby-identifier">styles</span> = []
+63:       <span class="ruby-identifier">styles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">param</span>( <span class="ruby-value str">'submenuClass'</span> ) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_directory?</span>
+64:       <span class="ruby-identifier">styles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">param</span>( <span class="ruby-value str">'submenuInHierarchyClass'</span> ) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_directory?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">src_node</span>.<span class="ruby-identifier">in_subtree_of?</span>( <span class="ruby-identifier">node</span> )
+65:       <span class="ruby-identifier">styles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">param</span>( <span class="ruby-value str">'selectedMenuitemClass'</span> ) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">src_node</span>
+66: 
+67:       <span class="ruby-identifier">style</span> = <span class="ruby-node">&quot;class=\&quot;#{styles.join(' ')}\&quot;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">styles</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+68:       <span class="ruby-identifier">link</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">link_from</span>( <span class="ruby-identifier">src_node</span>, <span class="ruby-identifier">:context</span> =<span class="ruby-operator">&gt;</span> {
+69:                                <span class="ruby-identifier">:caller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">plugin_name</span>,
+70:                                <span class="ruby-identifier">:selected</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">node</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">src_node</span>),
+71:                                <span class="ruby-identifier">:directory</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_directory?</span>,
+72:                                <span class="ruby-identifier">:inHierarchy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_directory?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">src_node</span>.<span class="ruby-identifier">in_subtree_of?</span>( <span class="ruby-identifier">node</span> )
+73:                              } )
+74: 
+75:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">style</span>, <span class="ruby-identifier">link</span>
+76:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

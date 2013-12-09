@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="default.css" type="text/css" />
+
+    <title>Meta Information Reference | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="index.html">Overview</a></li><li class="webgen-menu-level1"><a href="getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1 webgen-menu-submenu"><a href="#meta-information-reference">Meta Information Reference</a><ul><li class="webgen-menu-level2"><a href="#author">author</a></li><li class="webgen-menu-level2"><a href="#authorurl">author_url</a></li><li class="webgen-menu-level2"><a href="#blocks">blocks</a></li><li class="webgen-menu-level2"><a href="#changefreq">change_freq</a></li><li class="webgen-menu-level2"><a href="#createdat">created_at</a></li><li class="webgen-menu-level2"><a href="#draft">draft</a></li><li class="webgen-menu-level2"><a href="#fragmentsinmenu">fragments_in_menu</a></li><li class="webgen-menu-level2"><a href="#indexpath">index_path</a></li><li class="webgen-menu-level2"><a href="#inmenu">in_menu</a></li><li class="webgen-menu-level2"><a href="#kind">kind</a></li><li class="webgen-menu-level2"><a href="#lang">lang</a></li><li class="webgen-menu-level2"><a href="#link">link</a></li><li class="webgen-menu-level2"><a href="#linkattrs">link_attrs</a></li><li class="webgen-menu-level2"><a href="#meta">meta</a></li><li class="webgen-menu-level2"><a href="#modifiedat">modified_at</a></li><li class="webgen-menu-level2"><a href="#nooutput">no_output</a></li><li class="webgen-menu-level2"><a href="#omitindexpath">omit_index_path</a></li><li class="webgen-menu-level2"><a href="#outputpathstyle">output_path_style</a></li><li class="webgen-menu-level2"><a href="#priority">priority</a></li><li class="webgen-menu-level2"><a href="#routedtitle">routed_title</a></li><li class="webgen-menu-level2"><a href="#sortinfo">sort_info</a></li><li class="webgen-menu-level2"><a href="#template">template</a></li><li class="webgen-menu-level2"><a href="#title">title</a></li><li class="webgen-menu-level2"><a href="#usednodes">used_nodes</a></li></ul></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <h1 id="meta-information-reference">Meta Information Reference</h1>
+
+<p>Following is a list of all the meta information items that are used in one way or another by an
+extension, be it a source handler, a tag or any other extension. Each meta information description
+follows the same pattern:</p>
+
+<ul>
+  <li>First the type of the value and an example value are listed.</li>
+  <li>Then the paths for which this item is useful are listed.</li>
+  <li>And at last follows a detailed description.</li>
+</ul>
+
+
+<h3 id="author">author</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>Thomas Leitner</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets the author of the path. This information is used, for example, by Webgen::SourceHandler::Feed.</p>
+
+<h3 id="authorurl">author_url</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>http://webgen.rubyforge.org</code></li>
+  <li>Any where <code>author</code> is also set</li>
+</ul>
+
+<p>Sets the homepage of the author of the path. This information is used, for example, by
+Webgen::SourceHandler::Feed and normally only when <code>author</code> is also set.</p>
+
+<h3 id="blocks">blocks</h3>
+
+<ul class="meta-information-ref">
+  <li>Hash of Hashes: <code>{default: {pipeline:textile}, 1: {name: content, pipeline:maruku,erb,tags}}</code></li>
+  <li>Files in Webgen Page Format</li>
+</ul>
+
+<p>Specifies the default names and additional options for the blocks. The special key <code>default</code> is used
+to set default options for all blocks. Specific options for (or the name of) a block can be set by
+using the block index as key (numbering starts from one).</p>
+
+<h3 id="changefreq">change_freq</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>hourly</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets the change frequency of the page. This information is used, for example, by the sitemap source
+handler. You can use the following values for this key: <code>hourly, daily, weekly, monthly, yearly,
+never</code>.</p>
+
+<h3 id="createdat">created_at</h3>
+
+<ul class="meta-information-ref">
+  <li>Time: <code>2008-08-14 10:25:34 +02:00</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets the time when the path was created. This information cannot automatically be derived for paths
+provided by Webgen::Source::FileSystem, so this has to be set manually.</p>
+
+<blockquote class="information">
+  <p>Note that the value needs to be a valid <a href="http://yaml.org/type/timestamp.html">YAML timestamp</a> and
+needs to include the time part.</p>
+</blockquote>
+
+<h3 id="draft">draft</h3>
+
+<ul class="meta-information-ref">
+  <li>Boolean: <code>true</code></li>
+  <li>Any</li>
+</ul>
+
+<p>If this meta information is set on a path, no node will be created from it. This is useful to add
+content to a website which should only be used later on.</p>
+
+<h3 id="fragmentsinmenu">fragments_in_menu</h3>
+
+<ul class="meta-information-ref">
+  <li>Boolean: <code>false</code></li>
+  <li>Page files</li>
+</ul>
+
+<p>Specifies if the fragment nodes of the page file should be in the menu.</p>
+
+<h3 id="indexpath">index_path</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>myindex.html</code></li>
+  <li>Directories</li>
+</ul>
+
+<p>Sets the directory index path for the directory overriding the default value.</p>
+
+<h3 id="inmenu">in_menu</h3>
+
+<ul class="meta-information-ref">
+  <li>Boolean: <code>true</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Specifies if the path should appear in menus.</p>
+
+<h3 id="kind">kind</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>page</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Specifies the kind of the path. Some source handlers define a default value for this meta
+information for nodes created by them.</p>
+
+<h3 id="lang">lang</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>de</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets the language for the path. Has to be a valid ISO-639-1/2 character code for the language. This
+meta information needs to be set before a node gets created.</p>
+
+<h3 id="link">link</h3>
+
+<ul>
+  <li>Hash: <code>{next: next_doc.html, prev: prev_doc.html}</code></li>
+  <li>Page files</li>
+</ul>
+
+<p>Specifies additional information, for example, about the position of the page file regarding other
+files. A sample usage would be to express that the page file is logically followed or preceded by
+certain page file.</p>
+
+<p>The value needs to be hash and its keys need to be <a href="http://www.w3.org/TR/html401/types.html#type-links">link types</a> except for the special <code>javascript</code>
+and <code>css</code> keys (which will be discussed below). The link type is used to specify the relation of the
+page to the linked file. The value can either be a string which is interpreted as a path to the
+internal or external file; or a hash with arbitrary key-value pairs (use lower case key names) but
+it should include at least a <code>href</code> key to specify the path to the internal or external file; or an
+array containing strings or hashes to specify more than one linked file for a given link type.</p>
+
+<p>The special keys <code>javascript</code> and <code>css</code> may have an array of strings or a string as value which are
+interpreted as path to javascript/CSS files that should be included.</p>
+
+<p>This information is used by <a href="contentprocessor/head.html"><code>ContentProcessor::Head</code></a> to insert the
+approriate tags in the head section of an HTML document.</p>
+
+<h3 id="linkattrs">link_attrs</h3>
+
+<ul class="meta-information-ref">
+  <li>Hash: <code>{title: Hallo, class: extra}</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Specifies additional attribute-value pairs (in form of a Hash) that should be added to a link to the
+path.</p>
+
+<h3 id="meta">meta</h3>
+
+<ul class="meta-information-ref">
+  <li>Hash: <code>{author: Thomas Leitner, generator: My program}</code></li>
+  <li>Page files</li>
+</ul>
+
+<p>Specifies names and values for <code>&lt;meta&gt;</code> HTML tags. These key-value pairs are then properly escaped
+and inserted into the output file by <a href="contentprocessor/head.html"><code>ContentProcessor::Head</code></a>.</p>
+
+<h3 id="modifiedat">modified_at</h3>
+
+<ul class="meta-information-ref">
+  <li>Time: <code>2008-08-14 10:25:34 +02:00</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets the time when the path was last modified. This information is automatically set for paths
+provided by Webgen::Source::FileSystem (the file modification is used) but can be overridden by
+setting it manually. If not set to a valid time, the time when webgen is executed is used for this
+meta information.</p>
+
+<blockquote class="information">
+  <p>Note that the value needs to be a valid <a href="http://yaml.org/type/timestamp.html">YAML timestamp</a> and
+needs to include the time part.</p>
+</blockquote>
+
+<h3 id="nooutput">no_output</h3>
+
+<ul class="meta-information-ref">
+  <li>Boolean: <code>true</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Specifies whether an output path for the node should be written or not. This differs from <code>draft</code>
+that a node for the path gets created nonetheless.</p>
+
+<h3 id="omitindexpath">omit_index_path</h3>
+
+<ul class="meta-information-ref">
+  <li>Boolean: <code>false</code></li>
+  <li>Index paths</li>
+</ul>
+
+<p>Controls whether the index path should appear in a breadcrumb trail despite the setting of the
+<code>tag.breadcrumbtrail.omit_index_path</code> option.</p>
+
+<h3 id="outputpathstyle">output_path_style</h3>
+
+<ul class="meta-information-ref">
+  <li>Array: <code>[:parent, :basename, [., :lang], .html]</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets a custom output path style for the specified path. The basename is substituted for the value
+<code>:basename</code> and the language for the value <code>:lang</code>. Strings are used verbatim. If <code>:lang</code> is
+specified in a sub-array, the whole sub-array is omitted, if the configuration option
+<code>sourcehandler.default_lang_in_output_path</code> is false. For more and detailed information, have look
+at the <a href="manual.html#source-output">output path creation section</a> of the manual!</p>
+
+<blockquote class="important">
+  <p>This meta information has to be set BEFORE a node gets created. Setting this value is therefore
+only useful, for example, in the <code>paths</code> block of a meta information backing file.</p>
+</blockquote>
+
+<h3 id="priority">priority</h3>
+
+<ul class="meta-information-ref">
+  <li>Float: <code>0.5</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Specifies the priority of this file in respect to all the other files of the website. This
+information is used, for example, by the sitemap source handler.</p>
+
+<h3 id="routedtitle">routed_title</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>Image Directory</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Only used if set on a directory index path; specifies the title of the directory for which it is the
+index path. If this meta information is not specified, the title of the directory will be used
+instead.</p>
+
+<h3 id="sortinfo">sort_info</h3>
+
+<ul class="meta-information-ref">
+  <li>Integer or String: <code>15</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets the sort information for the path. Any String or Integer value can be used here. When two nodes
+are compared using this information and both have Integers, then an Integer comparision is
+done. Otherwise a String comparision is done.</p>
+
+<p>Setting a String value is useful, for example, for specifying dates as sort information.</p>
+
+<h3 id="template">template</h3>
+
+<ul class="meta-information-ref">
+  <li>String or null: <code>my.template</code> or <code>~</code></li>
+  <li>Page/Template files</li>
+</ul>
+
+<p>Sets the template for the page/template file overriding the default value. If set to null
+(i.e. <code>~</code>), no template is used for the page/template file!</p>
+
+<h3 id="title">title</h3>
+
+<ul class="meta-information-ref">
+  <li>String: <code>New Title</code></li>
+  <li>Any</li>
+</ul>
+
+<p>Sets the title for the path.</p>
+
+<h3 id="usednodes">used_nodes</h3>
+
+<ul class="meta-information-ref">
+  <li>Array: <code>[*.en.html, test.de.html]</code></li>
+  <li>Any</li>
+</ul>
+
+<p>The value of this meta information needs to be an array of alcn patterns. All nodes that match at
+least one of the patterns are considered to be dependencies of the node. Therefore if any of these
+nodes change, the node will be regenerated, too.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

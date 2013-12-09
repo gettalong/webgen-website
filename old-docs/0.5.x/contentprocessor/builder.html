@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::ContentProcessor::Builder | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li><li class="webgen-menu-level1"><a href="#examples">Examples</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgencontentprocessorbuilder">Webgen::ContentProcessor::Builder</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>As short name for the content processor (used, for example, in the <code>pipeline</code> option of a block in a
+file in <a href="../webgen_page_format.html">Webgen Page Format</a>) one of the following can be
+used: <code>builder</code>.</p>
+
+
+<h2 id="description">Description</h2>
+
+<p>This content processor can be used to programatically create XHTML/XML documents
+(<a href="http://builder.rubyforge.org" title="Homepage of builder library">Reference</a>). The top builder object is provided through the <code>xml</code> object. There are also other
+objects provided by webgen available - have a look at the <a href="erb.html">erb documentation</a>.</p>
+
+<blockquote class="warning">
+  <p>This extension is only available if you have installed the <a href="http://builder.rubyforge.org" title="Homepage of builder library">builder</a> library. The preferred way
+to do this is via Rubygems:</p>
+
+  <pre><code>gem install builder
+</code></pre>
+</blockquote>
+
+<h2 id="examples">Examples</h2>
+
+<p>Here is a short sample of content that is valid Ruby and uses the special <code>xml</code> object:</p>
+
+<pre><code>xml.h1(&quot;This a h1 header&quot;, :id =&gt; 'myid')
+
+xml.p do |p|
+  p.text! &quot;You can just write &quot;
+  p.b &quot;your&quot;
+  p.text! &quot;paragraphs here and&quot;
+  p.a(&quot;link&quot;, :href =&gt; &quot;http://someurl.com&quot;)
+  p.text! &quot;them below. This is also a&quot;
+  p.i &quot;nice&quot;
+  p.text! &quot;format!&quot;
+end
+
+xml.blockquote(:class =&gt; 'information') do |bq|
+  bq.text! &quot;Citations are easy too.&quot;
+  bq.text! &quot;Really. And you can assign them attributes.&quot;
+end
+
+xml.ul do |ul|
+  ul.li &quot;Lists&quot;
+  ul.li &quot;aren't&quot;
+  ul.li &quot;difficult&quot;
+  ul.li &quot;either.&quot;
+end
+</code></pre>
+
+<p>Following is a complete example which shows how to use this extension in a page file which generates
+a custom XML document (the <code>content</code> block has to be valid Ruby!):</p>
+
+<pre><code>---
+output_path_style: [:parent, :basename, ['.', :lang], '.xml']
+title: Person Object
+template: ~
+--- pipeline:builder
+xml.persons(:path =&gt; context.node.alcn) do |p|
+  p.person do |b|
+    b.firstname('Thomas')
+    b.lastname('Leitner')
+  end
+  p.person do |b|
+    b.firstname('Other first')
+    b.lastname('Other last')
+  end
+end
+</code></pre>
+
+<p>The above will produce the following output:</p>
+
+<pre><code>&lt;persons path=&quot;/test.xml&quot;&gt;
+  &lt;person&gt;
+    &lt;firstname&gt;Thomas&lt;/firstname&gt;
+    &lt;lastname&gt;Leitner&lt;/lastname&gt;
+  &lt;/person&gt;
+  &lt;person&gt;
+    &lt;firstname&gt;Other first&lt;/firstname&gt;
+    &lt;lastname&gt;Other last&lt;/lastname&gt;
+  &lt;/person&gt;
+&lt;/persons&gt;
+</code></pre>
+
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

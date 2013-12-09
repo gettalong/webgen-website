@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Webgen::CLI::CommandParser</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/webgen/cli_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/cli.rb">lib/webgen/cli.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">CmdParse::CommandParser</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-create_website">#create_website</a></li>
+					
+					<li><a href="#method-i-parse">#parse</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../../REXML.html">REXML</a></li>
+				
+					<li><a href="../../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Webgen::CLI::CommandParser</h1>
+
+		<div id="description">
+			<p>
+This is the command parser class used for handling the webgen command line
+interface. After creating an instance, the inherited <a
+href="CommandParser.html#method-i-parse">#</a> method can be used for
+parsing the command line arguments and executing the requested command.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="directory-attribute-method" class="method-detail">
+				<a name="directory"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">directory</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The website directory. Default: the current working directory.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="verbosity-attribute-method" class="method-detail">
+				<a name="verbosity"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">verbosity</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The verbosity level. Default: <tt>:normal</tt>
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="log-level-attribute-method" class="method-detail">
+				<a name="log_level"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">log_level</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The log level. Default: <tt>Logger::WARN</tt>
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="create-website-method" class="method-detail ">
+				<a name="method-i-create_website"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_website</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Utility method for sub-commands to create the correct <a
+href="../Website.html">Webgen::Website</a> object.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-website-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/cli.rb, line 109</span>
+109:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_website</span>
+110:         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@website</span>)
+111:           <span class="ruby-ivar">@website</span> = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Website</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@directory</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span><span class="ruby-operator">|</span>
+112:             <span class="ruby-identifier">config</span>[<span class="ruby-value str">'logger.mask'</span>] = <span class="ruby-ivar">@log_filter</span>
+113:           <span class="ruby-keyword kw">end</span>
+114:           <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-ivar">@log_level</span>
+115:           <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">verbosity</span> = <span class="ruby-ivar">@verbosity</span>
+116:         <span class="ruby-keyword kw">end</span>
+117:         <span class="ruby-ivar">@website</span>
+118:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="parse-method" class="method-detail ">
+				<a name="method-i-parse"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">parse</span><span
+						class="method-args">(argv = ARGV)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+:nodoc: 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="parse-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/cli.rb, line 121</span>
+121:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">argv</span> = <span class="ruby-constant">ARGV</span>)
+122:         <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">CLI</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/.+Command$/</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+123:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_command</span>(<span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">CLI</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">c</span>).<span class="ruby-identifier">new</span>, (<span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'RunCommand'</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>))
+124:         <span class="ruby-keyword kw">end</span>
+125:         <span class="ruby-keyword kw">super</span>
+126:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

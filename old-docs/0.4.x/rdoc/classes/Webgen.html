@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Webgen</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Webgen</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/webgen/cli_rb.html">
+                lib/webgen/cli.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/config_rb.html">
+                lib/webgen/config.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/gui/common_rb.html">
+                lib/webgen/gui/common.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/languages_rb.html">
+                lib/webgen/languages.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugin_rb.html">
+                lib/webgen/plugin.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/rake/webgentask_rb.html">
+                lib/webgen/rake/webgentask.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/test_rb.html">
+                lib/webgen/test.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/website_rb.html">
+                lib/webgen/website.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000156">cli_main</a>&nbsp;&nbsp;
+      <a href="#M000157">data_dir</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Webgen/PluginDefs.html">PluginDefs</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Webgen/GUI.html" class="link">Webgen::GUI</a><br />
+Module <a href="Webgen/LanguageManager.html" class="link">Webgen::LanguageManager</a><br />
+Module <a href="Webgen/PluginDefs.html" class="link">Webgen::PluginDefs</a><br />
+Module <a href="Webgen/Rake.html" class="link">Webgen::Rake</a><br />
+Class <a href="Webgen/CheckCommand.html" class="link">Webgen::CheckCommand</a><br />
+Class <a href="Webgen/CliUtils.html" class="link">Webgen::CliUtils</a><br />
+Class <a href="Webgen/Color.html" class="link">Webgen::Color</a><br />
+Class <a href="Webgen/CommandParser.html" class="link">Webgen::CommandParser</a><br />
+Class <a href="Webgen/ConfigurationFile.html" class="link">Webgen::ConfigurationFile</a><br />
+Class <a href="Webgen/ConfigurationFileInvalid.html" class="link">Webgen::ConfigurationFileInvalid</a><br />
+Class <a href="Webgen/CreateCommand.html" class="link">Webgen::CreateCommand</a><br />
+Class <a href="Webgen/DependencyHash.html" class="link">Webgen::DependencyHash</a><br />
+Class <a href="Webgen/DirectoryInfo.html" class="link">Webgen::DirectoryInfo</a><br />
+Class <a href="Webgen/Dummy.html" class="link">Webgen::Dummy</a><br />
+Class <a href="Webgen/GalleryStyle.html" class="link">Webgen::GalleryStyle</a><br />
+Class <a href="Webgen/Language.html" class="link">Webgen::Language</a><br />
+Class <a href="Webgen/Logger.html" class="link">Webgen::Logger</a><br />
+Class <a href="Webgen/PluginLoader.html" class="link">Webgen::PluginLoader</a><br />
+Class <a href="Webgen/PluginManager.html" class="link">Webgen::PluginManager</a><br />
+Class <a href="Webgen/PluginNotFound.html" class="link">Webgen::PluginNotFound</a><br />
+Class <a href="Webgen/PluginParamNotFound.html" class="link">Webgen::PluginParamNotFound</a><br />
+Class <a href="Webgen/PluginParamValueNotFound.html" class="link">Webgen::PluginParamValueNotFound</a><br />
+Class <a href="Webgen/PluginTestCase.html" class="link">Webgen::PluginTestCase</a><br />
+Class <a href="Webgen/ShowCommand.html" class="link">Webgen::ShowCommand</a><br />
+Class <a href="Webgen/SipttraStyle.html" class="link">Webgen::SipttraStyle</a><br />
+Class <a href="Webgen/TagTestCase.html" class="link">Webgen::TagTestCase</a><br />
+Class <a href="Webgen/TestCase.html" class="link">Webgen::TestCase</a><br />
+Class <a href="Webgen/UseCommand.html" class="link">Webgen::UseCommand</a><br />
+Class <a href="Webgen/WebSite.html" class="link">Webgen::WebSite</a><br />
+Class <a href="Webgen/WebSiteStyle.html" class="link">Webgen::WebSiteStyle</a><br />
+Class <a href="Webgen/WebSiteTemplate.html" class="link">Webgen::WebSiteTemplate</a><br />
+Class <a href="Webgen/Website.html" class="link">Webgen::Website</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">[0, 4, 7]</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">AUTHOR</td>
+          <td>=</td>
+          <td class="context-item-value">'Thomas Leitner &lt;t_leitner@gmx.at&gt;'</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SUMMARY</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;webgen is a templated based static Web site generator.&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DESCRIPTION</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;webgen is a Web site generator implemented in Ruby. &quot; \   &quot;It is used to generate static Web pages from templates and page &quot; \   &quot;description files.&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SRC_DIR</td>
+          <td>=</td>
+          <td class="context-item-value">'src'</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+The directory below a website directory in which the source files are.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PLUGIN_DIR</td>
+          <td>=</td>
+          <td class="context-item-value">'plugin'</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+The directory below a website directory in which the plugin files are.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_PLUGIN_LOAD_PROC</td>
+          <td>=</td>
+          <td class="context-item-value">proc do      # THE base class for all plugins.     #     # Information about a plugin can be set via the class method +infos+. If no name for the plugin     # is set, then the full plugin class name (including the namespace modules) is used, with     # slashes instead of the double colons.     class Plugin</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000156" class="method-detail">
+        <a name="M000156"></a>
+
+        <div class="method-heading">
+          <a href="#M000156" class="method-signature">
+          <span class="method-name">cli_main</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Main program for the webgen CLI.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000156-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000156-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/cli.rb, line 452</span>
+452:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">cli_main</span>
+453:     <span class="ruby-constant">Color</span>.<span class="ruby-identifier">colorify</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">isatty</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Config</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-value str">'arch'</span>].<span class="ruby-identifier">include?</span>( <span class="ruby-value str">'mswin32'</span> )
+454:     <span class="ruby-identifier">cmdparser</span> = <span class="ruby-constant">CommandParser</span>.<span class="ruby-identifier">new</span>
+455:     <span class="ruby-identifier">cmdparser</span>.<span class="ruby-identifier">parse</span>
+456:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000157" class="method-detail">
+        <a name="M000157"></a>
+
+        <div class="method-heading">
+          <a href="#M000157" class="method-signature">
+          <span class="method-name">data_dir</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the data directory for webgen.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000157-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000157-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/config.rb, line 41</span>
+41:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_dir</span>
+42:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">defined?</span>( <span class="ruby-ivar">@@data_dir</span> )
+43:       <span class="ruby-ivar">@@data_dir</span> =  <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>( <span class="ruby-keyword kw">__FILE__</span> ), <span class="ruby-value str">'..'</span>, <span class="ruby-value str">'..'</span>, <span class="ruby-value str">'data'</span>, <span class="ruby-value str">'webgen'</span>) )
+44: 
+45:       <span class="ruby-ivar">@@data_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-constant">Config</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-value str">&quot;datadir&quot;</span>], <span class="ruby-value str">&quot;webgen&quot;</span> ) ) <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>( <span class="ruby-ivar">@@data_dir</span> )
+46: 
+47:       <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Could not find webgen data directory! This is a bug, report it please!&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>( <span class="ruby-ivar">@@data_dir</span> )
+48:     <span class="ruby-keyword kw">end</span>
+49:     <span class="ruby-ivar">@@data_dir</span>
+50:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: FileHandlers::TemplateHandler</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">FileHandlers::TemplateHandler</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/webgen/plugins/filehandlers/template_rb.html">
+                lib/webgen/plugins/filehandlers/template.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="DefaultHandler.html">
+                DefaultHandler
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Handles template files. Template files are just page files with another
+extension.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000321">create_node</a>&nbsp;&nbsp;
+      <a href="#M000323">templates_for_node</a>&nbsp;&nbsp;
+      <a href="#M000322">write_node</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000321" class="method-detail">
+        <a name="M000321"></a>
+
+        <div class="method-heading">
+          <a href="#M000321" class="method-signature">
+          <span class="method-name">create_node</span><span class="method-args">( src_name, parent, meta_info )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000321-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000321-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/filehandlers/template.rb, line 41</span>
+41:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_node</span>( <span class="ruby-identifier">src_name</span>, <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">meta_info</span> )
+42:       <span class="ruby-keyword kw">begin</span>
+43:         <span class="ruby-identifier">data</span> = <span class="ruby-constant">WebPageData</span>.<span class="ruby-identifier">new</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>( <span class="ruby-identifier">src_name</span> ), <span class="ruby-ivar">@plugin_manager</span>[<span class="ruby-value str">'ContentConverter/Default'</span>].<span class="ruby-identifier">registered_handlers</span>,
+44:                                 <span class="ruby-identifier">meta_info</span> )
+45:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">WebPageDataInvalid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+46:         <span class="ruby-identifier">log</span>(<span class="ruby-identifier">:error</span>) { <span class="ruby-node">&quot;Invalid template file &lt;#{src_name}&gt;: #{e.message}&quot;</span> }
+47:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+48:       <span class="ruby-keyword kw">end</span>
+49: 
+50:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">src_name</span> }
+51:         <span class="ruby-identifier">log</span>(<span class="ruby-identifier">:warn</span>) { <span class="ruby-node">&quot;Can't create node &lt;#{node.full_path}&gt; as it already exists! Using existing!&quot;</span> }
+52:       <span class="ruby-keyword kw">else</span>
+53:         <span class="ruby-identifier">basename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>( <span class="ruby-identifier">src_name</span> )
+54:         <span class="ruby-identifier">node</span> = <span class="ruby-constant">FileHandlers</span><span class="ruby-operator">::</span><span class="ruby-constant">PageHandler</span><span class="ruby-operator">::</span><span class="ruby-constant">PageNode</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">basename</span>, <span class="ruby-identifier">data</span>  )
+55:         <span class="ruby-identifier">node</span>[<span class="ruby-value str">'title'</span>] = <span class="ruby-value str">'template'</span>
+56:         <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-identifier">:src</span>] = <span class="ruby-identifier">src_name</span>
+57:         <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-identifier">:processor</span>] = <span class="ruby-keyword kw">self</span>
+58:         <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-identifier">:pagename</span>] = <span class="ruby-identifier">basename</span>
+59:         <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-identifier">:local_pagename</span>] = <span class="ruby-identifier">basename</span>
+60:       <span class="ruby-keyword kw">end</span>
+61: 
+62:       <span class="ruby-identifier">node</span>
+63:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000323" class="method-detail">
+        <a name="M000323"></a>
+
+        <div class="method-heading">
+          <a href="#M000323" class="method-signature">
+          <span class="method-name">templates_for_node</span><span class="method-args">( node )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the template chain for <tt>node</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000323-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000323-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/filehandlers/template.rb, line 70</span>
+70:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">templates_for_node</span>( <span class="ruby-identifier">node</span> )
+71:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'template'</span>].<span class="ruby-identifier">kind_of?</span>( <span class="ruby-constant">String</span> )
+72:         <span class="ruby-identifier">template_node</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolve_node</span>( <span class="ruby-identifier">node</span>[<span class="ruby-value str">'template'</span>] )
+73:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">template_node</span>.<span class="ruby-identifier">nil?</span>
+74:           <span class="ruby-identifier">log</span>(<span class="ruby-identifier">:warn</span>) { <span class="ruby-node">&quot;Specified template '#{node['template']}' for &lt;#{node.node_info[:src]}&gt; not found, using default template!&quot;</span> }
+75:           <span class="ruby-identifier">template_node</span> = <span class="ruby-identifier">get_default_template</span>( <span class="ruby-identifier">node</span>.<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">param</span>( <span class="ruby-value str">'defaultTemplate'</span> ) )
+76:         <span class="ruby-keyword kw">end</span>
+77:         <span class="ruby-identifier">node</span>[<span class="ruby-value str">'template'</span>] = <span class="ruby-identifier">template_node</span>
+78:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'template'</span>].<span class="ruby-identifier">kind_of?</span>( <span class="ruby-constant">Node</span> )
+79:         <span class="ruby-identifier">template_node</span> = <span class="ruby-identifier">node</span>[<span class="ruby-value str">'template'</span>]
+80:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">meta_info</span>.<span class="ruby-identifier">has_key?</span>( <span class="ruby-value str">'template'</span> ) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'template'</span>].<span class="ruby-identifier">nil?</span>
+81:         <span class="ruby-identifier">template_node</span> = <span class="ruby-keyword kw">nil</span>
+82:       <span class="ruby-keyword kw">else</span>
+83:         <span class="ruby-identifier">log</span>(<span class="ruby-identifier">:info</span>) { <span class="ruby-node">&quot;Using default template for &lt;#{node.node_info[:src]}&gt;&quot;</span> }
+84:         <span class="ruby-identifier">template_node</span> = <span class="ruby-identifier">get_default_template</span>( <span class="ruby-identifier">node</span>.<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">param</span>( <span class="ruby-value str">'defaultTemplate'</span> ) )
+85:         <span class="ruby-identifier">node</span>[<span class="ruby-value str">'template'</span>] = <span class="ruby-identifier">template_node</span>
+86:       <span class="ruby-keyword kw">end</span>
+87: 
+88:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">template_node</span>.<span class="ruby-identifier">nil?</span>
+89:         []
+90:       <span class="ruby-keyword kw">else</span>
+91:         (<span class="ruby-identifier">template_node</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">node</span> <span class="ruby-value">? </span>[] <span class="ruby-operator">:</span> <span class="ruby-identifier">templates_for_node</span>( <span class="ruby-identifier">template_node</span> ) <span class="ruby-operator">+</span> [<span class="ruby-identifier">template_node</span>])
+92:       <span class="ruby-keyword kw">end</span>
+93:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000322" class="method-detail">
+        <a name="M000322"></a>
+
+        <div class="method-heading">
+          <a href="#M000322" class="method-signature">
+          <span class="method-name">write_node</span><span class="method-args">( node )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000322-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000322-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/filehandlers/template.rb, line 65</span>
+65:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">write_node</span>( <span class="ruby-identifier">node</span> )
+66:       <span class="ruby-comment cmt"># do not write anything</span>
+67:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

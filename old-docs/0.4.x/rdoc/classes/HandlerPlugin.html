@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: HandlerPlugin</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">HandlerPlugin</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/webgen/plugin_rb.html">
+                lib/webgen/plugin.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Plugin
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+You can use this class for easily handling similiar things, for example,
+various markup to HTML converters.
+</p>
+<p>
+To use it, just create a subclass of <a
+href="HandlerPlugin.html">HandlerPlugin</a> which will be the manager for a
+class of plugins. This subclass should specify all the methods, specific
+implementations should provide. The specific implementations should then be
+derived from this subclass, each using a different name for <tt><a
+href="HandlerPlugin.html#M000002">register_handler</a></tt>. Then you can
+retrieve a specific implementation by using the method <a
+href="HandlerPlugin.html#M000004">registered_handlers</a>[&lt;NAME&gt;] on
+the manager class.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000002">register_handler</a>&nbsp;&nbsp;
+      <a href="#M000003">registered_handler</a>&nbsp;&nbsp;
+      <a href="#M000004">registered_handlers</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="#M000002" class="method-signature">
+          <span class="method-name">register_handler</span><span class="method-args">( name )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines the name for the specific handler under which the handler instance
+can be retrieved.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000002-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/plugin.rb, line 517</span>
+517:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">register_handler</span>( <span class="ruby-identifier">name</span> )
+518:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">infos</span>[<span class="ruby-identifier">:handler_for</span>] = <span class="ruby-identifier">name</span>
+519:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="#M000003" class="method-signature">
+          <span class="method-name">registered_handler</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the name of the specific handler.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000003-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/plugin.rb, line 522</span>
+522:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">registered_handler</span>
+523:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">infos</span>[<span class="ruby-identifier">:handler_for</span>]
+524:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="#M000004" class="method-signature">
+          <span class="method-name">registered_handlers</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns all handler instances as a hash. The names defined with <a
+href="HandlerPlugin.html#M000002">HandlerPlugin#register_handler</a> can be
+used to retrieve a specific handler instance.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/plugin.rb, line 528</span>
+528:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">registered_handlers</span>
+529:         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword kw">defined?</span>( <span class="ruby-ivar">@registered_handlers_cache</span> ) <span class="ruby-operator">||</span> <span class="ruby-ivar">@cached_plugins_hash</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@plugin_manager</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">hash</span>
+530:           <span class="ruby-ivar">@registered_handlers_cache</span> = {}
+531:           <span class="ruby-ivar">@plugin_manager</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
+532:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">kind_of?</span>( <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span> ) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">registered_handler</span>
+533:               <span class="ruby-ivar">@registered_handlers_cache</span>[<span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">registered_handler</span>] = <span class="ruby-identifier">plugin</span>
+534:             <span class="ruby-keyword kw">end</span>
+535:           <span class="ruby-keyword kw">end</span>
+536:           <span class="ruby-ivar">@cached_plugins_hash</span> = <span class="ruby-ivar">@plugin_manager</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">hash</span>
+537:         <span class="ruby-keyword kw">end</span>
+538:         <span class="ruby-ivar">@registered_handlers_cache</span>
+539:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

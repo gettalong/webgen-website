@@ -1,0 +1,1425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Webgen::Path</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/webgen/path_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/path.rb">lib/webgen/path.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">CLASS</span> <a href="Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-lcn">::lcn</a></li>
+					
+					<li><a href="#method-c-make_absolute">::make_absolute</a></li>
+					
+					<li><a href="#method-c-match">::match</a></li>
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-%3C%3D%3E">#<=></a></li>
+					
+					<li><a href="#method-i-%3D%3D">#==</a></li>
+					
+					<li><a href="#method-i-acn">#acn</a></li>
+					
+					<li><a href="#method-i-alcn">#alcn</a></li>
+					
+					<li><a href="#method-i-analyse">#analyse</a></li>
+					
+					<li><a href="#method-i-analyse_directory">#analyse_directory</a></li>
+					
+					<li><a href="#method-i-analyse_file">#analyse_file</a></li>
+					
+					<li><a href="#method-i-analyse_fragment">#analyse_fragment</a></li>
+					
+					<li><a href="#method-i-changed%3F">#changed?</a></li>
+					
+					<li><a href="#method-i-cn">#cn</a></li>
+					
+					<li><a href="#method-i-dup">#dup</a></li>
+					
+					<li><a href="#method-i-eql%3F">#eql?</a></li>
+					
+					<li><a href="#method-i-io">#io</a></li>
+					
+					<li><a href="#method-i-lcn">#lcn</a></li>
+					
+					<li><a href="#method-i-mount_at">#mount_at</a></li>
+					
+					<li><a href="#method-i-passive%3F">#passive?</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><span class="include">Comparable</span></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../REXML.html">REXML</a></li>
+				
+					<li><a href="../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Webgen::Path</h1>
+
+		<div id="description">
+			<h2>General Information</h2>
+<p>
+A <a href="Path.html">Path</a> object provides information about a path
+that is used to create one or more nodes as well as methods for accessing
+the path&#8217;s content. So a <a href="Path.html">Path</a> object always
+refers to a source path. In contrast, output paths are always strings and
+just specify the location where a specific node should be written to.
+</p>
+<p>
+Note the <tt>path</tt> and <tt><a
+href="Path.html#source_path">source_path</a></tt> attributes of a <a
+href="Path.html">Path</a> object:
+</p>
+<ul>
+<li><p>
+The <tt><a href="Path.html#source_path">source_path</a></tt> specifies a
+path string that was directly created by a <a href="Source.html">Source</a>
+object. Each <a href="Path.html">Path</a> object must have such a valid
+source path sothat webgen can infer the <a href="Path.html">Path</a> the
+lead to the creation of a <a href="Node.html">Node</a> object later.
+</p>
+</li>
+<li><p>
+In contrast, the <tt>path</tt> attribute specifies the path that is used to
+create the canonical name (and by default the output path) of a <a
+href="Node.html">Node</a> object. Normally it is the same as the <tt><a
+href="Path.html#source_path">source_path</a></tt> but can differ (e.g. when
+fragment nodes are created for page file nodes).
+</p>
+</li>
+</ul>
+<p>
+A <a href="Path.html">Path</a> object can represent one of three different
+things: a directory, a file or a fragment. If the <tt>path</tt> ends with a
+slash character, then the path object represents a directory, if the path
+contains a hash character anywhere, then the path object represents a
+fragment and else it represents a file. Have a look at the webgen manual to
+see the exact format of a path!
+</p>
+<h2>Relation to <a href="Source.html">Source</a> classes</h2>
+<p>
+A webgen source class needs to derive a specialized path class from this
+class and implement an approriate <a
+href="Path.html#method-i-changed%3F">#</a> method that returns
+<tt>true</tt> if the path&#8217;s content has changed since the last webgen
+run.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="FILENAME_RE">FILENAME_RE</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="path-attribute-method" class="method-detail">
+				<a name="path"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">path</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The full path for which this <a href="Path.html">Path</a> object was
+created.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="source-path-attribute-method" class="method-detail">
+				<a name="source_path"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">source_path</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+A string specifying the path that lead to the creation of this path.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="parent-path-attribute-method" class="method-detail">
+				<a name="parent_path"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">parent_path</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The string specifying the parent path
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="basename-attribute-method" class="method-detail">
+				<a name="basename"></a>
+				
+				<a name="basename="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">basename</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The canonical name of the path without the extension.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="ext-attribute-method" class="method-detail">
+				<a name="ext"></a>
+				
+				<a name="ext="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">ext</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The extension of the <tt>path</tt>.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="meta-info-attribute-method" class="method-detail">
+				<a name="meta_info"></a>
+				
+				<a name="meta_info="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">meta_info</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Extracted meta information for the path.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="passive-attribute-method" class="method-detail">
+				<a name="passive"></a>
+				
+				<a name="passive="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">passive</span><span
+						class="attribute-access-type">[W]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Specifies whether this path should be used during the &#8220;tree
+update&#8221; phase of a webgen run or only later during node resolution.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="lcn-method" class="method-detail ">
+				<a name="method-c-lcn"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">lcn</span><span
+						class="method-args">(cn, lang)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Utility method for creating the lcn from the <tt>cn</tt> and the language
+<tt>lang</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="lcn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 185</span>
+185:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">lcn</span>(<span class="ruby-identifier">cn</span>, <span class="ruby-identifier">lang</span>)
+186:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">lang</span>.<span class="ruby-identifier">nil?</span>
+187:         <span class="ruby-identifier">cn</span>
+188:       <span class="ruby-keyword kw">else</span>
+189:         <span class="ruby-identifier">cn</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'.'</span>).<span class="ruby-identifier">insert</span>((<span class="ruby-identifier">cn</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\./</span> <span class="ruby-operator">?</span> <span class="ruby-value">2</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">lang</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
+190:       <span class="ruby-keyword kw">end</span>
+191:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="make-absolute-method" class="method-detail ">
+				<a name="method-c-make_absolute"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">make_absolute</span><span
+						class="method-args">(base, path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Make the given <tt>path</tt> absolute by prepending the absolute directory
+path <tt>base</tt> if necessary. Also resolves all &#8217;..&#8217; and
+&#8217;.&#8217; references in <tt>path</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="make-absolute-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 75</span>
+75:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">make_absolute</span>(<span class="ruby-identifier">base</span>, <span class="ruby-identifier">path</span>)
+76:       <span class="ruby-identifier">raise</span>(<span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">'base has to be an absolute path, ie. needs to start with a slash'</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\//</span>
+77:       <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\//</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">base</span>, <span class="ruby-identifier">path</span>)).<span class="ruby-identifier">cleanpath</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/.\/$/</span> <span class="ruby-operator">?</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>)
+78:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="match-method" class="method-detail ">
+				<a name="method-c-match"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">match</span><span
+						class="method-args">(path, pattern)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return <tt>true</tt> if the given <tt>path</tt> matches the given
+<tt>pattern</tt>. For information on which patterns are supported, have a
+look at the documentation of File.fnmatch.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="match-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 82</span>
+82:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">pattern</span>)
+83:       <span class="ruby-identifier">pattern</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'/'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/$/</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/\/$|^$/</span>
+84:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">fnmatch</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_DOTMATCH</span><span class="ruby-operator">|</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_CASEFOLD</span><span class="ruby-operator">|</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_PATHNAME</span>)
+85:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(path, source_path = path, &ioblock)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a new <a href="Path.html">Path</a> object for <tt>path</tt>. The
+optional <tt><a href="Path.html#source_path">source_path</a></tt> parameter
+specifies the path string that lead to the creation of this path. The
+optional block needs to return an IO object for getting the content of the
+path.
+</p>
+<p>
+The <tt>path</tt> needs to be in a well defined format which can be looked
+up in the webgen manual.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 122</span>
+122:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">source_path</span> = <span class="ruby-identifier">path</span>, &amp;<span class="ruby-identifier">ioblock</span>)
+123:       <span class="ruby-ivar">@meta_info</span> = {}
+124:       <span class="ruby-ivar">@io</span> = <span class="ruby-identifier">block_given?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">SourceIO</span>.<span class="ruby-identifier">new</span>(&amp;<span class="ruby-identifier">ioblock</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+125:       <span class="ruby-ivar">@source_path</span> = <span class="ruby-identifier">source_path</span>
+126:       <span class="ruby-ivar">@passive</span> = <span class="ruby-keyword kw">false</span>
+127:       <span class="ruby-identifier">analyse</span>(<span class="ruby-identifier">path</span>)
+128:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="method-i-%3C%3D%3E"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">&lt;=&gt;</span><span
+						class="method-args">(other)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Compare the # of this object to <tt>other.path</tt>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 230</span>
+230:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+231:       <span class="ruby-ivar">@path</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">path</span>
+232:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="method-i-%3D%3D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">==</span><span
+						class="method-args">(other)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Equality &#8212; Return <tt>true</tt> if <tt>other</tt> is a <a
+href="Path.html">Path</a> object with the same # or if <tt>other</tt> is a
+String equal to the #. Else return <tt>false</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 218</span>
+218:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+219:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Path</span>)
+220:         <span class="ruby-identifier">other</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@path</span>
+221:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+222:         <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@path</span>
+223:       <span class="ruby-keyword kw">else</span>
+224:         <span class="ruby-keyword kw">false</span>
+225:       <span class="ruby-keyword kw">end</span>
+226:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="Path.html#method-i-eql%3F">eql?</a>
+				</div>
+				
+
+				
+			</div>
+
+		
+			<div id="acn-method" class="method-detail ">
+				<a name="method-i-acn"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">acn</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+The absolute canonical name of this path.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="acn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 199</span>
+199:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acn</span>
+200:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/#/</span>
+201:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@parent_path</span>).<span class="ruby-identifier">acn</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cn</span>
+202:       <span class="ruby-keyword kw">else</span>
+203:         <span class="ruby-ivar">@parent_path</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cn</span>
+204:       <span class="ruby-keyword kw">end</span>
+205:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="alcn-method" class="method-detail ">
+				<a name="method-i-alcn"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">alcn</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+The absolute localized canonical name of this path.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="alcn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 208</span>
+208:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">alcn</span>
+209:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/#/</span>
+210:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@parent_path</span>).<span class="ruby-identifier">alcn</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lcn</span>
+211:       <span class="ruby-keyword kw">else</span>
+212:         <span class="ruby-ivar">@parent_path</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lcn</span>
+213:       <span class="ruby-keyword kw">end</span>
+214:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="changed--method" class="method-detail ">
+				<a name="method-i-changed%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">changed?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Has the content of this path changed since the last webgen run? This
+default implementation always returns <tt>true</tt>, a specialized sub
+class needs to override this behaviour!
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="changed--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 166</span>
+166:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">changed?</span>
+167:       <span class="ruby-keyword kw">true</span>
+168:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="cn-method" class="method-detail ">
+				<a name="method-i-cn"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">cn</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+The canonical name created from the <tt>path</tt> (namely from the parts
+<tt>basename</tt> and <tt>extension</tt>).
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="cn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 180</span>
+180:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cn</span>
+181:       <span class="ruby-ivar">@basename</span> <span class="ruby-operator">+</span> (<span class="ruby-ivar">@ext</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-value str">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@ext</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span> (<span class="ruby-ivar">@basename</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/.\/$/</span> <span class="ruby-operator">?</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>)
+182:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="dup-method" class="method-detail ">
+				<a name="method-i-dup"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">dup</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Duplicate the path object.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="dup-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 158</span>
+158:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dup</span>
+159:       <span class="ruby-identifier">temp</span> = <span class="ruby-keyword kw">super</span>
+160:       <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value">:@meta_info</span>, <span class="ruby-ivar">@meta_info</span>.<span class="ruby-identifier">dup</span>)
+161:       <span class="ruby-identifier">temp</span>
+162:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="eql--method" class="method-detail method-alias">
+				<a name="method-i-eql%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">eql?</span><span
+						class="method-args">(other)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+				</div>
+
+				
+
+				
+				<div class="aliases">
+          Alias for: <a href="Path.html#method-i-%3D%3D">==</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="io-method" class="method-detail ">
+				<a name="method-i-io"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">io</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+The <a href="Path/SourceIO.html">SourceIO</a> object associated with the
+path.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="io-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 171</span>
+171:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">io</span>
+172:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@io</span>
+173:         <span class="ruby-ivar">@io</span>
+174:       <span class="ruby-keyword kw">else</span>
+175:         <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No IO object defined for the path #{self}&quot;</span>
+176:       <span class="ruby-keyword kw">end</span>
+177:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="lcn-method" class="method-detail ">
+				<a name="method-i-lcn"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">lcn</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+The localized canonical name created from the <tt>path</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="lcn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 194</span>
+194:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lcn</span>
+195:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">lcn</span>(<span class="ruby-identifier">cn</span>, <span class="ruby-ivar">@meta_info</span>[<span class="ruby-value str">'lang'</span>])
+196:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="mount-at-method" class="method-detail ">
+				<a name="method-i-mount_at"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">mount_at</span><span
+						class="method-args">(mp, prefix = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Mount this path at the mount point <tt>mp</tt>, optionally stripping
+<tt>prefix</tt> from the parent path, and return the new path object.
+</p>
+<p>
+The parameters <tt>mp</tt> and <tt>prefix</tt> have to be absolute
+directory paths, ie. they have to start and end with a slash and must not
+contain any hash characters!
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="mount-at-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 139</span>
+139:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mount_at</span>(<span class="ruby-identifier">mp</span>, <span class="ruby-identifier">prefix</span> = <span class="ruby-keyword kw">nil</span>)
+140:       <span class="ruby-identifier">raise</span>(<span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;The mount point (#{mp}) must be a valid directory path&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mp</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/^[^\/]|#|[^\/]$/</span>
+141:       <span class="ruby-identifier">raise</span>(<span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;The strip prefix (#{prefix}) must be a valid directory path&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/^[^\/]|#|[^\/]$/</span>
+142: 
+143:       <span class="ruby-identifier">temp</span> = <span class="ruby-identifier">dup</span>
+144:       <span class="ruby-identifier">strip_re</span> = <span class="ruby-node">/^#{Regexp.escape(prefix.to_s)}/</span>
+145:       <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value">:@path</span>, <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">strip_re</span>, <span class="ruby-value str">''</span>))
+146:       <span class="ruby-identifier">reanalyse</span> = (<span class="ruby-ivar">@path</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span>)
+147:       <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value">:@path</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">mp</span>, <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">path</span>))
+148:       <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value">:@source_path</span>, <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">path</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@source_path</span>
+149:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reanalyse</span>
+150:         <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:analyse</span>, <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">path</span>)
+151:       <span class="ruby-keyword kw">else</span>
+152:         <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value">:@parent_path</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">mp</span>, <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">parent_path</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">strip_re</span>, <span class="ruby-value str">''</span>)))
+153:       <span class="ruby-keyword kw">end</span>
+154:       <span class="ruby-identifier">temp</span>
+155:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="passive--method" class="method-detail ">
+				<a name="method-i-passive%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">passive?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Is this path only used later during node resolution? Defaults to
+<tt>false</tt>, i.e. used during the &#8220;tree update&#8221; phase.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="passive--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 114</span>
+114:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">passive?</span>; <span class="ruby-ivar">@passive</span>; <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="analyse-method" class="method-detail ">
+				<a name="method-i-analyse"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">analyse</span><span
+						class="method-args">(path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Analyse the <tt>path</tt> and fill the object with the extracted
+information.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="analyse-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 252</span>
+252:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">analyse</span>(<span class="ruby-identifier">path</span>)
+253:       <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+254:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/#/</span>
+255:         <span class="ruby-identifier">analyse_fragment</span>
+256:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/$/</span>
+257:         <span class="ruby-identifier">analyse_directory</span>
+258:       <span class="ruby-keyword kw">else</span>
+259:         <span class="ruby-identifier">analyse_file</span>
+260:       <span class="ruby-keyword kw">end</span>
+261:       <span class="ruby-ivar">@meta_info</span>[<span class="ruby-value str">'title'</span>] = <span class="ruby-ivar">@basename</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-value str">'_-'</span>, <span class="ruby-value str">' '</span>).<span class="ruby-identifier">capitalize</span>
+262:       <span class="ruby-ivar">@ext</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">''</span>
+263:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;The basename of a path may not be empty: #{@path}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@basename</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@basename</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'#'</span>
+264:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;The parent path must start with a slash: #{@path}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/^\//</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'/'</span>
+265:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="analyse-directory-method" class="method-detail ">
+				<a name="method-i-analyse_directory"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">analyse_directory</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Analyse the path assuming it is a directory.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="analyse-directory-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 268</span>
+268:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">analyse_directory</span>
+269:       <span class="ruby-ivar">@parent_path</span> = (<span class="ruby-ivar">@path</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">?</span> <span class="ruby-value str">''</span> <span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@path</span>), <span class="ruby-value str">'/'</span>))
+270:       <span class="ruby-ivar">@basename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@path</span>)
+271:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="analyse-file-method" class="method-detail ">
+				<a name="method-i-analyse_file"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">analyse_file</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Analyse the path assuming it is a file.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="analyse-file-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 276</span>
+276:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">analyse_file</span>
+277:       <span class="ruby-ivar">@parent_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@path</span>), <span class="ruby-value str">'/'</span>)
+278:       <span class="ruby-identifier">match_data</span> = <span class="ruby-constant">FILENAME_RE</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@path</span>))
+279: 
+280:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">match_data</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">4</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># handle special case of sort_info.basename as basename.ext</span>
+281:         <span class="ruby-ivar">@basename</span> = <span class="ruby-identifier">match_data</span>[<span class="ruby-value">1</span>]
+282:         <span class="ruby-ivar">@ext</span> = <span class="ruby-identifier">match_data</span>[<span class="ruby-value">2</span>]
+283:       <span class="ruby-keyword kw">else</span>
+284:         <span class="ruby-ivar">@meta_info</span>[<span class="ruby-value str">'sort_info'</span>] = (<span class="ruby-identifier">match_data</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>)
+285:         <span class="ruby-ivar">@basename</span>               = <span class="ruby-identifier">match_data</span>[<span class="ruby-value">2</span>]
+286:         <span class="ruby-ivar">@meta_info</span>[<span class="ruby-value str">'lang'</span>]      = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">LanguageManager</span>.<span class="ruby-identifier">language_for_code</span>(<span class="ruby-identifier">match_data</span>[<span class="ruby-value">3</span>])
+287:         <span class="ruby-ivar">@ext</span>                    = (<span class="ruby-ivar">@meta_info</span>[<span class="ruby-value str">'lang'</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">match_data</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">4</span>].<span class="ruby-identifier">to_s</span>
+288:       <span class="ruby-keyword kw">end</span>
+289:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="analyse-fragment-method" class="method-detail ">
+				<a name="method-i-analyse_fragment"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">analyse_fragment</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Analyse the path assuming it is a fragment.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="analyse-fragment-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/path.rb, line 292</span>
+292:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">analyse_fragment</span>
+293:       <span class="ruby-ivar">@parent_path</span>, <span class="ruby-ivar">@basename</span> =  <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-node">/^(.*?)(#.*?)$/</span>).<span class="ruby-identifier">first</span>
+294:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;The parent path of a fragment path must be a file path and not a directory path: #{@path}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@parent_path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/$/</span>
+295:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;A fragment path must only contain one hash character: #{path}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">count</span>(<span class="ruby-node">&quot;#&quot;</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+296:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

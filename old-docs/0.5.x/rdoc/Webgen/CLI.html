@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: Webgen::CLI</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/webgen/cli/utils_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/cli/utils.rb">lib/webgen/cli/utils.rb</a></li>
+					
+						<li><a href="../lib/webgen/cli/create_command_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/cli/create_command.rb">lib/webgen/cli/create_command.rb</a></li>
+					
+						<li><a href="../lib/webgen/cli/apply_command_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/cli/apply_command.rb">lib/webgen/cli/apply_command.rb</a></li>
+					
+						<li><a href="../lib/webgen/cli/run_command_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/cli/run_command.rb">lib/webgen/cli/run_command.rb</a></li>
+					
+						<li><a href="../lib/webgen/cli/webgui_command_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/cli/webgui_command.rb">lib/webgen/cli/webgui_command.rb</a></li>
+					
+						<li><a href="../lib/webgen/cli_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/cli.rb">lib/webgen/cli.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">MODULE</span> <a href="CLI/Color.html">Webgen::CLI::Color</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="CLI/Utils.html">Webgen::CLI::Utils</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-format">::format</a></li>
+					
+					<li><a href="#method-c-hash_output">::hash_output</a></li>
+					
+					<li><a href="#method-c-headline">::headline</a></li>
+					
+					<li><a href="#method-c-match_bundle_name">::match_bundle_name</a></li>
+					
+					<li><a href="#method-c-method_missing">::method_missing</a></li>
+					
+					<li><a href="#method-c-section">::section</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../REXML.html">REXML</a></li>
+				
+					<li><a href="../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">Webgen::CLI</h1>
+
+		<div id="description">
+			<p>
+Namespace for all classes that act as <a href="CLI.html">CLI</a> commands.
+</p>
+<h2>Implementing a <a href="CLI.html">CLI</a> command</h2>
+<p>
+Each <a href="CLI.html">CLI</a> command class needs to be put into this
+module and has to end with <tt>Command</tt>, otherwise it is not used. A <a
+href="CLI.html">CLI</a> command is an extension that can be invoked from
+the webgen command and thus needs to be derived from CmdParse::Command. For
+detailed information on this class and the whole cmdparse package have a
+look at <a href="http://cmdparse.rubyforge.org">cmdparse.rubyforge.org</a>!
+</p>
+<h2>Sample <a href="CLI.html">CLI</a> command</h2>
+<p>
+Here is a sample <a href="CLI.html">CLI</a> command extension which could
+be put, for example, into the <tt>ext/init.rb</tt> of a webgen website:
+</p>
+<pre>
+  require 'webgen/cli'
+
+  class Webgen::CLI::SampleCommand &lt; CmdParse::Command
+
+    def initialize
+      super('sample', false)
+      self.short_desc = &quot;This sample command just outputs its parameters&quot;
+      self.description = Webgen::CLI::Utils.format(&quot;Uses the global verbosity level and outputs additional &quot; +
+        &quot;information when the level is set to verbose!&quot;)
+      @username = nil
+      self.options = CmdParse::OptionParserWrapper.new do |opts|
+        opts.separator &quot;Options:&quot;
+        opts.on('-u', '--user USER', String,
+          'Specify an additional user name to output') {|username| @username = username}
+      end
+    end
+
+    def execute(args)
+      if args.length == 0
+        raise OptionParser::MissingArgument.new('ARG1 [ARG2 ...]')
+      else
+        puts &quot;Command line arguments:&quot;
+        args.each {|arg| puts arg}
+        if commandparser.verbosity == :verbose
+          puts &quot;Yeah, some additional information is always cool!&quot;
+        end
+        puts &quot;The entered username: #{@username}&quot; if @username
+      end
+    end
+
+  end
+</pre>
+<p>
+Note the use of Webgen::CLI::Utils.format in the initialize method so that
+the long text gets wrapped correctly! The <a
+href="CLI/Utils.html">Utils</a> class provides some other useful methods,
+too!
+</p>
+<p>
+For information about which attributes are available on the webgen command
+parser instance have a look at <a
+href="CLI/CommandParser.html">Webgen::CLI::CommandParser</a>!
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="format-method" class="method-detail ">
+				<a name="method-c-format"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">format</span><span
+						class="method-args">(content, indent = 0, first_line_indented = false, width = DEFAULT_WIDTH)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return an array of lines which represents the text in <tt>content</tt>
+formatted sothat no line is longer than <tt>width</tt> characters. The
+<tt>indent</tt> parameter specifies the amount of spaces prepended to each
+line. If <tt>first_line_indented</tt> is <tt>true</tt>, then the first line
+is indented.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="format-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/cli/utils.rb, line 44</span>
+44:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">indent</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">first_line_indented</span> = <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">width</span> = <span class="ruby-constant">DEFAULT_WIDTH</span>)
+45:       <span class="ruby-identifier">content</span> = (<span class="ruby-identifier">content</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>).<span class="ruby-identifier">dup</span>
+46:       <span class="ruby-identifier">length</span> = <span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">indent</span>
+47: 
+48:       <span class="ruby-identifier">paragraphs</span> = <span class="ruby-identifier">content</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\n\n/</span>)
+49:       <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">paragraphs</span>.<span class="ruby-identifier">length</span>
+50:         <span class="ruby-identifier">pattern</span> = <span class="ruby-node">/^(.{0,#{length}})[ \n]/</span>
+51:         <span class="ruby-identifier">lines</span> = []
+52:         <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">length</span>
+53:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">content</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">pattern</span>
+54:             <span class="ruby-identifier">str</span> = <span class="ruby-node">$1</span>
+55:             <span class="ruby-identifier">len</span> = <span class="ruby-node">$&amp;</span>.<span class="ruby-identifier">length</span>
+56:           <span class="ruby-keyword kw">else</span>
+57:             <span class="ruby-identifier">str</span> = <span class="ruby-identifier">content</span>[<span class="ruby-value">0</span>, <span class="ruby-identifier">length</span>]
+58:             <span class="ruby-identifier">len</span> = <span class="ruby-identifier">length</span>
+59:           <span class="ruby-keyword kw">end</span>
+60:           <span class="ruby-identifier">lines</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">first_line_indented</span> <span class="ruby-operator">?</span> <span class="ruby-value str">''</span> <span class="ruby-operator">:</span> <span class="ruby-value str">' '</span>*<span class="ruby-identifier">indent</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\n/</span>, <span class="ruby-value str">' '</span>)
+61:           <span class="ruby-identifier">content</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">len</span>)
+62:         <span class="ruby-keyword kw">end</span>
+63:         <span class="ruby-identifier">lines</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">first_line_indented</span> <span class="ruby-operator">?</span> <span class="ruby-value str">''</span> <span class="ruby-operator">:</span> <span class="ruby-value str">' '</span>*<span class="ruby-identifier">indent</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\n/</span>, <span class="ruby-value str">' '</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span>
+64:         <span class="ruby-identifier">lines</span>
+65:       <span class="ruby-keyword kw">else</span>
+66:         ((<span class="ruby-identifier">format</span>(<span class="ruby-identifier">paragraphs</span>.<span class="ruby-identifier">shift</span>, <span class="ruby-identifier">indent</span>, <span class="ruby-identifier">first_line_indented</span>, <span class="ruby-identifier">width</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+67:          <span class="ruby-identifier">paragraphs</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">format</span>(<span class="ruby-identifier">p</span>, <span class="ruby-identifier">indent</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-identifier">width</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">''</span> }).<span class="ruby-identifier">flatten</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>]
+68:       <span class="ruby-keyword kw">end</span>
+69:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="hash-output-method" class="method-detail ">
+				<a name="method-c-hash_output"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">hash_output</span><span
+						class="method-args">(name, hash)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Creates a listing of the key-value pairs of <tt>hash</tt> under a section
+called <tt>name</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="hash-output-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/cli/utils.rb, line 84</span>
+84:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">hash_output</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">hash</span>)
+85:       <span class="ruby-identifier">ljust</span> = <span class="ruby-value">20</span>
+86:       <span class="ruby-identifier">puts</span> <span class="ruby-identifier">section</span>(<span class="ruby-value str">'Name'</span>, <span class="ruby-identifier">ljust</span>) <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{lred(name)}&quot;</span>
+87: 
+88:       <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+89:         <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_str</span>)
+90:         <span class="ruby-identifier">desc</span> = <span class="ruby-identifier">format</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_str</span>, <span class="ruby-identifier">ljust</span>)
+91:         <span class="ruby-identifier">puts</span> <span class="ruby-identifier">section</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span>, <span class="ruby-identifier">ljust</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">shift</span>
+92:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">line</span>}
+93:       <span class="ruby-keyword kw">end</span>
+94:       <span class="ruby-identifier">puts</span>
+95:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="headline-method" class="method-detail ">
+				<a name="method-c-headline"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">headline</span><span
+						class="method-args">(text, indent = 2)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return a headline with the given <tt>text</tt> and amount of
+<tt>indent</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="headline-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/cli/utils.rb, line 72</span>
+72:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">headline</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">indent</span> = <span class="ruby-value">2</span>)
+73:       <span class="ruby-value str">' '</span>*<span class="ruby-identifier">indent</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{bold(text)}&quot;</span>
+74:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="match-bundle-name-method" class="method-detail ">
+				<a name="method-c-match_bundle_name"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">match_bundle_name</span><span
+						class="method-args">(wm, name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Tries to match <tt>name</tt> to a unique bundle name of the <a
+href="WebsiteManager.html">WebsiteManager</a> <tt>wm</tt>. If this can not
+be done, it is checked whether <tt>name</tt> is actually a valid bundle URL
+and if so, the URL source is added to the bundles of <tt>wm</tt>.
+</p>
+<p>
+Returns the correct bundle name or raises an error.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="match-bundle-name-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/cli/utils.rb, line 102</span>
+102:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">match_bundle_name</span>(<span class="ruby-identifier">wm</span>, <span class="ruby-identifier">name</span>)
+103:       <span class="ruby-identifier">matches</span> = <span class="ruby-identifier">wm</span>.<span class="ruby-identifier">bundles</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/#{Regexp.escape(name)}/</span>}
+104:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+105:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{name} matches more than one bundle: #{matches.join(&quot;, &quot;)}&quot;</span>)
+106:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+107:         <span class="ruby-keyword kw">begin</span>
+108:           <span class="ruby-identifier">source</span> = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">TarArchive</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>)
+109:           <span class="ruby-identifier">wm</span>.<span class="ruby-identifier">add_source</span>(<span class="ruby-identifier">source</span>, <span class="ruby-value str">'custom-URL-source'</span>)
+110:           <span class="ruby-identifier">name</span> = <span class="ruby-value str">'custom-URL-source'</span>
+111:         <span class="ruby-keyword kw">rescue</span>
+112:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{name} is neither a valid bundle name nor a valid URL&quot;</span>)
+113:         <span class="ruby-keyword kw">end</span>
+114:       <span class="ruby-keyword kw">else</span>
+115:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">first</span>
+116:       <span class="ruby-keyword kw">end</span>
+117:       <span class="ruby-identifier">name</span>
+118:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="method-missing-method" class="method-detail ">
+				<a name="method-c-method_missing"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">method_missing</span><span
+						class="method-args">(id, text = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Used for dynamically formatting the text (setting color, bold face,
+&#8230;).
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="method-missing-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/cli/utils.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">text</span> = <span class="ruby-keyword kw">nil</span>)
+34:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">USE_ANSI_COLORS</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">id</span>)
+35:         <span class="ruby-constant">Color</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>)
+36:       <span class="ruby-keyword kw">else</span>
+37:         <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
+38:       <span class="ruby-keyword kw">end</span>
+39:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="section-method" class="method-detail ">
+				<a name="method-c-section"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">section</span><span
+						class="method-args">(text, ljustlength = 0, indent = 4, color = :green)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return a section header with the given <tt>text</tt> formatted in the given
+<tt>color</tt> and indented according to <tt>indent</tt>. The whole text is
+also left justified to the column specified with <tt>ljustlength</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="section-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/cli/utils.rb, line 79</span>
+79:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">section</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">ljustlength</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">indent</span> = <span class="ruby-value">4</span>, <span class="ruby-identifier">color</span> = <span class="ruby-value">:green</span>)
+80:       <span class="ruby-value str">' '</span>*<span class="ruby-identifier">indent</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{send(color, text)}&quot;</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">ljustlength</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">indent</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">color</span>).<span class="ruby-identifier">length</span>)
+81:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

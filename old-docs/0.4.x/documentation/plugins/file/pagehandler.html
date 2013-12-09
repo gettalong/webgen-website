@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>webgen - PageHandler</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="webgen is used for generating static websites." />
+    <meta name="Keywords" content="webgen, static web site generator, ruby, HTML, dynamic tags, plugin based, static web, web generator, site generator" />
+    <meta name="author" content="Thomas Leitner / Original design by Andreas Viklund - http://andreasviklund.com" />
+    <link rel="stylesheet" href="../../../default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/webgen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/sipttra.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="../../../js/sipttra.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+
+      <div id="sitename">
+        <a href="http://webgen.rubyforge.org">
+          <img src="../../../images/webgen-logo.png" alt="webgen logo" style="margin-top: 20px; padding-right: 10px; float: left"/>
+        </a>
+        <h1>webgen / static website generator</h1>
+        <h2>static website generation made easy!</h2>
+      </div>
+
+      <div id="mainmenu">
+        <div class="webgen-menu-vert webgen-menu"><ul><li ><a href="../../../index.html">HomePage</a></li><li ><a href="../../../news.html">News</a></li><li ><a href="../../../features.html">Features</a></li><li ><a href="../../../download.html">Download &amp; Installation</a></li><li class="webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="../../index.html">Documentation</a></li><li class="webgen-menu-submenu"><a href="../../../examples/index.html">Examples</a></li><li ><a href="../../../project.html">Project Status</a></li><li ><a href="http://webgen.rubyforge.org/wiki/wiki.pl">WikiWiki Web</a></li></ul></div>
+      </div>
+
+      <div id="wrap">
+
+        <div id="leftside">
+          
+          <h1>Sub Menu</h1>
+          <div class="webgen-menu-vert webgen-menu"><ul><li ><a href="../../basics.html">Basics</a></li><li ><a href="../../tutorial.html">Tutorial</a></li><li ><a href="../../howto.html">Howto...?</a></li><li ><a href="../../extending_webgen.html">Extending webgen</a></li><li class="webgen-menu-submenu"><a href="../../references/index.html">References</a></li><li class="webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="../index.html">Plugins</a><ul><li class="webgen-menu-submenu"><a href="../contentconverter/default.html">ContentConverter</a></li><li class="webgen-menu-submenu"><a href="../core/index.html">Core</a></li><li class="webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="defaulthandler.html">File</a><ul><li ><a href="defaulthandler.html">DefaultHandler</a></li><li ><a href="copyhandler.html">CopyHandler</a></li><li ><a href="directoryhandler.html">DirectoryHandler</a></li><li ><a href="galleryhandler.html">GalleryHandler</a></li><li class="webgen-menu-item-selected"><span>PageHandler</span></li><li ><a href="sipttrahandler.html">SipttraHandler</a></li><li ><a href="templatehandler.html">TemplateHandler</a></li><li ><a href="thumbnailwriter.html">ThumbnailWriter</a></li></ul></li><li class="webgen-menu-submenu"><a href="../htmlvalidator/default.html">HtmlValidator</a></li><li class="webgen-menu-submenu"><a href="../menustyle/default.html">MenuStyle</a></li><li class="webgen-menu-submenu"><a href="../misc/index.html">Misc</a></li><li class="webgen-menu-submenu"><a href="../tag/default.html">Tag</a></li></ul></li></ul></div>
+          
+
+          
+          <h1>Tips</h1>
+          <ul class="list">
+            <li>The <a href="../../basics.html">basics page</a>contains everything one needs to get going with webgen!</li>
+            <li>Descriptions for plugins can be found in the <a href="../index.html">plugins  section</a></li>
+          </ul>
+        </div>
+
+        <div id="rightside">
+          <h1>Latest news</h1>
+          <p><strong>2007-12-31: </strong>
+            Minor release with feature enhancements.
+            <a href="../../../news.html#news-2007-12-31">More...</a>
+          </p>
+          <p><strong>2007-09-08: </strong>
+            Small bug fix release.
+            <a href="../../../news.html#news-2007-09-08">More...</a>
+          </p>
+          <p><strong>2007-06-29: </strong>
+            Some bug fixes and one small feature enhancement.
+            <a href="../../../news.html#news-2007-06-29">More...</a>
+          </p>
+
+          <h1>Links</h1>
+          <ul class="linklist">
+            <li><a href="http://rubyforge.org/projects/webgen">webgen on Rubyforge</a></li>
+            <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+            <li><a href="../../../rdoc/index.html">webgen API</a></li>
+            <li><a href="http://rubyinstaller.rubyforge.org/wiki/wiki.pl">Ruby Windows Installer</a></li>
+            <li><a href="http://www.ruby-lang.org">Ruby Homepage</a></li>
+          </ul>
+
+          <div class="center"><a href="http://webgen.rubyforge.org"><img src="../../../images/webgen-generated-by.png" alt="Generated by webgen"/></a></div>
+
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><div class="center" style="margin-top: 15px">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" style="border:0px" name="submit" alt="Donate via PayPal!" />
+            <img alt="" style="border:0px" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+" />
+          </div></form>
+        </div>
+
+        <div id="navbar" class="content">
+          <span class="leftbox">Location: <a href="../../../index.html">webgen</a> / <a href="../../index.html">Documentation</a> / <a href="../index.html">Plugins</a> / <a href="defaulthandler.html">File</a> / <span>PageHandler</span> </span>
+          <span class="rightbox">Language: <span>en</span></span>
+          <span class="rightbox">Feedback: <a href="http://webgen.rubyforge.org/wiki/wiki.pl?PageHandler">Click here</a></span>
+          <div style="clear: both">&nbsp;</div>
+        </div>
+
+        <div id="content" class="content">
+          
+          <div id="inpage-menu">
+            <p style="text-align: center"><b>Page Menu</b></p>
+            <div class="webgen-menu-section webgen-menu"><ul><li><a href="#description">1. Description</a></li><li><a href="#conventions">2. Conventions</a><ul><li><a href="#inputfile-naming">2.1. Page file naming</a></li><li><a href="#outputfile-naming">2.2. Output file naming</a></li><li><a href="#pagename">2.3. Standardized page names for referencing page files</a></li></ul></li><li><a href="#howto-metainfo">3. How meta information is set</a></li><li><a href="#fragment-nodes">4. Fragment Nodes</a></li></ul></div>
+          </div>
+          
+          <h1>General Information</h1>
+
+
+
+
+<table class='plugin-info'><tr style='vertical-align: top'><th>Plugin name:</th><td>File/PageHandler (<span class='plugin-ref'><a href="defaulthandler.html">File/DefaultHandler</a></span>)</td></tr><tr style='vertical-align: top'><th>Author:</th><td>Thomas Leitner &lt;t_leitner@gmx.at&gt;</td></tr><tr style='vertical-align: top'><th>Summary:</th><td>Plugin for processing page files</td></tr><tr style='vertical-align: top'><th>Parameters:</th><td><p class='param'><span class='param-name'>defaultLangInFilename</span>:&nbsp;<span class='param-default-value'>false</span><br /><span class='param-description'>If true, the output files for the default language will have the language in the file name like all other page files. If false, they wont.</span></p>
+<p class='param'><span class='param-name'>outputNameStyle</span>:&nbsp;<span class='param-default-value'>[:name, [&quot;.&quot;, :lang], &quot;.html&quot;]</span><br /><span class='param-description'>Defines how the output name should be built. The correct name will be used for the :name part and the file language will be used for the :lang part. If defaultLangInFilename is true, the :lang part or the subarray in which the :lang part was defined, will be omitted.</span></p>
+<p class='param'><span class='param-name'>validator</span>:&nbsp;<span class='param-default-value'>nil</span><br /><span class='param-description'>The validator for checking HTML files on their validness. Set to an empty string or nil to prevent checking.</span></p></td></tr><tr style='vertical-align: top'><th>Handled paths:</th><td>**/*.page</td></tr><tr style='vertical-align: top'><th>Default Meta Information:</th><td><pre>useERB: true
+blocks: 
+- - content
+  - textile
+</pre></td></tr></table>
+
+<h2 id="description">Description</h2>
+
+
+	<p>Page files are used to specify the actual content for the website. They contain the content for a
+web page and, optionally, meta information. For information about the format used for page files
+have a look at the <a href="../../references/webpage_format.html">WebPage Format reference</a>.
+The default values for the content block name and format specifier have been overwritten by setting
+a default for the <code>blocks</code> meta information!</p>
+
+
+	<h2 id="conventions">Conventions</h2>
+
+
+	<h3 id="inputfile-naming">Page file naming</h3>
+
+
+	<p>The filename of a page file should be in the following format sothat meta information can be
+extracted correctly and that referencing a page file works correctly:</p>
+
+
+	<p style="text-align:center;"><b>[orderInfo.]name[.lang].extension</b></p>
+
+
+	<ul>
+	<li><code>orderInfo</code>
+
+	<p>This part is optional and has to consist purely of the digits 0 to 9. It&#8217;s value is used for the
+meta information <code>orderInfo</code>. If not specified, it defaults to the value zero.</p></li>
+	</ul>
+
+
+	<ul>
+	<li><code>lang</code>
+
+	<p>This part is optional and has to be an <a href="http://www.loc.gov/standards/iso639-2/"><span class="caps">ISO</span>-639-1/2</a>
+language identifier (two or three characters (a-z) long). If not specified, it is assumed that the
+page file is written in the default language set via <span class='param-ref'><a href="../core/configuration.html">Core/Configuration:lang</a></span>.</p></li>
+	</ul>
+
+
+	<ul>
+	<li><code>extension</code>
+
+	<p>This has to be <code>page</code> for now.</p></li>
+	</ul>
+
+
+	<ul>
+	<li><code>name</code>
+
+	<p>This part is used on the one hand for the <code>title</code> meta information (but with these
+transformations: &#8217;_&#8217; and &#8217;-&#8217; become spaces). On the other hand, the standardized page and
+localized page names are derived from it. <code>name</code> must not contain any dots. Also: if two page
+files have the same <code>name</code> part, they should define the same content for different languages as
+webgen consideres them as &#8220;one&#8221; page file in two languages. If the <code>name</code> parts and the languages
+are the same, webgen can&#8217;t distinguish the two page files and raises an error.</p></li>
+	</ul>
+
+
+	<p>Following are some examples of page file names:</p>
+
+
+<table class="examples">
+<tr><th>Filename</th><th>Parsed meta information</th></tr>
+<tr>
+  <td><code>name.page</code></td>
+  <td>title: Name, language: en, orderInfo: 0</td>
+</tr>
+<tr>
+  <td><code>name.de.page</code></td>
+  <td>title: Name, language: de, orderInfo: 0</td>
+</tr>
+<tr>
+  <td><code>01.name_of-file.eo.page</code></td>
+  <td>title: Name of file, language: de, orderInfo: 1</td>
+</tr>
+</table>
+
+	<p>Notice: The first two examples define the same content for two different languages (en and de) as
+they have the same <code>name</code> part.</p>
+
+
+	<h3 id="outputfile-naming">Output file naming</h3>
+
+
+	<p>The output name of a page file can be customized using the <span class='param-ref'><a href="pagehandler.html">outputNameStyle</a></span>
+parameter (which can be overridden by setting the <code>outputNameStyle</code> meta information). This allows
+to change the output name so that, for example, Apache&#8217;s built in &#8220;select <span class="caps">HTML</span> file by language&#8221; 
+magic can be utilized.</p>
+
+
+	<h3 id="pagename">Standardized page names for referencing page files</h3>
+
+
+	<p>As described above the name part of the page file filename is used for creating the <strong>standardized
+page name</strong> and the <strong>standardized localized page name</strong> as follows:</p>
+
+
+	<ul>
+	<li>standardized page name: &lt;name part&gt;.page</li>
+		<li>standardized localized page name: &lt;name part&gt;.&lt;language code&gt;.page</li>
+	</ul>
+
+
+	<p>When two page files have the same name part, they have a common standardized page name but different
+standardized localized page names. As the output name of a page file can be customized, it is not
+wise to reference a page file by its output file name. Use the standardized page names instead.
+Therefore if you reference a page file using the standardized page name, you will always get the
+page file in the current language. If you use the standardized localized page name, you will always
+get the page file in the specified language. So, all in all, you can reference a page file by (in
+order of preference): the standardized page name, the standardized local page name and the output
+name.</p>
+
+
+	<p>These conventions are best shown using examples:</p>
+
+
+<table class="examples">
+<tr><th>Filename</th><th>Standardized page name</th><th>Standardized localized page name</th></tr>
+<tr>
+  <td><code>hallo.page</code></td>
+  <td><code>hallo.page</code></td>
+  <td><code>hallo.en.page</code> (if the default language is English)</td>
+</tr>
+<tr>
+  <td><code>the_others.de.page</code></td>
+  <td><code>the_others.page</code></td>
+  <td><code>the_others.de.page</code></td>
+</tr>
+<tr>
+  <td><code>12.documentation.eo.page</code></td>
+  <td><code>documentation.page</code></td>
+  <td><code>documentation.eo.page</code></td>
+</tr>
+</table>
+
+	<h2 id="howto-metainfo">How meta information is set</h2>
+
+
+	<p>As meta information can be defined in page files, the following sections explains in more detail
+what is done in step 4 of the list from the section &#8220;Processing order&#8221; in <span class='plugin-ref'><a href="../core/filehandler.html#metainfo-processing">Core/FileHandler</a></span>:</p>
+
+
+	<ul>
+	<li>Meta information from the filename
+
+	<p>Meta information derived from the filename overrides the default meta information. This includes
+the meta information <code>orderInfo</code>, <code>lang</code> and <code>title</code>.</p></li>
+	</ul>
+
+
+	<ul>
+	<li>Meta information from the meta information section of the page file
+
+	<p>All meta information from this part set previously set meta information, especially the meta
+information <code>lang</code>, <code>orderInfo</code> and <code>title</code>!</p></li>
+	</ul>
+
+
+	<h2 id="fragment-nodes">Fragment Nodes</h2>
+
+
+	<p>As a page file specifies the content of web page, it normally has sections, subsections and so on
+(created by the <code>h1</code> &#8211; <code>h6</code> HTML tags). Nodes for these sections are created under the page file
+node sothat they can be used later by webgen plugins. However, there are certain restrictions:</p>
+
+
+	<ul>
+	<li>Only sections of the block named &#8216;content&#8217; (the default name for the main block) are added to the
+  page file node</li>
+		<li>Only already existing sections <em><span class="caps">WITH</span></em> an <code>id</code> attribute are used. This means that sections without
+  and <code>id</code> attribute and sections defined later via webgen tags or <span class="caps">ERB</span> are not used!</li>
+	</ul>
+
+
+	<p>A plugin using these fragment nodes is <span class='plugin-ref'><a href="../menustyle/section.html">MenuStyle/Section</a></span> which displays an in-page content
+menu.</p>
+        </div>
+        <div class="clearingdiv">&nbsp;</div>
+
+      </div>
+    </div>
+    <div id="footer">&copy; 2006 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a> | Design by <a href="http://andreasviklund.com">Andreas Viklund</a> / adapted by Thomas Leitner</div>
+
+    <!-- Start of StatCounter Code -->
+    <script type="text/javascript">
+      var sc_project=648325;
+      var sc_partition=5;
+      var sc_security="7d00de1e";
+      var sc_invisible=1;
+    </script>
+
+    <script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c6.statcounter.com/counter.php?sc_project=648325&amp;java=0&amp;security=7d00de1e&amp;invisible=1" alt="free geoip" /></a></div></noscript>
+    <!-- End of StatCounter Code -->
+
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      _uacct = "UA-641844-1";
+      urchinTracker();
+    </script>
+
+  </body>
+</html>

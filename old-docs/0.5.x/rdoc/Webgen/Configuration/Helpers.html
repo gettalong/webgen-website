@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: Webgen::Configuration::Helpers</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/webgen/configuration_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/configuration.rb">lib/webgen/configuration.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-complete_source_handler_name">#complete_source_handler_name</a></li>
+					
+					<li><a href="#method-i-default_meta_info">#default_meta_info</a></li>
+					
+					<li><a href="#method-i-default_processing_pipeline">#default_processing_pipeline</a></li>
+					
+					<li><a href="#method-i-patterns">#patterns</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../../REXML.html">REXML</a></li>
+				
+					<li><a href="../../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">Webgen::Configuration::Helpers</h1>
+
+		<div id="description">
+			<p>
+This module provides methods for setting more complex configuration
+options. It is mixed into <a
+href="../Configuration.html">Webgen::Configuration</a> so that its methods
+can be used. Detailed information on the use of the methods can be found in
+the &#8220;User Manual&#8221; in the &#8220;<a
+href="../Configuration.html">Configuration</a> File&#8221; section.
+</p>
+<p>
+All public methods defined in this module are available for direct use in
+the configuration file, e.g. the method named <tt><a
+href="Helpers.html#method-i-default_meta_info">default_meta_info</a></tt>
+can be used like this:
+</p>
+<pre>
+  default_meta_info:
+    Webgen::SourceHandler::Page:
+      in_menu : true
+      :action : replace
+</pre>
+<p>
+All methods have to take exactly one argument, a Hash.
+</p>
+<p>
+The special key <tt>:action</tt> should be used for specifying how the
+configuration option should be set:
+</p>
+<dl>
+<dt>replace</dt><dd><p>
+Replace the configuration option with the new values.
+</p>
+</dd>
+<dt>modify</dt><dd><p>
+Replace old values with new values and add missing ones (useful for hashes
+and normally the default value)
+</p>
+</dd>
+</dl>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="default-meta-info-method" class="method-detail ">
+				<a name="method-i-default_meta_info"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">default_meta_info</span><span
+						class="method-args">(args)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the default meta information for source handlers.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="default-meta-info-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/configuration.rb, line 64</span>
+64:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_meta_info</span>(<span class="ruby-identifier">args</span>)
+65:         <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sh_name</span>, <span class="ruby-identifier">mi</span><span class="ruby-operator">|</span>
+66:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">'Invalid argument for configuration helper default_meta_info'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">mi</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+67:           <span class="ruby-identifier">action</span> = <span class="ruby-identifier">mi</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:action</span>) <span class="ruby-operator">||</span> <span class="ruby-value str">'modify'</span>
+68:           <span class="ruby-identifier">mi_hash</span> = (<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'sourcehandler.default_meta_info'</span>][<span class="ruby-identifier">complete_source_handler_name</span>(<span class="ruby-identifier">sh_name</span>)] <span class="ruby-operator">||=</span> {})
+69:           <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
+70:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'replace'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">mi_hash</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">mi</span>)
+71:           <span class="ruby-keyword kw">else</span> <span class="ruby-identifier">mi_hash</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">mi</span>)
+72:           <span class="ruby-keyword kw">end</span>
+73:         <span class="ruby-keyword kw">end</span>
+74:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="default-processing-pipeline-method" class="method-detail ">
+				<a name="method-i-default_processing_pipeline"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">default_processing_pipeline</span><span
+						class="method-args">(args)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the default processing pipeline for a source handler.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="default-processing-pipeline-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/configuration.rb, line 94</span>
+ 94:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_processing_pipeline</span>(<span class="ruby-identifier">args</span>)
+ 95:         <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sh_name</span>, <span class="ruby-identifier">pipeline</span><span class="ruby-operator">|</span>
+ 96:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">'Invalid argument for configuration helper pipeline'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">pipeline</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+ 97:           <span class="ruby-identifier">mi_hash</span> = (<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'sourcehandler.default_meta_info'</span>][<span class="ruby-identifier">complete_source_handler_name</span>(<span class="ruby-identifier">sh_name</span>)] <span class="ruby-operator">||=</span> {})
+ 98:           ((<span class="ruby-identifier">mi_hash</span>[<span class="ruby-value str">'blocks'</span>] <span class="ruby-operator">||=</span> {})[<span class="ruby-value str">'default'</span>] <span class="ruby-operator">||=</span> {})[<span class="ruby-value str">'pipeline'</span>] = <span class="ruby-identifier">pipeline</span>
+ 99:         <span class="ruby-keyword kw">end</span>
+100:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="patterns-method" class="method-detail ">
+				<a name="method-i-patterns"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">patterns</span><span
+						class="method-args">(args)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the path patterns used by source handlers.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="patterns-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/configuration.rb, line 78</span>
+78:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">patterns</span>(<span class="ruby-identifier">args</span>)
+79:         <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sh_name</span>, <span class="ruby-identifier">data</span><span class="ruby-operator">|</span>
+80:           <span class="ruby-identifier">pattern_arr</span> = (<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'sourcehandler.patterns'</span>][<span class="ruby-identifier">complete_source_handler_name</span>(<span class="ruby-identifier">sh_name</span>)] <span class="ruby-operator">||=</span> [])
+81:           <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">data</span>
+82:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">pattern_arr</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">data</span>)
+83:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>
+84:             (<span class="ruby-identifier">data</span>[<span class="ruby-value str">'del'</span>] <span class="ruby-operator">||</span> []).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">pat</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pattern_arr</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">pat</span>)}
+85:             (<span class="ruby-identifier">data</span>[<span class="ruby-value str">'add'</span>] <span class="ruby-operator">||</span> []).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">pat</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pattern_arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pat</span>}
+86:           <span class="ruby-keyword kw">else</span>
+87:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">'Invalid argument for configuration helper patterns'</span>
+88:           <span class="ruby-keyword kw">end</span>
+89:         <span class="ruby-keyword kw">end</span>
+90:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="complete-source-handler-name-method" class="method-detail ">
+				<a name="method-i-complete_source_handler_name"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">complete_source_handler_name</span><span
+						class="method-args">(sh_name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Complete <tt>sh_name</tt> by checking if a source handler called
+<tt>Webgen::SourceHandler::SH_NAME</tt> exists.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="complete-source-handler-name-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/configuration.rb, line 105</span>
+105:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">complete_source_handler_name</span>(<span class="ruby-identifier">sh_name</span>)
+106:         (<span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">SourceHandler</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span>}.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">sh_name</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'Webgen::SourceHandler::'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sh_name</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">sh_name</span>)
+107:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

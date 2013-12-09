@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="default.css" type="text/css" />
+
+    <title>Webgen Page Format | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="index.html">Overview</a></li><li class="webgen-menu-level1"><a href="getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#webgen-page-format">Webgen Page Format</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="#structure">Structure</a><ul><li class="webgen-menu-level2"><a href="#meta-information-block">Meta Information Block</a></li><li class="webgen-menu-level2"><a href="#content-blocks">Content Blocks</a></li></ul></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <h2 id="webgen-page-format">Webgen Page Format</h2>
+
+<p>The Webgen Page Format is a custom format designed primarily for page and template files. It
+consists of an optional meta information block and one or more blocks of data; it is very simple and
+easy to use.</p>
+
+<h2 id="structure">Structure</h2>
+
+<p>A file using the Webgen Page Format consists of one or more blocks which are the smallest units
+recognized. Blocks are separated from each other through a line containing three dashes. This is
+illustrated in the following examples which are all valid files in WebPage Format:</p>
+
+<p>Example 1:</p>
+
+<pre><code>Here is a block!
+</code></pre>
+
+<p>Example 2:</p>
+
+<pre><code>This is one block of the file
+---
+This is another block.
+</code></pre>
+
+<p>Example 3:</p>
+
+<pre><code>Block 1
+--- name:block2
+Block 2
+--- name:block3
+Block 3...
+</code></pre>
+
+<p>If you want to use three dashes in a block but you don’t want to end the block, you have to escape
+them with a backslash character, like this:</p>
+
+<pre><code>Block 1
+\---
+still Block 1
+--- name:block2
+Block 2
+</code></pre>
+
+<p>All of the above examples show one kind of block, the content block. However, there may also be
+another type of block: the meta information block. Following is a short description of both kinds,
+starting with the meta information block.</p>
+
+<h3 id="meta-information-block">Meta Information Block</h3>
+
+<p>Each file in Webgen Page Format can have zero or one meta information blocks. This block is
+specified at the beginning of the file. To tell the parser that the first block is the meta
+information block and not a content block, you have to start the file with three dashes:</p>
+
+<pre><code>---
+title: The title set by Meta info
+---
+This is the content of the file
+</code></pre>
+
+<p>The above defines a meta information block and a content block. The meta information block has to be
+in YAML format and should contain key-value pairs of meta information. <a href="http://www.yaml.org">YAML</a>
+is a simple markup language designed for ease of use and although you define structured data with
+it, it feels like just writing a plain text document.</p>
+
+<h3 id="content-blocks">Content Blocks</h3>
+
+<p>A content block is used to provide content in a specific format. Each file in Webgen Page Format
+needs to have at least one content block which may be empty. However, it can have as many content
+blocks as necessary. This functionality can be used, for example, to provide the main content of an
+HTML page in one block and sidebar content in another one.</p>
+
+<p>Each content block needs to have a unique name and additional options can also be set. The name
+uniquely identifies a content block and is used to access it. The only option used by webgen is the
+<code>pipeline</code> option which specifies the processing pipeline for the block. The processing pipeline is
+used for rendering the block by using the specified content processors in the specified order. There
+are many different content processors available - have a look at the <a href="extensions.html">extensions
+page</a> for an overview.</p>
+
+<p>webgen extensions that use files in Webgen Page Format may specify defaults for the name and the
+options of a block but these defaults can be overwritten. You can use one of two ways to do this:</p>
+
+<ul>
+  <li>
+    <p>you either specify the name and additional options of the block on the starting line with the
+three dashes</p>
+  </li>
+  <li>
+    <p>or you use the special meta information <code>block</code> to define the names and options of one or all
+blocks.</p>
+  </li>
+</ul>
+
+<p>The following example uses the first technique to override the name and/or the <code>pipeline</code> option:</p>
+
+<pre><code>1. content block of the file
+--- name:sidebar pipeline:kramdown,tags
+2. content block of the file
+--- name:other
+3. content block of the file
+</code></pre>
+
+<p>The first block has no identifieres set (there is no line with three dashes and the identifieres).
+Therefore the default value for the name is used: <code>content</code>. The second block is named <code>sidebar</code> and
+uses the processing pipeline <code>kramdown,tags</code>. As you can see, the name of a block as well as
+additional options are specified by stating the key (e.g. <code>name</code> or <code>pipeline</code>) followed by a colon
+and the value. Multiple options are separated via one or more spaces. The value of a block option is
+parsed with YAML. For example, when specifying <code>use_something:true</code> the value <code>true</code> is
+automatically converted from the string <code>true</code> to the boolean <code>true</code>.</p>
+
+<blockquote class="information">
+  <p>Only the first block gets the default name of <code>content</code>. The second and following blocks have
+numbered names like <code>block2</code>, <code>block3</code> and so on.</p>
+</blockquote>
+
+<p>You can also set the name and additional options of the content blocks by using the special <code>blocks</code>
+meta information. It is a hash using the index of a block (or the special value <code>default</code>) as key
+and the options as values. The above example can therefore also be written like this:</p>
+
+<pre><code>---
+blocks: {2: {name: sidebar, pipeline: kramdown,tags}, 3: {name: other}}
+---
+1. content block of the file
+---
+2. content block of the file
+---
+3. content block of the file
+</code></pre>
+
+<p>When selecting a value for the name of a block or an option, the following precedence is used (from
+low to high):</p>
+
+<ul>
+  <li>global defaults set via the <code>default</code> key of the meta information <code>blocks</code></li>
+  <li>block defaults set via the meta information <code>blocks</code></li>
+  <li>the <code>--- line</code> options</li>
+</ul>
+
+<p>As stated above, the “option” <code>name</code> is special insofar that when it is not set, an automatic name
+gets generated.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

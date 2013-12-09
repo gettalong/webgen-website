@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Tags</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Tags</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/webgen/plugins/coreplugins/resourcemanager_rb.html">
+                lib/webgen/plugins/coreplugins/resourcemanager.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/block_rb.html">
+                lib/webgen/plugins/tags/block.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/breadcrumbtrail_rb.html">
+                lib/webgen/plugins/tags/breadcrumbtrail.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/customvar_rb.html">
+                lib/webgen/plugins/tags/customvar.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/date_rb.html">
+                lib/webgen/plugins/tags/date.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/download_rb.html">
+                lib/webgen/plugins/tags/download.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/executecommand_rb.html">
+                lib/webgen/plugins/tags/executecommand.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/htmlmetainfo_rb.html">
+                lib/webgen/plugins/tags/htmlmetainfo.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/includefile_rb.html">
+                lib/webgen/plugins/tags/includefile.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/langbar_rb.html">
+                lib/webgen/plugins/tags/langbar.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/menu_rb.html">
+                lib/webgen/plugins/tags/menu.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/meta_rb.html">
+                lib/webgen/plugins/tags/meta.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/relocatable_rb.html">
+                lib/webgen/plugins/tags/relocatable.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/sitemap_rb.html">
+                lib/webgen/plugins/tags/sitemap.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/tag_processor_rb.html">
+                lib/webgen/plugins/tags/tag_processor.rb
+                </a>
+        <br />
+                <a href="../files/lib/webgen/plugins/tags/wikilink_rb.html">
+                lib/webgen/plugins/tags/wikilink.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Tags/BlockTag.html" class="link">Tags::BlockTag</a><br />
+Class <a href="Tags/BreadcrumbTrailTag.html" class="link">Tags::BreadcrumbTrailTag</a><br />
+Class <a href="Tags/CustomVarTag.html" class="link">Tags::CustomVarTag</a><br />
+Class <a href="Tags/DateTag.html" class="link">Tags::DateTag</a><br />
+Class <a href="Tags/DefaultTag.html" class="link">Tags::DefaultTag</a><br />
+Class <a href="Tags/DownloadTag.html" class="link">Tags::DownloadTag</a><br />
+Class <a href="Tags/ExecuteCommandTag.html" class="link">Tags::ExecuteCommandTag</a><br />
+Class <a href="Tags/HtmlMetaInfo.html" class="link">Tags::HtmlMetaInfo</a><br />
+Class <a href="Tags/IncludeFileTag.html" class="link">Tags::IncludeFileTag</a><br />
+Class <a href="Tags/LangbarTag.html" class="link">Tags::LangbarTag</a><br />
+Class <a href="Tags/MenuTag.html" class="link">Tags::MenuTag</a><br />
+Class <a href="Tags/MetaTag.html" class="link">Tags::MetaTag</a><br />
+Class <a href="Tags/RelocatableTag.html" class="link">Tags::RelocatableTag</a><br />
+Class <a href="Tags/ResourceTag.html" class="link">Tags::ResourceTag</a><br />
+Class <a href="Tags/SitemapTag.html" class="link">Tags::SitemapTag</a><br />
+Class <a href="Tags/TagProcessor.html" class="link">Tags::TagProcessor</a><br />
+Class <a href="Tags/WikiLinkTag.html" class="link">Tags::WikiLinkTag</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

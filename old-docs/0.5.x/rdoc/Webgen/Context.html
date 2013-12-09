@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Webgen::Context</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/webgen/context_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/context.rb">lib/webgen/context.rb</a></li>
+					
+						<li><a href="../lib/webgen/context/render_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/context/render.rb">lib/webgen/context/render.rb</a></li>
+					
+						<li><a href="../lib/webgen/context/tags_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/context/tags.rb">lib/webgen/context/tags.rb</a></li>
+					
+						<li><a href="../lib/webgen/context/nodes_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/context/nodes.rb">lib/webgen/context/nodes.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-%5B%5D">#[]</a></li>
+					
+					<li><a href="#method-i-%5B%5D%3D">#[]=</a></li>
+					
+					<li><a href="#method-i-clone">#clone</a></li>
+					
+					<li><a href="#method-i-content">#content</a></li>
+					
+					<li><a href="#method-i-content%3D">#content=</a></li>
+					
+					<li><a href="#method-i-content_node">#content_node</a></li>
+					
+					<li><a href="#method-i-dest_node">#dest_node</a></li>
+					
+					<li><a href="#method-i-node">#node</a></li>
+					
+					<li><a href="#method-i-ref_node">#ref_node</a></li>
+					
+					<li><a href="#method-i-render_block">#render_block</a></li>
+					
+					<li><a href="#method-i-tag">#tag</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><a class="include" href="WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../REXML.html">REXML</a></li>
+				
+					<li><a href="../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Webgen::Context</h1>
+
+		<div id="description">
+			<p>
+This class represents the context object that is passed, for example, to
+the <tt>call</tt> method of a content processor.
+</p>
+<p>
+The needed context variables are stored in the <tt>options</tt> hash. You
+can set any options you like, however, there are three noteworthy options:
+</p>
+<dl>
+<dt><tt>:content</tt></dt><dd><p>
+The content string that should be processed.
+</p>
+</dd>
+<dt><tt>:processors</tt></dt><dd><p>
+Normally an <a
+href="ContentProcessor/AccessHash.html">ContentProcessor::AccessHash</a>
+object providing access to all available content processors.
+</p>
+</dd>
+<dt><tt>:chain</tt></dt><dd><p>
+The chain of nodes that is processed. There are some utiltity methods for
+getting special nodes of the chain (see <a
+href="Context.html#method-i-ref_node">#</a>, <a
+href="Context.html#method-i-content_node">#</a> and <a
+href="Context.html#method-i-dest_node">#</a>).
+</p>
+</dd>
+</dl>
+<p>
+The <tt>persistent</tt> options hash is shared by all cloned <a
+href="Context.html">Context</a> objects.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="persistent-attribute-method" class="method-detail">
+				<a name="persistent"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">persistent</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The persistent options. Once initialized, all cloned objects refer to the
+same hash.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="options-attribute-method" class="method-detail">
+				<a name="options"></a>
+				
+				<a name="options="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">options</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Processing options.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(options = {}, persistent = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a new <a href="Context.html">Context</a> object. You can use the
+<tt>options</tt> hash to set needed options.
+</p>
+<p>
+The following options are set by default and can be overridden via the
+<tt>options</tt> hash:
+</p>
+<dl>
+<dt><tt>:content</tt></dt><dd><p>
+Is set to an empty string.
+</p>
+</dd>
+<dt><tt>:processors</tt></dt><dd><p>
+Is set to a new AccessHash.
+</p>
+</dd>
+</dl>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-identifier">persistent</span> = {})
+47:       <span class="ruby-ivar">@options</span> = {
+48:         <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">''</span>,
+49:         <span class="ruby-value">:processors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">ContentProcessor</span><span class="ruby-operator">::</span><span class="ruby-constant">AccessHash</span>.<span class="ruby-identifier">new</span>
+50:       }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+51:       <span class="ruby-ivar">@persistent</span> = <span class="ruby-identifier">persistent</span>
+52:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="method-i-%5B%5D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">[]</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the value of the option <tt>name</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context.rb, line 61</span>
+61:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">name</span>)
+62:       <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">name</span>]
+63:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="method-i-%5B%5D%3D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">[]=</span><span
+						class="method-args">(name, value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the option <tt>name</tt> to the given +value.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context.rb, line 66</span>
+66:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)
+67:       <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+68:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="clone-method" class="method-detail ">
+				<a name="method-i-clone"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">clone</span><span
+						class="method-args">(options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a copy of the current object. You can use the <tt>options</tt>
+parameter to override options of the current <a
+href="Context.html">Context</a> object in the newly created <a
+href="Context.html">Context</a> object.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="clone-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clone</span>(<span class="ruby-identifier">options</span> = {})
+57:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>), <span class="ruby-ivar">@persistent</span>)
+58:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="content-method" class="method-detail ">
+				<a name="method-i-content"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">content</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the <tt>:content</tt> option.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="content-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context.rb, line 71</span>
+71:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content</span>
+72:       <span class="ruby-ivar">@options</span>[<span class="ruby-value">:content</span>]
+73:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="content--method" class="method-detail ">
+				<a name="method-i-content%3D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">content=</span><span
+						class="method-args">(value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the <tt>:content</tt> option to the given <tt>value</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="content--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context.rb, line 76</span>
+76:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content=</span>(<span class="ruby-identifier">value</span>)
+77:       <span class="ruby-ivar">@options</span>[<span class="ruby-value">:content</span>] = <span class="ruby-identifier">value</span>
+78:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="content-node-method" class="method-detail ">
+				<a name="method-i-content_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">content_node</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the node that is ultimately rendered.
+</p>
+<p>
+This node should be used, for example, for retrieving meta information.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="content-node-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context/nodes.rb, line 29</span>
+29:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content_node</span>
+30:       <span class="ruby-ivar">@options</span>[<span class="ruby-value">:chain</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:chain</span>].<span class="ruby-identifier">last</span>
+31:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="Context.html#method-i-node">node</a>
+				</div>
+				
+
+				
+			</div>
+
+		
+			<div id="dest-node-method" class="method-detail ">
+				<a name="method-i-dest_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">dest_node</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the node which represents the file into which everything gets
+rendered. This is normally the same node as <tt><a
+href="Context.html#method-i-content_node">#</a></tt> but can differ in
+special cases. For example, when rendering the content of node called
+<tt>my.page</tt> into the output of the node <tt>this.page</tt>,
+<tt>this.page</tt> would be the <tt><a
+href="Context.html#method-i-dest_node">dest_node</a></tt> and
+<tt>my.page</tt> would be the <tt><a
+href="Context.html#method-i-content_node">content_node</a></tt>.
+</p>
+<p>
+The <tt><a href="Context.html#method-i-dest_node">dest_node</a></tt> is not
+included in the chain but can be set via the option <tt>:<a
+href="Context.html#method-i-dest_node">dest_node</a></tt>!
+</p>
+<p>
+The returned node should be used as source node for calculating relative
+paths to other nodes.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="dest-node-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context/nodes.rb, line 14</span>
+14:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dest_node</span>
+15:       <span class="ruby-ivar">@options</span>[<span class="ruby-value">:dest_node</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">content_node</span>
+16:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="node-method" class="method-detail method-alias">
+				<a name="method-i-node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">node</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+				</div>
+
+				
+
+				
+				<div class="aliases">
+          Alias for: <a href="Context.html#method-i-content_node">content_node</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="ref-node-method" class="method-detail ">
+				<a name="method-i-ref_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">ref_node</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the reference node, ie. the node which provided the original content
+for this context object.
+</p>
+<p>
+The returned node should be used, for example, for resolving relative
+paths.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="ref-node-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context/nodes.rb, line 22</span>
+22:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ref_node</span>
+23:       <span class="ruby-ivar">@options</span>[<span class="ruby-value">:chain</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:chain</span>].<span class="ruby-identifier">first</span>
+24:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="render-block-method" class="method-detail ">
+				<a name="method-i-render_block"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render the named block and return the result.
+</p>
+<p>
+This method uses the functionality of the content processor <tt>blocks</tt>
+for doing the actual work, so you may also want to look at <a
+href="ContentProcessor/Blocks.html#method-i-render_block">Webgen::ContentProcessor::Blocks#render_block</a>.
+You can call this method in two ways:
+</p>
+<dl>
+<dt><tt>#</tt></dt><dd><p>
+Renders the block named <tt>block_name</tt> of the next node in the current
+node chain. This is the version that most want to use since it is
+equivalent to the use of <tt>&lt;webgen:block name=&quot;block_name&quot;
+/&gt;</tt>. It is equivalent to <tt><a
+href="Context.html#method-i-render_block">#</a>(:name =&gt;
+block_name)</tt>.
+</p>
+</dd>
+<dt><tt>#</tt></dt><dd><p>
+This version allows the same level of control over the output as the blocks
+content processor. For a list of valid options have a look at the
+documentation of the <a
+href="ContentProcessor/Blocks.html#method-i-render_block">Webgen::ContentProcessor::Blocks#render_block</a>
+method!
+</p>
+</dd>
+</dl>
+					
+
+					
+					<div class="method-source-code"
+						id="render-block-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context/render.rb, line 25</span>
+25:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_block</span>(<span class="ruby-identifier">name_or_hash</span>)
+26:       <span class="ruby-identifier">name_or_hash</span> = {<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name_or_hash</span>} <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name_or_hash</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+27:       <span class="ruby-identifier">website</span>.<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">instance</span>(<span class="ruby-value str">'Webgen::ContentProcessor::Blocks'</span>).<span class="ruby-identifier">render_block</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">name_or_hash</span>)
+28:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="tag-method" class="method-detail ">
+				<a name="method-i-tag"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tag</span><span
+						class="method-args">(name, params = {}, body = '')</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the result of evaluating the webgen tag <tt>name</tt> with the tag
+parameters <tt>params</tt> and the <tt>body</tt> in the current context.
+</p>
+<p>
+Have a look at <a href="Tag/Base.html">Webgen::Tag::Base</a> for more
+information about webgen tags!
+</p>
+<p>
+This method is useful when you want to have the functionality of webgen
+tags available but you don&#8217;t want to use the content processor for
+them. Or, for example, if the used markup language uses a similar markup as
+webgen tags do and therefore you can&#8217;t use the normal webgen tags
+content processor.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tag-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/context/tags.rb, line 14</span>
+14:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">body</span> = <span class="ruby-value str">''</span>)
+15:       <span class="ruby-identifier">website</span>.<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">instance</span>(<span class="ruby-value str">'Webgen::ContentProcessor::Tags'</span>).<span class="ruby-identifier">process_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">body</span>, <span class="ruby-keyword kw">self</span>)
+16:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

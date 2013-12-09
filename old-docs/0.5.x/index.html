@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="default.css" type="text/css" />
+
+    <title>Overview | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1 webgen-menu-item-selected"><span>Overview</span></li><li class="webgen-menu-level1"><a href="getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#user-documentation">User Documentation</a></li><li class="webgen-menu-level1"><a href="#developer-documentation">Developer Documentation</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        
+<p>This documentation is for the <em style="color: red; font-weight: bold">repository version</em> of
+webgen and therefore may state features that are not available in the latest released version.</p>
+
+<ul>
+  <li>
+    <p>The documentation for the <em style="color: red; font-weight: bold">latest released 0.5.x</em> version
+can be found <a href="http://webgen.rubyforge.org/documentation/0.5.x/index.html">here</a>. This
+documentation can also be generated locally by running <code>rake htmldoc</code> in the root directory of the
+weben distribution.</p>
+  </li>
+  <li>
+    <p>If you are looking for the documentation of the <em style="color: red; font-weight: bold">0.4.x</em>
+series, it can be found <a href="http://webgen.rubyforge.org/documentation/0.4.x/index.html">here</a>.</p>
+  </li>
+</ul>
+
+<p>If you don’t find an answer to your questions in the documentation, there are also:</p>
+
+<ul>
+  <li><a href="http://rubyforge.org/forum/?group_id=296">forums</a> hosted on Rubyforge</li>
+  <li><a href="http://rubyforge.org/mail/?group_id=296">mailing lists</a> hosted on Rubyforge (the <code>webgen-users</code> mailing list is mirrored to the
+<a href="http://groups.google.com/group/webgen-users/">webgen-users google group</a>)</li>
+  <li>the IRC channel <code>#webgen</code> on Freenode where I can be found whenever I’m online.</li>
+</ul>
+
+<h1 id="user-documentation">User Documentation</h1>
+
+<p>Depending on whether you are new to webgen, you want more information about a specific topic or read
+a reference, go to one of the following pages:</p>
+
+<ul>
+  <li>
+    <p><a href="getting_started.html"><strong>Getting Started Guide</strong></a>: If you are new to webgen, this should be your
+first read. It explains the usage of the CLI command and how to create your first website with
+webgen.</p>
+  </li>
+  <li>
+    <p><a href="manual.html"><strong>Manual</strong></a>: Detailed information about how webgen works can be found here. After
+reading the Getting Started Guide, this should be the next read. Have a look at the section
+headers to get a quick overview of what can be found here.</p>
+  </li>
+  <li>
+    <p><a href="faq.html"><strong>FAQ</strong></a>: If you want to do something with webgen, but you don’t know how, this page is
+exactly for you. It provides answers to frequently asked questions and HowTos. If you have a
+question which you think should be added, just mail me.</p>
+  </li>
+  <li>
+    <p><a href="upgrading.html"><strong>Upgrade information</strong></a>: This document provides some information on upgrading a
+website from the 0.4.x to the 0.5.x series.</p>
+  </li>
+</ul>
+
+<p>Following is a list of all the reference documentation of webgen:</p>
+
+<ul>
+  <li>
+    <p><a href="extensions.html"><strong>Extensions Documentation</strong></a>: Detailed information on every usage related
+extension class (<strong>source handlers, tags, content processors</strong>, …)</p>
+  </li>
+  <li>
+    <p><a href="webgen_page_format.html"><strong>Webgen Page Format</strong></a>: Information about/Specification of the format
+used, for example, by page and template files</p>
+  </li>
+  <li>
+    <p><a href="reference_metainfo.html"><strong>Meta Information Reference</strong></a>: Descriptions for every meta information
+key that is used by webgen.</p>
+  </li>
+  <li>
+    <p><a href="reference_configuration.html"><strong>Configuration Options Reference</strong></a>: Overview of all configuration
+options.</p>
+  </li>
+  <li>
+    <p><a href="reference_website_styles.html"><strong>Website Styles Reference</strong></a>: Previews of all website styles that
+ship with webgen.</p>
+  </li>
+</ul>
+
+<h1 id="developer-documentation">Developer Documentation</h1>
+
+<p>webgen makes it easy to extend its functionality by writing simple extension classes. All
+information about how to do this is provided in the <a href="rdoc/index.html">API documentation</a>. You will
+also find examples for all existing extension types there.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

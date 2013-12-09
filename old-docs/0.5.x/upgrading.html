@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="default.css" type="text/css" />
+
+    <title>Upgrading from 0.4.x | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="index.html">Overview</a></li><li class="webgen-menu-level1"><a href="getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#upgrading">Upgrading</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <h1 id="upgrading">Upgrading</h1>
+
+<p>Here are step-by-step instructions on how to update your webgen website from 0.4.x to 0.5.x:</p>
+
+<ul>
+  <li>
+    <p><strong>Update the configuration file <code>config.yaml</code></strong></p>
+
+    <p>The configuration file syntax as well as the names of the configuration options and some defaults
+changed. For example, the default processing pipeline now uses kramdown (a Markdown converter) as
+markup language processor instead of Textile. You can find an overview over all available
+configuration options in the <a href="reference_configuration.html">configuration option reference</a>. Also
+have a look at the <a href="manual.html#website-configfile">configuration file documentation</a> for more
+information on the syntax of this file and the available helpers.</p>
+
+    <ul>
+      <li>Name changes: All configuration options now use underscores to separate word parts instead of
+camelCase.</li>
+      <li>
+        <p>Syntax changes: The configuration options are not specific to a certain extension anymore. You
+now need the full configuration option name to specify it. So instead of</p>
+
+        <pre><code>Tag/Menu:
+  maxLevels: 4
+</code></pre>
+
+        <p>you now use</p>
+
+        <pre><code>tag.menu.max_levels: 4
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Convert your <code>metainfo.yaml</code></strong></p>
+
+    <p>This file is not supported anymore since webgen 0.5.x uses a more flexible way for specifying meta
+information and virtual paths. You need to migrate its data to <code>metainfo</code> and <code>virtual</code> files in
+the source directory. Have a look at the documentation of the <a href="sourcehandler/metainfo.html">metainfo source
+handler</a> and the <a href="sourcehandler/virtual.html">virtual source
+handler</a>.</p>
+  </li>
+  <li>
+    <p><strong>Update meta information names and values</strong></p>
+
+    <p>The names of some meta information keys have been changed. Meta information names are not
+specified in camelCase anymore but with under_scores. You can find a complete list of supported
+meta information names in the <a href="reference_metainfo.html">meta information reference</a>. The most
+notable changes are:</p>
+
+    <ul>
+      <li>directoryName → routed_title</li>
+      <li>inMenu → in_menu</li>
+      <li>indexFile → index_path</li>
+      <li>omitIndexPath → omit_index_path</li>
+      <li>outputNameStyle → output_path_style</li>
+      <li>orderInfo → sort_info</li>
+    </ul>
+
+    <p>Also be aware that the syntax of some meta information keys has changed. For example, all meta
+information keys that took a source path name, e.g. <code>index_path</code>, now take an localized canonical
+name.</p>
+
+    <p>You need to change the names/value in all places where meta information can be specified:</p>
+
+    <ul>
+      <li><code>metainfo</code> files</li>
+      <li><code>virtual</code> files</li>
+      <li>page and template files</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Files in <a href="webgen_page_format.html">Webgen Page Format</a></strong></p>
+
+    <p>Since the format of these files changed a little bit you may need to adapt all your files that use
+it, that are primarily page and template files. The main change in the format was a different use
+of the block start line. Whereas before you would write</p>
+
+    <pre><code>--- content, textile
+</code></pre>
+
+    <p>for specifying the name of the block and its processor, you now can specify any number of
+options. Two options are currently used by webgen: <code>name</code> and <code>pipeline</code>. So you could change the
+name and the processing pipeline of a block by using a block start line like:</p>
+
+    <pre><code>--- name:other pipeline:tags,kramdown,blocks
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Block inclusion in template/page files</strong></p>
+
+    <p>The way how named blocks are included has changed. This feature is now provided by the content
+processor <a href="contentprocessor/blocks.html">blocks</a> instead of the tag <code>block</code>. This allows you to
+specify the point in the processing pipeline when a block should be included. So you definitely
+need to update your <code>default.template</code> file as well as any other page/template file where you used
+the <code>block</code> tag.</p>
+
+    <p>So you need to look for <code>{block: content}</code> tags (where <code>content</code> is just a place holder for the
+name of the block that should be included) and replace them with <code>&lt;webgen:block name='content'
+/&gt;</code>.</p>
+  </li>
+  <li>
+    <p><strong>Update tag names and parameters</strong></p>
+
+    <p>Since the names of the configuration options changed (from using camelCase to using under_scores)
+and some tags have different options, you need to change all tag parameters. You may also need to
+convert old tag names to new ones (same reason: camelCase to under_score), for example,
+<code>includeFile</code> is now <code>include_file</code>.</p>
+  </li>
+  <li>
+    <p><strong>Update your ERB code</strong></p>
+
+    <p>If you have any ERB code in your template or page files you will most certainly have to adapt them
+to the new <a href="rdoc/index.html">API</a>. One thing that has been used often is the check if a page file has a
+certain block:</p>
+
+    <pre><code>&lt;% if node.node_info[:page_data].blocks.has_key?('NAME') %&gt;
+...
+&lt;% end %&gt;
+</code></pre>
+
+    <p>This needs to be changed into the following:</p>
+
+    <pre><code>&lt;% if context.content_node.node_info[:page].blocks.has_key?('NAME') %&gt;
+...
+&lt;% end %&gt;
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Extensions development</strong></p>
+
+    <p>Since the complete core of webgen has changed you need to rewrite all your plugins for the 0.5.x
+series. Howver, webgen has complete <a href="rdoc/index.html">API documentation</a> now which provides you with all
+needed information as well as examples on how to implement source handlers, tags, content
+processors, … If you still have any questions, don’t hesitate to contact me or write a mail to
+the mailing list!</p>
+  </li>
+  <li>
+    <p><strong>Running webgen on the converted website</strong></p>
+
+    <p>You now can run webgen 0.5.x on the converted website. This helps in ironing out the remaining
+errors, for example:</p>
+
+    <ul>
+      <li>
+        <p>If you have forgotten to change a block start line, you will get an application error and the
+name of the file where the error occured.</p>
+      </li>
+      <li>
+        <p>If you have overlooked changing a tag parameter, you will find <code>ERROR</code> and <code>WARN</code> lines in the
+log output showing you what still needs to be changed.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Not Implement Yet</strong>: There are several features of the 0.4.x series which are currently not
+implemented in the 0.5.x series:</p>
+
+    <ul>
+      <li>source handlers: gallery, sipttra</li>
+      <li>tags: customvar (won’t be ported), download, htmlmetainfo, news (won’t be ported, superceded
+by blogging support), resource, wikilink</li>
+      <li>misc: smiley replacer, html validators</li>
+      <li>CLI commands: check, show, use</li>
+    </ul>
+
+    <p>If you need any of those you have to wait till they are implemented or port them on your on.</p>
+  </li>
+</ul>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

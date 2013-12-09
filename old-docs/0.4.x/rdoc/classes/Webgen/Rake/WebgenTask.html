@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Webgen::Rake::WebgenTask</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Webgen::Rake::WebgenTask</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/webgen/rake/webgentask_rb.html">
+                lib/webgen/rake/webgentask.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                ::Rake::TaskLib
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A <a href="../Rake.html">Rake</a> task that generates a webgen website.
+</p>
+<p>
+It is assumed that you have already used the &#8216;webgen&#8217; command
+to create the base directory for the site. This task is here to make it
+easier to integrate the generation of the website within the broader scope
+of another project.
+</p>
+<h3>Basics</h3>
+<pre>
+  require 'webgen/rake/webgentask'
+
+  Webgen::Rake::WebgenTask.new do |t|
+      t.directory = File.join(Dir.pwd, &quot;webgen&quot;)
+  end
+</pre>
+<h3>Attributes</h3>
+<p>
+The attributes available to the task in the <a
+href="WebgenTask.html#M000193">new</a> block are:A
+</p>
+<ul>
+<li>name - the name of the task. This can also be set as
+
+<pre>
+                    a parameter to new (default :webgen)
+</pre>
+</li>
+<li>directory - the root directory of the webgen site
+
+<pre>
+                    (default File.join(Dir.pwd, &quot;webgen&quot;)
+</pre>
+</li>
+<li>clobber_outdir - remove webgens output directory on clobber
+
+<pre>
+                    (default false)
+</pre>
+</li>
+</ul>
+<h3>Tasks Provided</h3>
+<p>
+The tasks provided are :
+</p>
+<ul>
+<li>webgen - create the website
+
+</li>
+<li>clobber_webgen - remove all the files created during creation
+
+</li>
+</ul>
+<p>
+If the <tt>name</tt> attribute is changed then the tasks are changed to
+reflect that. For Example:
+</p>
+<pre>
+  Webgen::Rake::WebgenTask.new(:my_webgen) do |t|
+      t.clobber_outdir = true
+  end
+</pre>
+<p>
+This will create tasks:
+</p>
+<ul>
+<li>my_webgen
+
+</li>
+<li>clobber_my_webgen
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000194">define</a>&nbsp;&nbsp;
+      <a href="#M000193">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">clobber_outdir</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+During the clobber, should webgen&#8216;s output directory be clobbered.
+The default is false
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">directory</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The directory of the webgen site. This would be the directory of your
+config.yaml file. Or the parent directory of the src/ directory for webgen
+
+<p>
+The default for this is assumed to be
+</p>
+<pre>
+  File.join(Dir.pwd,&quot;webgen&quot;)
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Name of webgen task. (default is :webgen)
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000193" class="method-detail">
+        <a name="M000193"></a>
+
+        <div class="method-heading">
+          <a href="#M000193" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(name = :webgen) {|self if block_given?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a webgen task
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000193-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000193-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/rake/webgentask.rb, line 100</span>
+100:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span> = <span class="ruby-identifier">:webgen</span>)
+101:         <span class="ruby-ivar">@name</span>           = <span class="ruby-identifier">name</span>
+102:         <span class="ruby-ivar">@directory</span>      = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>, <span class="ruby-value str">&quot;webgen&quot;</span>)
+103:         <span class="ruby-ivar">@clobber_outdir</span> = <span class="ruby-keyword kw">false</span>
+104: 
+105:         <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+106: 
+107:         <span class="ruby-ivar">@rendered_files</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+108: 
+109:         <span class="ruby-identifier">define</span>
+110:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000194" class="method-detail">
+        <a name="M000194"></a>
+
+        <div class="method-heading">
+          <a href="#M000194" class="method-signature">
+          <span class="method-name">define</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000194-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000194-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/rake/webgentask.rb, line 112</span>
+112:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define</span>
+113:         <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Run webgen&quot;</span>
+114:         <span class="ruby-identifier">task</span> <span class="ruby-ivar">@name</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+115:           <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-ivar">@directory</span>) <span class="ruby-keyword kw">do</span>
+116:             <span class="ruby-keyword kw">begin</span>
+117:               <span class="ruby-comment cmt"># some items from webgen may be sensitive to the</span>
+118:               <span class="ruby-comment cmt"># current directory when it runs</span>
+119: 
+120:               <span class="ruby-identifier">require</span> <span class="ruby-value str">'webgen/website'</span>
+121:               <span class="ruby-ivar">@website</span> = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">WebSite</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@directory</span>
+122:               <span class="ruby-ivar">@out_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-ivar">@website</span>.<span class="ruby-identifier">param_for_plugin</span>(<span class="ruby-value str">'Core/Configuration'</span>, <span class="ruby-value str">'outDir'</span>))
+123:               <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">render</span>
+124:               <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Webgen rendered to : #{@out_dir}&quot;</span>
+125: 
+126:               <span class="ruby-identifier">file_list</span> = <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">manager</span>[<span class="ruby-value str">'Misc/RenderedFiles'</span>].<span class="ruby-identifier">files</span>
+127: 
+128:               <span class="ruby-comment cmt"># remove @out_dir from the list of rendered_files</span>
+129:               <span class="ruby-identifier">file_list</span>.<span class="ruby-identifier">delete</span> <span class="ruby-ivar">@out_dir</span>
+130: 
+131:               <span class="ruby-ivar">@rendered_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">file_list</span>
+132:             <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+133:               <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Webgen task failed: #{e}&quot;</span>
+134:               <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+135:             <span class="ruby-keyword kw">end</span>
+136:           <span class="ruby-keyword kw">end</span>
+137:         <span class="ruby-keyword kw">end</span>
+138: 
+139:         <span class="ruby-identifier">clobber_task</span> = <span class="ruby-identifier">paste</span>(<span class="ruby-value str">&quot;clobber_&quot;</span>,<span class="ruby-ivar">@name</span>)
+140: 
+141:         <span class="ruby-comment cmt"># bit of conundrum here since we don't know what files</span>
+142:         <span class="ruby-comment cmt"># to remove until they have been generated, so we have</span>
+143:         <span class="ruby-comment cmt"># to generate all the files to remove them.</span>
+144:         <span class="ruby-comment cmt">#</span>
+145:         <span class="ruby-comment cmt"># I don't know of the right way to do this yet.</span>
+146:         <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Remove webgen products&quot;</span>
+147:         <span class="ruby-identifier">task</span> <span class="ruby-identifier">clobber_task</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@name</span>] <span class="ruby-keyword kw">do</span>
+148:           <span class="ruby-identifier">rm_rf</span> <span class="ruby-ivar">@rendered_files</span>
+149:           <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@clobber_outdir</span> <span class="ruby-keyword kw">then</span>
+150:             <span class="ruby-identifier">rm_r</span> <span class="ruby-ivar">@out_dir</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+151:           <span class="ruby-keyword kw">end</span>
+152:         <span class="ruby-keyword kw">end</span>
+153: 
+154:         <span class="ruby-identifier">task</span> <span class="ruby-identifier">:clobber</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">clobber_task</span>]
+155:         <span class="ruby-keyword kw">self</span>
+156:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

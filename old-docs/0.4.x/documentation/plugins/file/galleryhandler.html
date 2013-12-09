@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>webgen - GalleryHandler</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="webgen is used for generating static websites." />
+    <meta name="Keywords" content="webgen, static web site generator, ruby, HTML, dynamic tags, plugin based, static web, web generator, site generator" />
+    <meta name="author" content="Thomas Leitner / Original design by Andreas Viklund - http://andreasviklund.com" />
+    <link rel="stylesheet" href="../../../default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/webgen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/sipttra.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="../../../js/sipttra.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+
+      <div id="sitename">
+        <a href="http://webgen.rubyforge.org">
+          <img src="../../../images/webgen-logo.png" alt="webgen logo" style="margin-top: 20px; padding-right: 10px; float: left"/>
+        </a>
+        <h1>webgen / static website generator</h1>
+        <h2>static website generation made easy!</h2>
+      </div>
+
+      <div id="mainmenu">
+        <div class="webgen-menu-vert webgen-menu"><ul><li ><a href="../../../index.html">HomePage</a></li><li ><a href="../../../news.html">News</a></li><li ><a href="../../../features.html">Features</a></li><li ><a href="../../../download.html">Download &amp; Installation</a></li><li class="webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="../../index.html">Documentation</a></li><li class="webgen-menu-submenu"><a href="../../../examples/index.html">Examples</a></li><li ><a href="../../../project.html">Project Status</a></li><li ><a href="http://webgen.rubyforge.org/wiki/wiki.pl">WikiWiki Web</a></li></ul></div>
+      </div>
+
+      <div id="wrap">
+
+        <div id="leftside">
+          
+          <h1>Sub Menu</h1>
+          <div class="webgen-menu-vert webgen-menu"><ul><li ><a href="../../basics.html">Basics</a></li><li ><a href="../../tutorial.html">Tutorial</a></li><li ><a href="../../howto.html">Howto...?</a></li><li ><a href="../../extending_webgen.html">Extending webgen</a></li><li class="webgen-menu-submenu"><a href="../../references/index.html">References</a></li><li class="webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="../index.html">Plugins</a><ul><li class="webgen-menu-submenu"><a href="../contentconverter/default.html">ContentConverter</a></li><li class="webgen-menu-submenu"><a href="../core/index.html">Core</a></li><li class="webgen-menu-submenu webgen-menu-submenu-inhierarchy"><a href="defaulthandler.html">File</a><ul><li ><a href="defaulthandler.html">DefaultHandler</a></li><li ><a href="copyhandler.html">CopyHandler</a></li><li ><a href="directoryhandler.html">DirectoryHandler</a></li><li class="webgen-menu-item-selected"><span>GalleryHandler</span></li><li ><a href="pagehandler.html">PageHandler</a></li><li ><a href="sipttrahandler.html">SipttraHandler</a></li><li ><a href="templatehandler.html">TemplateHandler</a></li><li ><a href="thumbnailwriter.html">ThumbnailWriter</a></li></ul></li><li class="webgen-menu-submenu"><a href="../htmlvalidator/default.html">HtmlValidator</a></li><li class="webgen-menu-submenu"><a href="../menustyle/default.html">MenuStyle</a></li><li class="webgen-menu-submenu"><a href="../misc/index.html">Misc</a></li><li class="webgen-menu-submenu"><a href="../tag/default.html">Tag</a></li></ul></li></ul></div>
+          
+
+          
+          <h1>Tips</h1>
+          <ul class="list">
+            <li>The <a href="../../basics.html">basics page</a>contains everything one needs to get going with webgen!</li>
+            <li>Descriptions for plugins can be found in the <a href="../index.html">plugins  section</a></li>
+          </ul>
+        </div>
+
+        <div id="rightside">
+          <h1>Latest news</h1>
+          <p><strong>2007-12-31: </strong>
+            Minor release with feature enhancements.
+            <a href="../../../news.html#news-2007-12-31">More...</a>
+          </p>
+          <p><strong>2007-09-08: </strong>
+            Small bug fix release.
+            <a href="../../../news.html#news-2007-09-08">More...</a>
+          </p>
+          <p><strong>2007-06-29: </strong>
+            Some bug fixes and one small feature enhancement.
+            <a href="../../../news.html#news-2007-06-29">More...</a>
+          </p>
+
+          <h1>Links</h1>
+          <ul class="linklist">
+            <li><a href="http://rubyforge.org/projects/webgen">webgen on Rubyforge</a></li>
+            <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+            <li><a href="../../../rdoc/index.html">webgen API</a></li>
+            <li><a href="http://rubyinstaller.rubyforge.org/wiki/wiki.pl">Ruby Windows Installer</a></li>
+            <li><a href="http://www.ruby-lang.org">Ruby Homepage</a></li>
+          </ul>
+
+          <div class="center"><a href="http://webgen.rubyforge.org"><img src="../../../images/webgen-generated-by.png" alt="Generated by webgen"/></a></div>
+
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><div class="center" style="margin-top: 15px">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" style="border:0px" name="submit" alt="Donate via PayPal!" />
+            <img alt="" style="border:0px" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+" />
+          </div></form>
+        </div>
+
+        <div id="navbar" class="content">
+          <span class="leftbox">Location: <a href="../../../index.html">webgen</a> / <a href="../../index.html">Documentation</a> / <a href="../index.html">Plugins</a> / <a href="defaulthandler.html">File</a> / <span>GalleryHandler</span> </span>
+          <span class="rightbox">Language: <span>en</span></span>
+          <span class="rightbox">Feedback: <a href="http://webgen.rubyforge.org/wiki/wiki.pl?GalleryHandler">Click here</a></span>
+          <div style="clear: both">&nbsp;</div>
+        </div>
+
+        <div id="content" class="content">
+          
+          <div id="inpage-menu">
+            <p style="text-align: center"><b>Page Menu</b></p>
+            <div class="webgen-menu-section webgen-menu"><ul><li><a href="#description">1. Description</a></li><li><a href="#structure">2. Structure of image galleries</a></li><li><a href="#gallery-styles">3. Gallery styles</a></li><li><a href="#file-format">4. Gallery File Format</a><ul><li><a href="#file-format-config-sec">4.1. The configuration section</a></li><li><a href="#file-format-image-sec">4.2. The image section</a></li></ul></li><li><a href="#thumbnail-creation">5. Automatic thumbnail creation</a></li><li><a href="#file-format-example">6. Example gallery file</a></li></ul></div>
+          </div>
+          
+          <h1>General Information</h1>
+
+
+
+
+<table class='plugin-info'><tr style='vertical-align: top'><th>Plugin name:</th><td>File/GalleryHandler (<span class='plugin-ref'><a href="defaulthandler.html">File/DefaultHandler</a></span>)</td></tr><tr style='vertical-align: top'><th>Author:</th><td>Thomas Leitner &lt;t_leitner@gmx.at&gt;</td></tr><tr style='vertical-align: top'><th>Summary:</th><td>Handles images gallery files</td></tr><tr style='vertical-align: top'><th>Parameters:</th><td><p class='param'><span class='param-name'>galleryPageTemplate</span>:&nbsp;<span class='param-default-value'>&quot;gallery_gallery.template&quot;</span><br /><span class='param-description'>The template for gallery pages. If nil or a not existing file is specified, the default template is used.</span></p>
+<p class='param'><span class='param-name'>imagePageTemplate</span>:&nbsp;<span class='param-default-value'>&quot;gallery_image.template&quot;</span><br /><span class='param-description'>The template for image pages. If nil or a not existing file is specified, the default template is used.</span></p>
+<p class='param'><span class='param-name'>images</span>:&nbsp;<span class='param-default-value'>&quot;images/**/*.jpg&quot;</span><br /><span class='param-description'>The path pattern for specifying the image files</span></p>
+<p class='param'><span class='param-name'>imagesPerPage</span>:&nbsp;<span class='param-default-value'>20</span><br /><span class='param-description'>Number of images per gallery page</span></p>
+<p class='param'><span class='param-name'>mainPageTemplate</span>:&nbsp;<span class='param-default-value'>&quot;gallery_main.template&quot;</span><br /><span class='param-description'>The template for the main page. If nil or a not existing file is specified, the default template is used.</span></p></td></tr><tr style='vertical-align: top'><th>Handled paths:</th><td>**/*.gallery</td></tr></table>
+
+<h2 id="description">Description</h2>
+
+
+	<p>This file handler uses image gallery files to automatically build image galleries. These image
+galleries are highly configurable and theme-able through the use of different gallery styles &#8211; have
+a look at the <a href="../../../examples/gallery_styles/index.html">examples section</a>!</p>
+
+
+	<h2 id="structure">Structure of image galleries</h2>
+
+
+	<p>An image gallery consists of three types of page files:</p>
+
+
+	<ul>
+	<li><strong>image pages</strong>: An image page is created for each image. Normally the title, the unresized image,
+   the image description and possible other information as well as navigational links (link to the
+   next/previous image etc.) are displayed.</li>
+		<li><strong>gallery pages</strong>: A gallery page displays a list of images (number of images per gallery page is
+   customizable). If more images than the maximum number of images per gallery page exist, then two
+   or more gallery pages are created.</li>
+		<li><strong>main page</strong>: A main page is only created if two or more gallery pages exist and is used for
+   displaying links to the gallery pages.</li>
+	</ul>
+
+
+	<p>All these pages are created automatically by the gallery handler, but they don&#8217;t have any content;
+everything is done by the templates of a gallery style. The parameters <span class='param-ref'><a href="galleryhandler.html">imagePageTemplate</a></span>, <span class='param-ref'><a href="galleryhandler.html">galleryPageTemplate</a></span> and <span class='param-ref'><a href="galleryhandler.html">mainPageTemplate</a></span> define which templates should be used for image pages, gallery
+pages and the main page. The default values can be overwritten in the gallery file!</p>
+
+
+	<h2 id="gallery-styles">Gallery styles</h2>
+
+
+	<p>Gallery styles are used&#8230; to style image galleries <img src="../../../images/emoticons/crystal-wink.png" alt="smiley ;-)" /> A gallery style consists of templates and,
+optionally, plugins. A minimal gallery style consists of the following files:</p>
+
+
+	<ul>
+	<li><code>gallery_image.template</code></li>
+		<li><code>gallery_gallery.template</code></li>
+		<li><code>gallery_main.template</code></li>
+	</ul>
+
+
+	<p>To display all available gallery styles use the following command:</p>
+
+
+<pre>
+$ wegben help use gallery_style
+</pre>
+
+	<p>To use a specific gallery style called <span class="caps">STYLE</span> issue the following command:</p>
+
+
+<pre>
+$ wegben use gallery_style STYLE
+</pre>
+
+	<p>This copies all normal gallery style files from the gallery style to the source directory and all
+plugins to the plugin directory, maybe overwritting files (you are asked before copying if you would
+like to procede). However, this command is not able to delete previously copied gallery style files,
+so you have to remove them yourself.</p>
+
+
+	<p>For information about how a gallery style can be created have a look at
+<a href="../../extending_webgen.html">extending webgen section</a>!</p>
+
+
+	<h2 id="file-format">Gallery File Format</h2>
+
+
+	<p>A gallery file has <span class="caps">YAML</span> as file format and is easy to create. It consists of two sections which are
+separated by a line consisting only of three dashes: the configuration section and the image
+section.</p>
+
+
+	<h3 id="file-format-config-sec">The configuration section</h3>
+
+
+	<p>The first section of a gallery file is the configuration section in which you define the basic
+properties of your image gallery like the title or how many images should be displayed per page. By
+using the name of a gallery handler parameter as key you can override its value. Additionally the
+following keys are used by the gallery handler:</p>
+
+
+	<ul>
+	<li><strong>title</strong>: The title of the gallery. If this key is not specified, the capitalized file name is used.</li>
+		<li><strong>filename</strong>: The base filename used for creating the page files. If not specified it is created from
+  the title.</li>
+		<li><strong>lang</strong>: The language used by the gallery. If not specified, the default language is used.</li>
+		<li><strong>mainPageMetaInfo</strong>: Used for setting additional meta information for the main page.</li>
+		<li><strong>galleryPagesMetaInfo</strong>: Used for setting additional meta information for the gallery pages.</li>
+		<li><strong>imagePagesMetaInfo</strong>: Used for setting additional meta information for all image pages.</li>
+		<li><strong>layouter</strong>: Plugin used for additional gallery tasks, has to be registered under
+  <code>GalleryLayouter/&amp;lt;layouter-name&amp;gt;</code></li>
+		<li><strong>thumbnailSize</strong>: The size of the thumbnails, can also be set individually for each image.</li>
+		<li><strong>thumbnailResizeMethod</strong>: The method used for creating the thumbnails, can also be set individually
+  for each image.</li>
+	</ul>
+
+
+	<p>For more information about the last two items have a look at <span class='plugin-ref'><a href="thumbnailwriter.html">File/ThumbnailWriter</a></span>!</p>
+
+
+	<p>Two nearly always specified parameters should also be mentioned here: <span class='param-ref'><a href="galleryhandler.html">imagesPerPage</a></span> and <span class='param-ref'><a href="galleryhandler.html">images</a></span>. The first specifies how
+many images should be placed on a single gallery page. The second one specifies which images should
+be used the whole image gallery. These images have to be somewhere in the website source directory!
+You can/should not specify images outside the source directory as these images are not automatically
+copied to the output directory and automatic thumbnail creation may not work correctly!</p>
+
+
+	<p>If you want to create a multi-lingual gallery, you need to create two gallery files which specify
+the same <code>filename</code> key and different <code>lang</code> keys. It&#8217;s best to first create one gallery file, fill
+in all the information and then copy it and change the <code>filename</code> and <code>lang</code> keys as well as all the
+other language specific information like titles and descriptions.</p>
+
+
+	<p>All other key-value pairs specified are not used by webgen. However, as layouter plugins have access
+to the whole configuration section they may use their own configuration keys.</p>
+
+
+	<h3 id="file-format-image-sec">The image section</h3>
+
+
+	<p>The second section is the image data section in which additional data can be set for images. It has
+the image file paths as keys. These paths have to be relative to the gallery file! The following
+keys are used and/or set by the gallery handler:</p>
+
+
+	<ul>
+	<li><strong>title</strong>: The title of the image. If not set, a default value will be assigned.</li>
+		<li><strong>template</strong>: The template file for the image page. If not set, the value of the parameter <span class='param-ref'><a href="galleryhandler.html">imagePageTemplate</a></span> will be used.</li>
+		<li><strong>orderInfo</strong>: The images are sorted according to this key. If this key is not set, the title is
+   used; if this is also not set, the image file name is used for sorting.</li>
+		<li><strong>thumbnail</strong>: If this key is set for an image, the value is assumed to be the path to a thumbnail
+   for this image. Otherwise, it is set by the gallery handler and a thumbnail is created
+   automatically (if the <span class='plugin-ref'><a href="thumbnailwriter.html">File/ThumbnailWriter</a></span> could be loaded).</li>
+		<li><strong>thumbnailSize</strong>: The size of the automatically created thumbnail in the format &#8220;WIDTHxHEIGHT&#8221; 
+   where <span class="caps">WIDTH</span> and <span class="caps">HEIGHT</span> are numeric values specifying the width and the height. If not set, the
+   value from the configuration section is used. If that is also not set, a default value is used
+   (see <span class='param-ref'><a href="thumbnailwriter.html">File/ThumbnailWriter:thumbnailSize</a></span>).</li>
+		<li><strong>thumbnailResizeMethod</strong>: The method used to create the automatic thumbnail. For more information
+   about the possible values have a look at <span class='param-ref'><a href="thumbnailwriter.html">File/ThumbnailWriter:resizeMethod</a></span>. If
+   not set, the value from the configuration section is used, If that is also not set, a default
+   value is used (see <span class='param-ref'><a href="thumbnailwriter.html">File/ThumbnailWriter:resizeMethod</a></span>).</li>
+		<li><strong>exif</strong>: If not set and the exif reading library is installed, it is assigned the exif information
+   of the image. The exif reading library can be installed using <code>gem install exifr</code></li>
+	</ul>
+
+
+	<h2 id="thumbnail-creation">Automatic thumbnail creation</h2>
+
+
+	<p>The gallery handler is able to automatically create thumbnails for the images in the image gallery
+if the <span class='plugin-ref'><a href="thumbnailwriter.html">File/ThumbnailWriter</a></span> is available. If so, the <code>thumbnailSize</code> and
+<code>thumbnailResizeMethod</code> keys described above are used to create the thumbnail.</p>
+
+
+	<p>If the plugin is not available, you either have to explicitly specify a thumbnail via the
+<code>thumbnail</code> key for an image or the <code>width</code> and <code>height</code> attributes of the <span class="caps">HTML</span> <code>img</code> tag are used
+to scale the full image to the thumbnail size.</p>
+
+
+	<h2 id="file-format-example">Example gallery file</h2>
+
+
+	<p>The following example gallery file shows the most common used configuration options:</p>
+
+
+<pre>
+title: Example Gallery
+imagesPerPage: 32
+images: example/**/*.jpg
+
+mainPageMetaInfo:
+    inMenu: false
+    otherKey: value
+
+galleryPagesMetaInfo:
+    orderInfo: 10
+    inMenu: true
+---
+example/dir1/img1.jpg:
+    title: Test title
+    description: Long description of image
+
+example/img2.jpg:
+    title: Title2 of pic
+    mykey: mydata
+</pre>
+
+	<p>First the title of the gallery is set and the <span class='param-ref'><a href="galleryhandler.html">imagesPerPage</a></span> parameter
+value is overridden. Then it is specified that all files with the extension <code>jpg</code> under the
+directory <code>example</code> should be used for this image gallery.</p>
+
+
+	<p>The next two keys set the meta information for the main page and the gallery pages. Be aware that
+the <code>orderInfo</code> meta information is set for the gallery pages. This implies that the gallery handler
+automatically increments the <code>orderInfo</code> value for each gallery page sothat they are sorted and
+displayed in the menu correctly.</p>
+
+
+	<p>The second section sets the meta information for the images of the gallery. All meta information set
+for the images will be available to the image template.</p>
+        </div>
+        <div class="clearingdiv">&nbsp;</div>
+
+      </div>
+    </div>
+    <div id="footer">&copy; 2006 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a> | Design by <a href="http://andreasviklund.com">Andreas Viklund</a> / adapted by Thomas Leitner</div>
+
+    <!-- Start of StatCounter Code -->
+    <script type="text/javascript">
+      var sc_project=648325;
+      var sc_partition=5;
+      var sc_security="7d00de1e";
+      var sc_invisible=1;
+    </script>
+
+    <script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c6.statcounter.com/counter.php?sc_project=648325&amp;java=0&amp;security=7d00de1e&amp;invisible=1" alt="free geoip" /></a></div></noscript>
+    <!-- End of StatCounter Code -->
+
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      _uacct = "UA-641844-1";
+      urchinTracker();
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: ContentConverters::RDocConverter</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">ContentConverters::RDocConverter</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/webgen/plugins/contentconverters/rdoc_rb.html">
+                lib/webgen/plugins/contentconverters/rdoc.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="DefaultContentConverter.html">
+                DefaultContentConverter
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Handles text in RDoc format.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000153">call</a>&nbsp;&nbsp;
+      <a href="#M000152">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000152" class="method-detail">
+        <a name="M000152"></a>
+
+        <div class="method-heading">
+          <a href="#M000152" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">( plugin_manager )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000152-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000152-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/contentconverters/rdoc.rb, line 39</span>
+39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">plugin_manager</span> )
+40:       <span class="ruby-keyword kw">super</span>
+41:       <span class="ruby-ivar">@processor</span> = <span class="ruby-constant">SM</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleMarkup</span>.<span class="ruby-identifier">new</span>
+42:       <span class="ruby-ivar">@formatter</span> = <span class="ruby-constant">SM</span><span class="ruby-operator">::</span><span class="ruby-constant">ToHtml</span>.<span class="ruby-identifier">new</span>
+43:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000153" class="method-detail">
+        <a name="M000153"></a>
+
+        <div class="method-heading">
+          <a href="#M000153" class="method-signature">
+          <span class="method-name">call</span><span class="method-args">( content )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000153-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000153-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/plugins/contentconverters/rdoc.rb, line 45</span>
+45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>( <span class="ruby-identifier">content</span> )
+46:       <span class="ruby-ivar">@processor</span>.<span class="ruby-identifier">convert</span>( <span class="ruby-identifier">content</span>, <span class="ruby-ivar">@formatter</span> )
+47:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+48:       <span class="ruby-identifier">log</span>(<span class="ruby-identifier">:error</span>) { <span class="ruby-value str">&quot;Error converting RDOC text to HTML: {e.message}&quot;</span> }
+49:       <span class="ruby-identifier">content</span>
+50:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

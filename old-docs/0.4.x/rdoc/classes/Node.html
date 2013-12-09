@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Node</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Node</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/webgen/node_rb.html">
+                lib/webgen/node.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="Node.html">Node</a> class is used for building the internal
+data structure which represents the output tree.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000019">&lt;=&gt;</a>&nbsp;&nbsp;
+      <a href="#M000017">=~</a>&nbsp;&nbsp;
+      <a href="#M000009">[]</a>&nbsp;&nbsp;
+      <a href="#M000010">[]=</a>&nbsp;&nbsp;
+      <a href="#M000012">absolute_path</a>&nbsp;&nbsp;
+      <a href="#M000011">full_path</a>&nbsp;&nbsp;
+      <a href="#M000021">in_subtree_of?</a>&nbsp;&nbsp;
+      <a href="#M000024">inspect</a>&nbsp;&nbsp;
+      <a href="#M000014">is_directory?</a>&nbsp;&nbsp;
+      <a href="#M000015">is_file?</a>&nbsp;&nbsp;
+      <a href="#M000016">is_fragment?</a>&nbsp;&nbsp;
+      <a href="#M000013">level</a>&nbsp;&nbsp;
+      <a href="#M000005">new</a>&nbsp;&nbsp;
+      <a href="#M000018">order_info</a>&nbsp;&nbsp;
+      <a href="#M000007">parent=</a>&nbsp;&nbsp;
+      <a href="#M000008">path=</a>&nbsp;&nbsp;
+      <a href="#M000026">precalc_with_children!</a>&nbsp;&nbsp;
+      <a href="#M000022">resolve_node</a>&nbsp;&nbsp;
+      <a href="#M000006">root</a>&nbsp;&nbsp;
+      <a href="#M000020">route_to</a>&nbsp;&nbsp;
+      <a href="#M000025">to_s</a>&nbsp;&nbsp;
+      <a href="#M000023">to_url</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Composite.html">Composite</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ABSOLUTE_URL</td>
+          <td>=</td>
+          <td class="context-item-value">/^\w[a-zA-Z0-9+.-]*:/</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Regexp for matching absolute URLs, ie. URLs with a scheme part (also see
+RFC1738)
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">meta_info</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Meta information associated with the node.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">node_info</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Information used for processing the node.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parent</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The parent node.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">path</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The path of this node.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="#M000005" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">( parent, path )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initializes a <a href="Node.html#M000005">new</a> <a
+href="Node.html">Node</a> instance.
+</p>
+<table>
+<tr><td valign="top"><tt>parent</tt>:</td><td>if this parameter is <tt>nil</tt>, then the <a
+href="Node.html#M000005">new</a> node acts as <a
+href="Node.html#M000006">root</a>. Otherwise, <tt>parent</tt> has to be a
+valid node instance.
+
+</td></tr>
+<tr><td valign="top"><tt>path</tt>:</td><td>The path for this node. If this node is a directory, the path must have a
+trailing slash (&#8216;dir/&#8217;). If it is a fragment, the hash sign
+must be the first character of the path (&#8216;fragment&#8217;). A
+compound path like &#8216;dir/file#fragment&#8217; is also allowed as are
+absolute paths like &#8216;<a
+href="http://myhost.com">myhost.com</a>/&#8217;.
+
+<p>
+Note: a compound path like &#8216;dir/file&#8217; is invalid if the parent
+node already has a child with path &#8216;dir/&#8217;!!! (solution: just
+create a node with path &#8216;file&#8217; and node &#8216;dir/&#8217; as
+parent!)
+</p>
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 57</span>
+57:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">path</span> )
+58:     <span class="ruby-ivar">@parent</span> = <span class="ruby-keyword kw">nil</span>
+59:     <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+60:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent</span> = <span class="ruby-identifier">parent</span>
+61:     <span class="ruby-ivar">@node_info</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+62:     <span class="ruby-ivar">@meta_info</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+63:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">root</span><span class="method-args">( node )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Node.html#M000006">root</a> node for <tt>node</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">root</span>( <span class="ruby-identifier">node</span> )
+67:     <span class="ruby-identifier">node</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">parent</span> <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span>
+68:     <span class="ruby-identifier">node</span>
+69:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="#M000019" class="method-signature">
+          <span class="method-name">&lt;=&gt;</span><span class="method-args">( other )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sorts nodes by using the meta info <tt>orderInfo</tt> of both involved
+nodes or, if these values are equal, by the meta info <tt>title</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000019-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 170</span>
+170:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>( <span class="ruby-identifier">other</span> )
+171:     <span class="ruby-identifier">self_oi</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">order_info</span>
+172:     <span class="ruby-identifier">other_oi</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">order_info</span>
+173:     (<span class="ruby-identifier">self_oi</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other_oi</span> <span class="ruby-value">? </span>(<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'title'</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">&lt;=&gt;</span> (<span class="ruby-identifier">other</span>[<span class="ruby-value str">'title'</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">self_oi</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other_oi</span>)
+174:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">=~</span><span class="method-args">( path )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Matches the path of the node against the given path at the beginning.
+Returns the matched portion or <tt>nil</tt>. Used by <a
+href="Node.html#M000022">resolve_node</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 152</span>
+152:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">=~</span>( <span class="ruby-identifier">path</span> )
+153:     <span class="ruby-identifier">md</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">is_directory?</span>
+154:            <span class="ruby-node">/^#{Regexp.escape(@path.chomp('/'))}(\/|$)/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">path</span>                  <span class="ruby-comment cmt">#' #emacs hack</span>
+155:          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">is_fragment?</span>
+156:            <span class="ruby-node">/^#{Regexp.escape(@path)}$/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">path</span>
+157:          <span class="ruby-keyword kw">else</span>
+158:            <span class="ruby-node">/^#{Regexp.escape(@path)}(?=#|$)/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">path</span>
+159:          <span class="ruby-keyword kw">end</span>
+160:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">md</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">$&amp;</span> <span class="ruby-keyword kw">end</span>
+161:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">( name )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets object <tt>name</tt> from <tt>meta_info</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 86</span>
+86:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>( <span class="ruby-identifier">name</span> )
+87:     <span class="ruby-ivar">@meta_info</span>[<span class="ruby-identifier">name</span>]
+88:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">[]=</span><span class="method-args">( name, value )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Assigns <tt>value</tt> to <tt>meta_info</tt> called +name.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 91</span>
+91:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]=</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span> )
+92:     <span class="ruby-ivar">@meta_info</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+93:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">absolute_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the absolute path, ie. starting with a slash for the <a
+href="Node.html#M000006">root</a> directory, for this node.
+</p>
+<p>
+Here is an example that shows the difference between <tt><a
+href="Node.html#M000011">full_path</a></tt> and <tt><a
+href="Node.html#M000012">absolute_path</a></tt>:
+</p>
+<pre>
+  root = Node.new( nil, '../output/' )
+  dir = Node.new( root, 'testdir/' )
+  node = Node.new( dir, 'testfile' )
+  node.full_path # =&gt; '../output/testdir/testfile'
+  node.absolute_path # =&gt; '/testdir/testfile'
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 118</span>
+118:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">absolute_path</span>
+119:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@precalc</span>[<span class="ruby-identifier">:absolute_path</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@precalc</span>
+120: 
+121:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">nil?</span>
+122:       <span class="ruby-value str">'/'</span>
+123:     <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">ABSOLUTE_URL</span>
+124:       <span class="ruby-ivar">@path</span>
+125:     <span class="ruby-keyword kw">else</span>
+126:       <span class="ruby-identifier">full_path</span>.<span class="ruby-identifier">sub</span>( <span class="ruby-node">/^#{Regexp.escape(Node.root( self ).path)}/</span>, <span class="ruby-value str">'/'</span> )
+127:     <span class="ruby-keyword kw">end</span>
+128:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">full_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the full path for this node. See also <a
+href="Node.html#M000012">Node#absolute_path</a> !
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 99</span>
+ 99:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">full_path</span>
+100:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@precalc</span>[<span class="ruby-identifier">:full_path</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@precalc</span>
+101: 
+102:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">ABSOLUTE_URL</span>
+103:       <span class="ruby-ivar">@path</span>
+104:     <span class="ruby-keyword kw">else</span>
+105:       (<span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-ivar">@path</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">full_path</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@path</span>)
+106:     <span class="ruby-keyword kw">end</span>
+107:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="#M000021" class="method-signature">
+          <span class="method-name">in_subtree_of?</span><span class="method-args">( node )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks if the current node is in the subtree which is spanned by the
+supplied node. The check is performed using only the <tt>parent</tt>
+information of the involved nodes, NOT the actual path values!
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 194</span>
+194:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">in_subtree_of?</span>( <span class="ruby-identifier">node</span> )
+195:     <span class="ruby-identifier">temp</span> = <span class="ruby-keyword kw">self</span>
+196:     <span class="ruby-identifier">temp</span> = <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">parent</span> <span class="ruby-keyword kw">while</span> <span class="ruby-operator">!</span><span class="ruby-identifier">temp</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">temp</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">node</span>
+197:     <span class="ruby-operator">!</span><span class="ruby-identifier">temp</span>.<span class="ruby-identifier">nil?</span>
+198:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="#M000024" class="method-signature">
+          <span class="method-name">inspect</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an informative representation of the node.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 233</span>
+233:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+234:     <span class="ruby-node">&quot;&lt;##{self.class.name}: path=#{full_path}&gt;&quot;</span>
+235:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">is_directory?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks if the node is a directory.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 136</span>
+136:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_directory?</span>
+137:     <span class="ruby-ivar">@path</span>[<span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?/</span>
+138:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">is_file?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks if the node is a file.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 141</span>
+141:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_file?</span>
+142:     <span class="ruby-operator">!</span><span class="ruby-identifier">is_directory?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_fragment?</span>
+143:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">is_fragment?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks if the node is a fragment.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 146</span>
+146:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_fragment?</span>
+147:     <span class="ruby-ivar">@path</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?#</span>
+148:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">level</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Node.html#M000013">level</a> of the node. The <a
+href="Node.html#M000013">level</a> specifies how deep the node is in the
+hierarchy.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 131</span>
+131:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">level</span>
+132:     (<span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">level</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+133:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="#M000018" class="method-signature">
+          <span class="method-name">order_info</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the value of the meta info <tt>orderInfo</tt> or +0+ if it is not
+set.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000018-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 164</span>
+164:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">order_info</span>
+165:     <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'orderInfo'</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_i</span>         <span class="ruby-comment cmt"># nil.to_s.to_i =&gt; 0</span>
+166:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">parent=</span><span class="method-args">( var )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets a <a href="Node.html#M000005">new</a> parent for the node.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 72</span>
+72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parent=</span>( <span class="ruby-identifier">var</span> )
+73:     <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">del_child</span>( <span class="ruby-keyword kw">self</span> ) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">nil?</span>
+74:     <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">var</span>
+75:     <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">add_child</span>( <span class="ruby-keyword kw">self</span> ) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">nil?</span>
+76:     <span class="ruby-identifier">precalc_with_children!</span>
+77:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">path=</span><span class="method-args">( path )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the path for the node.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 80</span>
+80:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path=</span>( <span class="ruby-identifier">path</span> )
+81:     <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+82:     <span class="ruby-identifier">precalc!</span>
+83:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
+          <span class="method-name">resolve_node</span><span class="method-args">( path )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the node representing the given <tt>path</tt>. The path can be
+absolute (i.e. starting with a slash) or relative to the current node. If
+no node exists for the given path or it would lie outside the node tree,
+<tt>nil</tt> is returned.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 203</span>
+203:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">resolve_node</span>( <span class="ruby-identifier">path</span> )
+204:     <span class="ruby-identifier">url</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_url</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">path</span>
+205: 
+206:     <span class="ruby-identifier">path</span> = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">url</span>.<span class="ruby-identifier">fragment</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">''</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'#'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">fragment</span>)
+207:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\.\./</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'webgen'</span> <span class="ruby-comment cmt"># path outside dest dir or not an internal URL (webgen://...)</span>
+208: 
+209:     <span class="ruby-identifier">node</span> = <span class="ruby-constant">Node</span>.<span class="ruby-identifier">root</span>( <span class="ruby-keyword kw">self</span> )
+210: 
+211:     <span class="ruby-identifier">match</span> = <span class="ruby-keyword kw">nil</span>
+212:     <span class="ruby-keyword kw">while</span> <span class="ruby-operator">!</span><span class="ruby-identifier">node</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span>
+213:       <span class="ruby-identifier">node</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">match</span> = (<span class="ruby-identifier">c</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">path</span>) }
+214:       <span class="ruby-identifier">path</span>.<span class="ruby-identifier">sub!</span>( <span class="ruby-identifier">match</span>, <span class="ruby-value str">''</span> ) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">nil?</span>
+215:       <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span>
+216:     <span class="ruby-keyword kw">end</span>
+217: 
+218:     <span class="ruby-identifier">node</span>
+219:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="#M000020" class="method-signature">
+          <span class="method-name">route_to</span><span class="method-args">( other )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the route to the given path. The parameter <tt>path</tt> can be a
+String or a <a href="Node.html">Node</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000020-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 177</span>
+177:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">route_to</span>( <span class="ruby-identifier">other</span> )
+178:     <span class="ruby-identifier">my_url</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_url</span>
+179:     <span class="ruby-identifier">other_url</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">other</span>
+180:                 <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">my_url</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">other</span>
+181:                 <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Node</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_url</span>
+182:                 <span class="ruby-keyword kw">else</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>
+183:                 <span class="ruby-keyword kw">end</span>
+184:     <span class="ruby-comment cmt"># resolve any '.' and '..' paths in the target url</span>
+185:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other_url</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/\.\.?\//</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">other_url</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'webgen'</span>
+186:       <span class="ruby-identifier">other_url</span>.<span class="ruby-identifier">path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">other_url</span>.<span class="ruby-identifier">path</span> ).<span class="ruby-identifier">cleanpath</span>.<span class="ruby-identifier">to_s</span>
+187:     <span class="ruby-keyword kw">end</span>
+188:     <span class="ruby-identifier">route</span> = <span class="ruby-identifier">my_url</span>.<span class="ruby-identifier">route_to</span>( <span class="ruby-identifier">other_url</span> ).<span class="ruby-identifier">to_s</span>
+189:     (<span class="ruby-identifier">route</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span> <span class="ruby-operator">?</span> ( <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_fragment?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">path</span> ) <span class="ruby-operator">:</span> <span class="ruby-identifier">route</span> )
+190:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Node.html#M000011">full_path</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">to_url</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the full URL (including dummy scheme and host) for use with URI
+classes. The returned URL does not include the real path of the <a
+href="Node.html#M000006">root</a> node but a slash instead. So if the full
+path of the node is &#8216;a/b/c/d/file1&#8217; and the <a
+href="Node.html#M000006">root</a> node path is &#8216;a/b/c&#8217;, the URL
+path would be &#8217;/d/file1&#8217;.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 224</span>
+224:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_url</span>
+225:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@precalc</span>[<span class="ruby-identifier">:to_url</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@precalc</span>
+226: 
+227:     <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>( <span class="ruby-identifier">absolute_path</span> )
+228:     <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>( <span class="ruby-value str">'webgen://webgen.localhost/'</span> ) <span class="ruby-operator">+</span> <span class="ruby-identifier">url</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">absolute?</span>
+229:     <span class="ruby-identifier">url</span>
+230:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="#M000026" class="method-signature">
+          <span class="method-name">precalc_with_children!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000026-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/node.rb, line 252</span>
+252:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">precalc_with_children!</span>
+253:     <span class="ruby-identifier">precalc!</span>
+254:     <span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">precalc_with_children!</span>}
+255:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

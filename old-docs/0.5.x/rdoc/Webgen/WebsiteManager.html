@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Webgen::WebsiteManager</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/webgen/websitemanager_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/websitemanager.rb">lib/webgen/websitemanager.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-add_source">#add_source</a></li>
+					
+					<li><a href="#method-i-apply_bundle">#apply_bundle</a></li>
+					
+					<li><a href="#method-i-create_website">#create_website</a></li>
+					
+					<li><a href="#method-i-write_paths">#write_paths</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../REXML.html">REXML</a></li>
+				
+					<li><a href="../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Webgen::WebsiteManager</h1>
+
+		<div id="description">
+			<p>
+This class is used for managing webgen websites. It provides access to
+website bundles defined as resources and makes it easy to apply them to a
+webgen website.
+</p>
+<h2>General information</h2>
+<p>
+Currently, the following actions are supported:
+</p>
+<ul>
+<li><p>
+creating a website based on a website bundle (<a
+href="WebsiteManager.html#method-i-create_website">#</a>)
+</p>
+</li>
+<li><p>
+applying a bundle to an existing website (<a
+href="WebsiteManager.html#method-i-apply_bundle">#</a>)
+</p>
+</li>
+</ul>
+<p>
+Bundles are partial webgen websites that contain certain functionality. For
+example, most of the bundles shipped with webgen are style bundles that
+define the basic page layout or how image galleries should look like. So
+style bundles are basically used to change the appearance of parts (or the
+whole) website. This makes them a powerful tool as this plugin makes it
+easy to change to another style bundle later!
+</p>
+<p>
+However, not all bundles have to be style bundles. For example, you could
+as easily create a bundle for a plugin or for a complete website (e.g. a
+blog template).
+</p>
+<h2>website bundle resource naming convention</h2>
+<p>
+The shipped bundles are defined using resources. Each such resource has to
+be a directory containing an optional README file in YAML format in which
+key-value pairs provide additional information about the bundle (e.g.
+copyright information, description, &#8230;). All other files/directories
+in the directory are copied to the root of the destination webgen website
+when the bundle is used.
+</p>
+<p>
+This class uses a special naming convention to recognize website bundles:
+</p>
+<ul>
+<li><p>
+A resource named <tt>webgen-website-bundle-CATEGORY-NAME</tt> is considered
+to be a bundle in the category CATEGORY called NAME (where CATEGORY is
+optional). There are no fixed categories, one can use anything here! The
+shipped style bundles are located in the &#8216;style&#8217; category. You
+need to use the the full name, i.e. CATEGORY-NAME, for accessing a bundle
+later.
+</p>
+</li>
+</ul>
+<p>
+<a href="Website.html">Website</a> bundle names have to be unique!
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="bundles-attribute-method" class="method-detail">
+				<a name="bundles"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">bundles</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+A hash with the available website bundles (mapping name to infos).
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="website-attribute-method" class="method-detail">
+				<a name="website"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">website</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The used <a href="Website.html">Website</a> object.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(dir)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a new <a href="WebsiteManager.html">WebsiteManager</a>.
+</p>
+<p>
+If <tt>dir</tt> is a String, then the website manager is created for the
+website in the directory <tt>dir</tt>.
+</p>
+<p>
+If <tt>dir</tt> is a <a href="Website.html">Website</a> object, the website
+manager is created for the website represented by <tt>dir</tt>. If the
+website object is initialized if it isn&#8217;t already.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/websitemanager.rb, line 59</span>
+59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">dir</span>)
+60:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dir</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Website</span>)
+61:         <span class="ruby-ivar">@website</span> = <span class="ruby-identifier">dir</span>
+62:         <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">init</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">nil?</span>
+63:       <span class="ruby-keyword kw">else</span>
+64:         <span class="ruby-ivar">@website</span> = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Website</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dir</span>)
+65:         <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">init</span>
+66:       <span class="ruby-keyword kw">end</span>
+67:       <span class="ruby-ivar">@bundles</span> = {}
+68: 
+69:       <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">execute_in_env</span> <span class="ruby-keyword kw">do</span>
+70:         <span class="ruby-identifier">prefix</span> = <span class="ruby-value str">&quot;webgen-website-bundle-&quot;</span>
+71:         <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value str">'resources'</span>].<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">data</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/^#{prefix}/</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">data</span><span class="ruby-operator">|</span>
+72:           <span class="ruby-identifier">add_source</span>(<span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Resource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>), <span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">prefix</span>, <span class="ruby-value str">''</span>))
+73:         <span class="ruby-keyword kw">end</span>
+74:       <span class="ruby-keyword kw">end</span>
+75:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="add-source-method" class="method-detail ">
+				<a name="method-i-add_source"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_source</span><span
+						class="method-args">(source, name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Treat the <tt>source</tt> as a website bundle and make it available to the
+<a href="WebsiteManager.html">WebsiteManager</a> under <tt>name</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-source-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/websitemanager.rb, line 79</span>
+79:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_source</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">name</span>)
+80:       <span class="ruby-identifier">paths</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">paths</span>.<span class="ruby-identifier">dup</span>
+81:       <span class="ruby-identifier">readme</span> = <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'/README'</span> }.<span class="ruby-identifier">first</span>
+82:       <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">readme</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">readme</span>
+83:       <span class="ruby-identifier">infos</span> = <span class="ruby-constant">OpenStruct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">readme</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> {} <span class="ruby-operator">:</span> <span class="ruby-constant">YAML</span><span class="ruby-operator">::</span><span class="ruby-identifier">load</span>(<span class="ruby-identifier">readme</span>.<span class="ruby-identifier">io</span>.<span class="ruby-identifier">data</span>))
+84:       <span class="ruby-identifier">infos</span>.<span class="ruby-identifier">paths</span> = <span class="ruby-identifier">paths</span>
+85:       <span class="ruby-ivar">@bundles</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">infos</span>
+86:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="apply-bundle-method" class="method-detail ">
+				<a name="method-i-apply_bundle"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">apply_bundle</span><span
+						class="method-args">(bundle)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Apply the given <tt>bundle</tt> to the website by copying the files.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="apply-bundle-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/websitemanager.rb, line 95</span>
+95:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">apply_bundle</span>(<span class="ruby-identifier">bundle</span>)
+96:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;Invalid bundle name&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@bundles</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">bundle</span>)
+97:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Directory &lt;#{@website.directory}&gt; does not exist!&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-ivar">@website</span>.<span class="ruby-identifier">directory</span>)
+98:       <span class="ruby-identifier">write_paths</span>(<span class="ruby-ivar">@bundles</span>[<span class="ruby-identifier">bundle</span>].<span class="ruby-identifier">paths</span>)
+99:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="create-website-method" class="method-detail ">
+				<a name="method-i-create_website"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_website</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create the basic website skeleton (without any bundle applied).
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-website-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/websitemanager.rb, line 89</span>
+89:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_website</span>
+90:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Directory &lt;#{@website.directory}&gt; does already exist!&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-ivar">@website</span>.<span class="ruby-identifier">directory</span>)
+91:       <span class="ruby-ivar">@website</span>.<span class="ruby-identifier">execute_in_env</span> { <span class="ruby-identifier">write_paths</span>(<span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Resource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'webgen-website-skeleton'</span>).<span class="ruby-identifier">paths</span>) }
+92:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="write-paths-method" class="method-detail ">
+				<a name="method-i-write_paths"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">write_paths</span><span
+						class="method-args">(paths)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Write the paths to the website directory.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="write-paths-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/websitemanager.rb, line 106</span>
+106:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">write_paths</span>(<span class="ruby-identifier">paths</span>)
+107:       <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+108:         <span class="ruby-identifier">output_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@website</span>.<span class="ruby-identifier">directory</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">path</span>)
+109:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/$/</span>
+110:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">output_path</span>)
+111:         <span class="ruby-keyword kw">else</span>
+112:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">output_path</span>))
+113:           <span class="ruby-identifier">path</span>.<span class="ruby-identifier">io</span>.<span class="ruby-identifier">stream</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+114:             <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output_path</span>, <span class="ruby-value str">'wb'</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">copy_stream</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">f</span>) }
+115:           <span class="ruby-keyword kw">end</span>
+116:         <span class="ruby-keyword kw">end</span>
+117:       <span class="ruby-keyword kw">end</span>
+118:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

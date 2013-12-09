@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::ContentProcessor::Blocks | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgencontentprocessorblocks">Webgen::ContentProcessor::Blocks</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>As short name for the content processor (used, for example, in the <code>pipeline</code> option of a block in a
+file in <a href="../webgen_page_format.html">Webgen Page Format</a>) one of the following can be
+used: <code>blocks</code>.</p>
+
+
+<h2 id="description">Description</h2>
+
+<p>This processor replaces a special xml tag with rendered blocks. It is used, for example, in
+templates to define the place where the actual page content should be.</p>
+
+<p>The general syntax is as follows:</p>
+
+<pre><code>&lt;webgen:block name='BLOCK_NAME' chain='(L)CN;(L)CN;...' node='next|first|current' notfound='ignore' /&gt;
+</code></pre>
+
+<p>So it is basically an XML tag with the mandatory attribute <code>name</code> and the optional attributes
+<code>chain</code>, <code>node</code> and <code>notfound</code>. The attributes are explained below but first comes a small
+explanation of how this tag works.</p>
+
+<p>webgen uses a node chain when rendering a page file. The default node chain is automatically
+determined via the <code>template</code> meta information (see
+<a href="../sourcehandler/template.html">SourceHandler::Template</a>) and the important thing to keep in mind
+is that the first node in the node chain is always the currently rendered template/page.</p>
+
+<p>For example, consider a <code>default.template</code> with a block tag of <code>&lt;webgen:block name='content' /&gt;</code> and
+an <code>index.page</code> that should be rendered. This would result in a node chain of (note that the CN of a
+page file has the extension <code>html</code>)</p>
+
+<pre><code>default.template ---&gt; index.html
+</code></pre>
+
+<p>During the rendering of the <code>index.page</code>, the node chain like shown above is created and rendering
+is started at the <em>first</em> node in the chain, in this case at <code>default.template</code>. When the block tag
+is encountered, it is replaced by the block named <code>content</code>, after rendering it according to its
+render pipeline, of the <code>index.page</code>. If such a block tag was not in the template, then the content
+of the <code>index.page</code> file would never be inserted into the output file! The behaviour of the block
+tag can be customized by using the various attributes.</p>
+
+<p>Summing up: the <code>template</code> meta information is used to create a node chain which is then used by the
+block tag to render the appropriate blocks.</p>
+
+<p>Following is the documentation for the available attributes of the tag:</p>
+
+<ul>
+  <li>
+    <p>The <code>name</code> attribute is the only mandatory attribute and it specifies the name of the block that
+should be rendered in place of the block tag. If the used node (see the <code>node</code> attribute) has no
+such named block, an error is raised.</p>
+  </li>
+  <li>
+    <p>The optional attribute <code>chain</code> specifies the node chain that should be used for rendering the
+block. Its value needs to be a list of (localized) canonical names of nodes separated by
+semicolons that should be used as node chain. If this attribute is not specified the default node
+chain is used.</p>
+  </li>
+  <li>
+    <p>The optional attribute <code>node</code> specifies which node in the node chain should be used.</p>
+
+    <ul>
+      <li>
+        <p>If this attribute is not specified or its value is <code>next</code>, the next node in the node chain (i.e.
+the second node) is used. If there is only one node left in the node chain that node is used.</p>
+      </li>
+      <li>
+        <p>If the attribute has a value of <code>first</code>, then the node chain is traversed till a node is found
+that has a block with the specified name. If no such node is in the node chain, an error is
+raised. If the attribute <code>chain</code> is also used, then the search starts at the first node of the
+node chain. Otherwise it starts at the second node.</p>
+      </li>
+      <li>
+        <p>If the attribute has a value of <code>current</code>, the currently processed node is used (i.e. the first
+node in the node chain).</p>
+
+        <blockquote class="important">
+          <p>Note that the attribute <code>chain</code> is not used in this situation!</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>If the optional attribute <code>notfound</code> has a value of <code>ignore</code>, all errors that can occur are
+ignored. This is especially useful when used in templates to include blocks that may not be
+defined in all page files.</p>
+  </li>
+</ul>
+
+<p>All this is more easily explained with examples. Assume that we have a <code>default.template</code> file, a
+<code>page.template</code> file and a <code>my.page</code> file with the following contents:</p>
+
+<p>The <code>default.template</code> file:</p>
+
+<pre><code>--- name:content pipeline:blocks
+before default
+&lt;webgen:block name='content' /&gt;
+after default 1
+&lt;webgen:block name='content' chain='page.template;my.html' /&gt;
+after default 2
+&lt;webgen:block name='optional' chain='page.template;my.html' node='first' /&gt;
+after default 3
+&lt;webgen:block name='invalid' notfound='ignore' /&gt;
+after default 4
+</code></pre>
+
+<p>The <code>page.template</code> file:</p>
+
+<pre><code>--- name:content pipeline:blocks
+before page 1
+&lt;webgen:block name='content' /&gt;
+after page 1
+</code></pre>
+
+<p>And the <code>my.page</code> file:</p>
+
+<pre><code>--- name:content pipeline:
+The content of the page file.
+--- name:optional pipeline:
+Optional content.
+</code></pre>
+
+<p>When <code>my.page</code> gets rendered to <code>my.html</code>, the node chain looks like this by default:</p>
+
+<pre><code>default.template ---&gt; my.html
+</code></pre>
+
+<p>The first webgen block tag just inserts the rendered block named <code>content</code> of <code>my.page</code>. The second
+block tag uses a custom node chain. Therefore the block named <code>content</code> of <code>page.template</code> gets
+rendered using the node chain:</p>
+
+<pre><code>page.template ---&gt; my.html
+</code></pre>
+
+<p>and then inserted. The third block tag uses the same custom node chain but for a block named
+<code>optional</code>. This block does not exist in <code>page.template</code> but it does exist in <code>my.page</code>. Since the
+<code>node</code> attribute is set to <code>first</code>, the first node <code>page.template</code> in the node chain is ignored and
+the block is found in <code>my.page</code> (if the <code>node</code> attribute is not specified, an error will be raised).</p>
+
+<p>The fourth block tag specifies a block name that does not occur in <code>my.page</code>. However, since the
+optional attribute <code>notfound</code> is set to <code>ignore</code>, this error is ignored.</p>
+
+<p>Summing up the above, the rendered file <code>my.html</code> will then look like this:</p>
+
+<pre><code>before default 1
+The content of the page file.
+after default 1
+before page 1
+The content of the page file.
+after page 1
+after default 2
+Optional content.
+after default 3
+
+after default 4
+</code></pre>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

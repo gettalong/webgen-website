@@ -1,0 +1,2084 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="default.css" type="text/css" />
+
+    <title>Configuration Option Reference | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="index.html">Overview</a></li><li class="webgen-menu-level1"><a href="getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1 webgen-menu-submenu"><a href="#configuration-option-reference">Configuration Option Reference</a><ul><li class="webgen-menu-level2 webgen-menu-submenu"><a href="#general-options">General Options</a><ul><li class="webgen-menu-level3"><a href="#websitelang">website.lang</a></li><li class="webgen-menu-level3"><a href="#websitelinktocurrentpage">website.link_to_current_page</a></li><li class="webgen-menu-level3"><a href="#websitecache">website.cache</a></li></ul></li><li class="webgen-menu-level2 webgen-menu-submenu"><a href="#commonly-used-options">Commonly Used Options</a><ul><li class="webgen-menu-level3"><a href="#commonsitemaphonorinmenu">common.sitemap.honor_in_menu</a></li><li class="webgen-menu-level3"><a href="#commonsitemapanylang">common.sitemap.any_lang</a></li><li class="webgen-menu-level3"><a href="#commonsitemapusedkinds">common.sitemap.used_kinds</a></li></ul></li><li class="webgen-menu-level2 webgen-menu-submenu"><a href="#source-and-output-specific-options">Source and Output Specific Options</a><ul><li class="webgen-menu-level3"><a href="#sources">sources</a></li><li class="webgen-menu-level3"><a href="#passivesources">passive_sources</a></li><li class="webgen-menu-level3"><a href="#output">output</a></li><li class="webgen-menu-level3"><a href="#outputdodeletion">output.do_deletion</a></li><li class="webgen-menu-level3"><a href="#sourcehandlerpatterns">sourcehandler.patterns</a></li><li class="webgen-menu-level3"><a href="#sourcehandlerinvoke">sourcehandler.invoke</a></li><li class="webgen-menu-level3"><a href="#sourcehandlercasefold">sourcehandler.casefold</a></li><li class="webgen-menu-level3"><a href="#sourcehandlerusehiddenfiles">sourcehandler.use_hidden_files</a></li><li class="webgen-menu-level3"><a href="#sourcehandlerignore">sourcehandler.ignore</a></li><li class="webgen-menu-level3"><a href="#sourcehandlerdefaultlanginoutputpath">sourcehandler.default_lang_in_output_path</a></li><li class="webgen-menu-level3"><a href="#sourcehandlerdefaultmetainfo">sourcehandler.default_meta_info</a></li><li class="webgen-menu-level3"><a href="#sourcehandlertemplatedefaulttemplate">sourcehandler.template.default_template</a></li></ul></li><li class="webgen-menu-level2 webgen-menu-submenu"><a href="#content-processor-specific-options">Content Processor Specific Options</a><ul><li class="webgen-menu-level3"><a href="#contentprocessormap">contentprocessor.map</a></li><li class="webgen-menu-level3"><a href="#contentprocessorerubisusepi">contentprocessor.erubis.use_pi</a></li><li class="webgen-menu-level3"><a href="#contentprocessorerubisoptions">contentprocessor.erubis.options</a></li><li class="webgen-menu-level3"><a href="#contentprocessorkramdownhandlelinks">contentprocessor.kramdown.handle_links</a></li><li class="webgen-menu-level3"><a href="#contentprocessorkramdownoptions">contentprocessor.kramdown.options</a></li><li class="webgen-menu-level3"><a href="#contentprocessorredclothhardbreaks">contentprocessor.redcloth.hard_breaks</a></li><li class="webgen-menu-level3"><a href="#contentprocessortagsprefix">contentprocessor.tags.prefix</a></li><li class="webgen-menu-level3"><a href="#contentprocessortagsmap">contentprocessor.tags.map</a></li><li class="webgen-menu-level3"><a href="#contentprocessortidyoptions">contentprocessor.tidy.options</a></li><li class="webgen-menu-level3"><a href="#contentprocessorxmllintoptions">contentprocessor.xmllint.options</a></li></ul></li><li class="webgen-menu-level2 webgen-menu-submenu"><a href="#tag-specific-options">Tag Specific Options</a><ul><li class="webgen-menu-level3"><a href="#tagbreadcrumbtrailseparator">tag.breadcrumbtrail.separator</a></li><li class="webgen-menu-level3"><a href="#tagbreadcrumbtrailomitindexpath">tag.breadcrumbtrail.omit_index_path</a></li><li class="webgen-menu-level3"><a href="#tagbreadcrumbtrailstartlevel">tag.breadcrumbtrail.start_level</a></li><li class="webgen-menu-level3"><a href="#tagbreadcrumbtrailendlevel">tag.breadcrumbtrail.end_level</a></li><li class="webgen-menu-level3"><a href="#tagcoderaylang">tag.coderay.lang</a></li><li class="webgen-menu-level3"><a href="#tagcoderayprocessbody">tag.coderay.process_body</a></li><li class="webgen-menu-level3"><a href="#tagcoderaywrap">tag.coderay.wrap</a></li><li class="webgen-menu-level3"><a href="#tagcoderaylinenumbers">tag.coderay.line_numbers</a></li><li class="webgen-menu-level3"><a href="#tagcoderaylinenumberstart">tag.coderay.line_number_start</a></li><li class="webgen-menu-level3"><a href="#tagcoderayboldevery">tag.coderay.bold_every</a></li><li class="webgen-menu-level3"><a href="#tagcoderaytabwidth">tag.coderay.tab_width</a></li><li class="webgen-menu-level3"><a href="#tagcoderaycss">tag.coderay.css</a></li><li class="webgen-menu-level3"><a href="#tagdateformat">tag.date.format</a></li><li class="webgen-menu-level3"><a href="#tagexecutecommandcommand">tag.executecommand.command</a></li><li class="webgen-menu-level3"><a href="#tagexecutecommandprocessoutput">tag.executecommand.process_output</a></li><li class="webgen-menu-level3"><a href="#tagexecutecommandescapehtml">tag.executecommand.escape_html</a></li><li class="webgen-menu-level3"><a href="#tagincludefilefilename">tag.includefile.filename</a></li><li class="webgen-menu-level3"><a href="#tagincludefileprocessoutput">tag.includefile.process_output</a></li><li class="webgen-menu-level3"><a href="#tagincludefileescapehtml">tag.includefile.escape_html</a></li><li class="webgen-menu-level3"><a href="#taglangbarseparator">tag.langbar.separator</a></li><li class="webgen-menu-level3"><a href="#taglangbarshowownlang">tag.langbar.show_own_lang</a></li><li class="webgen-menu-level3"><a href="#taglangbarshowsinglelang">tag.langbar.show_single_lang</a></li><li class="webgen-menu-level3"><a href="#taglangbarlangnames">tag.langbar.lang_names</a></li><li class="webgen-menu-level3"><a href="#taglinkpath">tag.link.path</a></li><li class="webgen-menu-level3"><a href="#taglinkattr">tag.link.attr</a></li><li class="webgen-menu-level3"><a href="#tagmetainfoescapehtml">tag.metainfo.escape_html</a></li><li class="webgen-menu-level3"><a href="#tagmenuusednodes">tag.menu.used_nodes</a></li><li class="webgen-menu-level3"><a href="#tagmenustartlevel">tag.menu.start_level</a></li><li class="webgen-menu-level3"><a href="#tagmenuminlevels">tag.menu.min_levels</a></li><li class="webgen-menu-level3"><a href="#tagmenumaxlevels">tag.menu.max_levels</a></li><li class="webgen-menu-level3"><a href="#tagmenushowcurrentsubtreeonly">tag.menu.show_current_subtree_only</a></li><li class="webgen-menu-level3"><a href="#tagmenunested">tag.menu.nested</a></li><li class="webgen-menu-level3"><a href="#tagrelocatablepath">tag.relocatable.path</a></li><li class="webgen-menu-level3"><a href="#tagtikzpath">tag.tikz.path</a></li><li class="webgen-menu-level3"><a href="#tagtikzlibraries">tag.tikz.libraries</a></li><li class="webgen-menu-level3"><a href="#tagtikzopts">tag.tikz.opts</a></li><li class="webgen-menu-level3"><a href="#tagtikzresolution">tag.tikz.resolution</a></li><li class="webgen-menu-level3"><a href="#tagtikztransparent">tag.tikz.transparent</a></li><li class="webgen-menu-level3"><a href="#tagtikzimgattr">tag.tikz.img_attr</a></li></ul></li></ul></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        
+<h1 id="configuration-option-reference">Configuration Option Reference</h1>
+
+<p>This reference describes all available configurations that can be set via the <a href="manual.html#website-configfile">configuration
+file</a> <code>config.yaml</code> (or, if you want to have more
+control, via an extension file).</p>
+
+<p>The reference is splitted into sections to provide better navigation. A sub header under a category
+always specifies the name of a configuration option and after that comes a description and example
+code. The example code either shows how to set this option in the configuration file (for most
+configuration options) and/or how to use it in a webgen tag (for tag configuration options).</p>
+
+<h2 id="general-options">General Options</h2>
+
+<ul>
+  <li>
+    <h3 id="websitelang">website.lang</h3>
+
+    <p>Specifies the default language of the website. The default language is assigned, for example, to
+page files for which a language is not explicitly specified.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>LANGUAGE</code> where <code>LANGUAGE</code> is a ISO-639-1/2 two or three letter language code</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>en
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>website.lang: de
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="websitelinktocurrentpage">website.link_to_current_page</h3>
+
+    <p>If this option is set to <code>true</code>, automatically generated links from a page to itself are
+used. Otherwise, only the title of the page is shown.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is <code>true</code> or <code>false</code></p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>website.link_to_current_page: false
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="websitecache">website.cache</h3>
+
+    <p>Specifies the type and location of the cache. Two types are currently supported: <code>:file</code> and
+<code>:string</code>. The file cache type stores the cache in a file relative to the website directory. The
+string cache type stores the cache directly in the second part of the configuration option (this
+is only useful when webgen is used as a library).</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>[TYPE, LOCATION]</code> where <code>TYPE</code> is one of <code>:file</code> or <code>:string</code></p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>[:file, &quot;webgen.cache&quot;]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>website.cache: [:file, my.cache]
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="commonly-used-options">Commonly Used Options</h2>
+
+<ul>
+  <li>
+    <h3 id="commonsitemaphonorinmenu">common.sitemap.honor_in_menu</h3>
+
+    <p>Specifies whether the sitemap should only include nodes that have the meta information <code>in_menu</code>
+set.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>common.sitemap.honor_in_menu: true
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Sitemap with in-menu nodes: {sitemap: {honor_in_menu: true}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="commonsitemapanylang">common.sitemap.any_lang</h3>
+
+    <p>Specifies whether the sitemap should include nodes in any language or only those without a
+language or with the language of the node in which the sitemap tag is used.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>common.sitemap.any_lang: true
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Sitemap with nodes in any language: {sitemap: {any_lang: true}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="commonsitemapusedkinds">common.sitemap.used_kinds</h3>
+
+    <p>Specifies the kind of nodes that should be used in the sitemap. This defaults to all nodes with
+the kind <code>page</code>. If this is set to an empty array, any kind of node is used.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>[KIND, ...]</code> where <code>KIND</code> is the kind of node that should be used.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>[&quot;page&quot;]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>common.sitemap.used_kinds: [asset]
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Sitemap with only asset nodes: {sitemap: {used_kinds: [asset]}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="source-and-output-specific-options">Source and Output Specific Options</h2>
+
+<ul>
+  <li>
+    <h3 id="sources">sources</h3>
+
+    <p>Specifies one or more sources from which paths are read. This can also be used, for example, to
+additionally add other directories as source directories that may or may not be located in the
+website directory.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>[[MOUNT POINT, NAME, ARG1, ARG2, ...], ...]</code> where <code>MOUNT POINT</code> is the path under
+which the source should be mounted, <code>NAME</code> is the name of the source class (for example,
+<code>Webgen::Source::FileSystem</code>) and <code>ARG1</code>, <code>ARG2</code> and so on are the parameters for the source
+class. The supported parameters can be found in the documentation for each source class.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>[[&quot;/&quot;, &quot;Webgen::Source::FileSystem&quot;, &quot;src&quot;]]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>sources: [[/, Webgen::Source::FileSystem, src], [/, Webgen::Source::FileSystem, /mnt/pictures, **/*.jpg]]
+</code></pre>
+
+        <p>Also have a look at the <a href="source/filesystem.html">file system source documentation</a> for more examples!</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="passivesources">passive_sources</h3>
+
+    <p>Specifies one or more sources which are not actively used during the node creation time, ie. no
+nodes are created from these sources by default. Instead, they lie dormant until later and are
+only used if resolving a path fails. Then it is checked if a passive source for the requested
+path exists and if so, a node is created from it. If a node created from a passive source is not
+used anymore, it is automatically deleted.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>[[MOUNT POINT, NAME, ARG1, ARG2, ...], ...]</code> where <code>MOUNT POINT</code> is the path under
+which the source should be mounted, <code>NAME</code> is the name of the source class (for example,
+<code>Webgen::Source::FileSystem</code>) and <code>ARG1</code>, <code>ARG2</code> and so on are the parameters for the source
+class. The supported parameters can be found in the documentation for each source class.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>[[&quot;/&quot;, &quot;Webgen::Source::Resource&quot;, &quot;webgen-passive-sources&quot;]]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>passive_sources:
+  [[/, Webgen::Source::Resource, webgen-passive-sources], [/, Webgen::Source::FileSystem, /mnt/pictures, **/*.jpg]]
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="output">output</h3>
+
+    <p>Specifies the output class that should be used for writing out the generated paths.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>[NAME, ARG1, ARG2, ...]</code> where <code>NAME</code> is the name of the output class (for example,
+<code>Webgen::Output::FileSystem</code>) and <code>ARG1</code>, <code>ARG2</code> and so on are the parameters for the output
+class. The supported parameters can be found in the documentation for each output class.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>[&quot;Webgen::Output::FileSystem&quot;, &quot;out&quot;]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>output: [Webgen::Output::FileSystem, custom_out]
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="outputdodeletion">output.do_deletion</h3>
+
+    <p>Specifies whether the output class should delete generated paths once the source paths are not
+available anymore.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>output.do_deletion: true
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlerpatterns">sourcehandler.patterns</h3>
+
+    <p>Specifies the path patterns that are used by the individual source handlers. This configuration
+option is not normally set directly in the configuration file but either in an extension file
+(e.g. <code>ext/init.rb</code>) or using a <a href="manual.html#website-configfile">configuration file helper</a> because otherwise the default entries would be overwritten.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{NAME: [PATTERN, PATTERN, ...], ...}</code> where <code>NAME</code> is the
+name the name of a source handler and <code>PATTERN</code> are one or more path patterns.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>Webgen::SourceHandler::Copy: [&quot;**/*.css&quot;, &quot;**/*.js&quot;, &quot;**/*.html&quot;, &quot;**/*.gif&quot;, &quot;**/*.jpg&quot;, &quot;**/*.png&quot;, &quot;**/*.ico&quot;]
+Webgen::SourceHandler::Directory: [&quot;**/&quot;]
+Webgen::SourceHandler::Metainfo: [&quot;**/metainfo&quot;, &quot;**/*.metainfo&quot;]
+Webgen::SourceHandler::Template: [&quot;**/*.template&quot;]
+Webgen::SourceHandler::Page: [&quot;**/*.page&quot;]
+Webgen::SourceHandler::Virtual: [&quot;**/virtual&quot;, &quot;**/*.virtual&quot;]
+Webgen::SourceHandler::Feed: [&quot;**/*.feed&quot;]
+Webgen::SourceHandler::Sitemap: [&quot;**/*.sitemap&quot;]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in <code>ext/init.rb</code>:</p>
+
+        <pre><code>config = Webgen::WebsiteAccess.website.config
+config['sourcehandler.patterns']['Webgen::SourceHandler::Copy'] &lt;&lt; '**/*.swf'
+</code></pre>
+
+        <p>Example for setting the option via the configuration file helper in the configuration file:</p>
+
+        <pre><code>patterns:
+  Copy:
+    add: [**/*.swf]
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlerinvoke">sourcehandler.invoke</h3>
+
+    <p>Specifies the invocation order of the various source handlers. This configuration option should
+normally only be used by extensions to register their source handlers!</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{ORDER: [NAME, ...], ...}</code> where <code>ORDER</code> is a number identifying the priority of the
+invocation (source handlers with a lower <code>ORDER</code> setting are executed earlier than ones with a
+higher <code>ORDER</code> setting) and <code>NAME</code> is the name of a source handler.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>1: [&quot;Webgen::SourceHandler::Directory&quot;, &quot;Webgen::SourceHandler::Metainfo&quot;]
+5: [&quot;Webgen::SourceHandler::Copy&quot;, &quot;Webgen::SourceHandler::Template&quot;, &quot;Webgen::SourceHandler::Page&quot;, &quot;Webgen::SourceHandler::Feed&quot;, &quot;Webgen::SourceHandler::Sitemap&quot;]
+9: [&quot;Webgen::SourceHandler::Virtual&quot;]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in <code>ext/init.rb</code>:</p>
+
+        <pre><code>config = Webgen::WebsiteAccess.website.config
+config['sourcehandler.invoke'][5] &lt;&lt; 'Extension::MyNewSourceHandler'
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlercasefold">sourcehandler.casefold</h3>
+
+    <p>Specifies whether path names should be considered case-sensitive (set to <code>false</code>) or
+case-insensitive (set to <code>true</code>).</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>sourcehandler.casefold: true
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlerusehiddenfiles">sourcehandler.use_hidden_files</h3>
+
+    <p>Specifies whether hidden files (those starting with a dot) should be used.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>sourcehandler.use_hidden_files: true
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlerignore">sourcehandler.ignore</h3>
+
+    <p>Specifies path patterns that should be ignored. All paths that match at least one of the
+patterns are never used.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>[PATTERN, ...]</code> where <code>PATTERN</code> is a valid path pattern.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>[&quot;**/*~&quot;, &quot;**/.svn/**&quot;]
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>sourcehandler.ignore: [**/*~, **/CVS/**]
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlerdefaultlanginoutputpath">sourcehandler.default_lang_in_output_path</h3>
+
+    <p>Specifies whether output paths in the default language should have the language code in their
+name.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>sourcehandler.default_lang_in_output_path: true
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlerdefaultmetainfo">sourcehandler.default_meta_info</h3>
+
+    <p>Specifies default meta information for all source handlers or for specific ones. The
+configuration file provides a shortcut for setting meta information items using the special
+<code>default_meta_info</code> key (see the examples).</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{NAME: {MI_KEY: MI_VALUE, ...}, ...}</code> where <code>NAME</code> is either the name of a source
+handler or the special key <code>:all</code> which sets default meta info for all source handlers.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>all:
+  output_path: standard
+  output_path_style: [:parent, :basename, [&quot;.&quot;, :lang], :ext]
+Webgen::SourceHandler::Copy:
+  kind: asset
+Webgen::SourceHandler::Directory:
+  index_path: index.html
+  kind: directory
+Webgen::SourceHandler::Page:
+  kind: page
+  fragments_in_menu: true
+  blocks:
+    default:
+      pipeline: erb,tags,markdown,blocks,fragments
+Webgen::SourceHandler::Fragment:
+  kind: fragment
+Webgen::SourceHandler::Template:
+  blocks:
+    default:
+      pipeline: erb,tags,blocks,head
+Webgen::SourceHandler::Metainfo:
+  blocks:
+    1:
+      name: paths
+    2:
+      name: alcn
+Webgen::SourceHandler::Feed:
+  rss: true
+  atom: true
+  blocks:
+    default:
+      pipeline: erb
+Webgen::SourceHandler::Sitemap:
+  default_priority: 0.5
+  default_change_freq: weekly
+  common.sitemap.any_lang: true
+  blocks:
+    default:
+      pipeline: erb
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>default_meta_info:
+  :all:
+    output_path_style: [:parent, :basename, :lang, :ext]
+  Webgen::SourceHandler::Page:
+    in_menu: true
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="sourcehandlertemplatedefaulttemplate">sourcehandler.template.default_template</h3>
+
+    <p>Specifies the name of the default template file of a directory. This template is used as
+fallback when no specific template is specified.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>PATH</code> where <code>PATH</code> is the (absolute) localized canonical name of the default template.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>default.template
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>sourcehandler.template.default_template: other.template
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="content-processor-specific-options">Content Processor Specific Options</h2>
+
+<ul>
+  <li>
+    <h3 id="contentprocessormap">contentprocessor.map</h3>
+
+    <p>This configuration option maps short names for content processor to their class names. The short
+names are used, for example, in the processing pipeline of a content block of a file in Webgen
+Page Format. This configuration option is normally only used by extensions to register the short
+name of a content processor!</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{SHORT: NAME, SHORT: [NAME, TYPE], ...}</code> where <code>SHORT</code> is the short name of the
+content processor class <code>NAME</code>. The second form allows one to additionally specify the type
+<code>TYPE</code> of the content processor which has to be <code>:binary</code> or <code>:text</code>. If the first form is
+used, then the type defaults to <code>:text</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>markdown: Webgen::ContentProcessor::Kramdown
+maruku: Webgen::ContentProcessor::Maruku
+textile: Webgen::ContentProcessor::RedCloth
+redcloth: Webgen::ContentProcessor::RedCloth
+tags: Webgen::ContentProcessor::Tags
+blocks: Webgen::ContentProcessor::Blocks
+erb: Webgen::ContentProcessor::Erb
+haml: Webgen::ContentProcessor::Haml
+sass: Webgen::ContentProcessor::Sass
+scss: Webgen::ContentProcessor::Scss
+rdoc: Webgen::ContentProcessor::RDoc
+builder: Webgen::ContentProcessor::Builder
+erubis: Webgen::ContentProcessor::Erubis
+rdiscount: Webgen::ContentProcessor::RDiscount
+fragments: Webgen::ContentProcessor::Fragments
+head: Webgen::ContentProcessor::Head
+tidy: Webgen::ContentProcessor::Tidy
+xmllint: Webgen::ContentProcessor::Xmllint
+kramdown: Webgen::ContentProcessor::Kramdown
+less: Webgen::ContentProcessor::Less
+</code></pre>
+      </li>
+      <li>
+        <p>Examples for setting the option in <code>ext/init.rb</code>:</p>
+
+        <pre><code>config = Webgen::WebsiteAccess.website.config
+config['contentprocessor.map']['newcp'] = 'Extension::MyNewContentProcessor'
+config['contentprocessor.map']['newcp'] = ['Extension::MyNewContentProcessor', :binary]
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessorerubisusepi">contentprocessor.erubis.use_pi</h3>
+
+    <p>Specifies whether Erubis should look for XML processing instructions or the standard ERB tags
+when processing content.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.erubis.use_pi: true
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessorerubisoptions">contentprocessor.erubis.options</h3>
+
+    <p>This configuration option can be used to specify additional options that the Erubis processor
+should use.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{KEY: VALUE, ...}</code> where <code>KEY</code> and <code>VALUE</code> are key-value pairs of options where
+<code>KEY</code> needs to be a Symbol and not a String.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>{}
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.erubis.options: {:trim: true}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessorkramdownhandlelinks">contentprocessor.kramdown.handle_links</h3>
+
+    <p>This configuration option can be used to specify whether all links generated via kramdown syntax
+should be automatically run through the <a href="tag/relocatable.html">relocatable tag</a>.
+This saves some typing and makes the document more robust since all links are automatically
+checked and warnings displayed if the link target is not found.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.kramdown.handle_links: false
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessorkramdownoptions">contentprocessor.kramdown.options</h3>
+
+    <p>This configuration option can be used to specify processing and converting options for
+kramdown.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{KEY: VALUE, ...}</code> where <code>KEY</code> and <code>VALUE</code> are key-value pairs of kramdown options</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>auto_ids: true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.kramdown.options: {:auto_ids: false}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessorredclothhardbreaks">contentprocessor.redcloth.hard_breaks</h3>
+
+    <p>Specifies whether hard breaks (i.e. single newlines) in paragraphs are converted to HTML break
+tags.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.redcloth.hard_breaks: true
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessortagsprefix">contentprocessor.tags.prefix</h3>
+
+    <p>Specifies the optional prefix that is used for tag names to avoid name clashes when another
+content processor uses similar markup.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>PREFIX</code> where <code>PREFIX</code> is the prefix name.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>&quot;&quot;
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.tags.prefix: webgen
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessortagsmap">contentprocessor.tags.map</h3>
+
+    <p>This configuration option maps short names for tag classes to tag class names. The short names
+are used in page and template files to specify the tag. This configuration option is normally
+only used by extensions to register the short name of a content processor.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{SHORT: NAME, ...}</code> where <code>SHORT</code> is the short name of the tag class <code>NAME</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>relocatable: Webgen::Tag::Relocatable
+menu: Webgen::Tag::Menu
+breadcrumb_trail: Webgen::Tag::BreadcrumbTrail
+langbar: Webgen::Tag::Langbar
+include_file: Webgen::Tag::IncludeFile
+execute_cmd: Webgen::Tag::ExecuteCommand
+coderay: Webgen::Tag::Coderay
+date: Webgen::Tag::Date
+sitemap: Webgen::Tag::Sitemap
+tikz: Webgen::Tag::TikZ
+link: Webgen::Tag::Link
+default: Webgen::Tag::Metainfo
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in <code>ext/init.rb</code>:</p>
+
+        <pre><code>config = Webgen::WebsiteAccess.website.config
+config['contentprocessor.tags.map']['highlight'] = 'Extension::MyHighlightingTag'
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessortidyoptions">contentprocessor.tidy.options</h3>
+
+    <p>This configuration option can be used to set the command line options for the <code>tidy</code> program
+which is used by the <a href="contentprocessor/tidy.html">content processor <code>tidy</code></a>.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>STRING</code> where <code>STRING</code> is the string holding the command line options.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>-raw
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.tidy.options: &quot;-utf8&quot;
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="contentprocessorxmllintoptions">contentprocessor.xmllint.options</h3>
+
+    <p>This configuration option can be used to set the command line options for the <code>xmllint</code> program
+which is used by the <a href="contentprocessor/xmllint.html">content processor <code>xmllint</code></a>.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>STRING</code> where <code>STRING</code> is the string holding the command line options.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>--catalogs --noout --valid
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>contentprocessor.xmllint.options: &quot;--catalogs --noout&quot;
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="tag-specific-options">Tag Specific Options</h2>
+
+<p>These options are not normally set in the configuration file but given directly as options to the
+respective tag classes. Therefore, all options described in this section have an example which shows
+how to use the option in files in Webgen Page Format and most options also have an example which
+shows how to set the option in the configuration file.</p>
+
+<ul>
+  <li>
+    <h3 id="tagbreadcrumbtrailseparator">tag.breadcrumbtrail.separator</h3>
+
+    <p>Specifies the string that should be used as separator between indivdual parts of the breadcrumb
+trail.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>SEPARATOR</code> where <code>SEPARATOR</code> is a string (special HTML characters need to be properly
+escaped)</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code> / 
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.breadcrumbtrail.separator: '---'
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Breadcrumb trail with different separator: {breadcrumb_trail: {separator: ' --- '}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagbreadcrumbtrailomitindexpath">tag.breadcrumbtrail.omit_index_path</h3>
+
+    <p>Specifies that the last part of the breadcrumb trail should be omitted if it is an index path.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.breadcrumbtrail.omit_index_path: true
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Breadcrumb trail with index path omitted: {breadcrumb_trail: {omit_index_path: true}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagbreadcrumbtrailstartlevel">tag.breadcrumbtrail.start_level</h3>
+
+    <p>Specifies the level at which the breadcrumb trail starts. The default of 0 means to start a the
+root directory. Setting this option to 1 starts the breadcrumb trail at the first level. If you
+specify negative numbers, then everything is calculated from the end of the trail. Following is
+a diagram showing the level numbers for a sample path:</p>
+
+    <pre><code> 0   1        2           3
+ /  dir1  /  dir2  /  myfile.html
+-4  -3       -2          -1
+</code></pre>
+
+    <p>Be aware that the you need to take the <code>tag.breadcrumbtrail.omit_index_path</code> option into
+account when specifying the level number.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>INTEGER</code> where <code>INTEGER</code> is any integer number</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>0
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.breadcrumbtrail.start_level: 2
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Breadcrumb trail starting at level 2: {breadcrumb_trail: {start_level: 2}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagbreadcrumbtrailendlevel">tag.breadcrumbtrail.end_level</h3>
+
+    <p>Specifies the level at which the breadcrumb trail ends. Have a look at the documentation for
+<code>tag.breadcrumbtrail.start_level</code> for more information on the useable level numbers.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>INTEGER</code> where <code>INTEGER</code> is any integer number</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>-1
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.breadcrumbtrail.end_level: 2
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Breadcrumb trail ending at level 2: {breadcrumb_trail: {end_level: 2}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderaylang">tag.coderay.lang</h3>
+
+    <p>Specifies the language that should be used for syntax highlighting.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>LANG</code> where <code>LANG</code> is one of <code>debug</code>, <code>plaintext</code>, <code>yaml</code>, <code>ruby</code>, <code>xml</code>, <code>sql</code>, <code>rhtml</code>, <code>groovy</code>, <code>cpp</code>, <code>html</code>, <code>nitro_xhtml</code>, <code>diff</code>, <code>c</code>, <code>json</code>, <code>python</code>, <code>java</code>, <code>java_script</code>, <code>php</code>, <code>scheme</code>, <code>delphi</code>, <code>css</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>ruby
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.lang: ruby
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>highlighting some ruby code {coderay:: ruby}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderayprocessbody">tag.coderay.process_body</h3>
+
+    <p>Specifies whether the body of the tag should be processed by the tags content processor first.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.process_body: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>wrapping in a span: {coderay:: {lang: ruby, process_body: false}}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderaywrap">tag.coderay.wrap</h3>
+
+    <p>Specifies in which HTML element the highlighted code should be wrapped.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>WRAP</code> where <code>WRAP</code> is either <code>:div</code> or <code>:span</code></p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>:div
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.wrap: span
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>wrapping in a span: {coderay:: {lang: ruby, wrap: span}}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderaylinenumbers">tag.coderay.line_numbers</h3>
+
+    <p>Specifies whether line numbers should be shown.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.line_numbers: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>not showing line numbers: {coderay:: {lang: ruby, line_numbers: false}}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderaylinenumberstart">tag.coderay.line_number_start</h3>
+
+    <p>Specifies the line number that should be used for the first line.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>NUMBER</code> where <code>NUMBER</code> is an integer value.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>1
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.line_number_start: 4
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>starting with line 4: {coderay:: {lang: ruby, line_number_start: 4}}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderayboldevery">tag.coderay.bold_every</h3>
+
+    <p>Specifies the interval at which the line numbers should appear bold.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>NUMBER</code> where <code>NUMBER</code> is an integer value.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>10
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.bold_every: 2
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>every other line bold: {coderay:: {lang: ruby, bold_every: 2}}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderaytabwidth">tag.coderay.tab_width</h3>
+
+    <p>Specifies the number of spaces that should be used to replace tabulator characters.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>NUMBER</code> where <code>NUMBER</code> is an integer value.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>8
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.tab_width: 4
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>tabulator == 4 spaces: {coderay:: {lang: ruby, tab_width: 4}}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagcoderaycss">tag.coderay.css</h3>
+
+    <p>Specifies how the highlighted code should be styled.</p>
+
+    <p>If set to <code>style</code>, the CSS style attributes are set directly on the various HTML elements.</p>
+
+    <p>If set to <code>class</code>, only classes are set on the HTML elements and a default external stylesheet
+is used - the <a href="contentprocessor/head.html">content processor head</a> is needed for
+this to work.</p>
+
+    <p>If set to <code>other</code>, only classes are set like with the <code>class</code> value but no default external
+stylesheet is used. You have to provide the styles yourself.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>STYLE</code> where <code>STYLE</code> is either <code>style</code>, <code>css</code> or <code>other</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>:style
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.coderay.css: style
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>with external stylesheet: {coderay:: {lang: ruby, css: class}}puts 5 + 5{coderay}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagdateformat">tag.date.format</h3>
+
+    <p>Specifies the format that should be used for formatting the current date. The format string
+needs to be in a format supported by Ruby’s method
+<a href="http://www.ruby-doc.org/core/classes/Time.html">Time#strftime</a>.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>FORMAT</code> where <code>FORMAT</code> is a string.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>%Y-%m-%d %H:%M:%S
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.date.format: '%Y-%m-%d'
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>very short date format: {date: {format: '%Y-%m-%d'}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagexecutecommandcommand">tag.executecommand.command</h3>
+
+    <p>Specifies the command that should be executed. This option is the default mandatory option for
+Webgen::Tag::ExecuteCommand.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>COMMAND</code> where <code>COMMAND</code> is the to-be-executed command.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>~
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>executing a simple command {exeucte_cmd: echo hallo}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagexecutecommandprocessoutput">tag.executecommand.process_output</h3>
+
+    <p>Specifies whether the output of the executed command should be further processed by the tags
+content processor.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.executecommand.process_output: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>executing command without further processing {execute_cmd: {command: 'echo hallo', process_output: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagexecutecommandescapehtml">tag.executecommand.escape_html</h3>
+
+    <p>Specifies whether special HTML characters in the output of the executed command should be escaped.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.executecommand.escape_html: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>executing command, output not escaped {execute_cmd: {command: 'echo hallo', escape_html: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagincludefilefilename">tag.includefile.filename</h3>
+
+    <p>Specifies the name of the file that should be included. The filename needs to be relative to the
+website directory or an absolute path. This option is the default mandatory option for
+Webgen::Tag::IncludeFile.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>FILENAME</code> where <code>FILENAME</code> is the name of a file</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>~
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>including a file {include_file: my_file.txt}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagincludefileprocessoutput">tag.includefile.process_output</h3>
+
+    <p>Specifies whether the content of the file should be further processed by the tags content
+processor.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.includefile.process_output: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>including a file without further processing {include_file: {filename: my_file.txt, process_output: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagincludefileescapehtml">tag.includefile.escape_html</h3>
+
+    <p>Specifies whether special HTML characters in the content of the file should be escaped.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.includefile.escape_html: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>including a file without escaping {include_file: {filename: my_file.txt, escape_html: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="taglangbarseparator">tag.langbar.separator</h3>
+
+    <p>Specifies the string that should be used as separator between the individual language parts.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>SEPARATOR</code> where <code>SEPARATOR</code> is a string (special HTML characters need to be properly
+escaped)</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code> | 
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.langbar.separator: ' --- '
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Langbar with another separator: {langbar: {separator: ' --- '}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="taglangbarshowownlang">tag.langbar.show_own_lang</h3>
+
+    <p>Specifies whether the link to the language of the current page should be displayed.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.langbar.show_own_lang: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Langbar with current page's lang not shown: {langbar: {show_own_lang: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="taglangbarshowsinglelang">tag.langbar.show_single_lang</h3>
+
+    <p>Specifies whether the list should be displayed even if there are no translations of the page
+(i.e. when there is only one page).</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.langbar.show_single_lang: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Langbar with single language not shown: {langbar: {show_single_lang: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="taglangbarlangnames">tag.langbar.lang_names</h3>
+
+    <p>This configuration option can be used to specify the language names that should be displayed
+instead of the language codes.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{CODE: NAME, ...}</code> where <code>CODE</code> is a language code and <code>NAME</code> the associated language
+name of the code.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>{}
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.langbar.lang_names: {de: Deutsch, en: English}
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Langbar with custom language names: {langbar: {lang_names: {de: Deutsch, en: English}}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="taglinkpath">tag.link.path</h3>
+
+    <p>The default mandatory configuration option for Tag::Link that specifies the (AL)CN path to which
+should be linked.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>PATH</code> where <code>PATH</code> is an (absolute) (localized) canonical name.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>~
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>You will find more information on the {link: docu.html} page!
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="taglinkattr">tag.link.attr</h3>
+
+    <p>Specifies additional HTML attributes that should be set on the link generated by Tag::Link.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{NAME: VALUE, ...}</code> where <code>NAME</code> is a valid HTML attribute name and <code>VALUE</code> its
+value.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>{}
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.link.attr: {title: DocuPage}
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>You will find more info on the {link: {path: docu.html, attr: {title: DocuPage}}} page!
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagmetainfoescapehtml">tag.metainfo.escape_html</h3>
+
+    <p>Specifies whether special HTML characters in the meta information value should be escaped.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.metainfo.escape_html: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>value of meta info `title` is not escaped {title: {escape_html: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagmenuusednodes">tag.menu.used_nodes</h3>
+
+    <p>Specifies the type of nodes that should be used for menu generation. If <code>all</code> is specified then
+all available menu nodes are used, if <code>files</code> is specified then only menu nodes that represent
+files or directories are used and if <code>fragments</code> is specified then only the fragment nodes of
+the displayed file are used.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>TYPE</code> where <code>TYPE</code> is one of <code>all</code>, <code>files</code> or <code>fragments</code></p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>all
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.menu.used_nodes: fragments
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Show the fragment node menu: {menu: {used_nodes: fragments}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagmenustartlevel">tag.menu.start_level</h3>
+
+    <p>Specifies the start level for the menu. All nodes with a lower level than this number are not
+shown in the menu.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>LEVEL</code> where <code>LEVEL</code> is a number that is greater or equal to one.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>1
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.menu.start_level: 2
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Menu starting at level 2: {menu: {start_level: 2}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagmenuminlevels">tag.menu.min_levels</h3>
+
+    <p>Specifies the minimum number of levels that should always be shown. For example, if this is set
+to <code>2</code> then two menu levels are always shown.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>LEVEL</code> where <code>LEVEL</code> is a number that is greater or equal to one.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>1
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.menu.min_levels: 2
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Menu that always shows at least 2 levels : {menu: {min_levels: 2}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagmenumaxlevels">tag.menu.max_levels</h3>
+
+    <p>Specifies the maximum number of levels that should be shown even if there would be more. For
+example, if this is set to <code>2</code> then there are only shown at most two menu levels.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>LEVEL</code> where <code>LEVEL</code> is a number that is greater or equal to one.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>3
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.menu.max_levels: 2
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Menu that always shows at most 2 levels : {menu: {max_levels: 2}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagmenushowcurrentsubtreeonly">tag.menu.show_current_subtree_only</h3>
+
+    <p>Specifies whether only the current subtree (ie. the subtree in which the node is that is
+displayed) should be shown in the menu or all subtrees. This option takes effect when there are
+at least two menu levels visible.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.menu.show_current_subtree_only: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Showing all subtrees: {menu: {show_current_subtree_only: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagmenunested">tag.menu.nested</h3>
+
+    <p>Specifies whether the generated menu should contain nested lists, ie. whether sub menus are
+put inline</p>
+
+    <pre><code>ul           1
+  li         2
+    ul       3
+      li     4
+      li     5
+  li         6
+</code></pre>
+
+    <p>or separately following the previous menu level</p>
+
+    <pre><code>ul           1
+  li         2
+  li         6
+ul           3
+  li         4
+  li         5
+</code></pre>
+
+    <blockquote>
+      <p>When this option is enabled you should enable the option
+<code>tag.menu.show_current_subtree_only</code>. Otherwise the generated menu will look a little bit
+confusing.</p>
+    </blockquote>
+    <p>{.information}</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>true
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.menu.nested: false
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>Don't use nested lists: {menu: {nested: false}}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagrelocatablepath">tag.relocatable.path</h3>
+
+    <p>The default mandatory configuration option for Tag::Relocatable that specifies the path that
+should be made relocatable.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>PATH</code> where <code>PATH</code> is a (localized) canonical name.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>~
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>&lt;a href=&quot;{relocatable: ../features.html}&quot;&gt;Some Path&lt;/a&gt;
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagtikzpath">tag.tikz.path</h3>
+
+    <p>The default mandatory configuration option for Tag::TikZ that specifies the (naturally
+non-existing) source path that should be used for creating the TikZ image. The output path is
+derived from this path the usual way. You shouldn’t use a path that does already exist!</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>PATH</code> where <code>PATH</code> is a relative or absolute source path.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>~
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>{tikz:: images/tikz.png}\tikz \draw (0,0) -- (0,2);{tikz}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagtikzlibraries">tag.tikz.libraries</h3>
+
+    <p>Specifies the names of additional TikZ library names that should be used when creating the
+image.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>[NAME, ...]</code> where <code>NAME</code> is the name of a TikZ library.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>~
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.tikz.libraries: [mindmap, arrows]
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>{tikz:: {path: images/tikz.png, libraries: [mindmap, arrows]}}
+\tikz \draw (0,0) -- (0,2) -- (2,2);
+{tikz}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagtikzopts">tag.tikz.opts</h3>
+
+    <p>Specifies additional global options for the <code>tikzpicture</code> environment.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>OPTS</code> where <code>OPTS</code> is the string with the global options.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>~
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.tikz.opts: 'scale=3, line cap=round'
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>{tikz:: {path: images/tikz.png, opts: 'scale=3, line cap=round'}}
+\tikz \draw (0,0) -- (0,2) -- (2,2);
+{tikz}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagtikzresolution">tag.tikz.resolution</h3>
+
+    <p>Specifies the render and output resolutions that should be used to convert the TikZ image in PDF
+format to the chosen image format. The first number specifies the render resolution and the
+second one the output resolution. If the render resolution is higher than the output resolution,
+the final image quality is better but the image needs to be scaled down to the output resolution.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>RENDER_RES OUTPUT_RES</code> where <code>RENDER_RES</code> is the integer specifying the render
+resolution and <code>OUTPUT_RES</code> is the integer specifying the output resolution.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>72 72
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.tikz.resolution: 300 72
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>{tikz:: {path: images/tikz.png, resolution: 300 72}}
+\tikz \draw (0,0) -- (0,2) -- (2,2);
+{tikz}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagtikztransparent">tag.tikz.transparent</h3>
+
+    <p>Specifies whether the generated image should be transparent. This only works when the path
+specified by <code>tag.tikz.path</code> option has the extension <code>.png</code>! You should probably also set the
+background of the generated image tag to transparent.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>BOOLEAN</code> where <code>BOOLEAN</code> is either <code>true</code> or <code>false</code>.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>false
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.tikz.transparent: true
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>{tikz:: {path: images/tikz.png, transparent: true}}
+\tikz \draw (0,0) -- (0,2) -- (2,2);
+{tikz}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="tagtikzimgattr">tag.tikz.img_attr</h3>
+
+    <p>Specifies additional HTML attributes that should be set on the generated <code>img</code> tag.</p>
+
+    <ul>
+      <li>
+        <p>Syntax: <code>{KEY:VALUE, ...}</code> where <code>KEY</code> is a valid HTML <code>img</code> tag attribute name and <code>VALUE</code>
+the to-be-set value.</p>
+      </li>
+      <li>
+        <p>Default value:</p>
+
+        <pre><code>{}
+</code></pre>
+      </li>
+      <li>
+        <p>Example for setting the option in the configuration file:</p>
+
+        <pre><code>tag.tikz.img_attr: {alt: Some TikZ picture}
+</code></pre>
+
+        <p>Example for setting the option directly in a tag:</p>
+
+        <pre><code>{tikz:: {path: images/tikz.png, img_attr: {alt: Some TikZ picture}}}
+\tikz \draw (0,0) -- (0,2) -- (2,2);
+{tikz}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

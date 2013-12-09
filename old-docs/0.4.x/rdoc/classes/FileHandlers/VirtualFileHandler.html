@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: FileHandlers::VirtualFileHandler</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">FileHandlers::VirtualFileHandler</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/webgen/plugins/filehandlers/filehandler_rb.html">
+                lib/webgen/plugins/filehandlers/filehandler.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="DefaultHandler.html">
+                DefaultHandler
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Handles virtual nodes created via the output backing section of the meta
+information backing file.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000312">create_node</a>&nbsp;&nbsp;
+      <a href="#M000313">write_node</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="VirtualFileHandler/VirtualNode.html" class="link">FileHandlers::VirtualFileHandler::VirtualNode</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000312" class="method-detail">
+        <a name="M000312"></a>
+
+        <div class="method-heading">
+          <a href="#M000312" class="method-signature">
+          <span class="method-name">create_node</span><span class="method-args">( path, parent, meta_info )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000312-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000312-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/plugins/filehandlers/filehandler.rb, line 460</span>
+460:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_node</span>( <span class="ruby-identifier">path</span>, <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">meta_info</span> )
+461:       <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>( <span class="ruby-identifier">path</span> )
+462:       <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">reference</span> = (<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'url'</span>] <span class="ruby-operator">?</span> [<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'url'</span>], <span class="ruby-identifier">filename</span>] <span class="ruby-operator">:</span> [<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">filename</span>])
+463: 
+464:       <span class="ruby-comment cmt"># no need to check for an existing nodes, that is already done in FileHandler#handle_output_backing</span>
+465:       <span class="ruby-identifier">temp_node</span> = <span class="ruby-constant">VirtualNode</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">reference</span> )
+466:       <span class="ruby-identifier">resolved_node</span> = <span class="ruby-identifier">temp_node</span>.<span class="ruby-identifier">resolve_node</span>( <span class="ruby-identifier">filename</span> )
+467:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">resolved_node</span>
+468:         <span class="ruby-identifier">node</span> = <span class="ruby-constant">VirtualNode</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">temp_node</span>.<span class="ruby-identifier">route_to</span>( <span class="ruby-identifier">resolved_node</span> ) )
+469:       <span class="ruby-keyword kw">else</span>
+470:         <span class="ruby-identifier">node</span> = <span class="ruby-constant">VirtualNode</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">filename</span> )
+471:       <span class="ruby-keyword kw">end</span>
+472:       <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">del_child</span>( <span class="ruby-identifier">temp_node</span> )
+473: 
+474:       <span class="ruby-identifier">node</span>.<span class="ruby-identifier">meta_info</span>.<span class="ruby-identifier">update</span>( <span class="ruby-identifier">meta_info</span> )
+475:       <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-identifier">:reference</span>] = <span class="ruby-identifier">reference</span>
+476:       <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-identifier">:processor</span>] = <span class="ruby-keyword kw">self</span>
+477:       <span class="ruby-identifier">node</span>
+478:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000313" class="method-detail">
+        <a name="M000313"></a>
+
+        <div class="method-heading">
+          <a href="#M000313" class="method-signature">
+          <span class="method-name">write_node</span><span class="method-args">( node )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000313-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000313-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/plugins/filehandlers/filehandler.rb, line 480</span>
+480:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">write_node</span>( <span class="ruby-identifier">node</span> )
+481:       <span class="ruby-comment cmt"># nothing to write</span>
+482:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

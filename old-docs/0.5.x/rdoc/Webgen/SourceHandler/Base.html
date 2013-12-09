@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: Webgen::SourceHandler::Base</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/webgen/sourcehandler/base_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/sourcehandler/base.rb">lib/webgen/sourcehandler/base.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">MODULE</span> <a href="Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-content">#content</a></li>
+					
+					<li><a href="#method-i-create_node">#create_node</a></li>
+					
+					<li><a href="#method-i-node_exists%3F">#node_exists?</a></li>
+					
+					<li><a href="#method-i-output_path">#output_path</a></li>
+					
+					<li><a href="#method-i-page_from_path">#page_from_path</a></li>
+					
+					<li><a href="#method-i-parent_node">#parent_node</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><a class="include" href="../Loggable.html">Webgen::Loggable</a></li>
+				
+				
+				
+					<li><span class="include">OutputPathHelpers</span></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../../REXML.html">REXML</a></li>
+				
+					<li><a href="../../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">Webgen::SourceHandler::Base</h1>
+
+		<div id="description">
+			<p>
+This module should be included in every source handler as it provides the
+default methods for creating nodes.
+</p>
+<h2>Implementing <a href="../Source.html">Source</a> Handlers</h2>
+<p>
+A source handler is a webgen extension that processes source paths to
+create nodes and that provides the rendered content of these nodes. The
+nodes are later written to the output location. This can range from simply
+copying a path from the source to the output location to generating a whole
+set of nodes from one input path!
+</p>
+<p>
+The paths that are handled by a source handler are specified via path
+patterns (see below). During a webgen run the <a
+href="Base.html#method-i-create_node">#</a> method for each source paths
+that matches a specified path pattern is called. And when it is time to
+write out the node, the <a href="Base.html#method-i-content">#</a> method
+is called to retrieve the rendered content.
+</p>
+<p>
+A source handler must not take any parameters on initialization and when
+this module is not mixed in, the methods <a
+href="Base.html#method-i-create_node">#</a> and <a
+href="Base.html#method-i-content">#</a> need to be defined. Also, a source
+handler does not need to reside under the <a
+href="../SourceHandler.html">Webgen::SourceHandler</a> namespace but all
+shipped ones do.
+</p>
+<p>
+This base class provides useful default implementations of methods that are
+used by nearly all source handler classes:
+</p>
+<ul>
+<li><p>
+<a href="Base.html#method-i-create_node">#</a>
+</p>
+</li>
+<li><p>
+<a href="Base.html#method-i-output_path">#</a>
+</p>
+</li>
+<li><p>
+<a href="Base.html#method-i-node_exists%3F">#</a>
+</p>
+</li>
+</ul>
+<p>
+It also provides other utility methods:
+</p>
+<ul>
+<li><p>
+<a href="Base.html#method-i-page_from_path">#</a>
+</p>
+</li>
+<li><p>
+<a href="Base.html#method-i-content">#</a>
+</p>
+</li>
+<li><p>
+<a href="Base.html#method-i-parent_node">#</a>
+</p>
+</li>
+</ul>
+<h2>Nodes Created for Paths</h2>
+<p>
+The main functions of a source handler class are to create one or more
+nodes for a source path and to provide the content of these nodes. To
+achieve this, certain information needs to be set on a created node. If you
+use the <tt><a href="Base.html#method-i-create_node">create_node</a></tt>
+method provided by this base class, you don&#8217;t need to set them
+explicitly because this is done by the method:
+</p>
+<dl>
+<dt><tt>node_info[:processor]</tt></dt><dd><p>
+Has to be set to the class name of the source handler. This is used by the
+<a href="../Node.html">Node</a> class: all unknown method calls are
+forwarded to the node processor.
+</p>
+</dd>
+<dt><tt>node_info[:src]</tt></dt><dd><p>
+Has to be set to the string version of the path that lead to the creation
+of the node.
+</p>
+</dd>
+<dt><tt>node_info[:creation_path]</tt></dt><dd><p>
+Has to be set to the string version of the path that is used to create the
+path.
+</p>
+</dd>
+<dt><tt>meta_info['no_output']</tt></dt><dd><p>
+Has to be set to <tt>true</tt> on nodes that are used during a webgen run
+but do not produce an output file.
+</p>
+</dd>
+<dt><tt>meta_info['modified_at']</tt></dt><dd><p>
+Has to be set to the current time if not already set correctly (ie. if not
+a Time object).
+</p>
+</dd>
+</dl>
+<p>
+If <tt>meta_info['draft']</tt> is set on a path, then no node should be
+created in <tt><a
+href="Base.html#method-i-create_node">create_node</a></tt> and <tt>nil</tt>
+has to be returned.
+</p>
+<p>
+Note: The difference between <tt>:src</tt> and <tt>:creation_path</tt> is
+that a creation path need not have an existing source path representation.
+For example, fragments created from a page source path have a different
+<tt>:creation_path</tt> which includes the fragment part.
+</p>
+<p>
+Additional information that is used only for processing purposes should be
+stored in the # hash of a node as the # hash is reserved for real node meta
+information and should not be changed once the node is created.
+</p>
+<h2><a href="../Output.html">Output</a> <a href="../Path.html">Path</a> Names</h2>
+<p>
+The method for creating an output path name for a source path is stored in
+the meta information <tt><a
+href="Base.html#method-i-output_path">output_path</a></tt>. If you
+don&#8217;t use the provided method <tt><a
+href="Base.html#method-i-output_path">output_path</a></tt>, have a look at
+its implementation to see how to an output path gets created. Individual
+output path creation methods are stored as methods in the <a
+href="Base/OutputPathHelpers.html">OutputPathHelpers</a> module.
+</p>
+<h2><a href="../Path.html">Path</a> Patterns and Invocation order</h2>
+<p>
+<a href="../Path.html">Path</a> patterns define which paths are handled by
+a specific source handler. These patterns are specified in the
+<tt>sourcehandler.patterns</tt> configuration hash as a mapping from the
+source handler class name to an array of path patterns. The patterns need
+to have a format that <tt>Dir.glob</tt> can handle. You can use the
+configuration helper <tt>patterns</tt> to set this (is shown in the example
+below).
+</p>
+<p>
+Specifying a path pattern does not mean that webgen uses the source
+handler. One also needs to provide an entry in the configuration value
+<tt>sourcehandler.invoke</tt>. This is a hash that maps the invocation rank
+(a number) to an array of source handler class names. The lower the
+invocation rank the earlier the specified source handlers are used.
+</p>
+<p>
+The default invocation ranks are:
+</p>
+<dl>
+<dt>1</dt><dd><p>
+Early. Normally there is no need to use this rank.
+</p>
+</dd>
+<dt>5</dt><dd><p>
+Standard. This is the rank the normal source handler should use.
+</p>
+</dd>
+<dt>9</dt><dd><p>
+Late. This rank should be used by source handlers that operate on/use
+already created nodes and need to ensure that these nodes are available.
+</p>
+</dd>
+</dl>
+<h2>Default Meta Information</h2>
+<p>
+Each source handler can define default meta information that gets
+automatically set on the source paths that are passed to the <a
+href="Base.html#method-i-create_node">#</a> method.
+</p>
+<p>
+The default meta information is specified in the
+<tt>sourcehandler.default_meta_info</tt> configuration hash as a mapping
+from the source handler class name to the meta information hash.
+</p>
+<h2>Sample <a href="../Source.html">Source</a> Handler Class</h2>
+<p>
+Following is a simple source handler class example which copies paths from
+the source to the output location modifying the extension:
+</p>
+<pre>
+  class SimpleCopy
+
+    include Webgen::SourceHandler::Base
+    include Webgen::WebsiteAccess
+
+    def create_node(path)
+      path.ext += '.copied'
+      super(path)
+    end
+
+    def content(node)
+      website.blackboard.invoke(:source_paths)[node.node_info[:src]].io
+    end
+
+  end
+
+  WebsiteAccess.website.config.patterns('SimpleCopy' =&gt; ['**/*.jpg', '**/*.png'])
+  WebsiteAccess.website.config.sourcehandler.invoke[5] &lt;&lt; 'SimpleCopy'</pre>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="content-method" class="method-detail ">
+				<a name="method-i-content"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">content</span><span
+						class="method-args">(node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the content of the given <tt>node</tt>. If the return value is not
+<tt>nil</tt> then the node gets written, otherwise it is ignored.
+</p>
+<p>
+This default <tt>content</tt> method just returns <tt>nil</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="content-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/sourcehandler/base.rb, line 252</span>
+252:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content</span>(<span class="ruby-identifier">node</span>)
+253:       <span class="ruby-keyword kw">nil</span>
+254:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="create-node-method" class="method-detail ">
+				<a name="method-i-create_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_node</span><span
+						class="method-args">(path, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a node from <tt>path</tt> if it does not already exists or
+re-initalize an already existing node. The found node or the newly created
+node is returned afterwards. <tt>nil</tt> is returned if no node can be
+created (e.g. when <tt>path.meta_info['draft']</tt> is set).
+</p>
+<p>
+The <tt>options</tt> parameter can be used for providing the optional
+parameters:
+</p>
+<dl>
+<dt><tt>:parent</tt></dt><dd><p>
+The parent node under which the new node should be created. If this is not
+specified (the usual case), the parent node is determined by the <a
+href="Base.html#method-i-parent_node">#</a> method.
+</p>
+</dd>
+<dt><tt>:<a href="Base.html#method-i-output_path">output_path</a></tt></dt><dd><p>
+The output path that should be used for the node. If this is not specified
+(the usual case), the output path is determined via the <a
+href="Base.html#method-i-output_path">#</a> method.
+</p>
+</dd>
+</dl>
+<p>
+Some additional node information like <tt>:src</tt> and <tt>:processor</tt>
+is set and the meta information is checked for validness. The
+created/re-initialized node is yielded if a block is given.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-node-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/sourcehandler/base.rb, line 220</span>
+220:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_node</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span> = {})
+221:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'draft'</span>]
+222:       <span class="ruby-identifier">parent</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:parent</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">parent_node</span>(<span class="ruby-identifier">path</span>)
+223:       <span class="ruby-identifier">output_path</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:output_path</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">output_path</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">path</span>)
+224:       <span class="ruby-identifier">node</span> = <span class="ruby-identifier">node_exists?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">output_path</span>)
+225: 
+226:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-value">:src</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">source_path</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-value">:processor</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>)
+227:         <span class="ruby-identifier">log</span>(<span class="ruby-value">:warn</span>) { <span class="ruby-node">&quot;Node already exists: source = #{path.source_path} | path = #{node.path} | alcn = #{node.alcn}&quot;</span>}
+228:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">node</span> <span class="ruby-comment cmt">#TODO: think! should nil be returned?</span>
+229:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">node</span>
+230:         <span class="ruby-identifier">node</span> = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">output_path</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">cn</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>)
+231:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">flagged?</span>(<span class="ruby-value">:reinit</span>)
+232:         <span class="ruby-identifier">node</span>.<span class="ruby-identifier">reinit</span>(<span class="ruby-identifier">output_path</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>)
+233:       <span class="ruby-keyword kw">else</span>
+234:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">node</span>
+235:       <span class="ruby-keyword kw">end</span>
+236: 
+237:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">node</span>[<span class="ruby-value str">'modified_at'</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Time</span>)
+238:         <span class="ruby-identifier">log</span>(<span class="ruby-value">:warn</span>) { <span class="ruby-node">&quot;Meta information 'modified_at' set to current time in &lt;#{node}&gt; since its value '#{node['modified_at']}' was of type #{node['modified_at'].class}&quot;</span> } <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'modified_at'</span>].<span class="ruby-identifier">nil?</span>
+239:         <span class="ruby-identifier">node</span>[<span class="ruby-value str">'modified_at'</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+240:       <span class="ruby-keyword kw">end</span>
+241:       <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-value">:src</span>] = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">source_path</span>
+242:       <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-value">:creation_path</span>] = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">path</span>
+243:       <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_info</span>[<span class="ruby-value">:processor</span>] = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>
+244:       <span class="ruby-keyword kw">yield</span>(<span class="ruby-identifier">node</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+245:       <span class="ruby-identifier">node</span>
+246:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="node-exists--method" class="method-detail ">
+				<a name="method-i-node_exists%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">node_exists?</span><span
+						class="method-args">(path, output_path = self.output_path(parent_node(path), path))</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Check if the node alcn and output path which would be created by <a
+href="Base.html#method-i-create_node">#</a> exist. The <tt><a
+href="Base.html#method-i-output_path">output_path</a></tt> to check for can
+individually be set.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="node-exists--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/sourcehandler/base.rb, line 199</span>
+199:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node_exists?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">output_path</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">output_path</span>(<span class="ruby-identifier">parent_node</span>(<span class="ruby-identifier">path</span>), <span class="ruby-identifier">path</span>))
+200:       <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">WebsiteAccess</span>.<span class="ruby-identifier">website</span>.<span class="ruby-identifier">tree</span>[<span class="ruby-identifier">path</span>.<span class="ruby-identifier">alcn</span>] <span class="ruby-operator">||</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'no_output'</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">WebsiteAccess</span>.<span class="ruby-identifier">website</span>.<span class="ruby-identifier">tree</span>[<span class="ruby-identifier">output_path</span>, <span class="ruby-value">:path</span>])
+201:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="output-path-method" class="method-detail ">
+				<a name="method-i-output_path"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">output_path</span><span
+						class="method-args">(parent, path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Construct the output name for the given <tt>path</tt> and <tt>parent</tt>.
+First it is checked if a node with the constructed output name already
+exists. If it exists, the language part is forced to be in the output name
+and the resulting output name is returned.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="output-path-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/sourcehandler/base.rb, line 175</span>
+175:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">output_path</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">path</span>)
+176:       <span class="ruby-identifier">method</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'output_path'</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">'_output_path'</span>
+177:       <span class="ruby-identifier">use_lang_part</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'lang'</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># unlocalized files never get a lang in the filename!</span>
+178:                         <span class="ruby-keyword kw">false</span>
+179:                       <span class="ruby-keyword kw">else</span>
+180:                         <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">WebsiteAccess</span>.<span class="ruby-identifier">website</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value str">'sourcehandler.default_lang_in_output_path'</span>] <span class="ruby-operator">||</span>
+181:                           <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">WebsiteAccess</span>.<span class="ruby-identifier">website</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value str">'website.lang'</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'lang'</span>]
+182:                       <span class="ruby-keyword kw">end</span>
+183:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">OutputPathHelpers</span>.<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword kw">false</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span>}.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method</span>)
+184:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">use_lang_part</span>)
+185:         <span class="ruby-identifier">name</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'/'</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/$/</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/\/$/</span>
+186:         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">node</span> = <span class="ruby-identifier">node_exists?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">name</span>)) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">lang</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'lang'</span>]
+187:           <span class="ruby-identifier">name</span> = <span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">path</span>, (<span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-value str">'lang'</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">true</span>))
+188:           <span class="ruby-identifier">name</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'/'</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/$/</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/\/$/</span>
+189:         <span class="ruby-keyword kw">end</span>
+190:         <span class="ruby-identifier">name</span>
+191:       <span class="ruby-keyword kw">else</span>
+192:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeCreationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Unknown method for creating output path: #{path.meta_info['output_path']}&quot;</span>,
+193:                                             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">path</span>)
+194:       <span class="ruby-keyword kw">end</span>
+195:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="page-from-path-method" class="method-detail ">
+				<a name="method-i-page_from_path"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">page_from_path</span><span
+						class="method-args">(path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Utility method for creating a <a href="../Page.html">Webgen::Page</a>
+object from the <tt>path</tt>. Also updates <tt>path.meta_info</tt> with
+the meta info from the page.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="page-from-path-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/sourcehandler/base.rb, line 258</span>
+258:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_from_path</span>(<span class="ruby-identifier">path</span>)
+259:       <span class="ruby-keyword kw">begin</span>
+260:         <span class="ruby-identifier">page</span> = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Page</span>.<span class="ruby-identifier">from_data</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">io</span>.<span class="ruby-identifier">data</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span>)
+261:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Page</span><span class="ruby-operator">::</span><span class="ruby-constant">FormatError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+262:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeCreationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Error reading source path: #{e.message}&quot;</span>,
+263:                                             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">path</span>)
+264:       <span class="ruby-keyword kw">end</span>
+265:       <span class="ruby-identifier">path</span>.<span class="ruby-identifier">meta_info</span> = <span class="ruby-identifier">page</span>.<span class="ruby-identifier">meta_info</span>
+266:       <span class="ruby-identifier">page</span>
+267:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="parent-node-method" class="method-detail ">
+				<a name="method-i-parent_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">parent_node</span><span
+						class="method-args">(path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the parent node for the given <tt>path</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="parent-node-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/sourcehandler/base.rb, line 270</span>
+270:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parent_node</span>(<span class="ruby-identifier">path</span>)
+271:       <span class="ruby-identifier">parent_dir</span> = (<span class="ruby-identifier">path</span>.<span class="ruby-identifier">parent_path</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span> <span class="ruby-operator">?</span> <span class="ruby-value str">''</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">Path</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">parent_path</span>).<span class="ruby-identifier">alcn</span>)
+272:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">parent</span> = <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">WebsiteAccess</span>.<span class="ruby-identifier">website</span>.<span class="ruby-identifier">tree</span>[<span class="ruby-identifier">parent_dir</span>])
+273:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeCreationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;The needed parent path &lt;#{parent_dir}&gt; does not exist&quot;</span>,
+274:                                             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">path</span>)
+275:       <span class="ruby-keyword kw">end</span>
+276:       <span class="ruby-identifier">parent</span>
+277:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

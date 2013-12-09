@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::Tag::Coderay | webgen - static website generator</title>
+
+  
+<link rel="stylesheet" href="../stylesheets/coderay-default.css" type="text/css"/></head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li><li class="webgen-menu-level1"><a href="#examples">Examples</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgentagcoderay">Webgen::Tag::Coderay</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>The following tag names are registered for this tag class: <code>coderay</code></p>
+
+<p>This tag uses the following options:</p>
+
+<ul>
+<li><a href='../reference_configuration.html#tagcoderaylang'><code>tag.coderay.lang</code></a> (mandatory default)</li>
+
+<li><a href='../reference_configuration.html#tagcoderayprocessbody'><code>tag.coderay.process_body</code></a></li>
+
+<li><a href='../reference_configuration.html#tagcoderaywrap'><code>tag.coderay.wrap</code></a></li>
+
+<li><a href='../reference_configuration.html#tagcoderaylinenumbers'><code>tag.coderay.line_numbers</code></a></li>
+
+<li><a href='../reference_configuration.html#tagcoderaylinenumberstart'><code>tag.coderay.line_number_start</code></a></li>
+
+<li><a href='../reference_configuration.html#tagcoderayboldevery'><code>tag.coderay.bold_every</code></a></li>
+
+<li><a href='../reference_configuration.html#tagcoderaytabwidth'><code>tag.coderay.tab_width</code></a></li>
+
+<li><a href='../reference_configuration.html#tagcoderaycss'><code>tag.coderay.css</code></a></li>
+</ul>
+
+<h2 id="description">Description</h2>
+
+<p>This tag applies syntax highlighting to its body by using the <a href="http://coderay.rubychan.de/" title="The Coderay homepage">coderay</a> library which can be used
+to highlight many different languages (see <code>tag.coderay.lang</code> documentation). The body of the tag
+specifies what should be highlighted.</p>
+
+<p>By using the configuration option <code>tag.coderay.css</code> you can specify whether you want to have inline
+styles, the default external stylesheet file or your own stylesheet file.</p>
+
+<blockquote class="information">
+  <p>It is easy to include and highlight an entire file by combining this tag with the <code>include_file</code> tag:</p>
+
+  <pre><code>{coderay:: ruby}{include_file: test.rb}{coderay}
+</code></pre>
+</blockquote>
+
+<blockquote class="warning">
+  <p>This extension is only available if you have installed the <a href="http://coderay.rubychan.de/" title="The Coderay homepage">coderay</a> library. The preferred
+way to do this is via Rubygems:</p>
+
+  <pre><code>gem install coderay
+</code></pre>
+</blockquote>
+
+<h2 id="examples">Examples</h2>
+
+<table class="examples">
+<tr>
+  <th>Usage</th><th>Output</th>
+</tr>
+<tr>
+  <td>{coderay:: {lang: ruby, bold_every: 2}}{include_file: lib/webgen/version.rb}{coderay}</td>
+  
+  <td><div class="CodeRay">
+  <div class="code"><pre><span class="no">1</span> <span style="color:#888"># -*- encoding: utf-8 -*-</span>
+<span class="no"><strong>2</strong></span> 
+<span class="no">3</span> <span style="color:#080;font-weight:bold">module</span> <span style="color:#B06;font-weight:bold">Webgen</span>
+<span class="no"><strong>4</strong></span> 
+<span class="no">5</span>   <span style="color:#888"># The version of webgen.</span>
+<span class="no"><strong>6</strong></span>   <span style="color:#036;font-weight:bold">VERSION</span> = <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">0.5.14</span><span style="color:#710">'</span></span>
+<span class="no">7</span> 
+<span class="no"><strong>8</strong></span> <span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</td>
+  
+</tr>
+<tr>
+  <td>{coderay:: {lang: ruby, wrap: span, css: class}}puts 5+5{coderay}</td>
+  <td><code><span class="CodeRay"><span class="no">1</span> puts <span class="i">5</span>+<span class="i">5</span></span></code></td>
+</tr>
+</table>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

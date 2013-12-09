@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="default.css" type="text/css" />
+
+    <title>FAQ | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="index.html">Overview</a></li><li class="webgen-menu-level1"><a href="getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="manual.html">Manual</a></li><li class="webgen-menu-level1 webgen-menu-item-selected"><span>FAQ</span></li><li class="webgen-menu-level1"><a href="extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#general-questions">General Questions</a></li><li class="webgen-menu-level1 webgen-menu-submenu"><a href="#how-to-">How to …</a><ul><li class="webgen-menu-level2"><a href="#create-a-website">… create a website?</a></li><li class="webgen-menu-level2"><a href="#set-configuration-options">… set configuration options?</a></li><li class="webgen-menu-level2"><a href="#change-the-default-language">… change the default language?</a></li><li class="webgen-menu-level2"><a href="#use-a-different-processing-pipeline-for-page-files">… use a different processing pipeline for page files?</a></li><li class="webgen-menu-level2"><a href="#set-the-default-meta-information-for-files-created-by-a-specific-source-handler">… set the default meta information for files created by a specific source handler?</a></li><li class="webgen-menu-level2"><a href="#ignore-files-in-the-source-directory">… ignore files in the source directory?</a></li><li class="webgen-menu-level2"><a href="#change-the-output-name-style">… change the output name style?</a></li><li class="webgen-menu-level2"><a href="#modify-the-template-chain">… modify the template chain?</a></li><li class="webgen-menu-level2"><a href="#localize-a-directory-name">… localize a directory name?</a></li><li class="webgen-menu-level2"><a href="#provide-additional-attributes-on-links-to-a-file">… provide additional attributes on links to a file?</a></li><li class="webgen-menu-level2"><a href="#add-page-specific-sidebar-content">… add page specific sidebar content?</a></li><li class="webgen-menu-level2"><a href="#create-xml-output">… create XML output?</a></li><li class="webgen-menu-level2"><a href="#create-a-static-menu">… create a static menu?</a></li><li class="webgen-menu-level2"><a href="#use-short-menu-title">… use short menu title?</a></li></ul></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <h1 id="general-questions">General Questions</h1>
+
+<ul>
+  <li>
+    <p><strong>webgen fails with an error after upgrading to a newer version - what to do?</strong></p>
+
+    <p>Delete the cache file and try again. The structure of the cache may not be valid anymore after a
+version update. So it is always good to delete the cache after installing a new webgen version.</p>
+  </li>
+  <li>
+    <p><strong>Why can I specify multiple blocks in a page/template file?</strong></p>
+
+    <p>This allows you to provide different content parts for one page. For example, imagine you have a
+layout with a sidebar and you want to have page specific sidebar contents. The easiest way to
+achieve that is to add a <code>sidebar</code> block to the page files that provide a page specific sidebar
+content and include the <code>sidebar</code> block in your <code>default.template</code>, like this:</p>
+
+    <pre><code>&lt;webgen:block name='sidebar' notfound=&quot;ignore&quot; chain=&quot;first&quot; /&gt;
+</code></pre>
+
+    <p>By using <code>notfound=&quot;ignore&quot;</code> we tell webgen to ignore errors when such a block is not found and
+the <code>chain=&quot;first&quot;</code> attribute tells webgen to search through the whole node chain for such a
+block. The latter is needed when nested templates are used because by default only the next node
+in the chain is inspected.</p>
+  </li>
+  <li>
+    <p><strong>What do I have to do to use the extensions?</strong></p>
+
+    <p>Nothing! Extensions are initialized and used automatically when needed. So, for example, if you
+add a <code>my.feed</code> file to your website, the <code>Webgen::SourceHandler::Feed</code> extension gets
+automatically used. The same is true for all types of extensions (source handler, content
+processors, tags, …).</p>
+  </li>
+  <li>
+    <p><strong>Is there any way to add comments to my webgen website?</strong></p>
+
+    <p>Surely! There are several comment engines out there, however, the following two look very
+promising:</p>
+
+    <ul>
+      <li><a href="http://js-kit.com/comments/">JS-Kit</a></li>
+      <li><a href="http://disqus.com">DISQUS</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="how-to-">How to …</h1>
+
+<p>This section provides quick answers and links to more information for the most commonly asked
+questions.</p>
+
+<h3 id="create-a-website">… create a website?</h3>
+
+<p>Use the <code>webgen</code> command to create the needed directories</p>
+
+<pre><code>webgen create -b default -b andreas07 my_site
+</code></pre>
+
+<p>This will create a webgen website in the directory <code>my_site</code> using the specified bundles.</p>
+
+<h3 id="set-configuration-options">… set configuration options?</h3>
+
+<p>You can set any configuration options via the configuration file called <code>config.yaml</code>. For example,
+say you want to set the option <code>website.link_to_current_page</code> to <code>true</code>, then you would add the
+following to the configuration file:</p>
+
+<pre><code>website.link_to_current_page: true
+</code></pre>
+
+<p>There is a second possibility for webgen tags: you can set the options directly in the tag
+definition, like this:</p>
+
+<pre><code>{menu: {start_level: 2, min_levels: 3}}
+</code></pre>
+
+<p>And if you want to have complete control over the configuration options, you can use the file
+<code>ext/init.rb</code>. For example, the following specifies that all page files should be in the menu by
+default:</p>
+
+<pre><code>config = Webgen::WebsiteAccess.website.config
+config['sourcehandler.default_meta_info']['Webgen::SourceHandler::Page']['in_menu'] = true
+</code></pre>
+
+<h3 id="change-the-default-language">… change the default language?</h3>
+
+<p>To use, for example, German as the default language, put the following into the configuration file:</p>
+
+<pre><code>website.lang: de
+</code></pre>
+
+<p>The value needs to be a valid ISO-639-1/2 language code.</p>
+
+<h3 id="use-a-different-processing-pipeline-for-page-files">… use a different processing pipeline for page files?</h3>
+
+<p>If you want to change the processing pipeline (ie. how a page file get rendered), you need to add
+the following to your configuration file:</p>
+
+<pre><code>default_processing_pipeline:
+  Page: erb,tags,textile,blocks
+</code></pre>
+
+<p>The <code>default_processing_pipeline</code> key is a special key which allows to directly set the processing
+pipeline (instead of going through all the meta information).</p>
+
+<p>If you just want to change the pipeline for one block, you can do it like this:</p>
+
+<pre><code>--- pipeline:erb,tags,textile,blocks
+This is the content of the block
+</code></pre>
+
+<h3 id="set-the-default-meta-information-for-files-created-by-a-specific-source-handler">… set the default meta information for files created by a specific source handler?</h3>
+
+<p>Use the configuration file! For example, to change the meta information <code>in-menu</code> sothat it defaults
+to <code>true</code> for all page files use the following in your configuration file:</p>
+
+<pre><code>default_meta_info:
+  Page:
+    in_menu: true
+</code></pre>
+
+<p>The key <code>default_meta_info</code> is a special key in the configuration file which allows to update the
+default meta information for a source handler and not to substitute it.</p>
+
+<h3 id="ignore-files-in-the-source-directory">… ignore files in the source directory?</h3>
+
+<p>This can be done using the <code>sourcehandler.ignore</code> configuration options. For example, to ignore all
+files starting with <code>core</code>, you would put the following in the configuration file:</p>
+
+<pre><code>sourcehandler.ignore: [**/core*]
+</code></pre>
+
+<p>The value of this option has to be an array of path patterns. Be aware that this overwrites the
+default setting.</p>
+
+<h3 id="change-the-output-name-style">… change the output name style?</h3>
+
+<p>You have several options of varying granularity:</p>
+
+<ul>
+  <li>
+    <p>Set the meta information <code>output_path_style</code> for all source handlers:</p>
+
+    <pre><code>default_meta_info:
+  :all:
+    output_path_style: [:parent, :basename, [., :lang], :ext]
+</code></pre>
+  </li>
+  <li>
+    <p>Set the meta information <code>output_path_style</code> for a specific source handler to only change the
+output paths of this source handler (the page source handler in the following example):</p>
+
+    <pre><code>default_meta_info:
+  Page:
+    output_path_style: [:parent, :basename, [., :lang], :ext]
+</code></pre>
+  </li>
+  <li>
+    <p>Add the meta information <code>output_path_style</code> to a single file via, for example, a meta information
+backing file.</p>
+  </li>
+</ul>
+
+<h3 id="modify-the-template-chain">… modify the template chain?</h3>
+
+<p>To stop the template chain at a specific template or even at the page file itself, specify a
+null template in the meta information, like this:</p>
+
+<pre><code>template: ~
+</code></pre>
+
+<p>To nest templates, you just need to specify the template, in which this template/page file should be
+nested, in the meta information:</p>
+
+<pre><code>template: my_special.template
+</code></pre>
+
+<p>Be aware that if no <code>template</code> meta information is specified for a page or template file, the
+template handler automatically searches for a default template in the directory and the parent
+directories of the file!</p>
+
+<h3 id="localize-a-directory-name">… localize a directory name?</h3>
+
+<p>Just set the <code>routed_title</code> meta information on the correct localized directory index files.</p>
+
+<h3 id="provide-additional-attributes-on-links-to-a-file">… provide additional attributes on links to a file?</h3>
+
+<p>You can specify additional attributes for a link to a file by using the <code>link_attrs</code> meta
+information. Take the following page file:</p>
+
+<pre><code>---
+title: Tutorial
+in_menu: true
+link_attrs:
+  title: This is a rather large tutorial
+  accesskey: D
+  tabindex: 5
+---
+Yippieh, this is my tutorial!
+</code></pre>
+
+<p>When a link to this page is created, the specified attributes get additionally set on the link!</p>
+
+<h3 id="add-page-specific-sidebar-content">… add page specific sidebar content?</h3>
+
+<p>There are many ways to accomplish this, I will show only one way here using blocks. Add the
+following to the sidebar part in your <code>default.template</code> (ensure that you haven’t disabled <code>erb</code> in
+the processing pipeline):</p>
+
+<pre><code>&lt;% if context.node.node_info[:page].blocks.has_key?('sidebar') %&gt;
+  &lt;webgen:block name='sidebar' /&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>This will include the contents of the block <code>sidebar</code> in the sidebar if such a block exists for a
+page. You can then add a sidebar block to each page file which needs it. Following is such a sample
+page file:</p>
+
+<pre><code>This is the main content block
+--- name:sidebar
+This is the sidebar block and everything in here goes to the sidebar!
+</code></pre>
+
+<p>You can avoid using the ERB processor if you use the following syntax (available from version 0.5.7
+upwards):</p>
+
+<pre><code>&lt;webgen:block name='sidebar' node='first' notfound='ignore' /&gt;
+</code></pre>
+
+<h3 id="create-xml-output">… create XML output?</h3>
+
+<p>This can be achieved manually (by removing any markup processor in the processing pipeline of the
+page file and then directly creating the XML elements) or by changing the processing pipeline to
+include content processor <code>builder</code> which provides an easy way of programmatically creating an XML
+compliant file. More information on this can be found on the documentation page of
+Webgen::ContentProcessor::Builder!</p>
+
+<h3 id="create-a-static-menu">… create a static menu?</h3>
+
+<p>You can use virtual nodes to define virtually any menu structure you like, including things like
+having menu entries that point to the same page and links to external pages.</p>
+
+<h3 id="use-short-menu-title">… use short menu title?</h3>
+
+<p>You can use the special meta information key <code>link_attrs</code> to achieve that. Just use the following in
+the meta information block of the page file for which you want a short menu title:</p>
+
+<pre><code>link_attrs:
+  :link_text: Short title
+</code></pre>
+
+<blockquote>
+  <p>Be aware that this changes not only how the page appears in a menu but also how it appears in
+breadcrumb trails and other links generated by webgen.</p>
+</blockquote>
+<p>{.important}</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:37:52 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

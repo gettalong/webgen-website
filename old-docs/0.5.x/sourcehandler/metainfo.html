@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::SourceHandler::Metainfo | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgensourcehandlermetainfo">Webgen::SourceHandler::Metainfo</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>This source handler operates on paths that match one of the following path patterns (see the <a href="../manual.html#source-pathpattern">path pattern documentation</a> for more information): <code>**/metainfo, **/*.metainfo</code></p>
+
+<p>Following is the default meta information set on any node created by this source handler:</p>
+
+<pre>
+blocks: 
+  1: 
+    name: paths
+  2: 
+    name: alcn
+</pre>
+
+
+
+<h2 id="description">Description</h2>
+
+<p>This source handler provides the ability to set meta information for any path. It uses files in
+<a href="../webgen_page_format.html">Webgen Page Format</a> which can have two special blocks:</p>
+
+<ul>
+  <li>
+    <p><code>paths</code>: This block specifies meta information for paths and therefore this meta information is
+applied before a node for a path is created. This can be used, for example, to change the output
+path style. When specifying patterns, remember that the patterns are matched against paths!</p>
+  </li>
+  <li>
+    <p><code>alcn</code>: This block specifies meta information for nodes and this meta information is applied
+directly after a node has been created. When specifying patterns, remember that the patterns are
+matched against absolute localized canonical names! So you always need to take the language part
+into account, ie. <code>/index.html</code> won’t match but <code>/index.en.html</code> will.</p>
+  </li>
+</ul>
+
+<p>When no name is specified in the meta information file, the first block is assumed to be the <code>paths</code>
+block and the second block is assumed to be the <code>alcn</code> block. The format of the two blocks is the
+same: they need to be in YAML format and provide a hash with path patterns as keys and the
+to-be-assigned meta information as values. The patterns can be normal file system paths or node
+(a)lcns but you can also use some special characters like <code>*</code> (match any file), <code>**</code> (match
+recursively or expansively) and <code>?</code> (match a single character). You can find the full information in
+the documentation for <a href="http://ruby-doc.org/core/classes/File.html#M002603">File.fnmatch</a>.</p>
+
+<p>All this is best showed in an example:</p>
+
+<pre><code>--- name:paths
+/**/index.page:
+  output_path_style: [:parent, :basename, :ext, [., :lang]]
+
+mypic.jpg:
+  in_menu: true
+--- name:alcn
+**/index.en.html:
+  in_menu: true
+</code></pre>
+
+<p>All paths named <code>index.page</code> are assigned a new output path style. This has to be done in the
+<code>paths</code> block because otherwise it would have no effect. And the file <code>mypic.jpg</code> will show up in
+the menu. Notice, that the first form is specified as an absolute path pattern and the second
+not. If this meta information file lies in the root directory there is no difference between those
+two approaches. However, when it lies in a sub directory, the first form is still absolute but the
+second form is taken relative to the directory in which the meta information file is in.</p>
+
+<p>And last but not least, all nodes with a localized canonical name of <code>index.en.html</code> will show up in
+the menu (again, notice that the pattern is relative).</p>
+
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

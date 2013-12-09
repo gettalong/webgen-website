@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: NewsTag</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">NewsTag</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/webgen/plugins/tags/news_rb.html">
+                lib/webgen/plugins/tags/news.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Tags/DefaultTag.html">
+                Tags::DefaultTag
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This plugin creates a &#8216;news&#8217; tag which can be used to display
+the contents of a news file.
+</p>
+<p>
+The news file by default is &#8216;news.yaml&#8217; and placed in the root
+of the webgen directory. This can be changed with the
+&#8216;filename&#8217; parameter.
+</p>
+<p>
+The yaml file has the basic format of
+</p>
+<pre>
+  date: content
+  date: content
+</pre>
+<p>
+Where the date has the format indicated by the &#8216;dateFormat&#8217;
+parmater, which by default is YYYY-MM-DD. The content is formated according
+to the &#8216;contentFormat&#8217; parameter and is textile by default. I
+recommend using the &#8217;|&#8217; version of block text for the content.
+For example:
+</p>
+<pre>
+  2007-03-20: |
+      h2. this is an entry
+
+      This is some content
+</pre>
+<p>
+When utilzed in a template the &#8216;news&#8217; tag can optionally take
+to additional parameters &#8216;maxEntries&#8217; and
+&#8216;maxParagraphs&#8217;.
+</p>
+<pre>
+  maxEntries: the N most recent entries by date in the news.yaml
+              file to display.
+
+  maxParagraphs: the content of an entry is truncated to N
+                 paragraphs, where a paragraphs ending is defined by
+                 &quot;\n\n&quot;
+</pre>
+<p>
+So the following usage of the news tag would disply the first paragraph of
+the most recent item in the news.yaml file.
+</p>
+<pre>
+  {news: {options: {maxEntries: 1, maxParagraphs: 1}}}
+</pre>
+<p>
+While this usage would display all the contents of the news.yaml file
+sorted in reverse chronological order and displayed fully.
+</p>
+<pre>
+  {news: }
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000001">process_tag</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="#M000001" class="method-signature">
+          <span class="method-name">process_tag</span><span class="method-args">( tag, chain )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000001-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/plugins/tags/news.rb, line 87</span>
+ 87:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_tag</span>( <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">chain</span> )
+ 88:         <span class="ruby-identifier">content</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>
+ 89:         <span class="ruby-keyword kw">begin</span>
+ 90:             <span class="ruby-identifier">news_file</span> = <span class="ruby-identifier">param</span>( <span class="ruby-value str">'filename'</span> )
+ 91:             <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-identifier">param</span>( <span class="ruby-value str">'websiteDir'</span>, <span class="ruby-value str">'Core/Configuration'</span> ), <span class="ruby-identifier">news_file</span> ) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">filename</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(\/|\w:)/</span>
+ 92:             <span class="ruby-identifier">data</span> = <span class="ruby-constant">YAML</span><span class="ruby-operator">::</span><span class="ruby-identifier">load</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">filename</span>) )
+ 93: 
+ 94:             <span class="ruby-identifier">start_date_tag</span> = <span class="ruby-identifier">param</span>(<span class="ruby-value str">'dateTag'</span>)
+ 95:             <span class="ruby-identifier">end_date_tag</span>   = <span class="ruby-identifier">start_date_tag</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/ .*/</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># in case people put attributes on the tag</span>
+ 96:             <span class="ruby-identifier">start_content_tag</span> = <span class="ruby-identifier">param</span>(<span class="ruby-value str">'contentTag'</span>) <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
+ 97:             <span class="ruby-identifier">end_content_tag</span>   = <span class="ruby-identifier">start_content_tag</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/ .*/</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># in case people put attributes on the tag</span>
+ 98: 
+ 99:             <span class="ruby-identifier">format</span>         = <span class="ruby-identifier">param</span>(<span class="ruby-value str">'dateFormat'</span>)
+100:             <span class="ruby-identifier">content_handler</span>= <span class="ruby-ivar">@plugin_manager</span>[<span class="ruby-value str">'ContentConverter/Default'</span>].<span class="ruby-identifier">registered_handlers</span>[<span class="ruby-identifier">param</span>(<span class="ruby-value str">'contentFormat'</span>)]
+101: 
+102:             <span class="ruby-identifier">limit_entries</span>(<span class="ruby-identifier">data</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">datetime</span>,<span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+103:                 <span class="ruby-identifier">content</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;&lt;#{start_date_tag}&gt;#{datetime.strftime(format)}&lt;/#{end_date_tag}&gt;&quot;</span>
+104:                 <span class="ruby-identifier">content</span>.<span class="ruby-identifier">print</span> <span class="ruby-node">&quot;&lt;#{start_content_tag}&gt;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">start_content_tag</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+105:                 <span class="ruby-identifier">content</span>.<span class="ruby-identifier">print</span> <span class="ruby-identifier">content_handler</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">entry</span>)
+106:                 <span class="ruby-identifier">content</span>.<span class="ruby-identifier">print</span> <span class="ruby-node">&quot;&lt;/#{end_content_tag}&gt;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">start_content_tag</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+107:             <span class="ruby-keyword kw">end</span>
+108:         <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">boom</span>
+109:             <span class="ruby-identifier">log</span>(<span class="ruby-identifier">:error</span>) { <span class="ruby-node">&quot;Given file &lt;#{filename}&gt; specified in &lt;#{chain.first.node_info[:src]}&gt; does not exist or can't be read&quot;</span> }
+110:         <span class="ruby-keyword kw">end</span>
+111:         <span class="ruby-identifier">content</span>.<span class="ruby-identifier">string</span>
+112:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

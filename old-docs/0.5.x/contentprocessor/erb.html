@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::ContentProcessor::Erb | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgencontentprocessorerb">Webgen::ContentProcessor::Erb</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>As short name for the content processor (used, for example, in the <code>pipeline</code> option of a block in a
+file in <a href="../webgen_page_format.html">Webgen Page Format</a>) one of the following can be
+used: <code>erb</code>.</p>
+
+
+<h2 id="description">Description</h2>
+
+<p>This processer uses ERB (embedded Ruby) to process content. For detailed information about ERB have
+a look at its documentation by executing <code>ri ERB</code> or the <a href="http://www.ruby-doc.org/">ruby documentation
+site</a>!</p>
+
+<p>You can use the special object <code>context</code> in your ERB code which provides the whole rendering context
+and, for example, the following useful methods:</p>
+
+<ul>
+  <li>
+    <p><code>website</code>: Provides access to the <code>Webgen::Website</code> object which can be used to access all aspects
+of the currently rendered website.</p>
+  </li>
+  <li>
+    <p><code>node</code> (or <code>content_node</code>): The node that gets currently rendered. Should be used for retrieving
+meta information.</p>
+  </li>
+  <li>
+    <p><code>ref_node</code>: The reference node which is the source of the ERB code that is executed. Should be
+used, for example, for resolving paths.</p>
+  </li>
+  <li>
+    <p><code>dest_node</code>: The node in which the result gets inserted. Should be used for calculating relative
+paths.</p>
+  </li>
+</ul>
+
+<p>For a complete list of supported methods have a look at the API documentation for
+<a href="../rdoc/Webgen/Context.html">Webgen::Context</a>.</p>
+
+<p>Here is a small usage example. The following put in a page file</p>
+
+<pre><code>Counting 5 items dynamically:
+&lt;% for i in 1..5 %&gt;
+  * item &lt;%= i %&gt;
+&lt;% end %&gt;
+
+Outputting all meta information:
+&lt;% context.node.meta_info.each do |k,v| %&gt;
+  * &lt;%= k %&gt; = &lt;%= v %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>… will give the result:</p>
+
+<pre><code>Counting 5 items dynamically:
+
+  * item 1
+
+  * item 2
+
+  * item 3
+
+  * item 4
+
+  * item 5
+
+
+Outputting all meta information:
+
+  * sort_info = 
+
+  * title = Webgen::ContentProcessor::Erb
+
+  * modified_at = 2010-07-15 07:31:56 +0200
+
+  * output_path = standard
+
+  * output_path_style = [:parent, :basename, [&quot;.&quot;, :lang], :ext]
+
+  * kind = page
+
+  * fragments_in_menu = true
+
+  * template = ../contentprocessor.template
+</code></pre>
+
+<p>The second line shows the first form of the ERB tags which executes Ruby code but does not output
+anything: it just starts a <code>for</code> loop. On the third line the second form of ERB tags is used to
+output the result of the Ruby code (note the equation sign!). And the fourth line completes the
+<code>for</code> loop by adding the needed <code>end</code> keyword.</p>
+
+<blockquote class="important">
+  <p>You may need to ensure that the ERB start and end tags are not processed by the content
+processor. For example, when using the RedCloth content processor, you may need to surround the
+ERB code with <code>&lt;notextile&gt;</code> tags!</p>
+</blockquote>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

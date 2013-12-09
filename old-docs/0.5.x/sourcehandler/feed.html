@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="Author" content="Thomas Leitner - t_leitner@gmx.at" />
+
+    <link rel="stylesheet" href="../default.css" type="text/css" />
+
+    <title>Webgen::SourceHandler::Feed | webgen - static website generator</title>
+
+  </head>
+
+  <body>
+    <!-- header starts here -->
+    <div id="header"><div id="header-content">
+      <img id="logo-image" src="../images/webgen_logo.png" alt="webgen logo" />
+      <h1 id="logo">webgen</h1>
+      <h2 id="slogan">static website generation made easy</h2>
+
+      <!-- Menu Tabs -->
+      <ul><li class="webgen-menu-level1"><a href="../index.html">Overview</a></li><li class="webgen-menu-level1"><a href="../getting_started.html">Getting Started Guide</a></li><li class="webgen-menu-level1"><a href="../manual.html">Manual</a></li><li class="webgen-menu-level1"><a href="../faq.html">FAQ</a></li><li class="webgen-menu-level1"><a href="../extensions.html">Extensions</a></li><li class="webgen-menu-level1"><a href="../rdoc/index.html">API</a></li></ul>
+
+    </div></div>
+
+    <!-- content-wrap starts here -->
+    <div id="content-wrap"><div id="content">
+
+      <div id="sidebar" >
+
+        
+        <h1>Contents</h1>
+        
+
+        <ul><li class="webgen-menu-level1"><a href="#description">Description</a></li></ul>
+
+      </div>
+
+      <div id="main">
+
+        <p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+<h1 id="webgensourcehandlerfeed">Webgen::SourceHandler::Feed</h1>
+
+<h2 id="summary">Summary</h2>
+
+
+<p>This source handler operates on paths that match one of the following path patterns (see the <a href="../manual.html#source-pathpattern">path pattern documentation</a> for more information): <code>**/*.feed</code></p>
+
+<p>Following is the default meta information set on any node created by this source handler:</p>
+
+<pre>
+rss: true
+atom: true
+blocks: 
+  default: 
+    pipeline: erb
+</pre>
+
+
+
+<h2 id="description">Description</h2>
+
+<p>This source handler automatically generates an atom or RSS feed for a set of files from a file in
+<a href="../webgen_page_format.html">Webgen Page Format</a> (the format which is also used for page files).</p>
+
+<p>The following meta information keys are supported:</p>
+
+<ul>
+  <li>
+    <p><code>entries</code> (MANDATORY)</p>
+
+    <p>A LCN pattern (or an array of LCN patterns) which specify the page files that should be
+used. Other matched files are excluded from the list.</p>
+
+    <blockquote class="information">
+      <p>Be aware that if you want to include a single file or files in a specific language only you
+need to include the language part since this is a LCN and not a CN pattern, eg. <code>mypage.html</code>
+won’t work but <code>mypage.en.html</code> will!</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><code>number_of_entries</code> (OPTIONAL)</p>
+
+    <p>The number of entries that should be included in the feed. Defaults to 10.</p>
+  </li>
+  <li>
+    <p><code>atom</code> (OPTIONAL)</p>
+
+    <p>An atom feed is generated if this key is set to <code>true</code>. Defaults to <code>true</code>. The generated file
+name derives from the feed file name but the extension is changed to <code>atom</code>.</p>
+  </li>
+  <li>
+    <p><code>rss</code> (OPTIONAL)</p>
+
+    <p>A RSS feed is generated if this key is set to <code>true</code>. Defaults to <code>true</code>. The generated file
+name derives from the feed file name but the extension is changed to <code>rss</code>.</p>
+  </li>
+  <li>
+    <p><code>rss_version</code> (OPTIONAL)</p>
+
+    <p>The RSS version that should be used for generating the RSS feed. Defaults to <code>2.0</code>.</p>
+  </li>
+  <li>
+    <p><code>site_url</code> (MANDATORY)</p>
+
+    <p>The base url of the website for which the feed is generated.</p>
+  </li>
+  <li>
+    <p><code>author</code> (MANDATORY)</p>
+
+    <p>Specifies the author of the feed.</p>
+  </li>
+  <li>
+    <p><code>author_url</code> (OPTIONAL)</p>
+
+    <p>Specifies the URL of the homepage of the author.</p>
+  </li>
+  <li>
+    <p><code>title</code> (MANDATORY)</p>
+
+    <p>The title of the feed.</p>
+  </li>
+  <li>
+    <p><code>description</code> (OPTIONAL)</p>
+
+    <p>A short description of the feed.</p>
+  </li>
+  <li>
+    <p><code>created_at</code> (OPTIONAL)</p>
+
+    <p>The time at which this feed was created. Defaults to the current time if not set. Has the same
+format as the meta information <code>created_at</code>.</p>
+  </li>
+  <li>
+    <p><code>content_block_name</code> (OPTIONAL)</p>
+
+    <p>The name of the block that should be used for the content of the feed entries. If not specified
+the name <code>content</code> is used. Be aware that each page file that can appear in the feed needs to
+have such a block!</p>
+  </li>
+</ul>
+
+<p>The following meta information keys of page files are used if they are specified:</p>
+
+<ul>
+  <li>
+    <p><code>created_at</code></p>
+
+    <p>The time at which the page file was created, used as the publication time.</p>
+  </li>
+  <li>
+    <p><code>modified_at</code></p>
+
+    <p>The time at which the page file was last modified, used as the time at which this feed entry was
+updated.</p>
+
+    <blockquote class="information">
+      <p>This is the field that is used to sort the entries.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><code>title</code></p>
+
+    <p>The title of the page file, used as title of the feed entry.</p>
+  </li>
+  <li>
+    <p><code>author</code></p>
+
+    <p>The name of the author of the page file, used as the author of the feed entry.</p>
+  </li>
+  <li>
+    <p><code>author_url</code></p>
+
+    <p>The URL of the homepage of the author. Only used if the <code>author</code> meta information is also set.</p>
+  </li>
+</ul>
+
+<p>The default implementation supports the generation of atom and RSS feeds by using templates shipped
+with webgen (the extension <code>feed</code> is changed to <code>atom</code> for atom feeds and to <code>rss</code> for rss feeds).
+The default templates are located under the ALCNs <code>/templates/atom_feed.template</code> and
+<code>/templates/rss_feed.template</code> and are automatically created and used if no such paths exist in the
+webgen website. You can also override the default generation mechanism on a file per file basis by
+adding an <code>atom_template</code> and/or <code>rss_template</code> block in the feed file which are then used to
+generate the atom or the RSS feed respectively.</p>
+
+
+
+<p class="backlink"><a href="../extensions.html">Back</a> to the extension listing.</p>
+
+
+      </div>
+
+      <!-- content-wrap ends here -->
+    </div></div>
+
+    <!-- footer starts here -->
+    <div id="footer"><div id="footer-content">
+
+      <div class="col float-left">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="http://rubyforge.org/projects/webgen">webgen project page on Rubyforge</a></li>
+          <li><a href="http://rubyforge.org/frs/?group_id=296">webgen downloads</a></li>
+        </ul>
+      </div>
+
+      <div class="col2 float-right">
+        <p>
+          &copy; 2004-2010 Thomas Leitner | generated by <a href="http://webgen.rubyforge.org">webgen</a><br />
+          Design based on Ablaze 2.1 by <a href="http://www.styleshout.com/">styleshout</a><br />
+          Block quote icons from the <a href="http://tango.freedesktop.org//">Tango Icon Theme</a><br />
+          Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+          <a href="http://validator.w3.org/check/referer">XHTML</a>
+        </p>
+
+        <p>Page last changed at: 2010-07-15 07:31:56 +0200</p>
+      </div>
+
+    </div></div>
+    <!-- footer ends here -->
+
+  </body>
+</html>

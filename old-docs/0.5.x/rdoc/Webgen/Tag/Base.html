@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: Webgen::Tag::Base</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/webgen/tag/base_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/tag/base.rb">lib/webgen/tag/base.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-call">#call</a></li>
+					
+					<li><a href="#method-i-create_from_hash">#create_from_hash</a></li>
+					
+					<li><a href="#method-i-create_from_string">#create_from_string</a></li>
+					
+					<li><a href="#method-i-create_params_hash">#create_params_hash</a></li>
+					
+					<li><a href="#method-i-create_tag_params">#create_tag_params</a></li>
+					
+					<li><a href="#method-i-param">#param</a></li>
+					
+					<li><a href="#method-i-set_params">#set_params</a></li>
+					
+					<li><a href="#method-i-tag_config_base">#tag_config_base</a></li>
+					
+					<li><a href="#method-i-tag_params_list">#tag_params_list</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><a class="include" href="../Loggable.html">Webgen::Loggable</a></li>
+				
+				
+				
+					<li><a class="include" href="../WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../../REXML.html">REXML</a></li>
+				
+					<li><a href="../../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">Webgen::Tag::Base</h1>
+
+		<div id="description">
+			<p>
+This module should be mixed into any class that wants to serve as a webgen
+tag class. Have a look a the example below to see how a basic tag class
+looks like.
+</p>
+<h2><a href="../Tag.html">Tag</a> classes</h2>
+<p>
+A tag class is a webgen extension that handles specific webgen tags. webgen
+tags are used to add dynamic content to page and template files and are
+made for ease of use.
+</p>
+<p>
+A tag class can handle multiple different tags. Just add a (tag
+name)-(class name) pair to the <tt>contentprocessor.tags.map</tt>
+configuration entry for each tag name you want to associate with the tag
+class. The special name <tt>:default</tt> is used for the default tag class
+which is called if a tag with an unknown tag name is encountered.
+</p>
+<p>
+The only method needed to be written is <tt>call</tt> which is called by
+the tags content processor to the actual processing. And the
+<tt>initialize</tt> method must not take any parameters!
+</p>
+<p>
+<a href="../Tag.html">Tag</a> classes <b>can</b> also choose to not use
+this module. If they don&#8217;t use it they have to provide the following
+methods: <tt><a href="Base.html#method-i-set_params">set_params</a></tt>,
+<tt><a
+href="Base.html#method-i-create_tag_params">create_tag_params</a></tt>,
+<tt><a
+href="Base.html#method-i-create_params_hash">create_params_hash</a></tt>,
+<tt>call</tt>.
+</p>
+<h2><a href="../Tag.html">Tag</a> parameters</h2>
+<p>
+webgen tags allow the specification of parameters in the tag definition.
+The method <tt><a
+href="Base.html#method-i-tag_params_list">tag_params_list</a></tt> returns
+all configuration entries that can be set this way. And the method <tt><a
+href="Base.html#method-i-tag_config_base">tag_config_base</a></tt> is used
+to resolve partially stated configuration entries. The default method uses
+the full class name, strips a <tt>Webgen::</tt> part at the beginning away,
+substitutes <tt>.</tt> for <tt>::</tt> and makes everything lowercase.
+</p>
+<p>
+An additional configuration entry option is also used: <tt>:mandatory</tt>.
+If this key is set to <tt>true</tt> for a configuration entry, the entry
+counts as mandatory and needs to be set in the tag definition. If this key
+is set to <tt>default</tt>, this means that this entry should be the
+default mandatory parameter (used when only a string is provided in the tag
+definition). There <b>should</b> be only one default mandatory parameter.
+</p>
+<h2>Sample <a href="../Tag.html">Tag</a> Class</h2>
+<p>
+Following is a simple tag class example which just reverses the body text
+and adds some information about the context to the result. Note that the
+class does not reside in the <a href="../Tag.html">Webgen::Tag</a>
+namespace and that the configuration entry is therefore also not under the
+<tt>tag.</tt> namespace.
+</p>
+<pre>
+  class Reverser
+
+    include Webgen::Tag::Base
+
+    def call(tag, body, context)
+      result = param('do_reverse') ? body.reverse : body
+      result += &quot;Node: &quot; + context.content_node.alcn + &quot; (&quot; + context.content_node['title'] + &quot;)&quot;
+      result += &quot;Reference node: &quot; + context.ref_node.alcn
+      result
+    end
+
+  end
+
+  WebsiteAccess.website.config.reverser.do_reverse nil, :mandatory =&gt; 'default'
+  WebsiteAccess.website.config['contentprocessor.tags.map']['reverse'] = 'Reverser'</pre>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="call-method" class="method-detail ">
+				<a name="method-i-call"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">call</span><span
+						class="method-args">(tag, body, context)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Default implementation for processing a tag. The parameter <tt>tag</tt>
+specifies the name of the tag which should be processed (useful for tag
+classes which process different tags).
+</p>
+<p>
+The parameter <tt>body</tt> holds the optional body value for the tag.
+</p>
+<p>
+The <tt>context</tt> parameter holds all relevant information for
+processing. Have a look at the <a
+href="../Context.html">Webgen::Context</a> class to see what is available.
+</p>
+<p>
+The method has to return the result of the tag processing and, optionally,
+a boolean value specifying if the result should further be processed (ie.
+webgen tags replaced).
+</p>
+<p>
+Needs to be redefined by classes that mixin this module!
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="call-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 121</span>
+121:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">context</span>)
+122:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+123:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="create-params-hash-method" class="method-detail ">
+				<a name="method-i-create_params_hash"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_params_hash</span><span
+						class="method-args">(config, node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create and return the parameter hash from <tt>config</tt> which needs to be
+a Hash, a String or <tt>nil</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-params-hash-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 80</span>
+80:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_params_hash</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">node</span>)
+81:     <span class="ruby-identifier">params</span> = <span class="ruby-identifier">tag_params_list</span>
+82:     <span class="ruby-identifier">result</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">config</span>
+83:              <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">create_from_hash</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">node</span>)
+84:              <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">create_from_string</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">node</span>)
+85:              <span class="ruby-keyword kw">when</span> <span class="ruby-constant">NilClass</span> <span class="ruby-keyword kw">then</span> {}
+86:              <span class="ruby-keyword kw">else</span>
+87:                <span class="ruby-identifier">raise</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">RenderError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid parameter type (#{config.class})&quot;</span>,
+88:                                              <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">node</span>)
+89:              <span class="ruby-keyword kw">end</span>
+90: 
+91:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">website</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-identifier">k</span>][<span class="ruby-value">:mandatory</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">k</span>)}
+92:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">RenderError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;Not all mandatory parameters set&quot;</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">node</span>)
+93:     <span class="ruby-keyword kw">end</span>
+94: 
+95:     <span class="ruby-identifier">result</span>
+96:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="create-tag-params-method" class="method-detail ">
+				<a name="method-i-create_tag_params"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_tag_params</span><span
+						class="method-args">(tag_config, ref_node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a hash with parameter values extracted from the string
+<tt>tag_config</tt> and return it.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-tag-params-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 69</span>
+69:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_tag_params</span>(<span class="ruby-identifier">tag_config</span>, <span class="ruby-identifier">ref_node</span>)
+70:     <span class="ruby-keyword kw">begin</span>
+71:       <span class="ruby-identifier">config</span> = <span class="ruby-constant">YAML</span><span class="ruby-operator">::</span><span class="ruby-identifier">load</span>(<span class="ruby-node">&quot;--- #{tag_config}&quot;</span>)
+72:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+73:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">Webgen</span><span class="ruby-operator">::</span><span class="ruby-constant">RenderError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Could not parse the tag params '#{tag_config}': #{e.message}&quot;</span>,
+74:                                     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">ref_node</span>)
+75:     <span class="ruby-keyword kw">end</span>
+76:     <span class="ruby-identifier">create_params_hash</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">ref_node</span>)
+77:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="param-method" class="method-detail ">
+				<a name="method-i-param"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">param</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Retrieve the parameter value for <tt>name</tt>. The value is taken from the
+current parameter configuration if the parameter is specified there or from
+the website configuration otherwise.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="param-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 105</span>
+105:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">param</span>(<span class="ruby-identifier">name</span>)
+106:     (<span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@params</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-ivar">@params</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">website</span>.<span class="ruby-identifier">config</span>[<span class="ruby-identifier">name</span>])
+107:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="set-params-method" class="method-detail ">
+				<a name="method-i-set_params"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">set_params</span><span
+						class="method-args">(params)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the current parameter configuration to <tt>params</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="set-params-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 99</span>
+ 99:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_params</span>(<span class="ruby-identifier">params</span>)
+100:     <span class="ruby-ivar">@params</span> = <span class="ruby-identifier">params</span>
+101:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="create-from-hash-method" class="method-detail ">
+				<a name="method-i-create_from_hash"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_from_hash</span><span
+						class="method-args">(config, params, node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return a valid parameter hash taking values from <tt>config</tt> which has
+to be a Hash.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-from-hash-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 145</span>
+145:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_from_hash</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">node</span>)
+146:     <span class="ruby-identifier">result</span> = {}
+147:     <span class="ruby-identifier">config</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+148:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+149:         <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+150:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">tag_config_base</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">key</span>)
+151:         <span class="ruby-identifier">result</span>[<span class="ruby-identifier">tag_config_base</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+152:       <span class="ruby-keyword kw">else</span>
+153:         <span class="ruby-identifier">log</span>(<span class="ruby-value">:warn</span>) { <span class="ruby-node">&quot;Invalid parameter '#{key}' for tag '#{self.class.name}' in &lt;#{node}&gt;&quot;</span> }
+154:       <span class="ruby-keyword kw">end</span>
+155:     <span class="ruby-keyword kw">end</span>
+156:     <span class="ruby-identifier">result</span>
+157:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="create-from-string-method" class="method-detail ">
+				<a name="method-i-create_from_string"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_from_string</span><span
+						class="method-args">(value, params, node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return a valid parameter hash by setting <tt>value</tt> to the default
+mandatory parameter.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-from-string-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 160</span>
+160:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_from_string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">node</span>)
+161:     <span class="ruby-identifier">param_name</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">website</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">meta_info</span>[<span class="ruby-identifier">k</span>][<span class="ruby-value">:mandatory</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'default'</span>}
+162:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">param_name</span>.<span class="ruby-identifier">nil?</span>
+163:       <span class="ruby-identifier">log</span>(<span class="ruby-value">:error</span>) { <span class="ruby-node">&quot;No default mandatory parameter specified for tag '#{self.class.name}' but set in &lt;#{node}&gt;&quot;</span>}
+164:       {}
+165:     <span class="ruby-keyword kw">else</span>
+166:       {<span class="ruby-identifier">param_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>}
+167:     <span class="ruby-keyword kw">end</span>
+168:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="tag-config-base-method" class="method-detail ">
+				<a name="method-i-tag_config_base"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tag_config_base</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+The base part of the configuration name. This isthe class name without the
+<a href="../../Webgen.html">Webgen</a> module downcased and all
+&#8220;::&#8221; substituted with &#8220;.&#8221; (e.g. <a
+href="Menu.html">Webgen::Tag::Menu</a> -> tag.menu). By overriding this
+method one can provide a different way of specifying the base part of the
+configuration name.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tag-config-base-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 133</span>
+133:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag_config_base</span>
+134:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">'::'</span>, <span class="ruby-value str">'.'</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/^Webgen\./</span>, <span class="ruby-value str">''</span>).<span class="ruby-identifier">downcase</span>
+135:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="tag-params-list-method" class="method-detail ">
+				<a name="method-i-tag_params_list"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tag_params_list</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the list of all parameters for the tag class. All configuration
+options starting with <tt><a
+href="Base.html#method-i-tag_config_base">tag_config_base</a></tt> are
+used.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tag-params-list-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/webgen/tag/base.rb, line 139</span>
+139:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag_params_list</span>
+140:     <span class="ruby-identifier">regexp</span> = <span class="ruby-node">/^#{tag_config_base}/</span>
+141:     <span class="ruby-identifier">website</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">data</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">regexp</span>}
+142:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

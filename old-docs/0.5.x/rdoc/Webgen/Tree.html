@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Webgen::Tree</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/webgen/tree_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/webgen/tree.rb">lib/webgen/tree.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-%5B%5D">#[]</a></li>
+					
+					<li><a href="#method-i-delete_node">#delete_node</a></li>
+					
+					<li><a href="#method-i-node">#node</a></li>
+					
+					<li><a href="#method-i-register_node">#register_node</a></li>
+					
+					<li><a href="#method-i-register_path">#register_path</a></li>
+					
+					<li><a href="#method-i-root">#root</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><span class="include">WebsiteAccess</span></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Webgen.html">Webgen</a></li>
+				
+					<li><a href="../Webgen/Blackboard.html">Webgen::Blackboard</a></li>
+				
+					<li><a href="../Webgen/CLI.html">Webgen::CLI</a></li>
+				
+					<li><a href="../Webgen/CLI/ApplyCommand.html">Webgen::CLI::ApplyCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Color.html">Webgen::CLI::Color</a></li>
+				
+					<li><a href="../Webgen/CLI/CommandParser.html">Webgen::CLI::CommandParser</a></li>
+				
+					<li><a href="../Webgen/CLI/CreateCommand.html">Webgen::CLI::CreateCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/RunCommand.html">Webgen::CLI::RunCommand</a></li>
+				
+					<li><a href="../Webgen/CLI/Utils.html">Webgen::CLI::Utils</a></li>
+				
+					<li><a href="../Webgen/CLI/WebguiCommand.html">Webgen::CLI::WebguiCommand</a></li>
+				
+					<li><a href="../Webgen/Cache.html">Webgen::Cache</a></li>
+				
+					<li><a href="../Webgen/CommandNotFoundError.html">Webgen::CommandNotFoundError</a></li>
+				
+					<li><a href="../Webgen/Common.html">Webgen::Common</a></li>
+				
+					<li><a href="../Webgen/Common/Sitemap.html">Webgen::Common::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Configuration.html">Webgen::Configuration</a></li>
+				
+					<li><a href="../Webgen/Configuration/Helpers.html">Webgen::Configuration::Helpers</a></li>
+				
+					<li><a href="../Webgen/Configuration/MethodChain.html">Webgen::Configuration::MethodChain</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor.html">Webgen::ContentProcessor</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/AccessHash.html">Webgen::ContentProcessor::AccessHash</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Blocks.html">Webgen::ContentProcessor::Blocks</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Builder.html">Webgen::ContentProcessor::Builder</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erb.html">Webgen::ContentProcessor::Erb</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Erubis.html">Webgen::ContentProcessor::Erubis</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Fragments.html">Webgen::ContentProcessor::Fragments</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Haml.html">Webgen::ContentProcessor::Haml</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Head.html">Webgen::ContentProcessor::Head</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Kramdown.html">Webgen::ContentProcessor::Kramdown</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/KramdownHtmlConverter.html">Webgen::ContentProcessor::KramdownHtmlConverter</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Less.html">Webgen::ContentProcessor::Less</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Maruku.html">Webgen::ContentProcessor::Maruku</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDiscount.html">Webgen::ContentProcessor::RDiscount</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RDoc.html">Webgen::ContentProcessor::RDoc</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/RedCloth.html">Webgen::ContentProcessor::RedCloth</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Sass.html">Webgen::ContentProcessor::Sass</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Scss.html">Webgen::ContentProcessor::Scss</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tags.html">Webgen::ContentProcessor::Tags</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Tidy.html">Webgen::ContentProcessor::Tidy</a></li>
+				
+					<li><a href="../Webgen/ContentProcessor/Xmllint.html">Webgen::ContentProcessor::Xmllint</a></li>
+				
+					<li><a href="../Webgen/Context.html">Webgen::Context</a></li>
+				
+					<li><a href="../Webgen/Error.html">Webgen::Error</a></li>
+				
+					<li><a href="../Webgen/Language.html">Webgen::Language</a></li>
+				
+					<li><a href="../Webgen/LanguageManager.html">Webgen::LanguageManager</a></li>
+				
+					<li><a href="../Webgen/LoadError.html">Webgen::LoadError</a></li>
+				
+					<li><a href="../Webgen/Loggable.html">Webgen::Loggable</a></li>
+				
+					<li><a href="../Webgen/Logger.html">Webgen::Logger</a></li>
+				
+					<li><a href="../Webgen/Node.html">Webgen::Node</a></li>
+				
+					<li><a href="../Webgen/NodeCreationError.html">Webgen::NodeCreationError</a></li>
+				
+					<li><a href="../Webgen/Output.html">Webgen::Output</a></li>
+				
+					<li><a href="../Webgen/Output/FileSystem.html">Webgen::Output::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Page.html">Webgen::Page</a></li>
+				
+					<li><a href="../Webgen/Page/Block.html">Webgen::Page::Block</a></li>
+				
+					<li><a href="../Webgen/Page/FormatError.html">Webgen::Page::FormatError</a></li>
+				
+					<li><a href="../Webgen/Path.html">Webgen::Path</a></li>
+				
+					<li><a href="../Webgen/Path/SourceIO.html">Webgen::Path::SourceIO</a></li>
+				
+					<li><a href="../Webgen/ProxyNode.html">Webgen::ProxyNode</a></li>
+				
+					<li><a href="../Webgen/RenderError.html">Webgen::RenderError</a></li>
+				
+					<li><a href="../Webgen/Source.html">Webgen::Source</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem.html">Webgen::Source::FileSystem</a></li>
+				
+					<li><a href="../Webgen/Source/FileSystem/Path.html">Webgen::Source::FileSystem::Path</a></li>
+				
+					<li><a href="../Webgen/Source/Resource.html">Webgen::Source::Resource</a></li>
+				
+					<li><a href="../Webgen/Source/Stacked.html">Webgen::Source::Stacked</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive.html">Webgen::Source::TarArchive</a></li>
+				
+					<li><a href="../Webgen/Source/TarArchive/Path.html">Webgen::Source::TarArchive::Path</a></li>
+				
+					<li><a href="../Webgen/SourceHandler.html">Webgen::SourceHandler</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base.html">Webgen::SourceHandler::Base</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Base/OutputPathHelpers.html">Webgen::SourceHandler::Base::OutputPathHelpers</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Copy.html">Webgen::SourceHandler::Copy</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Directory.html">Webgen::SourceHandler::Directory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Feed.html">Webgen::SourceHandler::Feed</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Fragment.html">Webgen::SourceHandler::Fragment</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Main.html">Webgen::SourceHandler::Main</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Memory.html">Webgen::SourceHandler::Memory</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Metainfo.html">Webgen::SourceHandler::Metainfo</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Page.html">Webgen::SourceHandler::Page</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Sitemap.html">Webgen::SourceHandler::Sitemap</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Template.html">Webgen::SourceHandler::Template</a></li>
+				
+					<li><a href="../Webgen/SourceHandler/Virtual.html">Webgen::SourceHandler::Virtual</a></li>
+				
+					<li><a href="../Webgen/Tag.html">Webgen::Tag</a></li>
+				
+					<li><a href="../Webgen/Tag/Base.html">Webgen::Tag::Base</a></li>
+				
+					<li><a href="../Webgen/Tag/BreadcrumbTrail.html">Webgen::Tag::BreadcrumbTrail</a></li>
+				
+					<li><a href="../Webgen/Tag/Coderay.html">Webgen::Tag::Coderay</a></li>
+				
+					<li><a href="../Webgen/Tag/Date.html">Webgen::Tag::Date</a></li>
+				
+					<li><a href="../Webgen/Tag/ExecuteCommand.html">Webgen::Tag::ExecuteCommand</a></li>
+				
+					<li><a href="../Webgen/Tag/IncludeFile.html">Webgen::Tag::IncludeFile</a></li>
+				
+					<li><a href="../Webgen/Tag/Langbar.html">Webgen::Tag::Langbar</a></li>
+				
+					<li><a href="../Webgen/Tag/Link.html">Webgen::Tag::Link</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu.html">Webgen::Tag::Menu</a></li>
+				
+					<li><a href="../Webgen/Tag/Menu/MenuNode.html">Webgen::Tag::Menu::MenuNode</a></li>
+				
+					<li><a href="../Webgen/Tag/Metainfo.html">Webgen::Tag::Metainfo</a></li>
+				
+					<li><a href="../Webgen/Tag/Relocatable.html">Webgen::Tag::Relocatable</a></li>
+				
+					<li><a href="../Webgen/Tag/Sitemap.html">Webgen::Tag::Sitemap</a></li>
+				
+					<li><a href="../Webgen/Tree.html">Webgen::Tree</a></li>
+				
+					<li><a href="../Webgen/WebgenTask.html">Webgen::WebgenTask</a></li>
+				
+					<li><a href="../Webgen/Website.html">Webgen::Website</a></li>
+				
+					<li><a href="../Webgen/Website/ConfigFileInvalid.html">Webgen::Website::ConfigFileInvalid</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess.html">Webgen::WebsiteAccess</a></li>
+				
+					<li><a href="../Webgen/WebsiteAccess/ClassMethods.html">Webgen::WebsiteAccess::ClassMethods</a></li>
+				
+					<li><a href="../Webgen/WebsiteManager.html">Webgen::WebsiteManager</a></li>
+				
+					<li><a href="../REXML.html">REXML</a></li>
+				
+					<li><a href="../REXML/Parsers.html">REXML::Parsers</a></li>
+				
+					<li><a href="../REXML/Parsers/BaseParser.html">REXML::Parsers::BaseParser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Webgen::Tree</h1>
+
+		<div id="description">
+			<p>
+Represents a tree of nodes.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="dummy-root-attribute-method" class="method-detail">
+				<a name="dummy_root"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">dummy_root</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The dummy root. This is the default node that gets created when the <a
+href="Tree.html">Tree</a> is created sothat the real root node can be
+treated like any other node. It has only one child, namely the real root
+node of the tree.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="node-access-attribute-method" class="method-detail">
+				<a name="node_access"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">node_access</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Direct access to the hashes for node resolving. Only use this for reading
+purposes! If you just want to get a specific node for an alcn/acn/output
+path, use <a href="Tree.html#method-i-node">#</a> instead.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="node-info-attribute-method" class="method-detail">
+				<a name="node_info"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">node_info</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The hash containing processing information for each node. This is normally
+not accessed directly but via the <a
+href="Node.html#method-i-node_info">Node#node_info</a> method.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a new <a href="Tree.html">Tree</a> object.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tree.rb, line 27</span>
+27:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
+28:       <span class="ruby-ivar">@node_access</span> = {<span class="ruby-value">:alcn</span> =<span class="ruby-operator">&gt;</span> {}, <span class="ruby-value">:acn</span> =<span class="ruby-operator">&gt;</span> {}, <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> {}}
+29:       <span class="ruby-ivar">@node_info</span> = {}
+30:       <span class="ruby-ivar">@dummy_root</span> = <span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-value str">''</span>, <span class="ruby-value str">''</span>)
+31:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="--method" class="method-detail method-alias">
+				<a name="method-i-%5B%5D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">[]</span><span
+						class="method-args">(path, type = :alcn)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+				</div>
+
+				
+
+				
+				<div class="aliases">
+          Alias for: <a href="Tree.html#method-i-node">node</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="delete-node-method" class="method-detail ">
+				<a name="method-i-delete_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">delete_node</span><span
+						class="method-args">(node_or_alcn)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Delete the node identified by <tt>node_or_alcn</tt> and all of its children
+from the tree.
+</p>
+<p>
+The message <tt>:before_node_deleted</tt> is sent with the to-be-deleted
+node before this node is actually deleted from the tree.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="delete-node-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tree.rb, line 73</span>
+73:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_node</span>(<span class="ruby-identifier">node_or_alcn</span>)
+74:       <span class="ruby-identifier">n</span> = <span class="ruby-identifier">node_or_alcn</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Node</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">node_or_alcn</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:alcn</span>][<span class="ruby-identifier">node_or_alcn</span>]
+75:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@dummy_root</span>
+76: 
+77:       <span class="ruby-identifier">n</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span> <span class="ruby-identifier">delete_node</span>(<span class="ruby-identifier">child</span>)}
+78: 
+79:       <span class="ruby-identifier">website</span>.<span class="ruby-identifier">blackboard</span>.<span class="ruby-identifier">dispatch_msg</span>(<span class="ruby-value">:before_node_deleted</span>, <span class="ruby-identifier">n</span>)
+80:       <span class="ruby-identifier">n</span>.<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">n</span>)
+81:       <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:alcn</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">alcn</span>)
+82:       <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:acn</span>][<span class="ruby-identifier">n</span>.<span class="ruby-identifier">acn</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">n</span>)
+83:       <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:path</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">path</span>)
+84: 
+85:       <span class="ruby-identifier">node_info</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">alcn</span>)
+86:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="node-method" class="method-detail ">
+				<a name="method-i-node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">node</span><span
+						class="method-args">(path, type = :alcn)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Access a node via a <tt>path</tt> of a specific <tt>type</tt>. If type is
+<tt>alcn</tt> then <tt>path</tt> has to be an absolute localized canonical
+name, if type is <tt>acn</tt> then <tt>path</tt> has to be an absolute
+canonical name and if type is <tt>path</tt> then <tt>path</tt> needs to be
+an output path.
+</p>
+<p>
+Returns the requested <a href="Node.html">Node</a> or <tt>nil</tt> if such
+a node does not exist.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="node-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tree.rb, line 43</span>
+43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">type</span> = <span class="ruby-value">:alcn</span>)
+44:       (<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:acn</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@node_access</span>[<span class="ruby-identifier">type</span>][<span class="ruby-identifier">path</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@node_access</span>[<span class="ruby-identifier">type</span>][<span class="ruby-identifier">path</span>].<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@node_access</span>[<span class="ruby-identifier">type</span>][<span class="ruby-identifier">path</span>])
+45:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="Tree.html#method-i-%5B%5D">[]</a>
+				</div>
+				
+
+				
+			</div>
+
+		
+			<div id="register-node-method" class="method-detail ">
+				<a name="method-i-register_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">register_node</span><span
+						class="method-args">(node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+A utility method called by Node#initialize. This method should not be used
+directly!
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="register-node-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tree.rb, line 49</span>
+49:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">register_node</span>(<span class="ruby-identifier">node</span>)
+50:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:alcn</span>].<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">alcn</span>)
+51:         <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Can't have two nodes with same absolute lcn: #{node}&quot;</span>
+52:       <span class="ruby-keyword kw">else</span>
+53:         <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:alcn</span>][<span class="ruby-identifier">node</span>.<span class="ruby-identifier">alcn</span>] = <span class="ruby-identifier">node</span>
+54:       <span class="ruby-keyword kw">end</span>
+55:       (<span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:acn</span>][<span class="ruby-identifier">node</span>.<span class="ruby-identifier">acn</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node</span>
+56:       <span class="ruby-identifier">register_path</span>(<span class="ruby-identifier">node</span>)
+57:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="register-path-method" class="method-detail ">
+				<a name="method-i-register_path"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">register_path</span><span
+						class="method-args">(node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+A utility method called by <a
+href="Node.html#method-i-reinit">Node#reinit</a>. This method should not be
+used directly!
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="register-path-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tree.rb, line 60</span>
+60:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">register_path</span>(<span class="ruby-identifier">node</span>)
+61:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'no_output'</span>]
+62:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:path</span>].<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">path</span>)
+63:         <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Can't have two nodes with same output path: #{node.path}&quot;</span>
+64:       <span class="ruby-keyword kw">else</span>
+65:         <span class="ruby-ivar">@node_access</span>[<span class="ruby-value">:path</span>][<span class="ruby-identifier">node</span>.<span class="ruby-identifier">path</span>] = <span class="ruby-identifier">node</span>
+66:       <span class="ruby-keyword kw">end</span>
+67:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="root-method" class="method-detail ">
+				<a name="method-i-root"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">root</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+The real root node of the tree.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="root-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/tree.rb, line 34</span>
+34:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">root</span>
+35:       <span class="ruby-ivar">@dummy_root</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">first</span>
+36:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

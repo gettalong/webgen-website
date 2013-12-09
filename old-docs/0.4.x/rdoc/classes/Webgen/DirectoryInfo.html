@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Webgen::DirectoryInfo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Webgen::DirectoryInfo</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/webgen/website_rb.html">
+                lib/webgen/website.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Base class for directories which have a README file with information stored
+in YAML format. Should not be used directly, use its child classes!
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000243">copy_to</a>&nbsp;&nbsp;
+      <a href="#M000244">entries</a>&nbsp;&nbsp;
+      <a href="#M000242">files</a>&nbsp;&nbsp;
+      <a href="#M000240">new</a>&nbsp;&nbsp;
+      <a href="#M000241">path</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">infos</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+Contains additional information, like a description or the creator.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The unique name.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000244" class="method-detail">
+        <a name="M000244"></a>
+
+        <div class="method-heading">
+          <a href="#M000244" class="method-signature">
+          <span class="method-name">entries</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns all available <a href="DirectoryInfo.html#M000244">entries</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000244-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000244-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/website.rb, line 76</span>
+76:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">entries</span>
+77:       <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">defined?</span>( <span class="ruby-ivar">@entries</span> )
+78:         <span class="ruby-ivar">@entries</span> = {}
+79:         <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-keyword kw">self</span><span class="ruby-operator">::</span><span class="ruby-constant">BASE_PATH</span>, <span class="ruby-value str">'*'</span> ), <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_CASEFOLD</span> ).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+80:           <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>( <span class="ruby-identifier">f</span> )
+81:           <span class="ruby-identifier">name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>( <span class="ruby-identifier">f</span> );
+82:           <span class="ruby-ivar">@entries</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">name</span> )
+83:         <span class="ruby-keyword kw">end</span>
+84:       <span class="ruby-keyword kw">end</span>
+85:       <span class="ruby-ivar">@entries</span>
+86:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000240" class="method-detail">
+        <a name="M000240"></a>
+
+        <div class="method-heading">
+          <a href="#M000240" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">( name )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a <a href="DirectoryInfo.html#M000240">new</a> object for the given
+<tt>name</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000240-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000240-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/website.rb, line 43</span>
+43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">name</span> )
+44:       <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+45:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>( <span class="ruby-node">&quot;'#{name}' is not a directory!&quot;</span> ) <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>( <span class="ruby-identifier">path</span> )
+46:       <span class="ruby-ivar">@infos</span> = <span class="ruby-constant">YAML</span><span class="ruby-operator">::</span><span class="ruby-identifier">load</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-identifier">path</span>, <span class="ruby-value str">'README'</span> ) ) )
+47:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>( <span class="ruby-node">&quot;'#{name}/README' does not contain key-value pairs in YAML format!&quot;</span> ) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@infos</span>.<span class="ruby-identifier">kind_of?</span>( <span class="ruby-constant">Hash</span> )
+48:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000243" class="method-detail">
+        <a name="M000243"></a>
+
+        <div class="method-heading">
+          <a href="#M000243" class="method-signature">
+          <span class="method-name">copy_to</span><span class="method-args">( dest )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Copies the <a href="DirectoryInfo.html#M000242">files</a> returned by +<a
+href="DirectoryInfo.html#M000242">files</a>+ into the directory
+<tt>dest</tt>, preserving the directory hierarchy.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000243-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000243-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/website.rb, line 62</span>
+62:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy_to</span>( <span class="ruby-identifier">dest</span> )
+63:       <span class="ruby-identifier">files</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+64:         <span class="ruby-identifier">destpath</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-identifier">dest</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>( <span class="ruby-identifier">file</span> ).<span class="ruby-identifier">sub</span>( <span class="ruby-node">/^#{path}/</span>, <span class="ruby-value str">''</span> ) )
+65:         <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>( <span class="ruby-identifier">destpath</span> ) )
+66:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>( <span class="ruby-identifier">file</span> )
+67:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-identifier">destpath</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>( <span class="ruby-identifier">file</span> ) ) )
+68:         <span class="ruby-keyword kw">else</span>
+69:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>( <span class="ruby-identifier">file</span>, <span class="ruby-identifier">destpath</span> )
+70:         <span class="ruby-keyword kw">end</span>
+71:         <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-identifier">destpath</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>( <span class="ruby-identifier">file</span> ) )
+72:       <span class="ruby-keyword kw">end</span>
+73:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000242" class="method-detail">
+        <a name="M000242"></a>
+
+        <div class="method-heading">
+          <a href="#M000242" class="method-signature">
+          <span class="method-name">files</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The <a href="DirectoryInfo.html#M000242">files</a> under the directory.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000242-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000242-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/website.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">files</span>
+57:       <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-identifier">path</span>, <span class="ruby-value str">'**'</span>, <span class="ruby-value str">'*'</span> ), <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_CASEFOLD</span> )
+58:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000241" class="method-detail">
+        <a name="M000241"></a>
+
+        <div class="method-heading">
+          <a href="#M000241" class="method-signature">
+          <span class="method-name">path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The absolute directory <a href="DirectoryInfo.html#M000241">path</a>.
+Requires that child classes have defined a constant <tt>BASE_PATH</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000241-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000241-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/webgen/website.rb, line 51</span>
+51:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path</span>
+52:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>( <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">BASE_PATH</span>, <span class="ruby-identifier">name</span> ) )
+53:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
