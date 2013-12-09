@@ -1,0 +1,23 @@
+---
+title: webgen 1.1.0 released
+sort_info: 2013-12-09
+created_at: 2013-12-09 18:05:00 +02:00
+modified_at: 2013-12-09 18:05:00 +02:00
+---
+
+This release mainly re-introduces two options that were available in the 0.5.x series:
+`website.link_to_current_page` and `tag.langbar.mapping` (formerly named `tag.langbar.lang_names`).
+
+
+### Changes
+
+* 2 Minor changes:
+
+  - Re-implemented [tag.langbar.mapping configuration option]
+  - Re-implemented [website.link_to_current_page configuration option]
+
+* 2 Bug fixes:
+
+  - Fixed problem with US-ASCII encoding on some internally used URIs
+  - Fixed problem with "webgen install BUNDLE_NAME" where bundle could not be installed because it
+    was missing and webgen ran into an error
