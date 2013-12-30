@@ -11,10 +11,10 @@ meta:
 
 ## Compatibility Notes
 
-webgen should run on any platform which supports Ruby 1.9.3. It has been successfully tested on the
-following platforms:
+webgen should run on any platform which supports Ruby 1.9.3 or higher. It has been successfully
+tested on the following platforms:
 
-* Linux with Ruby 1.9.3 and 2.0.0
+* Linux with Ruby 1.9.3, 2.0.0 and 2.1.0
 * Windows 7 with latest Ruby 1.9.3 from Ruby-Installer
 
 See the platform specific installation notes for more information!
