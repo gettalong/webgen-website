@@ -1,0 +1,24 @@
+---
+title: webgen 1.2.0 released
+sort_info: 2013-12-30
+created_at: 2013-12-30 17:45:00 +01:00
+modified_at: 2013-12-30 17:45:00 +01:00
+---
+
+This is just a small update introducing two new configuration options and fixing some bugs.
+
+
+### Changes
+
+* 3 minor changes:
+
+  - Tag menu: new [tag.menu.tracking_style configuration option] (to specify whether the content or
+    the meta information should be tracked)
+  - Tag date: new [tag.date.mi configuration option] (to format any date/time meta information key)
+  - On command line parsing errors, only the error is now shown, not the complete help
+
+* 2 bug fixes:
+
+  - Fixed auto-generate mode when the current directory is not the website directory
+  - Path handler feed: custom `cn`/`dest_path` meta information is now respected
+
