@@ -1,0 +1,26 @@
+---
+title: webgen 1.2.1 released
+sort_info: 2014-02-16
+created_at: 2014-02-16 08:45:00 +01:00
+---
+
+This release brings mainly some overall and specific performance enhancements. The most benefit
+comes from caching some often needed data and optimizing calls to `URI` objects.
+
+However, there is also a specific benefit for those using kramdown and many predefined link
+definitions as those will not get cached, too. Note that this will need at least kramdown 1.3.2 to
+work!
+
+
+### Changes
+
+* 1 minor change:
+
+  - Various performance fixes in [Webgen::Node], [Webgen::Path] and [Webgen::Context]
+
+* 3 bug fixes:
+
+  - [Content processor erubis] is now compatible to [content processor ERB] and therefore a drop-in
+    replacement (which is much faster)
+  - Fixed [node finder] 'descendants' filter to take already filtered nodes into account
+  - Fixed display of path handler names in some error messages where class names were shown
