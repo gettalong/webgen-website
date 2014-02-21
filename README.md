@@ -16,15 +16,23 @@ many of its features, like
 # Generating the website
 
 You need to install [webgen], the needed libraries as well as the
-extension bundles [webgen-zurb_foundation-bundle][1] and
-[webgen-font_awesome-bundle][2]:
+extension bundles [webgen-zurb_foundation-bundle][1],
+[webgen-font_awesome-bundle][2] and [webgen-tipue_search-bundle][3]:
 
 <pre>
 $ <b>gem install webgen</b>
-$ <b>gem install archive-tar-minitar coderay erubis haml</b>
+$ <b>gem install archive-tar-minitar builder coderay erubis haml</b>
 $ <b>gem install maruku rdiscount rdoc RedCloth sass</b>
 $ <b>gem install webgen-zurb_foundation-bundle</b>
 $ <b>gem install webgen-font_awesome-bundle</b>
+$ <b>gem install webgen-tipue_search-bundle</b>
+</pre>
+
+You will also need to have a current LaTeX installation, GhostScript and
+ImageMagick which can be installed on Ubuntu with:
+
+<pre>
+$ <b>apt-get install texlive texlive-latex-extra texlive-extra-utils imagemagick</b>
 </pre>
 
 Then clone this repository and the repository for webgen (needed as
@@ -48,3 +56,4 @@ relative, no web server is needed!
 [webgen]: http://webgen.gettalong.org
 [1]: https://github.com/gettalong/webgen-zurb_foundation-bundle
 [2]: https://github.com/gettalong/webgen-font_awesome-bundle
+[3]: https://github.com/gettalong/webgen-tipue_search-bundle
