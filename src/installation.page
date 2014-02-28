@@ -87,9 +87,9 @@ at the optional dependencies which provide additional functionality.
 
 ### Manual Installation
 
-The latest version of webgen can always be downloaded from [webgen's files section on
-Rubyforge](http://rubyforge.org/frs/?group_id=296). After the download the package needs to be
-decompressed and then you can install webgen using the included `setup.rb` installation method:
+The latest version of webgen can always be downloaded from the [Github releases page][ghreleases].
+After the download the package needs to be decompressed and then you can install webgen using the
+included `setup.rb` installation method:
 
 ~~~ shell
 $ ruby setup.rb config
@@ -98,6 +98,8 @@ $ ruby setup.rb install
 ~~~
 
 Make sure that you also install the mandatory and, if you need them, the optional dependencies.
+
+[ghreleases]: https://github.com/gettalong/webgen/releases
 
 
 ### Using the Repository Version

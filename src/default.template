@@ -112,10 +112,9 @@
       <div class="row">
         <div class="large-6 small-6 columns">
           <ul class="side-nav">
-            <li><a href="http://rubyforge.org/projects/webgen"><i class="icon-external-link"></i> Rubyforge project page</a></li>
             <li><a href="http://github.com/gettalong/webgen/issues"><i class="icon-cogs"></i> Feature and bug trackers</a></li>
             <li><a href="http://github.com/gettalong/webgen"><i class="icon-github"></i> Code and Wiki</a></li>
-            <li><a href="http://rubyforge.org/frs/?group_id=296"><i class="icon-download-alt"></i> Downloads</a></li>
+            <li><a href="https://github.com/gettalong/webgen/releases"><i class="icon-download-alt"></i> Downloads</a></li>
           </ul>
         </div>
 

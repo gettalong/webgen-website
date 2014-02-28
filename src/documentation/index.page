@@ -30,13 +30,12 @@ There is also a short text about the [history of webgen](history.html) if you ar
 
 If you need help, use one of the following:
 
-* [Mailing lists][ml] (mirrored to the [webgen-users google group][google-group])
+* [webgen-users google group][google-group]
 * [webgen wiki][wiki] at Github
 * IRC channel `#webgen` on Freenode (look for gettalong)
 
 For reporting issues and bugs or for requesting features use the [GitHub issue tracker][gh_issue].
 
-[ml]: http://rubyforge.org/mail/?group_id=296
 [wiki]: https://github.com/gettalong/webgen/wiki
 [google-group]: http://groups.google.com/group/webgen-users/
 [gh_issue]: https://github.com/gettalong/webgen/issues
