@@ -23,6 +23,6 @@ method [Time#strftime][1]). Have a look a the examples below to see some possibl
 `\{date: {format: '%x - %X'}}`
 : {date: {format: '%x - %X'}}
 
-`\{date: {format: '%x - %X', mi: modified_at}}`:
+`\{date: {format: '%x - %X', mi: modified_at}}`
 : {date: {format: '%x - %X', mi: modified_at}}
 
