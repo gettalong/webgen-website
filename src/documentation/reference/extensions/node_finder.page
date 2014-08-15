@@ -96,10 +96,15 @@ Nodes that match any of the patterns are used.
 
 #### lang
 
-Value: a language code/`null`/the special value `node` or an array of these values.
+Value: a language code/`null`/the special value `node`/the special value `fallback` or an array of
+these values.
 
 Nodes that have one of the specified language codes, are language independent (in case of the value
 `null`) or have the same language as the reference node (in case of the value `node`) are used.
+
+If the special value `fallback` is used, then a node in the default language (see [website.lang
+configuration option]) is included in the result if it has no translation to any of the specified
+languages.
 
 #### mi
 
