@@ -11,16 +11,15 @@ meta:
 
 ## Compatibility Notes
 
-webgen should run on any platform which supports Ruby 1.9.3 or higher. It has been successfully
+webgen should run on any platform which supports Ruby 2.0.0 or higher. It has been successfully
 tested on the following platforms:
 
-* Linux with Ruby 1.9.3, 2.0.0 and 2.1.0
-* Windows 7 with latest Ruby 1.9.3 from Ruby-Installer
+* Linux with Ruby 2.0.0 or higher
 
 See the platform specific installation notes for more information!
 
-Furthermore, webgen should also run on jruby 1.7.0 and rubinius but that has not been extensively
-tested.
+Furthermore, webgen should also run on jruby 1.7.x (in Ruby 2.x compatibility mode) and rubinius but
+that has not been extensively tested.
 
 
 ## Platform Specific Installation Instructions
@@ -28,14 +27,14 @@ tested.
 ### Linux
 
 There are a variety of Linux distributions out there with different package management systems. So
-we will focus on instructions for Ubuntu 12.10 here (which should also work for any recent Debian
+we will focus on instructions for Ubuntu 14.10 here (which should also work for any recent Debian
 based distribution).
 
 After running the following commands, webgen and all the mandatory dependencies are installed:
 
 ~~~ shell
-$ sudo aptitude install ruby1.9.3 rubygems
-$ gem1.9.3 install webgen --user-install
+$ sudo aptitude install ruby2.0
+$ gem2.0 install webgen --user-install
 ~~~
 
 > Ubuntu has packages for the old 0.4.x and 0.5.x versions of webgen. If you want to use one of
@@ -46,7 +45,7 @@ $ gem1.9.3 install webgen --user-install
 
 ### Windows
 
-First you need to install Ruby 1.9.3 (or better). This can easily be done by using the Windows
+First you need to install Ruby 2.0.0 (or better). This can easily be done by using the Windows
 [RubyInstaller] - just download the *latest* installation binary from their homepage and run it.
 After that open a command shell (select `Start -> Run...`, then enter `cmd` and click on "Ok") and
 type in the following:
@@ -60,11 +59,8 @@ C:\> gem install webgen --user-install
 
 ### Mac OS X
 
-Mac OS X Mountain Lion comes with Ruby and Rubygems preinstalled. However, the Ruby and Rubygems
-versions are too old. You need to install a current version of Ruby 1.9.3 (or better) and then
-Rubygems (there are many installation instructions for these steps, just search for them).
-
-After that your system is ready for installing webgen:
+Mac OS X 10.10 comes with Ruby and Rubygems preinstalled, you just need to run the following in the
+Terminal application:
 
 ~~~ shell
 $ gem install webgen --user-install
@@ -122,14 +118,14 @@ the mandatory dependencies are automatically installed. webgen can also make use
 dependencies if they are installed. Note that webgen was tested against the specified versions but
 it should normally work with newer versions, too!
 
-* (**mandatory**) [Ruby](http://www.ruby-lang.org) version 1.9.3 or higher. Since webgen is written
+* (**mandatory**) [Ruby](http://www.ruby-lang.org) version 2.0.0 or higher. Since webgen is written
   in Ruby, you need the Ruby interpreter to run webgen.
 
-* (**mandatory**) [cmdparse](http://cmdparse.rubyforge.org) version 2.0.5 or higher
+* (**mandatory**) [cmdparse](http://cmdparse.rubyforge.org) version 3.0.1 or higher
 
 * (**mandatory**) [systemu](https://github.com/ahoward/systemu) version 2.5.0 or higher
 
-* (**mandatory**) [kramdown](http://kramdown.gettalong.org) version 1.0.0 or higher for enhanced
+* (**mandatory**) [kramdown](http://kramdown.gettalong.org) version 1.3.0 or higher for enhanced
   Markdown support
 
 * (optional) [diff-lcs](https://github.com/halostatue/diff-lcs) version 1.1.0 or higher for showing

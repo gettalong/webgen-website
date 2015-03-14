@@ -25,7 +25,7 @@ Here are step-by-step instructions on how to update your webgen website from 0.5
 
 * **Ruby 1.8 not supported anymore**
 
-  You need to use Ruby 2.0 or Ruby 1.9 if you want to use webgen. Ruby 1.8 is not supported!
+  You need to use Ruby 2.0 or higher if you want to use webgen. Ruby 1.x is not supported!
 
 
 * **Update the configuration file**
