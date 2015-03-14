@@ -1,0 +1,55 @@
+---
+title: webgen 1.4.0 released
+sort_info: 2015-03-14
+created_at: 2015-03-14 18:00:00 +02:00
+---
+
+Thanks to an (unrelated) bug report for a website with more than [4700 page files][discussion] I
+tried to optimize the [node finder] a bit more, with quite good results!
+
+Depending on the options one uses, node finder option sets can now be cached more effectively which
+brings down the number of different node sets and therefore more performance (drastically in some
+cases)!
+
+Another important change is the new [io_open_mode meta information] which can be used to change how
+a file should be opened. This allows one, for example, to use the mode 'r:BOM|UTF-8' to open UTF-8
+files with a Unicode byte order marker without problems or to specify different encodings for
+certain files.
+
+Last but not least: webgen now uses [cmdparse] version 3.0.1 instead of 2.x which brings better help
+output and some other nice changes. However, this also means that custom CLI extensions won't work
+anymore! If you have written such an extension, please update it to be compatible to the newer
+cmdparse version!
+
+[discussion]: https://groups.google.com/forum/#!msg/webgen-users/0aHGHRf6Sik/h1mIBm2cpa0J
+
+
+### Changes
+
+* 7 minor changes:
+
+  - Optimized [node finder] to more effectively cache node sets
+  - Nicer hierarchical output for item tracker nodes descriptions when using `webgen show
+    dependencies`
+  - Updated [path handler api] to optionally produce a true hierarchical structure instead of the
+    standard RDoc file/directory structure
+  - Updated [path handler api] to additionally create fragment nodes for attributes (not just
+    methods)
+  - Updated [path handler api] template to use an `<h2>` heading instead of `<h1>`
+  - The IO open mode can now be set on a per path basis with the new [io_open_mode meta information]
+    (requested by Johann Friedrich Heinrichmeyer)
+  - The [cmdparse] dependency has been updated to 3.0.1
+
+* 6 bug fixes:
+
+  - Fixed [content processor sass] to work with Sass 3.3 and greater
+  - Paths named like `number.lang.ext` (e.g. `2014.en.page`) are now correctly handled (reported by
+    Lars Bähren)
+  - Removed invalid quote character from RSS feed template (patch by Sven Hertle, fixes [GH#6])
+  - Paths like `someFile.png` now get the title 'SomeFile' instead of 'Somefile'
+  - Fixed [path handler sitemap] to ignore nodes that have the [no_output meta information] set
+  - Setting an empty pipeline on a block in a Webgen Page Format file now works
+
+
+[GH#6]: https://github.com/gettalong/webgen/pull/6
+[cmdparse]: http://cmdparse.gettalong.org
