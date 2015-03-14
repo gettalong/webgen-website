@@ -248,6 +248,33 @@ Paths/Nodes
 : Any path
 
 
+### io_open_mode
+
+Specifies the IO mode that should be used for reading data from the path.
+
+The default IO mode for reading the contents of a path is 'r' which means that the underlying IO
+object is read using the default system encoding. Some path handlers (like [path handler copy])
+override this behavior if necessary.
+
+Overriding the default IO modes is useful, for example, when certain paths need to be openend with a
+different encoding (e.g. 'r:ISO-8859-1') or to avoid problems with the Unicode byte order marker
+(e.g. 'r:BOM|UTF-8').
+
+For detailed information on the allowed values see the [IO.new] documentation!
+
+[IO.new]: http://ruby-doc.org/core/IO.html#method-c-new
+
+> This key has to be set **before** a node gets created. Setting this value is therefore only
+> useful, for example, in the `paths` block of a [meta information path][path handler meta_info].
+{:.important}
+
+Syntax
+: String: `r:bom|UTF-8`
+
+Paths/Nodes
+: Any path
+
+
 ### lang
 
 Sets the language for a file path.
