@@ -15,3 +15,6 @@
 
 /**/index.en.html:
   omit_dir_index: true
+
+/news/:
+  proxy_path: ../news.html
