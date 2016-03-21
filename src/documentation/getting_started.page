@@ -72,7 +72,7 @@ INFO  ... done in 0.03 seconds
 > Since this is the most often used sub command, you can also just execute `webgen` and it will do
 > the same.
 >
-> You also don't need to type the whole name of a sub command, the first few unique laters are
+> You also don't need to type the whole name of a sub command, the first few unique letters are
 > sufficient. So `webgen generate`, `webgen gen` or even `webgen g` will do the same.
 {:.tip}
 
