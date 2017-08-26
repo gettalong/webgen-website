@@ -1,0 +1,15 @@
+---
+title: webgen 1.4.1 released
+sort_info: 2017-08-26
+created_at: 2017-08-26 16:45:00 +02:00
+---
+
+This is a small bug fix release, updating is recommended.
+
+### Changes
+
+* 2 bug fixes:
+
+  - Give the default meta information for directories a higher priority to avoid problems
+  - Fix wrong value of the destination node that occured in certain situations with chained nodes
+
