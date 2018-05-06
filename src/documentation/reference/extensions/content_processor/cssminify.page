@@ -1,0 +1,14 @@
+---
+title: content_processor.cssminify
+---
+## Description
+
+This content processor compresses CSS files so that they take up less space which translates into
+faster load time.
+
+## Usage
+
+Just add this content processor as the last processor in the pipeline for CSS nodes - that's it!
+
+This can either be done via explicitly specifying the pipeline using a meta information node or by
+adding the short name of this processor to the source path name (e.g. `/css/site.cssminify.css`).

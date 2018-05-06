@@ -26,6 +26,7 @@ $ <b>gem install maruku rdiscount rdoc RedCloth sass</b>
 $ <b>gem install webgen-zurb_foundation-bundle</b>
 $ <b>gem install webgen-font_awesome-bundle</b>
 $ <b>gem install webgen-tipue_search-bundle</b>
+$ <b>gem install cssminify</b>
 </pre>
 
 You will also need to have a current LaTeX installation, GhostScript and

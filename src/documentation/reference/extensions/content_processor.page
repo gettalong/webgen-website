@@ -56,7 +56,8 @@ variables to avoid spreading the same data over the whole file.
 
 These processors are used to post-process HTML files.
 
-{describe_ext: [content_processor.rainpress, content_processor.tidy, content_processor.xmllint]}
+{describe_ext: [content_processor.cssminify, content_processor.rainpress, content_processor.tidy,
+content_processor.xmllint]}
 
 
 ## Other Processors
