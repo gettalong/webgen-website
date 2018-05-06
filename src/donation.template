@@ -1,5 +1,5 @@
 <p>You like webgen and would like to support it? One way to do so is by making a
-donation via PayPal or Pledgie - it will surely be appreciated.</p>
+donation via PayPal - it will surely be appreciated.</p>
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display: inline-block">
 <input type="hidden" name="cmd" value="_s-xclick" />
