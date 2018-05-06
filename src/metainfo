@@ -5,6 +5,12 @@
 /documentation/reference/glossary.page:
   blocks: {content: {pipeline: [erb,tags,kramdown,blocks,fragments,glossary]}}
 
+[/**/*.js, /**/*.css]:
+  modified_at_in_dest_path: true
+
+/**/*.scss:
+  modified_at_in_dest_path: true
+
 --- alcn
 /:
   title: Home
@@ -18,3 +24,6 @@
 
 /news/:
   proxy_path: ../news.html
+
+/**/*.css:
+  pipeline: scss,cssminify
