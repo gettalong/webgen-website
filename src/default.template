@@ -121,7 +121,7 @@
         <div class="large-6 small-6 columns">
           <p>
             <span itemscope itemtype="http://schema.org/Person" id="webgen-author">
-              &copy; 2004-2013 <span itemprop="name">Thomas Leitner</span>
+              &copy; 2004-2018 <span itemprop="name">Thomas Leitner</span>
               <i class='icon-envelope'></i>&nbsp;<a href="mailto:t_leitner@gmx.at" itemprop="email" rel="me">t_leitner@gmx.at</a>
               | <i class="icon-twitter"></i>&nbsp;<a href="http://twitter.com/_gettalong" rel="me">@_gettalong</a><br />
             </span>
