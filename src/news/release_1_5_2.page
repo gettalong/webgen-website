@@ -1,0 +1,16 @@
+---
+title: webgen 1.5.2 released
+sort_info: 2018-10-26
+created_at: 2018-10-26 13:30:00 +02:00
+---
+
+A small bug fix release so that changes due to the [modified_at_in_dest_path meta information] are
+correctly tracked.
+
+### Changes
+
+* 3 minor enhancements:
+
+  - Don't use `pdfcrop` in [content processor tikz] (by Patrick Elsen)
+  - Add support for using other LaTeX engines for [content processor tikz] (by Patrick Elsen)
+  - Add SVG support to [content processor tikz] (by Patrick Elsen)
