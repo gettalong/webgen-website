@@ -2,7 +2,6 @@
 \nonstopmode
 \documentclass[11pt]{standalone}
 \usepackage{tikz}
-\usepackage[default,osfigures]{opensans}
 \usepackage[T1]{fontenc}
 
 <% if context['content_processor.tikz.libraries'] %>
