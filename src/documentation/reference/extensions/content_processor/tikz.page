@@ -14,17 +14,14 @@ This content processor provides support for automatically generating graphics vi
 
 You will need to have a current [LaTeX distribution][2] with the [PGF/TikZ library][1] and
 [ImageMagick][3] or [GraphicsMagick][5] installed for this to work. You will also need
-[Ghostscript][4] if you want support for transparent PNG images.
+[Ghostscript][4] if you want support for transparent PNG images and [pdf2svg][6] for SVG output
+support.
 
 More exactly, you will need to have the following programs available in the binary search path:
 
 `pdflatex`
 : This program is usually included in the LaTeX distribution. It is used for generating a PDF from
   the LaTeX document that describes the PGF/TikZ graphic.
-
-`pdfcrop`
-: This program is usually included in the LaTeX distribution. It is used to crop the generated PDF
-  and throw away useless borders.
 
 `convert`
 : This program is provided by ImageMagick or GraphicsMagick. It is used to convert the generated PDF
@@ -38,17 +35,20 @@ More exactly, you will need to have the following programs available in the bina
 : This program is provided by the Ghostscript package. It is used for generating transparent PNG
   images.
 
+`pdf2svg`
+: This program converts the generated PDF to an SVG file.
+
 If you are using Ubuntu Linux you can install everything that is needed by running the following
 command:
 
 ~~~ shell
-$ sudo aptitude install texlive pgf ghostscript imagemagick
+$ sudo aptitude install texlive pgf ghostscript imagemagick pdf2svg
 ~~~
 
 [3]: http://www.imagemagick.org/script/index.php
 [4]: http://pages.cs.wisc.edu/~ghost/
 [5]: http://www.graphicsmagick.org/
-
+[6]: https://github.com/dawbarton/pdf2svg
 
 ## Usage
 
