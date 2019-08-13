@@ -1,0 +1,11 @@
+---
+title: webgen 1.6.0 released
+sort_info: 2019-08-13
+created_at: 2018-08-13 17:10:00 +02:00
+---
+
+### Changes
+
+* 1 minor enhancement:
+
+  - Allow setting meta tags with `property` instead of `name` with [content processor html_head]
