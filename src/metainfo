@@ -1,6 +1,22 @@
 --- paths
 /**/*.page:
   blocks: {defaults: {pipeline: [erb,tags,kramdown,blocks,fragments]}}
+  meta:
+    'twitter:card': summary_large_image
+    'twitter:site': '@_gettalong'
+    'twitter:creator': '@_gettalong'
+    'twitter:title': &title webgen - fast, powerful and extensible static website generator
+    'twitter:description': &desc webgen is a free, fast, powerful and extensible static website generator. Create a (or re-use an existing) website template, add a bunch of content files (in plain HTML or any markup language), throw in some assets and let webgen do the rest!
+    'twitter:image': &image 'https://webgen.gettalong.org/css/images/logo.png'
+
+  meta_property:
+    'og:locale': en_US
+    'og:type': article
+    'og:title': *title
+    'og:description': *desc
+    'og:image': *image
+    'og:url': https://webgen.gettalong.org
+    'og:site_name': *desc
 
 /documentation/reference/glossary.page:
   blocks: {content: {pipeline: [erb,tags,kramdown,blocks,fragments,glossary]}}
