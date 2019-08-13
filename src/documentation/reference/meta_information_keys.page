@@ -362,6 +362,21 @@ Paths/Nodes
 
 
 
+### meta_property
+
+Specifies properties and values for `<meta>` HTML tags.
+
+Similar to the `meta` key but uses `property` instead of `name`. These key-value pairs are properly
+escaped and inserted into the generated destination path by the [content processor html_head].
+
+Syntax
+: Hash: `\{author: Thomas Leitner, generator: My program}`
+
+Paths/Nodes
+: Page paths/nodes
+
+
+
 ### modified_at
 
 Specifies the time when the node was last modified.

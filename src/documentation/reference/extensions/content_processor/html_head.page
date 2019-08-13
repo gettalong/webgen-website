@@ -29,7 +29,8 @@ The tags that are inserted can be specified in various ways:
   [Webgen::Context::HtmlHead::Proxy]). It provides utiltity methods for all possibilities.
 
 * Arbitrary meta tags can be inserted on a page-per-page basis by the user by setting the [meta meta
-  information] on a page file.
+  information] on a page file. If you need to use the `property` key instead of the `name` key (e.g.
+  for specifying OpenGraph properties), you need to use the [meta_property meta information].
 
 * Links to javascript and/or CSS files can be inserted by the user by setting the [link meta
   information].
