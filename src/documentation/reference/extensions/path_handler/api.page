@@ -26,7 +26,11 @@ at least one RDoc source file changes.
 ### Created Nodes
 
 A page node (see [path handler page]) for each class/module is created and a fragment node for each
-instance/class method.
+constant, attribute and instance/class method.
+
+The fragment nodes are created under appropriate parent fragment nodes, i.e. "Constants",
+"Attributes", "Class Methods" and "Instance Methods". This allows one to easily display a table of
+contents using [tag menu].
 
 The nodes are created in a directory hierarchy reflecting the namespace hierarchy. This means that
 for a class `Webgen::PathHandler::Api` two directory nodes called `Webgen/` and `Webgen/PathHandler`
@@ -86,12 +90,14 @@ api_template (optional)
 
 ### Automatically Defined Link Definitions
 
-To simplify linking to classes and methods, this path handler also automatically creates the
-necessary entries for the [link_definitions extension].
+To simplify linking to classes, methods, attributes and constants, this path handler also
+automatically creates the necessary entries for the [link_definitions extension].
 
 The following link definition names are created:
 
 * The full class/module name for classes and modules
+* The full constant name for constants
+* The full attribute name (including the class/module part) for attributes
 * The full method name (including the class/module part) for instance and class methods
 
 If the `prefix_link_defs` option is true, then the API name (defined via `api_name`) and a colon is
